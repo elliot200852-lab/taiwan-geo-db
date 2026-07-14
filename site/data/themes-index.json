@@ -1,6 +1,13 @@
 {
   "themes": [
     {
+      "id": "theme-ecology",
+      "name": "一座島、好幾層世界——臺灣的垂直生態",
+      "layer": "自然地理",
+      "layer_sub": "島的身世",
+      "theme_group": "土壤與生靈"
+    },
+    {
       "id": "theme-geothermal",
       "name": "地底的餘溫——臺灣的溫泉與地熱",
       "layer": "自然地理",
@@ -22,6 +29,13 @@
       "theme_group": "人住在哪裡"
     },
     {
+      "id": "theme-population",
+      "name": "西擠東疏——臺灣的人口分布",
+      "layer": "人文地理",
+      "layer_sub": "人的足跡",
+      "theme_group": "人從哪裡來"
+    },
+    {
       "id": "theme-rain",
       "name": "雨下在哪裡——臺灣的雨",
       "layer": "自然地理",
@@ -41,6 +55,34 @@
       "layer": "自然地理",
       "layer_sub": "島的身世",
       "theme_group": "土壤與生靈"
+    },
+    {
+      "id": "theme-tea",
+      "name": "越高越好喝？——臺灣的茶",
+      "layer": "人文地理",
+      "layer_sub": "人的足跡",
+      "theme_group": "人靠什麼生活"
+    },
+    {
+      "id": "theme-transport",
+      "name": "路打開的地方——臺灣的鐵路與公路",
+      "layer": "人文地理",
+      "layer_sub": "人的足跡",
+      "theme_group": "路怎麼連起來"
+    },
+    {
+      "id": "theme-typhoon",
+      "name": "每年來訪的巨風——臺灣的颱風",
+      "layer": "自然地理",
+      "layer_sub": "島的身世",
+      "theme_group": "天空的脾氣"
+    },
+    {
+      "id": "theme-wind",
+      "name": "風從海上來——臺灣的風",
+      "layer": "自然地理",
+      "layer_sub": "島的身世",
+      "theme_group": "天空的脾氣"
     }
   ]
 }
