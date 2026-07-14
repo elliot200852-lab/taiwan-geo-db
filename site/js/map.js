@@ -19,10 +19,18 @@ const TOWN_IDS = {
 
 const COLORS = {
   active:   '#b56a3c',   // 可點縣市
-  ready:    '#6d7a4f',   // 已有內容頁的鄉鎮
+  ready:    '#6d7a4f',   // 已有內容頁的鄉鎮（hover 用）
   building: '#d9c9a6',   // 內容建置中的鄉鎮
   inactive: '#ddd6c6',   // 灰化不可點
   line:     '#8f8266'
+};
+
+// 鄉鎮政區配色：每區一色（柔和大地調，鄰區可辨），已完成＝實色、建置中＝同色轉淡
+const TOWN_COLORS = {
+  '宜蘭市': '#c25b4e', '頭城鎮': '#4e7fa3', '礁溪鄉': '#c78f3d',
+  '壯圍鄉': '#8a9a5b', '員山鄉': '#7b6aa8', '羅東鎮': '#b5566d',
+  '五結鄉': '#4f9484', '冬山鄉': '#996a3d', '蘇澳鎮': '#5b7ab5',
+  '三星鄉': '#6f9a4e', '大同鄉': '#a3703f', '南澳鄉': '#5e8a6e'
 };
 
 const PAGE = (id) => `pages/${id}.html`;
@@ -80,14 +88,15 @@ function onCountyFeature(feature, layer) {
 
 // ---- 鄉鎮層（宜蘭）----
 function townStyle(feature) {
-  const id = TOWN_IDS[feature.properties.TOWNNAME];
+  const name = feature.properties.TOWNNAME;
+  const id = TOWN_IDS[name];
   const ready = id && availablePages[id];
   return {
-    color: COLORS.line,
-    weight: 1,
-    fillColor: ready ? COLORS.ready : COLORS.building,
-    fillOpacity: ready ? 0.85 : 0.6,
-    opacity: 0.9
+    color: '#fffdf6',
+    weight: 1.4,
+    fillColor: TOWN_COLORS[name] || COLORS.building,
+    fillOpacity: ready ? 0.88 : 0.32,
+    opacity: 1
   };
 }
 
@@ -96,15 +105,18 @@ function onTownFeature(feature, layer) {
   const id = TOWN_IDS[name];
   const ready = id && availablePages[id];
   const label = ready ? name : `${name}（內容建置中）`;
-  layer.bindTooltip(label, { className: 'geo-tip', sticky: true });
+  layer.bindTooltip(label, {
+    className: 'geo-tip', sticky: true,
+    permanent: false
+  });
   if (ready) {
     layer.on({
-      mouseover: (e) => e.target.setStyle({ fillColor: COLORS.active, fillOpacity: 0.95 }),
+      mouseover: (e) => e.target.setStyle({ fillOpacity: 1, weight: 2 }),
       mouseout:  (e) => townLayer.resetStyle(e.target),
       click: () => { window.location.href = PAGE(id); }
     });
   } else {
-    layer.on('mouseover', (e) => e.target.setStyle({ fillOpacity: 0.75 }));
+    layer.on('mouseover', (e) => e.target.setStyle({ fillOpacity: 0.5 }));
     layer.on('mouseout',  (e) => townLayer.resetStyle(e.target));
   }
 }
