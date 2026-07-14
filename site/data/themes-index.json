@@ -1,6 +1,20 @@
 {
   "themes": [
     {
+      "id": "theme-geothermal",
+      "name": "地底的餘溫——臺灣的溫泉與地熱",
+      "layer": "自然地理",
+      "layer_sub": "島的身世",
+      "theme_group": "大地的骨架"
+    },
+    {
+      "id": "theme-rain",
+      "name": "雨下在哪裡——臺灣的雨",
+      "layer": "自然地理",
+      "layer_sub": "島的身世",
+      "theme_group": "天空的脾氣"
+    },
+    {
       "id": "theme-soil",
       "name": "黑土與紅土——臺灣的土壤",
       "layer": "自然地理",
