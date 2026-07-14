@@ -24,8 +24,21 @@ ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
 OUT_PAGES = ROOT / "site" / "pages"
 OUT_INDEX = ROOT / "site" / "data" / "pages-index.json"
+IMG_MANIFEST = ROOT / "site" / "img" / "manifest.json"
 
 MD = markdown.Markdown(extensions=["extra", "sane_lists"])
+
+# 原始 URL -> 本地相對路徑（相對 site/ 根，例 "img/yilan-dongshan/00.webp"）
+# 由 scripts/fetch_images.py 維護；缺檔時退回原 URL 並印警告。
+def load_img_manifest():
+    if IMG_MANIFEST.exists():
+        try:
+            return json.loads(IMG_MANIFEST.read_text(encoding="utf-8"))
+        except Exception as e:
+            print(f"  ! 讀 manifest 失敗，改用原始 URL：{e}")
+    return {}
+
+IMG_MAP = load_img_manifest()
 
 def md2html(text):
     MD.reset()
@@ -66,8 +79,18 @@ def badgeify(html_str):
     return html_str
 
 # ---- 圖片 ----
+def resolve_src(raw_url):
+    """有本地 webp 就用相對路徑（pages/ 下 -> ../img/...），否則保留原 URL 並警告。"""
+    local = IMG_MAP.get((raw_url or "").strip())
+    if local:
+        return f"../{local}"
+    if raw_url:
+        print(f"  ! 無本地 webp，保留原 URL：{raw_url[:80]}")
+    return raw_url
+
+
 def figure_html(img):
-    url = esc(img.get("url", ""))
+    url = esc(resolve_src(img.get("url", "")))
     title = img.get("title", "")
     author = img.get("author", "")
     license_ = img.get("license", "")
