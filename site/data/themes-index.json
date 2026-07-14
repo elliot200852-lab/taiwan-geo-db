@@ -1,11 +1,32 @@
 {
   "themes": [
     {
+      "id": "theme-coast",
+      "name": "島的四種邊——臺灣的海岸",
+      "layer": "自然地理",
+      "layer_sub": "島的身世",
+      "theme_group": "大地的骨架"
+    },
+    {
+      "id": "theme-earthquake",
+      "name": "大地會動——臺灣的地震與斷層",
+      "layer": "自然地理",
+      "layer_sub": "島的身世",
+      "theme_group": "大地的骨架"
+    },
+    {
       "id": "theme-ecology",
       "name": "一座島、好幾層世界——臺灣的垂直生態",
       "layer": "自然地理",
       "layer_sub": "島的身世",
       "theme_group": "土壤與生靈"
+    },
+    {
+      "id": "theme-fishery",
+      "name": "靠海吃海——臺灣的漁與鹽",
+      "layer": "人文地理",
+      "layer_sub": "人的足跡",
+      "theme_group": "人靠什麼生活"
     },
     {
       "id": "theme-geothermal",
@@ -20,6 +41,20 @@
       "layer": "人文地理",
       "layer_sub": "人的足跡",
       "theme_group": "人靠什麼生活"
+    },
+    {
+      "id": "theme-migration",
+      "name": "一波波上岸的人——臺灣的移民與族群",
+      "layer": "人文地理",
+      "layer_sub": "人的足跡",
+      "theme_group": "人從哪裡來"
+    },
+    {
+      "id": "theme-mountains",
+      "name": "還在長高的島——臺灣的山脈",
+      "layer": "自然地理",
+      "layer_sub": "島的身世",
+      "theme_group": "大地的骨架"
     },
     {
       "id": "theme-placenames",
@@ -57,11 +92,25 @@
       "theme_group": "土壤與生靈"
     },
     {
+      "id": "theme-springs",
+      "name": "湧出來的水——臺灣的湧泉、湖泊與地下水",
+      "layer": "自然地理",
+      "layer_sub": "島的身世",
+      "theme_group": "水的旅行"
+    },
+    {
       "id": "theme-tea",
       "name": "越高越好喝？——臺灣的茶",
       "layer": "人文地理",
       "layer_sub": "人的足跡",
       "theme_group": "人靠什麼生活"
+    },
+    {
+      "id": "theme-temples",
+      "name": "廟在哪裡，庄就在哪裡——臺灣的廟宇與聚落",
+      "layer": "人文地理",
+      "layer_sub": "人的足跡",
+      "theme_group": "人住在哪裡"
     },
     {
       "id": "theme-transport",
