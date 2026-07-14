@@ -50,7 +50,56 @@
 
   <p class="map-hint">臺灣 22 縣市內容已全數上線；宜蘭縣可點入看 12 鄉鎮市。地圖上找不到小島（金門／連江／澎湖）可直接點上方快速導覽。</p>
 
+  <section class="themes-section" id="themes">
+    <h2>主題地理</h2>
+    <p class="themes-lead">除了一個地方一個地方地看，也可以拉一條線索橫看整座島——同一個地理元素，在全臺灣長成什麼樣子。</p>
+    <div class="themes-cats" id="themes-cats"></div>
+  </section>
+
   <script src="vendor/leaflet.js"></script>
   <script src="js/map.js"></script>
+  <script>
+    // 主題入口：兩大類固定顯示（骨架用學名、溫度放副標），主題卡片由 themes-index.json 動態長出。
+    (function () {
+      var CATS = [
+        { layer: '自然地理', sub: '島的身世' },
+        { layer: '人文地理', sub: '人的足跡' }
+      ];
+      var host = document.getElementById('themes-cats');
+      if (!host) return;
+      fetch('data/themes-index.json')
+        .then(function (r) { return r.json(); })
+        .catch(function () { return { themes: [] }; })
+        .then(function (data) {
+          var themes = (data && data.themes) || [];
+          CATS.forEach(function (cat) {
+            var mine = themes.filter(function (t) { return t.layer === cat.layer; });
+            var groups = {};
+            mine.forEach(function (t) {
+              var g = t.theme_group || '其他';
+              (groups[g] = groups[g] || []).push(t);
+            });
+            var col = document.createElement('div');
+            col.className = 'themes-cat';
+            var head = '<div class="tc-head"><span class="tc-layer">' + cat.layer +
+              '</span><span class="tc-sub">' + cat.sub + '</span></div>';
+            var bodyHtml = '';
+            if (!mine.length) {
+              bodyHtml = '<p class="tc-empty">主題陸續上線中</p>';
+            } else {
+              Object.keys(groups).forEach(function (g) {
+                bodyHtml += '<div class="tc-group"><div class="tc-group-name">' + g + '</div>';
+                groups[g].forEach(function (t) {
+                  bodyHtml += '<a class="tc-theme" href="pages/' + t.id + '.html">' + t.name + '</a>';
+                });
+                bodyHtml += '</div>';
+              });
+            }
+            col.innerHTML = head + bodyHtml;
+            host.appendChild(col);
+          });
+        });
+    })();
+  </script>
 </body>
 </html>

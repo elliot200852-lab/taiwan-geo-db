@@ -24,7 +24,14 @@ ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
 OUT_PAGES = ROOT / "site" / "pages"
 OUT_INDEX = ROOT / "site" / "data" / "pages-index.json"
+OUT_THEMES = ROOT / "site" / "data" / "themes-index.json"
 IMG_MANIFEST = ROOT / "site" / "img" / "manifest.json"
+
+# 主題頁（通論地理，橫看全島）放在 content/themes/ 下；縣市/鄉鎮頁（區域地理）放其餘資料夾。
+THEME_DIR = "themes"
+
+def is_theme(path):
+    return path.parent.name == THEME_DIR
 
 MD = markdown.Markdown(extensions=["extra", "sane_lists"])
 
@@ -109,8 +116,34 @@ def figures_for(images, section_name):
     return "\n".join(figure_html(i) for i in images
                      if (i.get("section") or "").strip() == section_name)
 
+def figures_unplaced(images, placed_sections):
+    """回傳未掛在指定章節（含空 section）的圖片 figure HTML。"""
+    figs = [i for i in images if (i.get("section") or "").strip() not in placed_sections]
+    if not figs:
+        return ""
+    inner = "\n".join(figure_html(i) for i in figs)
+    return (f'<section class="gallery"><h2>圖像</h2>'
+            f'<div class="gallery-grid">{inner}</div></section>')
+
+# ---- 交叉連結：縣市頁反向注入的「延伸主題」chips ----
+def related_themes_block(related):
+    """related：[{theme_id, chip, hook}]。渲染成縣市頁的延伸主題 chip 列。"""
+    if not related:
+        return ""
+    chips = "\n".join(
+        f'<a class="theme-chip" href="{esc(r["theme_id"])}.html" '
+        f'title="{esc(r.get("hook",""))}">{esc(r["chip"])}</a>'
+        for r in related
+    )
+    return (
+        '<section class="related-themes">'
+        '<h2>延伸主題</h2>'
+        '<p class="rt-note">從這個地方，橫看全臺灣的地理現象：</p>'
+        f'<div class="theme-chips">{chips}</div></section>'
+    )
+
 # ---- 組頁 ----
-def render_page(fm, sections):
+def render_page(fm, sections, related_themes=None):
     name = esc(fm.get("name", "（未命名）"))
     county = esc(fm.get("county", ""))
     unit_type = esc(fm.get("type", ""))
@@ -179,6 +212,10 @@ def render_page(fm, sections):
     if story_html:
         story_section = (f'<section class="storyteller"><h2>說書稿切分提示</h2>{story_html}</section>')
 
+    # 有延伸主題才佔位；無則零位元組（避免對未連結的縣市頁造成空白行 diff）
+    related_html = related_themes_block(related_themes)
+    related_block = (related_html + "\n\n    ") if related_html else ""
+
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -210,6 +247,156 @@ def render_page(fm, sections):
     </div>
 
     {teaching_section}
+
+    {story_section}
+
+    {related_block}{gallery_html}
+
+    <footer class="page-foot">
+      {src_block}
+      <div class="credit">
+        圖資：內政部國土測繪中心／dkaoster taiwan-atlas（MIT 授權）。
+        圖片版權屬各原作者，授權標示如圖說。本頁為教師備課資料庫。
+      </div>
+    </footer>
+  </div>
+
+  <div class="copy-toast" id="copy-toast">已複製連結</div>
+  <script>
+    (function () {{
+      var btn = document.getElementById('share-btn');
+      var toast = document.getElementById('copy-toast');
+      if (!btn) return;
+      function showToast() {{
+        if (!toast) return;
+        toast.classList.add('show');
+        setTimeout(function () {{ toast.classList.remove('show'); }}, 1500);
+      }}
+      btn.addEventListener('click', function () {{
+        var url = window.location.href;
+        if (navigator.share) {{
+          navigator.share({{ title: document.title, url: url }}).catch(function () {{}});
+        }} else if (navigator.clipboard) {{
+          navigator.clipboard.writeText(url).then(showToast).catch(function () {{}});
+        }}
+      }});
+    }})();
+  </script>
+</body>
+</html>
+"""
+
+# ---- 組主題頁（通論地理，橫看全島）----
+THEME_SPECIAL = {"定位速覽", "教學特點", "說書稿切分提示"}
+
+def region_locator_block(regions, region_names):
+    """主題頁 → 縣市頁：把 frontmatter 的 regions 渲染成「這個現象在哪裡看得到」。"""
+    if not regions:
+        return ""
+    cards = []
+    for r in regions:
+        rid = (r.get("id") or "").strip()
+        if not rid:
+            continue
+        label = region_names.get(rid, r.get("name") or rid)
+        hook = r.get("hook", "")
+        cards.append(
+            f'<a class="locator-card" href="{esc(rid)}.html">'
+            f'<span class="loc-place">{esc(label)}</span>'
+            f'<span class="loc-hook">{esc(hook)}</span></a>'
+        )
+    if not cards:
+        return ""
+    return (
+        '<section class="locator">'
+        '<h2>這個現象在哪裡看得到</h2>'
+        '<div class="locator-grid">' + "\n".join(cards) + '</div></section>'
+    )
+
+def render_theme(fm, sections, region_names):
+    name = esc(fm.get("name", "（未命名主題）"))
+    layer = fm.get("layer", "")
+    layer_sub = fm.get("layer_sub", "")
+    theme_group = fm.get("theme_group", "")
+    eyebrow = " · ".join(esc(x) for x in [layer, layer_sub, theme_group] if x)
+
+    lede = md2html(sections.get("定位速覽", ""))
+    images = fm.get("images") or []
+
+    # 正文章節：依文件順序渲染（排除定位速覽/教學特點/說書稿），圖片依 section 掛入
+    body_parts = []
+    body_sections = []
+    for title, content in sections.items():
+        if title in THEME_SPECIAL:
+            continue
+        body_sections.append(title)
+        inner = md2html(content) + figures_for(images, title)
+        body_parts.append(
+            f'<section class="theme-block"><h2>{esc(title)}</h2>{inner}</section>'
+        )
+    body_html = "\n".join(body_parts)
+
+    teaching_inner = badgeify(md2html(sections.get("教學特點", "")))
+    teaching_section = ""
+    if teaching_inner:
+        teaching_section = (
+            '<section class="teaching"><h2>教學特點</h2>'
+            '<p class="core-note">本資料庫的核心：探究問題、跨科連結，與可直接帶進五年級課堂的素材。</p>'
+            f'{teaching_inner}</section>'
+        )
+
+    story_inner = md2html(sections.get("說書稿切分提示", ""))
+    story_section = (
+        f'<section class="storyteller"><h2>說書稿切分提示</h2>{story_inner}</section>'
+        if story_inner else ""
+    )
+
+    locator_html = region_locator_block(fm.get("regions") or [], region_names)
+
+    # 未掛章節的圖片 → 圖像廊
+    placed = set(body_sections)
+    gallery_html = figures_unplaced(images, placed)
+
+    sources = fm.get("sources") or []
+    src_items = "\n".join(
+        f'<li><a href="{esc(s)}" target="_blank" rel="noopener">{esc(s)}</a></li>'
+        for s in sources
+    )
+    src_block = f'<h3>資料來源</h3><ul>{src_items}</ul>' if src_items else ""
+
+    topbar = (
+        '<nav class="topbar">'
+        '<button type="button" class="nav-btn" onclick="history.back()">&larr; 上一頁</button>'
+        '<a class="nav-btn" href="../index.html#themes">回主題總覽</a>'
+        '<a class="nav-btn" href="../index.html">回臺灣地圖</a>'
+        '<button type="button" class="nav-btn" id="share-btn">分享網址</button>'
+        '<button type="button" class="nav-btn" onclick="location.reload()">重新整理</button>'
+        '</nav>'
+    )
+
+    return f"""<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{name} — 認識臺灣</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="page-wrap theme-page">
+    {topbar}
+
+    <header class="page-header">
+      <div class="eyebrow">{eyebrow}</div>
+      <h1>{name}</h1>
+      <div class="lede">{lede}</div>
+    </header>
+
+    {body_html}
+
+    {teaching_section}
+
+    {locator_html}
 
     {story_section}
 
@@ -255,10 +442,13 @@ def main():
     for old in OUT_PAGES.glob("*.html"):
         old.unlink()
 
-    index = []
-    seen = {}
     md_files = sorted(CONTENT.rglob("*.md")) if CONTENT.exists() else []
-    built = 0
+
+    # ---- 第一遍：解析所有母本，分出區域頁與主題頁，建反向索引 ----
+    regions_parsed = []     # [(path, fm, sections)]
+    themes_parsed = []      # [(path, fm, sections)]
+    seen = {}
+    region_names = {}       # id -> name（供主題頁 locator 顯示地名）
     for path in md_files:
         try:
             fm, sections = parse_file(path)
@@ -273,8 +463,32 @@ def main():
             print(f"  ! 略過（id「{pid}」與 {seen[pid]} 重複）：{path.relative_to(ROOT)}")
             continue
         seen[pid] = str(path.relative_to(ROOT))
+        if is_theme(path):
+            themes_parsed.append((path, fm, sections))
+        else:
+            regions_parsed.append((path, fm, sections))
+            region_names[pid] = fm.get("name", "")
+
+    # 反向索引：region_id -> [{theme_id, chip, hook}]（主題頁 frontmatter 是唯一來源，縣市母本零改動）
+    reverse = {}
+    for path, fm, _ in themes_parsed:
+        tid = fm.get("id")
+        chip = fm.get("chip_label") or fm.get("name", "")
+        for r in (fm.get("regions") or []):
+            rid = (r.get("id") or "").strip()
+            if not rid:
+                continue
+            reverse.setdefault(rid, []).append(
+                {"theme_id": tid, "chip": chip, "hook": r.get("hook", "")}
+            )
+
+    # ---- 第二遍：渲染 ----
+    index = []
+    built = 0
+    for path, fm, sections in regions_parsed:
+        pid = fm["id"]
         out = OUT_PAGES / f"{pid}.html"
-        out.write_text(render_page(fm, sections), encoding="utf-8")
+        out.write_text(render_page(fm, sections, reverse.get(pid)), encoding="utf-8")
         index.append({
             "id": pid,
             "name": fm.get("name", ""),
@@ -284,11 +498,36 @@ def main():
         built += 1
         print(f"  + {path.relative_to(ROOT)} -> site/pages/{pid}.html")
 
+    themes_index = []
+    for path, fm, sections in themes_parsed:
+        pid = fm["id"]
+        # 驗證 regions 指向的地名頁確實存在，缺的印警告（避免主題頁連到 404）
+        for r in (fm.get("regions") or []):
+            rid = (r.get("id") or "").strip()
+            if rid and rid not in region_names:
+                print(f"  ! 主題「{pid}」的 region「{rid}」找不到對應地名頁（會連到不存在的頁）")
+        out = OUT_PAGES / f"{pid}.html"
+        out.write_text(render_theme(fm, sections, region_names), encoding="utf-8")
+        themes_index.append({
+            "id": pid,
+            "name": fm.get("name", ""),
+            "layer": fm.get("layer", ""),
+            "layer_sub": fm.get("layer_sub", ""),
+            "theme_group": fm.get("theme_group", ""),
+        })
+        built += 1
+        print(f"  + {path.relative_to(ROOT)} -> site/pages/{pid}.html（主題）")
+
     OUT_INDEX.write_text(
         json.dumps({"pages": index}, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
-    print(f"完成：建了 {built} 頁，索引 {OUT_INDEX.relative_to(ROOT)}（{len(index)} 筆）。")
+    OUT_THEMES.write_text(
+        json.dumps({"themes": themes_index}, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
+    print(f"完成：建了 {built} 頁（地名 {len(index)}、主題 {len(themes_index)}）；"
+          f"索引 {OUT_INDEX.relative_to(ROOT)} + {OUT_THEMES.relative_to(ROOT)}。")
 
 if __name__ == "__main__":
     main()

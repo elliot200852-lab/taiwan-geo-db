@@ -343,6 +343,120 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
 .page-foot li { margin: .2rem 0; word-break: break-all; }
 .page-foot .credit { border-top: 1px dashed var(--line); padding-top: .8rem; margin-top: .8rem; }
 
+/* ---------- 首頁：主題入口 ---------- */
+.themes-section {
+  max-width: 960px;
+  margin: 0 auto 3rem;
+  padding: 2rem 1.2rem 0;
+  border-top: 1px solid var(--line);
+}
+.themes-section > h2 {
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 0 0 .4rem;
+  letter-spacing: .04em;
+}
+.themes-lead {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  max-width: 40em;
+  margin: 0 auto 1.8rem;
+}
+.themes-cats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+.themes-cat {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.2rem 1.3rem 1.4rem;
+}
+.tc-head { margin-bottom: .9rem; display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; }
+.tc-layer { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; color: var(--terra-deep); }
+.tc-sub { font-family: var(--serif); color: var(--moss); font-size: .98rem; }
+.tc-group { margin: .6rem 0 0; }
+.tc-group-name {
+  font-size: .82rem;
+  letter-spacing: .06em;
+  color: var(--ink-soft);
+  border-left: 3px solid var(--gold);
+  padding-left: .5rem;
+  margin: .8rem 0 .5rem;
+}
+.tc-theme {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--terra-deep);
+  text-decoration: none;
+  padding: .4rem .6rem;
+  border-radius: 6px;
+  transition: background .15s;
+}
+.tc-theme:hover { background: var(--focus); }
+.tc-empty { color: var(--ink-soft); font-size: .92rem; font-style: italic; margin: .4rem .2rem; }
+
+/* ---------- 主題頁本文 ---------- */
+.theme-block { margin: 2rem 0; }
+.theme-block > h2 {
+  font-size: 1.55rem;
+  border-bottom: 2px solid var(--terra);
+  padding-bottom: .3rem;
+  margin: 0 0 1rem;
+  display: inline-block;
+}
+.theme-block p { margin: 0 0 1rem; }
+
+/* 主題頁 → 縣市頁：這個現象在哪裡看得到 */
+.locator { margin: 2.6rem 0; }
+.locator > h2 { font-size: 1.45rem; margin: 0 0 1rem; }
+.locator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: .9rem;
+}
+.locator-card {
+  display: block;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--moss);
+  border-radius: 6px;
+  padding: .8rem 1rem;
+  text-decoration: none;
+  color: var(--ink);
+  transition: background .15s, border-color .15s, transform .15s;
+}
+.locator-card:hover { background: var(--focus); border-left-color: var(--terra); transform: translateY(-1px); }
+.loc-place { display: block; font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--terra-deep); }
+.loc-hook { display: block; font-size: .9rem; color: var(--ink-soft); margin-top: .25rem; line-height: 1.55; }
+
+/* 縣市頁 → 主題頁：延伸主題 chips（build 反向注入） */
+.related-themes {
+  margin: 2.4rem 0;
+  padding: 1.2rem 1.4rem;
+  background: var(--paper-2);
+  border: 1px dashed var(--gold);
+  border-radius: 10px;
+}
+.related-themes > h2 { font-size: 1.3rem; margin: 0 0 .3rem; color: var(--terra-deep); }
+.related-themes .rt-note { color: var(--ink-soft); font-size: .9rem; margin: 0 0 .9rem; }
+.theme-chips { display: flex; flex-wrap: wrap; gap: .6rem; }
+.theme-chip {
+  font-family: var(--serif);
+  font-size: .98rem;
+  color: var(--terra-deep);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .35rem 1rem;
+  text-decoration: none;
+  transition: background .15s, border-color .15s, transform .15s;
+}
+.theme-chip:hover { background: var(--focus); border-color: var(--gold); transform: translateY(-1px); }
+
 /* 行動裝置 */
 @media (max-width: 760px) {
   body { font-size: 16px; }
@@ -350,4 +464,5 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
   .page-header h1 { font-size: 2rem; }
   #map { max-height: 80vh; min-height: 380px; }   /* 直式手機以 aspect-ratio 取景，僅限制過高 */
   .teaching { padding: 1.3rem 1.2rem; }
+  .themes-cats { grid-template-columns: 1fr; }
 }

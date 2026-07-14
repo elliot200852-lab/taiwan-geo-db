@@ -49,3 +49,36 @@ sources:            # 事實查證來源 URL（逐條）
 - 圖片檢索：TCMB 本機索引 `python3 ~/MyWork/WaldorfTeacherOS-Repo/setup/scripts/tcmb-search.py --search "冬山"`（人文優先）；
   Wikimedia Commons API（自然地理優先），授權作者從 `prop=imageinfo&iiprop=extmetadata` 讀出。
 - 縣市級頁面（北北基）同結構，正文 1,500 字以上即可，視野放在全市尺度（不逐區展開）。
+
+## 主題頁（通論地理，橫看全島）
+
+放在 `content/themes/{slug}.md`（例：`content/themes/soil.md`）。主題頁＝一個地理元素縱觀全島；縣市頁＝一個地方橫看所有元素，兩軸天然成矩陣。
+
+frontmatter：
+
+```yaml
+id: theme-soil               # 主題頁 id 建議 theme- 前綴，避免與地名頁撞號
+name: 黑土與紅土——臺灣的土壤   # 頁面 h1 與首頁主題卡片標題
+kind: theme                  # 選填標記；build 實際以「檔案在 content/themes/ 下」判定
+layer: 自然地理               # 頂層大類，須與縣市頁節名「自然地理／人文地理」對齊
+layer_sub: 島的身世           # 頂層副標（自然＝島的身世；人文＝人的足跡）
+theme_group: 土壤與生靈        # 中間層群名（方案 B 樹）
+chip_label: 臺灣的土壤         # 反向注入縣市頁的 chip 顯示文字（短版）
+regions:                     # 交叉連結唯一來源（SSOT）；縣市母本零改動
+  - id: new-taipei           # 須對應既有地名頁的 frontmatter id
+    hook: 林口台地的紅土——被雨水淋洗百萬年的老台地
+images: [...]                # 同地名頁；section 填章節標題（如「成因」）即掛該節，否則入圖像廊
+sources: [...]               # 事實查證來源，逐條 URL；≥2 獨立權威來源／關鍵事實
+```
+
+正文結構（正文 2,000 字以上；`##` 章節，順序即渲染順序）：
+
+1. `## 定位速覽` — 現象鉤子開場（≤150 字）。
+2. 若干敘事章節（章名自訂，如 `## 現象：一島兩色`／`## 成因：土的年齡`／`## 全島的土色地圖`／`## 因土而活`），走「現象→成因→全島分布差異→人的生活」。
+3. `## 教學特點` — 佔全文 1/3 以上，含 `### 探究問題`／`### 跨科連結`／`### 五年級即用`（同地名頁規範，五年級素材行首標 `【五年級地理】`／`【五年級歷史】`）。
+4. `## 說書稿切分提示` — 同地名頁規範。
+
+build 行為：`build.py` 掃到 `content/themes/` 下的檔案即走主題版型，並：
+- 正向：把 `regions` 渲染成頁尾「這個現象在哪裡看得到」連結塊（連到 `pages/{region-id}.html`）。
+- 反向：把主題頁的 `chip_label` 自動注入對應縣市頁的「延伸主題」chips（縣市母本不動）。
+- 另輸出 `site/data/themes-index.json` 供首頁主題入口動態長出卡片（新增主題只需加母本、免改首頁）。
