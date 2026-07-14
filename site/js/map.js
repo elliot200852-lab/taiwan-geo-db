@@ -2,12 +2,30 @@
    臺灣 → 縣市 → 鄉鎮 的導航概念。離線自包含，不掛 raster 底圖。
    註：dkaoster/taiwan-atlas 的縣市名用「台」不用「臺」（如「台北市」）。 */
 
-// 第一期範圍。縣市名須與 taiwan-counties.geojson 的 COUNTYNAME 完全一致。
+// 全 22 縣市已上線。縣市名須與 taiwan-counties.geojson 的 COUNTYNAME 完全一致。
 const DRILL_COUNTIES = { '宜蘭縣': true };            // 點了 → 鑽進鄉鎮層
 const COUNTY_PAGES = {                                 // 點了 → 直接進縣市內容頁
   '台北市': 'taipei',
   '新北市': 'new-taipei',
-  '基隆市': 'keelung'
+  '基隆市': 'keelung',
+  '桃園市': 'taoyuan',
+  '新竹市': 'hsinchu-city',
+  '新竹縣': 'hsinchu-county',
+  '苗栗縣': 'miaoli',
+  '台中市': 'taichung',
+  '彰化縣': 'changhua',
+  '南投縣': 'nantou',
+  '雲林縣': 'yunlin',
+  '嘉義市': 'chiayi-city',
+  '嘉義縣': 'chiayi-county',
+  '台南市': 'tainan',
+  '高雄市': 'kaohsiung',
+  '屏東縣': 'pingtung',
+  '台東縣': 'taitung',
+  '花蓮縣': 'hualien',
+  '澎湖縣': 'penghu',
+  '金門縣': 'kinmen',
+  '連江縣': 'lienchiang'
 };
 // 宜蘭 12 鄉鎮市 中文名 → 內容頁 id（須與母本 frontmatter 的 id 一致）
 const TOWN_IDS = {
@@ -17,12 +35,31 @@ const TOWN_IDS = {
   '三星鄉': 'yilan-sanxing', '大同鄉': 'yilan-datong',   '南澳鄉': 'yilan-nanao'
 };
 
-// 第一期四縣市各自定色（圖資縣市名用「台」）
+// 22 縣市各自定色（圖資縣市名用「台」）。宜蘭/北北基沿用第一期原色，其餘 18 縣市新配色，
+// 各自散開在色相環上避開既有 4 色，維持鄰近縣市可辨識。
 const COUNTY_COLORS = {
-  '宜蘭縣': '#4e8a4e',   // 綠
-  '台北市': '#c0504d',   // 磚紅
-  '新北市': '#4472a8',   // 藍
-  '基隆市': '#d09a3c'    // 琥珀
+  '宜蘭縣': '#4e8a4e',   // 綠（維持原色，鄉鎮下鑽）
+  '台北市': '#c0504d',   // 磚紅（維持原色）
+  '新北市': '#4472a8',   // 藍（維持原色）
+  '基隆市': '#d09a3c',   // 琥珀（維持原色）
+  '南投縣': '#ab5f3f',
+  '台中市': '#aba73f',
+  '台南市': '#95ab3f',
+  '台東縣': '#7cab3f',
+  '嘉義市': '#63ab3f',
+  '嘉義縣': '#3fab6a',
+  '屏東縣': '#3fab83',
+  '彰化縣': '#3fab99',
+  '新竹市': '#3fa4ab',
+  '新竹縣': '#3f8aab',
+  '桃園市': '#3f3fab',
+  '澎湖縣': '#583fab',
+  '花蓮縣': '#713fab',
+  '苗栗縣': '#873fab',
+  '連江縣': '#a03fab',
+  '金門縣': '#ab3f9c',
+  '雲林縣': '#ab3f83',
+  '高雄市': '#ab3f6a'
 };
 
 const COLORS = {
@@ -43,14 +80,16 @@ const TOWN_COLORS = {
 const PAGE = (id) => `pages/${id}.html`;
 
 const map = L.map('map', {
-  zoomControl: false,          // 縮放對本地圖無意義，拿掉控制鈕
+  zoomControl: false,          // 定著地圖：拿掉縮放控制鈕
+  dragging: false,             // 關拖曳平移
+  touchZoom: false,            // 關 pinch 縮放
   doubleClickZoom: false,      // 關雙擊縮放
-  touchZoom: true,             // 行動裝置保留 pinch
+  scrollWheelZoom: false,      // 關滾輪縮放
+  boxZoom: false,              // 關 shift+拖曳框選縮放
+  keyboard: false,             // 關鍵盤方向鍵平移/縮放
   attributionControl: false,
   minZoom: 6,
-  maxZoom: 12,
-  maxBoundsViscosity: 0.9,     // 固定框住臺灣，拖出邊界會被彈回
-  scrollWheelZoom: false
+  maxZoom: 12
 });
 
 let availablePages = {};   // { id: true } 由 build.py 產生的 pages-index.json
@@ -182,8 +221,6 @@ Promise.all([
   (index.pages || []).forEach((p) => { availablePages[p.id] = true; });
   countyLayer = L.geoJSON(counties, { style: countyStyle, onEachFeature: onCountyFeature }).addTo(map);
   map.fitBounds(countyLayer.getBounds(), { padding: [10, 10] });
-  // 固定框住臺灣：以縣市外接框略放大為最大可視範圍
-  map.setMaxBounds(countyLayer.getBounds().pad(0.15));
   setCrumbs('<strong>臺灣</strong>');
   wireChips();
 
