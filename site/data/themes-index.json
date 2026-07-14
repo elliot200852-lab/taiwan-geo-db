@@ -8,11 +8,32 @@
       "theme_group": "大地的骨架"
     },
     {
+      "id": "theme-irrigation",
+      "name": "把水引到田裡——臺灣的水圳與稻米",
+      "layer": "人文地理",
+      "layer_sub": "人的足跡",
+      "theme_group": "人靠什麼生活"
+    },
+    {
+      "id": "theme-placenames",
+      "name": "地名裡的祖先——臺灣的地名",
+      "layer": "人文地理",
+      "layer_sub": "人的足跡",
+      "theme_group": "人住在哪裡"
+    },
+    {
       "id": "theme-rain",
       "name": "雨下在哪裡——臺灣的雨",
       "layer": "自然地理",
       "layer_sub": "島的身世",
       "theme_group": "天空的脾氣"
+    },
+    {
+      "id": "theme-rivers",
+      "name": "急性子的河——臺灣的河流",
+      "layer": "自然地理",
+      "layer_sub": "島的身世",
+      "theme_group": "水的旅行"
     },
     {
       "id": "theme-soil",
