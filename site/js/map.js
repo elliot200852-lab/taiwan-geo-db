@@ -92,6 +92,12 @@ const map = L.map('map', {
   maxZoom: 12
 });
 
+// 臺灣本島取景框：只框本島（不含金門/馬祖/澎湖），讓本島置中放大。
+// 若用 countyLayer.getBounds() 會把金門(lng≈118.15)、馬祖(lat≈26.38)全包進來，
+// 導致本島被壓小又偏移（手機直式尤其明顯）。離島仍會被畫出、只是可能被裁掉部分。
+const TAIWAN_MAIN_BOUNDS = L.latLngBounds([[21.8, 119.9], [25.4, 122.1]]);
+function fitTaiwan() { map.fitBounds(TAIWAN_MAIN_BOUNDS, { padding: [8, 8] }); }
+
 let availablePages = {};   // { id: true } 由 build.py 產生的 pages-index.json
 let countyLayer, townLayer;
 const crumbs = document.getElementById('crumbs');
@@ -202,7 +208,7 @@ function drillToTowns(countyName) {
 function showTaiwan() {
   if (townLayer) { map.removeLayer(townLayer); townLayer = null; }
   if (countyLayer) countyLayer.addTo(map);
-  map.fitBounds(countyLayer.getBounds(), { padding: [10, 10] });
+  fitTaiwan();
   setCrumbs('<strong>臺灣</strong>');
 }
 
@@ -220,7 +226,7 @@ Promise.all([
 ]).then(([counties, index]) => {
   (index.pages || []).forEach((p) => { availablePages[p.id] = true; });
   countyLayer = L.geoJSON(counties, { style: countyStyle, onEachFeature: onCountyFeature }).addTo(map);
-  map.fitBounds(countyLayer.getBounds(), { padding: [10, 10] });
+  fitTaiwan();
   setCrumbs('<strong>臺灣</strong>');
   wireChips();
 
@@ -230,4 +236,18 @@ Promise.all([
   else if (wanted && COUNTY_PAGES[wanted] && countyPageReady(wanted)) {
     window.location.href = PAGE(COUNTY_PAGES[wanted]);
   }
+});
+
+// 視窗尺寸變動（旋轉螢幕、桌機縮放視窗）後重新取景，維持置中。
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    map.invalidateSize();
+    if (townLayer && map.hasLayer(townLayer)) {
+      map.fitBounds(townLayer.getBounds(), { padding: [20, 20] });
+    } else {
+      fitTaiwan();
+    }
+  }, 200);
 });

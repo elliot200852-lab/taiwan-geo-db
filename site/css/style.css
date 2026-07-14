@@ -66,14 +66,15 @@ a { color: var(--terra-deep); }
 .intro-cta:hover { background: var(--terra-deep); transform: translateY(-1px); }
 
 .map-wrap {
-  max-width: 1200px;
+  max-width: 560px;              /* 收窄成直式欄，貼合臺灣本島細長形狀、本島佔滿容器 */
   margin: 1rem auto 0;
   padding: 0 1rem;
 }
 #map {
   width: 100%;
-  height: 84vh;
-  min-height: 560px;
+  aspect-ratio: 62 / 100;        /* 臺灣本島近直式，約 1:1.6；桌機/手機皆呈直式取景 */
+  max-height: 84vh;              /* 桌機高螢幕不至於過高，超出時以高度為準仍置中 */
+  min-height: 420px;             /* aspect-ratio 不支援時的保底高度 */
   background: var(--sea);
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -347,6 +348,6 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
   body { font-size: 16px; }
   .geo-cols { grid-template-columns: 1fr; gap: 1.6rem; }
   .page-header h1 { font-size: 2rem; }
-  #map { height: 74vh; min-height: 440px; }
+  #map { max-height: 80vh; min-height: 380px; }   /* 直式手機以 aspect-ratio 取景，僅限制過高 */
   .teaching { padding: 1.3rem 1.2rem; }
 }
