@@ -1,0 +1,5 @@
+# Python build venv（依 requirements.txt 重建，不進 repo）
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

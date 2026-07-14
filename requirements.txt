@@ -1,0 +1,4 @@
+# scripts/build.py 依賴
+# 安裝：python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+markdown>=3.5
+PyYAML>=6.0

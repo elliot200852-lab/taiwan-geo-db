@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>認識臺灣 — 人文與自然地理資料庫</title>
+  <meta name="description" content="教師備課用的臺灣地理資料庫：互動地圖導航，每區以人文地理／自然地理雙區塊呈現。">
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-head">
+    <h1>認識臺灣</h1>
+    <p>人文與自然地理資料庫 · 教師備課用</p>
+    <p>從地圖選一個地方，讀它的自然地理、人文地理，與可直接帶進課堂的教學素材。</p>
+  </header>
+
+  <nav class="crumbs" id="crumbs"><strong>臺灣</strong></nav>
+
+  <div class="map-wrap">
+    <div id="map"></div>
+  </div>
+
+  <div class="map-legend">
+    <span><i class="swatch sw-active"></i>可點選（第一期）</span>
+    <span><i class="swatch sw-ready"></i>已有內容</span>
+    <span><i class="swatch sw-building"></i>內容建置中</span>
+    <span><i class="swatch sw-inactive"></i>尚未開放</span>
+  </div>
+
+  <p class="map-hint">第一期：宜蘭縣（點入看 12 鄉鎮市）、臺北市、新北市、基隆市。</p>
+
+  <script src="vendor/leaflet.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
