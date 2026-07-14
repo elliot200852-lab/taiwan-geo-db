@@ -72,10 +72,35 @@ a { color: var(--terra-deep); }
 }
 .map-legend span { display: inline-flex; align-items: center; gap: .45rem; }
 .swatch { width: 16px; height: 16px; border-radius: 3px; border: 1px solid rgba(0,0,0,.15); display: inline-block; }
-.sw-active { background: var(--terra); }
-.sw-ready { background: var(--moss); }
-.sw-building { background: #d9c9a6; }
+.sw-yilan { background: #4e8a4e; }
+.sw-taipei { background: #c0504d; }
+.sw-newtaipei { background: #4472a8; }
+.sw-keelung { background: #d09a3c; }
 .sw-inactive { background: var(--land-inactive); }
+
+/* 快速導覽 chips — 與 legend 同寬置中 */
+.quick-nav {
+  max-width: 960px;
+  margin: .9rem auto 0;
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  justify-content: center;
+}
+.nav-chip {
+  font-family: var(--sans);
+  font-size: .92rem;
+  color: var(--ink);
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .4rem 1.05rem;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.nav-chip:hover { background: var(--focus); border-color: var(--gold); color: var(--terra-deep); }
+.nav-chip:active { transform: translateY(1px); }
 
 .map-hint {
   text-align: center;
@@ -110,13 +135,53 @@ a { color: var(--terra-deep); }
 .page-wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.2rem 4rem; }
 
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  align-items: center;
+  background: var(--paper);
   border-bottom: 1px solid var(--line);
-  padding: 1rem 0 .8rem;
+  padding: .6rem 0;
   margin-bottom: 1.6rem;
-  font-size: .92rem;
+  font-size: .88rem;
 }
-.topbar a { color: var(--ink-soft); text-decoration: none; }
-.topbar a:hover { color: var(--terra-deep); }
+.topbar .nav-btn {
+  font-family: var(--sans);
+  font-size: .86rem;
+  color: var(--ink-soft);
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: .32rem .7rem;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1.3;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.topbar .nav-btn:hover { background: var(--focus); border-color: var(--gold); color: var(--terra-deep); }
+.topbar .nav-btn:active { transform: translateY(1px); }
+
+/* 「已複製連結」toast */
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%) translateY(1rem);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: .9rem;
+  padding: .55rem 1.1rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  z-index: 100;
+}
+.copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 .page-header { margin: 1rem 0 2rem; }
 .page-header .eyebrow { color: var(--moss); font-size: .95rem; letter-spacing: .08em; margin-bottom: .3rem; }

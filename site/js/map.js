@@ -17,11 +17,18 @@ const TOWN_IDS = {
   '三星鄉': 'yilan-sanxing', '大同鄉': 'yilan-datong',   '南澳鄉': 'yilan-nanao'
 };
 
+// 第一期四縣市各自定色（圖資縣市名用「台」）
+const COUNTY_COLORS = {
+  '宜蘭縣': '#4e8a4e',   // 綠
+  '台北市': '#c0504d',   // 磚紅
+  '新北市': '#4472a8',   // 藍
+  '基隆市': '#d09a3c'    // 琥珀
+};
+
 const COLORS = {
-  active:   '#b56a3c',   // 可點縣市
   ready:    '#6d7a4f',   // 已有內容頁的鄉鎮（hover 用）
   building: '#d9c9a6',   // 內容建置中的鄉鎮
-  inactive: '#ddd6c6',   // 灰化不可點
+  inactive: '#ddd6c6',   // 灰化不可點（其餘縣市）
   line:     '#8f8266'
 };
 
@@ -36,10 +43,13 @@ const TOWN_COLORS = {
 const PAGE = (id) => `pages/${id}.html`;
 
 const map = L.map('map', {
-  zoomControl: true,
+  zoomControl: false,          // 縮放對本地圖無意義，拿掉控制鈕
+  doubleClickZoom: false,      // 關雙擊縮放
+  touchZoom: true,             // 行動裝置保留 pinch
   attributionControl: false,
   minZoom: 6,
   maxZoom: 12,
+  maxBoundsViscosity: 0.9,     // 固定框住臺灣，拖出邊界會被彈回
   scrollWheelZoom: false
 });
 
@@ -52,38 +62,54 @@ function setCrumbs(html) { if (crumbs) crumbs.innerHTML = html; }
 // ---- 縣市層 ----
 // 縣市內容頁是否已 build 出來（避免點了 404）
 const countyPageReady = (name) => COUNTY_PAGES[name] && availablePages[COUNTY_PAGES[name]];
+const inScopeCounty = (name) => DRILL_COUNTIES[name] || COUNTY_PAGES[name];
+const clickableCounty = (name) => DRILL_COUNTIES[name] || countyPageReady(name);
 
 function countyStyle(feature) {
   const name = feature.properties.COUNTYNAME;
-  const inScope = DRILL_COUNTIES[name] || COUNTY_PAGES[name];
-  const clickable = DRILL_COUNTIES[name] || countyPageReady(name);
+  const inScope = inScopeCounty(name);
+  const clickable = clickableCounty(name);
+  if (inScope) {
+    return {
+      color: '#fffdf6',          // active 縣市加粗白邊，提高可辨識（基隆市多邊形太小）
+      weight: 2,
+      fillColor: COUNTY_COLORS[name] || COLORS.building,
+      fillOpacity: clickable ? 0.85 : 0.55,
+      opacity: 1
+    };
+  }
+  // 其餘縣市：灰米色、降低存在感
   return {
     color: COLORS.line,
-    weight: inScope ? 1.1 : 0.6,
-    fillColor: clickable ? COLORS.active : (inScope ? COLORS.building : COLORS.inactive),
-    fillOpacity: inScope ? 0.85 : 0.45,
-    opacity: inScope ? 0.9 : 0.5
+    weight: 0.6,
+    fillColor: COLORS.inactive,
+    fillOpacity: 0.3,
+    opacity: 0.5
   };
 }
 
 function onCountyFeature(feature, layer) {
   const name = feature.properties.COUNTYNAME;
-  if (!(DRILL_COUNTIES[name] || COUNTY_PAGES[name])) return;
-  const clickable = DRILL_COUNTIES[name] || countyPageReady(name);
+  if (!inScopeCounty(name)) return;
+  const clickable = clickableCounty(name);
   layer.bindTooltip(clickable ? name : `${name}（內容建置中）`, { className: 'geo-tip', sticky: true });
   if (!clickable) {
-    layer.on('mouseover', (e) => e.target.setStyle({ fillOpacity: 0.7 }));
+    layer.on('mouseover', (e) => e.target.setStyle({ fillOpacity: 0.75 }));
     layer.on('mouseout',  (e) => countyLayer.resetStyle(e.target));
     return;
   }
   layer.on({
-    mouseover: (e) => e.target.setStyle({ fillColor: COLORS.ready, fillOpacity: 0.95 }),
+    // hover：提高飽和/透明度、白邊再加粗
+    mouseover: (e) => e.target.setStyle({ fillOpacity: 1, weight: 3 }),
     mouseout:  (e) => countyLayer.resetStyle(e.target),
-    click: () => {
-      if (DRILL_COUNTIES[name]) drillToTowns(name);
-      else window.location.href = PAGE(COUNTY_PAGES[name]);
-    }
+    click: () => goToCounty(name)
   });
+}
+
+// 縣市進入行為（地圖多邊形點擊 與 快速導覽 chips 共用）
+function goToCounty(name) {
+  if (DRILL_COUNTIES[name]) { drillToTowns(name); return; }
+  if (countyPageReady(name)) { window.location.href = PAGE(COUNTY_PAGES[name]); }
 }
 
 // ---- 鄉鎮層（宜蘭）----
@@ -141,6 +167,13 @@ function showTaiwan() {
   setCrumbs('<strong>臺灣</strong>');
 }
 
+// 快速導覽 chips → 與點多邊形完全一致
+function wireChips() {
+  document.querySelectorAll('.nav-chip[data-county]').forEach((btn) => {
+    btn.addEventListener('click', () => goToCounty(btn.getAttribute('data-county')));
+  });
+}
+
 // ---- 初始化 ----
 Promise.all([
   fetch('data/taiwan-counties.geojson').then((r) => r.json()),
@@ -149,5 +182,15 @@ Promise.all([
   (index.pages || []).forEach((p) => { availablePages[p.id] = true; });
   countyLayer = L.geoJSON(counties, { style: countyStyle, onEachFeature: onCountyFeature }).addTo(map);
   map.fitBounds(countyLayer.getBounds(), { padding: [10, 10] });
+  // 固定框住臺灣：以縣市外接框略放大為最大可視範圍
+  map.setMaxBounds(countyLayer.getBounds().pad(0.15));
   setCrumbs('<strong>臺灣</strong>');
+  wireChips();
+
+  // ?county=宜蘭縣 → 載入後自動下鑽宜蘭（給內容頁「回到宜蘭縣」用）
+  const wanted = new URLSearchParams(window.location.search).get('county');
+  if (wanted && DRILL_COUNTIES[wanted]) { drillToTowns(wanted); }
+  else if (wanted && COUNTY_PAGES[wanted] && countyPageReady(wanted)) {
+    window.location.href = PAGE(COUNTY_PAGES[wanted]);
+  }
 });

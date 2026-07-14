@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="page-wrap">
-    <nav class="topbar"><a href="../index.html">&larr; 回地圖</a></nav>
+    <nav class="topbar"><button type="button" class="nav-btn" onclick="history.back()">&larr; 上一頁</button><a class="nav-btn" href="../index.html?county=宜蘭縣">回到宜蘭縣</a><button type="button" class="nav-btn" id="share-btn">分享網址</button><button type="button" class="nav-btn" onclick="location.reload()">重新整理</button></nav>
 
     <header class="page-header">
       <div class="eyebrow">宜蘭縣 · 鄉</div>
@@ -103,5 +103,27 @@
       </div>
     </footer>
   </div>
+
+  <div class="copy-toast" id="copy-toast">已複製連結</div>
+  <script>
+    (function () {
+      var btn = document.getElementById('share-btn');
+      var toast = document.getElementById('copy-toast');
+      if (!btn) return;
+      function showToast() {
+        if (!toast) return;
+        toast.classList.add('show');
+        setTimeout(function () { toast.classList.remove('show'); }, 1500);
+      }
+      btn.addEventListener('click', function () {
+        var url = window.location.href;
+        if (navigator.share) {
+          navigator.share({ title: document.title, url: url }).catch(function () {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(showToast).catch(function () {});
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

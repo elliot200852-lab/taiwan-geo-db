@@ -151,6 +151,21 @@ def render_page(fm, sections):
     )
     src_block = f'<h3>資料來源</h3><ul>{src_items}</ul>' if src_items else ""
 
+    # 頂部 sticky 導航列：宜蘭鄉鎮頁回宜蘭、其餘回臺灣地圖
+    county_raw = fm.get("county", "")
+    if county_raw == "宜蘭縣":
+        back_href, back_label = "../index.html?county=宜蘭縣", "回到宜蘭縣"
+    else:
+        back_href, back_label = "../index.html", "回臺灣地圖"
+    topbar = (
+        '<nav class="topbar">'
+        '<button type="button" class="nav-btn" onclick="history.back()">&larr; 上一頁</button>'
+        f'<a class="nav-btn" href="{back_href}">{back_label}</a>'
+        '<button type="button" class="nav-btn" id="share-btn">分享網址</button>'
+        '<button type="button" class="nav-btn" onclick="location.reload()">重新整理</button>'
+        '</nav>'
+    )
+
     teaching_section = ""
     if teaching_html:
         teaching_section = (
@@ -174,7 +189,7 @@ def render_page(fm, sections):
 </head>
 <body>
   <div class="page-wrap">
-    <nav class="topbar"><a href="../index.html">&larr; 回地圖</a></nav>
+    {topbar}
 
     <header class="page-header">
       <div class="eyebrow">{eyebrow}</div>
@@ -208,6 +223,28 @@ def render_page(fm, sections):
       </div>
     </footer>
   </div>
+
+  <div class="copy-toast" id="copy-toast">已複製連結</div>
+  <script>
+    (function () {{
+      var btn = document.getElementById('share-btn');
+      var toast = document.getElementById('copy-toast');
+      if (!btn) return;
+      function showToast() {{
+        if (!toast) return;
+        toast.classList.add('show');
+        setTimeout(function () {{ toast.classList.remove('show'); }}, 1500);
+      }}
+      btn.addEventListener('click', function () {{
+        var url = window.location.href;
+        if (navigator.share) {{
+          navigator.share({{ title: document.title, url: url }}).catch(function () {{}});
+        }} else if (navigator.clipboard) {{
+          navigator.clipboard.writeText(url).then(showToast).catch(function () {{}});
+        }}
+      }});
+    }})();
+  </script>
 </body>
 </html>
 """
