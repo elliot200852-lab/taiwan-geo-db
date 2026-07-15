@@ -1,0 +1,14 @@
+# 站台圖片的 Drive 來源（內容 SSOT 在 Drive、repo 只留腳本）
+#
+# 格式：<repo 相對輸出路徑>: <Drive folder ID>
+# 由 scripts/pull_images.py 於 build 前遞迴拉取。
+#
+# 「臺灣地理資料庫圖片」在 Creator Hub root（1OG3XrNjb3ETxuUIsDKqBLzq44sNRw7o1）
+# 底下，與「臺灣植物誌」同層；夾內鏡射 {page-id}/{NN}.webp 的 53 子夾結構。
+# 讀取者＝channel-deployer@waldorfcreatorhubdatabase.iam.gserviceaccount.com
+# （repo secret GOOGLE_DRIVE_SA_KEY）。新增／搬動夾記得同步共用給該 SA，否則 CI 403。
+#
+# ⚠ 改到本檔時，deploy-pages.yml 若日後加了 paths: filter 必須把本檔列進去
+#   （creator-hub 漏這步踩過坑：改 manifest 不觸發部署）。
+files:
+  site/img: "1JGRyJhoRQyuPCF4UMp92mhSWcXkc4fkY"

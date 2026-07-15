@@ -30,7 +30,14 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # CI 只重建 HTML；不跑 fetch_images（圖片已入 repo、不碰外網）
+      # 圖片 SSOT 在 Drive、不進 repo（CLAUDE.md「網路部署架構鐵則」）。
+      # 拉不到就中止建置——build.py 缺圖時只印警告不 fail，這裡是唯一的閘。
+      - name: Pull images from Google Drive
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_DRIVE_SA_KEY }}
+        run: python scripts/pull_images.py
+
+      # CI 只重建 HTML；不跑 fetch_images（該腳本依賴 macOS sips/cwebp，只在本機跑）
       - name: Build site
         run: python scripts/build.py
 
