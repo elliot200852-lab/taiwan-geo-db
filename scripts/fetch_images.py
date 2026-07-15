@@ -27,7 +27,8 @@ except ImportError as e:
 
 ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
-IMG_DIR = ROOT / "site" / "img"
+SITE = ROOT / "site"
+IMG_DIR = SITE / "img"
 MANIFEST = IMG_DIR / "manifest.json"
 
 UA = "TeacherOS-geo-db/1.0 (educational; contact: elliot200852@gmail.com)"
@@ -132,12 +133,26 @@ def main():
             if not url:
                 continue
             total += 1
-            rel = f"img/{pid}/{idx:02d}.webp"
-            out_path = IMG_DIR / pid / f"{idx:02d}.webp"
-            if out_path.exists():
-                manifest[url] = rel          # 補寫 manifest（可重跑）
-                skipped += 1
-                continue
+
+            # URL 是映射的唯一鍵。已映射且實體檔在 → 直接跳過（不重下、不改 manifest、
+            # 不生位置檔）。這讓共用 URL（多單元引用同一 URL）重用同一實體檔，
+            # 也讓乾淨樹連跑兩次第二次零變更（冪等）。
+            mapped = manifest.get(url)
+            if mapped:
+                if (SITE / mapped).exists():
+                    skipped += 1
+                    continue
+                # 映射在、實體檔遺失 → 補回原本的那個檔（沿用既有映射，不搬路徑）
+                rel = mapped
+                out_path = SITE / mapped
+            else:
+                # 新 URL：用位置命名 img/{pid}/{idx}.webp 當它的唯一實體路徑
+                rel = f"img/{pid}/{idx:02d}.webp"
+                out_path = IMG_DIR / pid / f"{idx:02d}.webp"
+                if out_path.exists():
+                    manifest[url] = rel      # 位置檔已在（沿用），補寫映射
+                    skipped += 1
+                    continue
             print(f"  ↓ {idx:02d} {url[:80]}")
             try:
                 raw = download(url)
