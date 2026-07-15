@@ -8,8 +8,6 @@
 </head>
 <body>
   <div class="page-wrap">
-    <nav class="topbar"><button type="button" class="nav-btn" onclick="history.back()">&larr; 上一頁</button><a class="nav-btn" href="../index.html">回臺灣地圖</a><button type="button" class="nav-btn" id="share-btn">分享網址</button><button type="button" class="nav-btn" onclick="location.reload()">重新整理</button></nav>
-
     <header class="page-header">
       <div class="eyebrow">高雄市 · 直轄市</div>
       <h1>高雄市</h1>
@@ -122,26 +120,16 @@
     </footer>
   </div>
 
-  <div class="copy-toast" id="copy-toast">已複製連結</div>
-  <script>
-    (function () {
-      var btn = document.getElementById('share-btn');
-      var toast = document.getElementById('copy-toast');
-      if (!btn) return;
-      function showToast() {
-        if (!toast) return;
-        toast.classList.add('show');
-        setTimeout(function () { toast.classList.remove('show'); }, 1500);
-      }
-      btn.addEventListener('click', function () {
-        var url = window.location.href;
-        if (navigator.share) {
-          navigator.share({ title: document.title, url: url }).catch(function () {});
-        } else if (navigator.clipboard) {
-          navigator.clipboard.writeText(url).then(showToast).catch(function () {});
-        }
-      });
-    })();
-  </script>
+  <div class="geo-fab" id="geo-fab">
+      <div class="geo-fab-actions">
+        <a class="geo-fab-btn" href="../index.html#general" aria-label="回首頁" title="回首頁"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20h14V9.5"/></svg></a>
+        <a class="geo-fab-btn" href="../index.html#counties" aria-label="回分縣市" title="回分縣市"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14"/><path d="M12 20V8"/><path d="M7 13l5-5 5 5"/></svg></a>
+        <button type="button" class="geo-fab-btn" data-fab="share" aria-label="分享網址" title="分享網址（可用時複製網址）"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="5.5" r="2.2"/><circle cx="18" cy="18.5" r="2.2"/><path d="M8 11 16 6.6"/><path d="M8 13l8 4.4"/></svg></button>
+        <button type="button" class="geo-fab-btn" data-fab="back" aria-label="回上一頁" title="回上一頁"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M12 5l-7 7 7 7"/></svg></button>
+      </div>
+      <button type="button" class="geo-fab-toggle" aria-label="導覽選單" aria-expanded="false" title="導覽選單"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2 5.2-5.2 2 2-5.2z"/></svg></button>
+    </div>
+    <div class="copy-toast" id="copy-toast">網址已複製</div>
+    <script src="../js/fab.js"></script>
 </body>
 </html>

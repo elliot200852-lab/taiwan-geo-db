@@ -65,6 +65,92 @@ a { color: var(--terra-deep); }
 }
 .intro-cta:hover { background: var(--terra-deep); transform: translateY(-1px); }
 
+/* ---------- 首頁三分頁（總論／分縣市／議題） ---------- */
+.geo-tabs {
+  display: flex;
+  justify-content: center;
+  gap: .4rem;
+  max-width: 960px;
+  margin: 1rem auto 0;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.geo-tab {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  padding: .55rem 1.3rem;
+  cursor: pointer;
+  position: relative;
+  top: 1px;
+  transition: background .15s, color .15s;
+}
+.geo-tab:hover { color: var(--terra-deep); background: var(--paper-2); }
+.geo-tab.active {
+  color: var(--terra-deep);
+  background: var(--paper);
+  border-color: var(--line);
+  border-bottom: 1px solid var(--paper);
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.tab-panel .themes-section { border-top: none; padding-top: .4rem; }
+
+/* 總論分頁 */
+.general-intro {
+  max-width: 720px;
+  margin: 2.2rem auto;
+  padding: 0 1.2rem;
+  text-align: center;
+}
+.general-intro p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 0 1.3rem; }
+.general-intro .intro-cta { margin: .3rem 0 1.4rem; }
+.general-hint { font-size: .95rem; }
+
+/* 分縣市分頁：縣市卡 */
+.county-cards {
+  max-width: 960px;
+  margin: 1.6rem auto 2rem;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: .7rem;
+  align-items: start;
+}
+.county-card {
+  display: block;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: .7rem .9rem;
+  text-decoration: none;
+  color: var(--ink);
+  transition: background .15s, border-color .15s, transform .15s;
+}
+a.county-card:hover { background: var(--focus); border-color: var(--gold); transform: translateY(-1px); }
+.county-card .cc-name { font-family: var(--serif); font-weight: 600; font-size: 1.08rem; color: var(--terra-deep); }
+.county-card .cc-sub { font-size: .82rem; color: var(--ink-soft); margin-left: .4rem; }
+.county-card--towns { grid-column: 1 / -1; background: var(--paper); border-style: dashed; }
+.county-card--towns .cc-head { margin-bottom: .6rem; }
+.cc-towns { display: flex; flex-wrap: wrap; gap: .45rem; }
+.cc-town {
+  font-family: var(--sans);
+  font-size: .9rem;
+  color: var(--terra-deep);
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .3rem .8rem;
+  text-decoration: none;
+  transition: background .15s, border-color .15s;
+}
+.cc-town:hover { background: var(--focus); border-color: var(--gold); }
+
 .map-wrap {
   max-width: 560px;              /* 收窄成直式欄，貼合臺灣本島細長形狀、本島佔滿容器 */
   margin: 1rem auto 0;
@@ -157,37 +243,83 @@ a { color: var(--terra-deep); }
 /* ---------- 內容頁 ---------- */
 .page-wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.2rem 4rem; }
 
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
+/* ---------- 浮動導覽小浮標（FAB，取代舊 sticky topbar） ---------- */
+.geo-fab {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  z-index: 200;
   display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
+  flex-direction: column-reverse;   /* 切換鈕在下、動作鈕往上展開 */
   align-items: center;
-  background: var(--paper);
-  border-bottom: 1px solid var(--line);
-  padding: .6rem 0;
-  margin-bottom: 1.6rem;
-  font-size: .88rem;
+  gap: .5rem;
+  opacity: .5;                       /* idle 半透明，不搶閱讀 */
+  transition: opacity .2s;
 }
-.topbar .nav-btn {
-  font-family: var(--sans);
-  font-size: .86rem;
-  color: var(--ink-soft);
-  background: var(--paper-2);
+.geo-fab:hover,
+.geo-fab:focus-within,
+.geo-fab.open { opacity: 1; }
+
+.geo-fab-actions {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: .5rem;
+  max-height: 0;                     /* 收合：不顯示、不佔位、不可點 */
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: max-height .25s ease, opacity .2s ease, transform .2s ease;
+}
+.geo-fab.open .geo-fab-actions {
+  max-height: 24rem;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.geo-fab-btn,
+.geo-fab-toggle {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: .32rem .7rem;
+  background: rgba(250, 246, 238, .82);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: var(--ink-soft);
   cursor: pointer;
   text-decoration: none;
-  line-height: 1.3;
-  transition: background .15s, border-color .15s, color .15s;
+  box-shadow: 0 2px 8px rgba(60, 45, 20, .16);
+  transition: background .15s, color .15s, border-color .15s, transform .2s;
 }
-.topbar .nav-btn:hover { background: var(--focus); border-color: var(--gold); color: var(--terra-deep); }
-.topbar .nav-btn:active { transform: translateY(1px); }
+.geo-fab-toggle { width: 44px; height: 44px; color: var(--terra-deep); }
+.geo-fab-btn:hover,
+.geo-fab-toggle:hover { background: var(--focus); border-color: var(--gold); color: var(--terra-deep); }
+.geo-fab-btn:active,
+.geo-fab-toggle:active { transform: scale(.93); }
+.geo-fab.open .geo-fab-toggle { transform: rotate(45deg); }
 
-/* 「已複製連結」toast */
+.geo-fab svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.geo-fab-toggle svg { width: 22px; height: 22px; }
+
+@media (max-width: 760px) {
+  .geo-fab { right: .7rem; bottom: calc(.7rem + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* 「網址已複製」toast */
 .copy-toast {
   position: fixed;
   left: 50%;
@@ -465,4 +597,7 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
   #map { max-height: 80vh; min-height: 380px; }   /* 直式手機以 aspect-ratio 取景，僅限制過高 */
   .teaching { padding: 1.3rem 1.2rem; }
   .themes-cats { grid-template-columns: 1fr; }
+  .geo-tabs { gap: .2rem; }
+  .geo-tab { font-size: .98rem; padding: .5rem .85rem; }
+  .county-cards { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
 }

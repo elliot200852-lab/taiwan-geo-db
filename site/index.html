@@ -12,54 +12,155 @@
   <header class="site-head">
     <h1>認識臺灣</h1>
     <p>人文與自然地理資料庫 · 教師備課用</p>
-    <p>從地圖選一個地方，讀它的自然地理、人文地理，與可直接帶進課堂的教學素材。</p>
   </header>
 
-  <nav class="crumbs" id="crumbs"><strong>臺灣</strong></nav>
+  <nav class="geo-tabs" role="tablist" aria-label="首頁導覽">
+    <button type="button" class="geo-tab" data-tab="general" role="tab" aria-selected="false">總論</button>
+    <button type="button" class="geo-tab" data-tab="counties" role="tab" aria-selected="false">分縣市</button>
+    <button type="button" class="geo-tab" data-tab="themes" role="tab" aria-selected="false">議題</button>
+  </nav>
 
-  <p class="taiwan-intro"><a class="intro-cta" href="pages/taiwan.html">📖 先讀臺灣概論——地形、氣候、人口、22 縣市總覽</a></p>
+  <main>
+    <!-- 總論 -->
+    <section class="tab-panel" data-panel="general" role="tabpanel">
+      <div class="general-intro">
+        <p>這是一個給老師備課用的臺灣人文與自然地理資料庫。每個地方分「自然地理」「人文地理」兩塊呈現，並附可直接帶進五年級課堂的教學素材與說書切分提示。</p>
+        <a class="intro-cta" href="pages/taiwan.html">📖 臺灣概論——地形、氣候、人口、22 縣市總覽</a>
+        <p class="general-hint">或切到「分縣市」從互動地圖選一個地方，或到「議題」拉一條線索橫看整座島。</p>
+      </div>
+    </section>
 
-  <div class="map-wrap">
-    <div id="map"></div>
+    <!-- 分縣市 -->
+    <section class="tab-panel" data-panel="counties" role="tabpanel">
+      <nav class="crumbs" id="crumbs"><strong>臺灣</strong></nav>
+
+      <div class="map-wrap">
+        <div id="map"></div>
+      </div>
+
+      <p class="map-hint">在地圖上點一個縣市進入內容頁；宜蘭縣可點入看 12 鄉鎮市。地圖上找不到的離島（金門／連江／澎湖）可從下方縣市卡直接點入。</p>
+
+      <div class="county-cards" id="county-cards"></div>
+    </section>
+
+    <!-- 議題 -->
+    <section class="tab-panel" data-panel="themes" role="tabpanel">
+      <section class="themes-section" id="themes">
+        <h2>主題地理</h2>
+        <p class="themes-lead">除了一個地方一個地方地看，也可以拉一條線索橫看整座島——同一個地理元素，在全臺灣長成什麼樣子。</p>
+        <div class="themes-cats" id="themes-cats"></div>
+      </section>
+    </section>
+  </main>
+
+  <!-- 浮動導覽小浮標（首頁：省略回首頁／上一層） -->
+  <div class="geo-fab" id="geo-fab">
+    <div class="geo-fab-actions">
+      <button type="button" class="geo-fab-btn" data-fab="share" aria-label="分享網址" title="分享網址（可用時複製網址）"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="5.5" r="2.2"/><circle cx="18" cy="18.5" r="2.2"/><path d="M8 11 16 6.6"/><path d="M8 13l8 4.4"/></svg></button>
+      <button type="button" class="geo-fab-btn" data-fab="back" aria-label="回上一頁" title="回上一頁"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M12 5l-7 7 7 7"/></svg></button>
+    </div>
+    <button type="button" class="geo-fab-toggle" aria-label="導覽選單" aria-expanded="false" title="導覽選單"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2 5.2-5.2 2 2-5.2z"/></svg></button>
   </div>
-
-  <div class="quick-nav">
-    <button type="button" class="nav-chip" data-county="宜蘭縣">宜蘭縣（看 12 鄉鎮）</button>
-    <button type="button" class="nav-chip" data-county="台北市">臺北市</button>
-    <button type="button" class="nav-chip" data-county="新北市">新北市</button>
-    <button type="button" class="nav-chip" data-county="基隆市">基隆市</button>
-    <button type="button" class="nav-chip" data-county="桃園市">桃園市</button>
-    <button type="button" class="nav-chip" data-county="新竹市">新竹市</button>
-    <button type="button" class="nav-chip" data-county="新竹縣">新竹縣</button>
-    <button type="button" class="nav-chip" data-county="苗栗縣">苗栗縣</button>
-    <button type="button" class="nav-chip" data-county="台中市">臺中市</button>
-    <button type="button" class="nav-chip" data-county="彰化縣">彰化縣</button>
-    <button type="button" class="nav-chip" data-county="南投縣">南投縣</button>
-    <button type="button" class="nav-chip" data-county="雲林縣">雲林縣</button>
-    <button type="button" class="nav-chip" data-county="嘉義市">嘉義市</button>
-    <button type="button" class="nav-chip" data-county="嘉義縣">嘉義縣</button>
-    <button type="button" class="nav-chip" data-county="台南市">臺南市</button>
-    <button type="button" class="nav-chip" data-county="高雄市">高雄市</button>
-    <button type="button" class="nav-chip" data-county="屏東縣">屏東縣</button>
-    <button type="button" class="nav-chip" data-county="台東縣">臺東縣</button>
-    <button type="button" class="nav-chip" data-county="花蓮縣">花蓮縣</button>
-    <button type="button" class="nav-chip" data-county="澎湖縣">澎湖縣</button>
-    <button type="button" class="nav-chip" data-county="金門縣">金門縣</button>
-    <button type="button" class="nav-chip" data-county="連江縣">連江縣（馬祖）</button>
-  </div>
-
-  <p class="map-hint">臺灣 22 縣市內容已全數上線；宜蘭縣可點入看 12 鄉鎮市。地圖上找不到小島（金門／連江／澎湖）可直接點上方快速導覽。</p>
-
-  <section class="themes-section" id="themes">
-    <h2>主題地理</h2>
-    <p class="themes-lead">除了一個地方一個地方地看，也可以拉一條線索橫看整座島——同一個地理元素，在全臺灣長成什麼樣子。</p>
-    <div class="themes-cats" id="themes-cats"></div>
-  </section>
+  <div class="copy-toast" id="copy-toast">網址已複製</div>
 
   <script src="vendor/leaflet.js"></script>
   <script src="js/map.js"></script>
+  <script src="js/fab.js"></script>
+
   <script>
-    // 主題入口：兩大類固定顯示（骨架用學名、溫度放副標），主題卡片由 themes-index.json 動態長出。
+    // 首頁三分頁 hash 路由（#general / #counties / #themes）。
+    // 支援瀏覽器上一頁、深連結、子頁浮標「上一層」帶 hash 進來。
+    (function () {
+      var TABS = ['general', 'counties', 'themes'];
+      var buttons = document.querySelectorAll('.geo-tab');
+      var panels = document.querySelectorAll('.tab-panel');
+      function activate(name, push) {
+        if (TABS.indexOf(name) < 0) name = 'general';
+        buttons.forEach(function (b) {
+          var on = b.getAttribute('data-tab') === name;
+          b.classList.toggle('active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        panels.forEach(function (p) {
+          p.classList.toggle('active', p.getAttribute('data-panel') === name);
+        });
+        if (name === 'counties' && window.__geoRefreshMap) { window.__geoRefreshMap(); }
+        if (push && ('#' + name) !== location.hash) {
+          history.pushState(null, '', '#' + name);
+        }
+      }
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () { activate(b.getAttribute('data-tab'), true); });
+      });
+      window.addEventListener('hashchange', function () {
+        activate((location.hash || '').replace('#', ''), false);
+      });
+      // 初始：?county 一律進分縣市；否則看 hash；再否則總論。
+      var params = new URLSearchParams(location.search);
+      var initial = (location.hash || '').replace('#', '');
+      if (params.get('county')) initial = 'counties';
+      activate(initial || 'general', false);
+    })();
+  </script>
+
+  <script>
+    // 分縣市：由 pages-index.json 長出 22 縣市卡；宜蘭縣掛 12 鄉鎮入口。
+    (function () {
+      var COUNTY_ORDER = [
+        { name: '宜蘭縣', towns: true },
+        { name: '臺北市', id: 'taipei' },   { name: '新北市', id: 'new-taipei' },
+        { name: '基隆市', id: 'keelung' },  { name: '桃園市', id: 'taoyuan' },
+        { name: '新竹市', id: 'hsinchu-city' }, { name: '新竹縣', id: 'hsinchu-county' },
+        { name: '苗栗縣', id: 'miaoli' },   { name: '臺中市', id: 'taichung' },
+        { name: '彰化縣', id: 'changhua' }, { name: '南投縣', id: 'nantou' },
+        { name: '雲林縣', id: 'yunlin' },   { name: '嘉義市', id: 'chiayi-city' },
+        { name: '嘉義縣', id: 'chiayi-county' }, { name: '臺南市', id: 'tainan' },
+        { name: '高雄市', id: 'kaohsiung' }, { name: '屏東縣', id: 'pingtung' },
+        { name: '臺東縣', id: 'taitung' },  { name: '花蓮縣', id: 'hualien' },
+        { name: '澎湖縣', id: 'penghu' },   { name: '金門縣', id: 'kinmen' },
+        { name: '連江縣', id: 'lienchiang' }
+      ];
+      var YILAN_TOWNS = [
+        ['yilan-yilan', '宜蘭市'], ['yilan-toucheng', '頭城鎮'], ['yilan-jiaoxi', '礁溪鄉'],
+        ['yilan-zhuangwei', '壯圍鄉'], ['yilan-yuanshan', '員山鄉'], ['yilan-luodong', '羅東鎮'],
+        ['yilan-wujie', '五結鄉'], ['yilan-dongshan', '冬山鄉'], ['yilan-suao', '蘇澳鎮'],
+        ['yilan-sanxing', '三星鄉'], ['yilan-datong', '大同鄉'], ['yilan-nanao', '南澳鄉']
+      ];
+      var host = document.getElementById('county-cards');
+      if (!host) return;
+      fetch('data/pages-index.json')
+        .then(function (r) { return r.json(); })
+        .catch(function () { return { pages: [] }; })
+        .then(function (data) {
+          var ready = {};
+          ((data && data.pages) || []).forEach(function (p) { ready[p.id] = true; });
+          var frag = document.createDocumentFragment();
+          COUNTY_ORDER.forEach(function (c) {
+            if (c.towns) {
+              var card = document.createElement('div');
+              card.className = 'county-card county-card--towns';
+              var towns = YILAN_TOWNS.filter(function (t) { return ready[t[0]]; })
+                .map(function (t) { return '<a class="cc-town" href="pages/' + t[0] + '.html">' + t[1] + '</a>'; })
+                .join('');
+              card.innerHTML = '<div class="cc-head"><span class="cc-name">宜蘭縣</span>' +
+                '<span class="cc-sub">12 鄉鎮市 · 點下方進入</span></div>' +
+                '<div class="cc-towns">' + towns + '</div>';
+              frag.appendChild(card);
+            } else if (ready[c.id]) {
+              var a = document.createElement('a');
+              a.className = 'county-card';
+              a.href = 'pages/' + c.id + '.html';
+              a.innerHTML = '<span class="cc-name">' + c.name + '</span>';
+              frag.appendChild(a);
+            }
+          });
+          host.appendChild(frag);
+        });
+    })();
+  </script>
+
+  <script>
+    // 議題入口：兩大類固定顯示（自然／人文），主題卡片由 themes-index.json 動態長出。
     (function () {
       var CATS = [
         { layer: '自然地理', sub: '島的身世' },

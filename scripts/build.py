@@ -54,6 +54,41 @@ def md2html(text):
 def esc(s):
     return html.escape(str(s), quote=True)
 
+# ---- 浮動導覽小浮標（FAB）：所有子頁面共用，取代舊 sticky topbar ----
+# 圖示為 24x24 line icon，靠 CSS 以 currentColor 上色（fill:none）。
+_HOME_SVG   = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20h14V9.5"/></svg>'
+_UP_SVG     = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14"/><path d="M12 20V8"/><path d="M7 13l5-5 5 5"/></svg>'
+_SHARE_SVG  = ('<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.2"/>'
+               '<circle cx="18" cy="5.5" r="2.2"/><circle cx="18" cy="18.5" r="2.2"/>'
+               '<path d="M8 11 16 6.6"/><path d="M8 13l8 4.4"/></svg>')
+_BACK_SVG   = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M12 5l-7 7 7 7"/></svg>'
+_COMPASS_SVG= '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2 5.2-5.2 2 2-5.2z"/></svg>'
+
+def fab_block(home_href=None, up_href=None, up_label="上一層", rel_js="../js/fab.js"):
+    """回傳浮標 + toast + fab.js 引用。home/up 為 None 時省略該鈕（首頁用）。"""
+    actions = []
+    if home_href:
+        actions.append(f'<a class="geo-fab-btn" href="{home_href}" '
+                       f'aria-label="回首頁" title="回首頁">{_HOME_SVG}</a>')
+    if up_href:
+        lbl = esc(up_label)
+        actions.append(f'<a class="geo-fab-btn" href="{up_href}" '
+                       f'aria-label="{lbl}" title="{lbl}">{_UP_SVG}</a>')
+    actions.append(f'<button type="button" class="geo-fab-btn" data-fab="share" '
+                   f'aria-label="分享網址" title="分享網址（可用時複製網址）">{_SHARE_SVG}</button>')
+    actions.append(f'<button type="button" class="geo-fab-btn" data-fab="back" '
+                   f'aria-label="回上一頁" title="回上一頁">{_BACK_SVG}</button>')
+    acts = "\n        ".join(actions)
+    return (
+        f'<div class="geo-fab" id="geo-fab">\n'
+        f'      <div class="geo-fab-actions">\n        {acts}\n      </div>\n'
+        f'      <button type="button" class="geo-fab-toggle" aria-label="導覽選單" '
+        f'aria-expanded="false" title="導覽選單">{_COMPASS_SVG}</button>\n'
+        f'    </div>\n'
+        f'    <div class="copy-toast" id="copy-toast">網址已複製</div>\n'
+        f'    <script src="{rel_js}"></script>'
+    )
+
 # ---- 解析母本 ----
 def parse_file(path):
     raw = path.read_text(encoding="utf-8")
@@ -184,20 +219,17 @@ def render_page(fm, sections, related_themes=None):
     )
     src_block = f'<h3>資料來源</h3><ul>{src_items}</ul>' if src_items else ""
 
-    # 頂部 sticky 導航列：宜蘭鄉鎮頁回宜蘭、其餘回臺灣地圖
+    # 浮標「上一層」目標：概論→總論 tab、宜蘭鄉鎮→宜蘭縣地圖、其餘縣市→分縣市 tab。
     county_raw = fm.get("county", "")
-    if county_raw == "宜蘭縣":
-        back_href, back_label = "../index.html?county=宜蘭縣", "回到宜蘭縣"
+    pid_cur = fm.get("id", "")
+    ptype_cur = fm.get("type", "")
+    if pid_cur == "taiwan" or ptype_cur == "總覽":
+        up_href, up_label = "../index.html#general", "回總論"
+    elif county_raw == "宜蘭縣":
+        up_href, up_label = "../index.html?county=宜蘭縣#counties", "回宜蘭縣地圖"
     else:
-        back_href, back_label = "../index.html", "回臺灣地圖"
-    topbar = (
-        '<nav class="topbar">'
-        '<button type="button" class="nav-btn" onclick="history.back()">&larr; 上一頁</button>'
-        f'<a class="nav-btn" href="{back_href}">{back_label}</a>'
-        '<button type="button" class="nav-btn" id="share-btn">分享網址</button>'
-        '<button type="button" class="nav-btn" onclick="location.reload()">重新整理</button>'
-        '</nav>'
-    )
+        up_href, up_label = "../index.html#counties", "回分縣市"
+    fab = fab_block(home_href="../index.html#general", up_href=up_href, up_label=up_label)
 
     teaching_section = ""
     if teaching_html:
@@ -226,8 +258,6 @@ def render_page(fm, sections, related_themes=None):
 </head>
 <body>
   <div class="page-wrap">
-    {topbar}
-
     <header class="page-header">
       <div class="eyebrow">{eyebrow}</div>
       <h1>{name}</h1>
@@ -261,27 +291,7 @@ def render_page(fm, sections, related_themes=None):
     </footer>
   </div>
 
-  <div class="copy-toast" id="copy-toast">已複製連結</div>
-  <script>
-    (function () {{
-      var btn = document.getElementById('share-btn');
-      var toast = document.getElementById('copy-toast');
-      if (!btn) return;
-      function showToast() {{
-        if (!toast) return;
-        toast.classList.add('show');
-        setTimeout(function () {{ toast.classList.remove('show'); }}, 1500);
-      }}
-      btn.addEventListener('click', function () {{
-        var url = window.location.href;
-        if (navigator.share) {{
-          navigator.share({{ title: document.title, url: url }}).catch(function () {{}});
-        }} else if (navigator.clipboard) {{
-          navigator.clipboard.writeText(url).then(showToast).catch(function () {{}});
-        }}
-      }});
-    }})();
-  </script>
+  {fab}
 </body>
 </html>
 """
@@ -364,15 +374,8 @@ def render_theme(fm, sections, region_names):
     )
     src_block = f'<h3>資料來源</h3><ul>{src_items}</ul>' if src_items else ""
 
-    topbar = (
-        '<nav class="topbar">'
-        '<button type="button" class="nav-btn" onclick="history.back()">&larr; 上一頁</button>'
-        '<a class="nav-btn" href="../index.html#themes">回主題總覽</a>'
-        '<a class="nav-btn" href="../index.html">回臺灣地圖</a>'
-        '<button type="button" class="nav-btn" id="share-btn">分享網址</button>'
-        '<button type="button" class="nav-btn" onclick="location.reload()">重新整理</button>'
-        '</nav>'
-    )
+    fab = fab_block(home_href="../index.html#general",
+                    up_href="../index.html#themes", up_label="回議題列表")
 
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant">
@@ -384,8 +387,6 @@ def render_theme(fm, sections, region_names):
 </head>
 <body>
   <div class="page-wrap theme-page">
-    {topbar}
-
     <header class="page-header">
       <div class="eyebrow">{eyebrow}</div>
       <h1>{name}</h1>
@@ -411,27 +412,7 @@ def render_theme(fm, sections, region_names):
     </footer>
   </div>
 
-  <div class="copy-toast" id="copy-toast">已複製連結</div>
-  <script>
-    (function () {{
-      var btn = document.getElementById('share-btn');
-      var toast = document.getElementById('copy-toast');
-      if (!btn) return;
-      function showToast() {{
-        if (!toast) return;
-        toast.classList.add('show');
-        setTimeout(function () {{ toast.classList.remove('show'); }}, 1500);
-      }}
-      btn.addEventListener('click', function () {{
-        var url = window.location.href;
-        if (navigator.share) {{
-          navigator.share({{ title: document.title, url: url }}).catch(function () {{}});
-        }} else if (navigator.clipboard) {{
-          navigator.clipboard.writeText(url).then(showToast).catch(function () {{}});
-        }}
-      }});
-    }})();
-  </script>
+  {fab}
 </body>
 </html>
 """

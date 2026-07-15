@@ -98,6 +98,17 @@ const map = L.map('map', {
 const TAIWAN_MAIN_BOUNDS = L.latLngBounds([[21.8, 119.9], [25.4, 122.1]]);
 function fitTaiwan() { map.fitBounds(TAIWAN_MAIN_BOUNDS, { padding: [8, 8] }); }
 
+// 分頁切換用：地圖從隱藏分頁被顯示時，容器尺寸才確定，需重算尺寸並重新取景。
+window.__geoRefreshMap = function () {
+  if (!map) return;
+  map.invalidateSize();
+  if (townLayer && map.hasLayer(townLayer)) {
+    map.fitBounds(townLayer.getBounds(), { padding: [20, 20] });
+  } else {
+    fitTaiwan();
+  }
+};
+
 let availablePages = {};   // { id: true } 由 build.py 產生的 pages-index.json
 let countyLayer, townLayer;
 const crumbs = document.getElementById('crumbs');
