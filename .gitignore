@@ -3,3 +3,7 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# 圖片 SSOT 在 Google Drive、由 CI 的 scripts/pull_images.py 拉取（見 docs/DEPLOY.md）。
+# 只擋子目錄：site/img/manifest.json 是 build.py 的輸入、必須留在 repo。
+site/img/*/
