@@ -11,6 +11,7 @@
 規範見 docs/CONTENT-SPEC.md。
 """
 import sys, os, re, json, html
+import urllib.request
 from pathlib import Path
 
 try:
@@ -26,6 +27,14 @@ OUT_PAGES = ROOT / "site" / "pages"
 OUT_INDEX = ROOT / "site" / "data" / "pages-index.json"
 OUT_THEMES = ROOT / "site" / "data" / "themes-index.json"
 IMG_MANIFEST = ROOT / "site" / "img" / "manifest.json"
+
+# 反向鏈：taiwan-arts-db 人物頁（唯讀引用，見 _governance/protocols/cross-repo-reference.md）。
+# 本機優先讀同層 sibling repo（~/MyWork 下兩 repo 平行放）；CI 沒有 sibling 時改抓
+# GitHub raw（taiwan-arts-db 為 public repo，免憑證）。零硬編人名——arts-db 之後新增
+# 人物 pin，下次 build 就自動長出對應卡片。
+ARTS_DB_SIBLING = ROOT.parent / "taiwan-arts-db" / "content" / "map.yaml"
+ARTS_DB_RAW_URL = "https://raw.githubusercontent.com/elliot200852-lab/taiwan-arts-db/main/content/map.yaml"
+ARTS_DB_BASE = "https://elliot200852-lab.github.io/taiwan-arts-db/"
 
 # 主題頁（通論地理，橫看全島）放在 content/themes/ 下；縣市/鄉鎮頁（區域地理）放其餘資料夾。
 THEME_DIR = "themes"
@@ -46,6 +55,68 @@ def load_img_manifest():
     return {}
 
 IMG_MAP = load_img_manifest()
+
+# ---- 反向鏈資料：taiwan-arts-db 人物 pin（唯讀，arts-db 側零改動）----
+def load_arts_people():
+    """讀 arts-db 的 content/map.yaml，取 type=person 的 pin，依 county 分組成
+    {county: [{name, hook, url}, ...]}。county 值即 geo-db 的頁面 id（已核對一致）。
+
+    兩道 fail-fast（照 pull_images.py 的紀律，別拿掉）：
+      1. 本機與 GitHub raw 都抓不到 → CI 上中止；本機允許略過（沒網路仍可看舊站）。
+      2. 抓到檔案卻解析出 0 位 person pin → 一律中止（資料格式壞了，不是合法的「沒有人物」）。
+    """
+    raw_text, source = None, ""
+    if ARTS_DB_SIBLING.exists():
+        try:
+            raw_text = ARTS_DB_SIBLING.read_text(encoding="utf-8")
+            source = f"本機 sibling {ARTS_DB_SIBLING}"
+        except Exception as e:
+            print(f"  ! 讀本機 arts-db map.yaml 失敗：{e}")
+    if raw_text is None:
+        try:
+            with urllib.request.urlopen(ARTS_DB_RAW_URL, timeout=20) as resp:
+                raw_text = resp.read().decode("utf-8")
+                source = f"GitHub raw {ARTS_DB_RAW_URL}"
+        except Exception as e:
+            msg = f"  ! 抓 arts-db map.yaml 失敗（本機 sibling 與 GitHub raw 都不通）：{e}"
+            if os.environ.get("GITHUB_ACTIONS"):
+                print(msg, file=sys.stderr)
+                sys.exit(1)
+            print(msg + "——本機略過「這裡的人物」區塊。")
+            return {}
+
+    try:
+        data = yaml.safe_load(raw_text) or {}
+    except Exception as e:
+        msg = f"  ! 解析 arts-db map.yaml 失敗：{e}"
+        if os.environ.get("GITHUB_ACTIONS"):
+            print(msg, file=sys.stderr)
+            sys.exit(1)
+        print(msg + "——本機略過「這裡的人物」區塊。")
+        return {}
+
+    by_county = {}
+    for pin in (data.get("pins") or []):
+        if pin.get("type") != "person":
+            continue
+        county = (pin.get("county") or "").strip()
+        name = (pin.get("name") or "").strip()
+        link = (pin.get("link") or "").strip()
+        if not (county and name and link):
+            continue
+        by_county.setdefault(county, []).append({
+            "name": name,
+            "hook": (pin.get("hook") or "").strip(),
+            "url": ARTS_DB_BASE + link,
+        })
+
+    total = sum(len(v) for v in by_county.values())
+    if total == 0:
+        print("  ! arts-db map.yaml 讀到了但解析出 0 位 person pin——資料異常，中止建置。",
+              file=sys.stderr)
+        sys.exit(1)
+    print(f"  arts-db 人物反向鏈：{source}，{total} 位、涵蓋 {len(by_county)} 個縣市頁")
+    return by_county
 
 def md2html(text):
     MD.reset()
@@ -177,8 +248,28 @@ def related_themes_block(related):
         f'<div class="theme-chips">{chips}</div></section>'
     )
 
+# ---- 反向鏈：縣市頁 → taiwan-arts-db 人物頁「這裡的人物」----
+def local_people_block(people):
+    """people：[{name, hook, url}]，來自 load_arts_people() 依 county 分組後的清單。
+    連往 arts-db 是跨站，卡片一律 target=_blank 並標明出處，不假裝是站內連結。"""
+    if not people:
+        return ""
+    cards = "\n".join(
+        f'<a class="people-card" href="{esc(p["url"])}" target="_blank" rel="noopener">'
+        f'<span class="pc-name">{esc(p["name"])}</span>'
+        f'<span class="pc-hook">{esc(p["hook"])}</span>'
+        f'<span class="pc-src">臺灣人文藝術資料庫 →</span></a>'
+        for p in people
+    )
+    return (
+        '<section class="local-people">'
+        '<h2>這裡的人物</h2>'
+        '<p class="lp-note">從這個地方，認識影響臺灣藝文的人：</p>'
+        f'<div class="people-grid">{cards}</div></section>'
+    )
+
 # ---- 組頁 ----
-def render_page(fm, sections, related_themes=None):
+def render_page(fm, sections, related_themes=None, local_people=None):
     name = esc(fm.get("name", "（未命名）"))
     county = esc(fm.get("county", ""))
     unit_type = esc(fm.get("type", ""))
@@ -248,6 +339,10 @@ def render_page(fm, sections, related_themes=None):
     related_html = related_themes_block(related_themes)
     related_block = (related_html + "\n\n    ") if related_html else ""
 
+    # 有 arts-db 人物 pin 才佔位；無則零位元組（同上，沒有人物的縣市頁不長空區塊）
+    people_html = local_people_block(local_people)
+    people_block = (people_html + "\n\n    ") if people_html else ""
+
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -282,7 +377,7 @@ def render_page(fm, sections, related_themes=None):
 
     {related_block}{gallery_html}
 
-    <footer class="page-foot">
+    {people_block}<footer class="page-foot">
       {src_block}
       <div class="credit">
         圖資：內政部國土測繪中心／dkaoster taiwan-atlas（MIT 授權）。
@@ -450,6 +545,9 @@ def main():
             regions_parsed.append((path, fm, sections))
             region_names[pid] = fm.get("name", "")
 
+    # 反向索引：arts-db 人物 pin（county -> [{name, hook, url}]），唯讀、arts-db 側零改動
+    arts_people = load_arts_people()
+
     # 反向索引：region_id -> [{theme_id, chip, hook}]（主題頁 frontmatter 是唯一來源，縣市母本零改動）
     reverse = {}
     for path, fm, _ in themes_parsed:
@@ -469,7 +567,8 @@ def main():
     for path, fm, sections in regions_parsed:
         pid = fm["id"]
         out = OUT_PAGES / f"{pid}.html"
-        out.write_text(render_page(fm, sections, reverse.get(pid)), encoding="utf-8")
+        out.write_text(render_page(fm, sections, reverse.get(pid), arts_people.get(pid)),
+                       encoding="utf-8")
         index.append({
             "id": pid,
             "name": fm.get("name", ""),

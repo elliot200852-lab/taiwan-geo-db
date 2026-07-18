@@ -590,6 +590,37 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
 }
 .theme-chip:hover { background: var(--focus); border-color: var(--gold); transform: translateY(-1px); }
 
+/* 縣市頁 → taiwan-arts-db 人物頁：這裡的人物（build 讀 arts-db map.yaml 反向注入） */
+.local-people {
+  margin: 2.4rem 0;
+  padding: 1.2rem 1.4rem;
+  background: var(--paper-2);
+  border: 1px dashed var(--moss);
+  border-radius: 10px;
+}
+.local-people > h2 { font-size: 1.3rem; margin: 0 0 .3rem; color: var(--terra-deep); }
+.local-people .lp-note { color: var(--ink-soft); font-size: .9rem; margin: 0 0 .9rem; }
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: .9rem;
+}
+.people-card {
+  display: block;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--moss);
+  border-radius: 6px;
+  padding: .8rem 1rem;
+  text-decoration: none;
+  color: var(--ink);
+  transition: background .15s, border-color .15s, transform .15s;
+}
+.people-card:hover { background: var(--focus); border-left-color: var(--terra); transform: translateY(-1px); }
+.pc-name { display: block; font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--terra-deep); }
+.pc-hook { display: block; font-size: .9rem; color: var(--ink-soft); margin-top: .25rem; line-height: 1.55; }
+.pc-src { display: block; font-size: .78rem; color: var(--ink-soft); margin-top: .4rem; opacity: .75; }
+
 /* 行動裝置 */
 @media (max-width: 760px) {
   body { font-size: 16px; }
