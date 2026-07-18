@@ -18,6 +18,7 @@
     <button type="button" class="geo-tab" data-tab="general" role="tab" aria-selected="false">總論</button>
     <button type="button" class="geo-tab" data-tab="counties" role="tab" aria-selected="false">分縣市</button>
     <button type="button" class="geo-tab" data-tab="themes" role="tab" aria-selected="false">議題</button>
+    <a class="geo-tab" href="https://taiwan.md/" target="_blank" rel="noopener" title="臺灣.md — AI 原生的台灣開源知識庫（外部網站）">臺灣.md ↗</a>
   </nav>
 
   <main>
@@ -72,7 +73,7 @@
     // 支援瀏覽器上一頁、深連結、子頁浮標「上一層」帶 hash 進來。
     (function () {
       var TABS = ['general', 'counties', 'themes'];
-      var buttons = document.querySelectorAll('.geo-tab');
+      var buttons = document.querySelectorAll('.geo-tab[data-tab]');
       var panels = document.querySelectorAll('.tab-panel');
       function activate(name, push) {
         if (TABS.indexOf(name) < 0) name = 'general';

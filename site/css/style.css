@@ -79,6 +79,7 @@ a { color: var(--terra-deep); }
   font-family: var(--serif);
   font-size: 1.05rem;
   font-weight: 600;
+  text-decoration: none;
   color: var(--ink-soft);
   background: transparent;
   border: 1px solid transparent;
