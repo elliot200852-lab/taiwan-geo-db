@@ -311,7 +311,12 @@ def render_page(fm, sections, related_themes=None, local_people=None):
     name = esc(fm.get("name", "（未命名）"))
     county = esc(fm.get("county", ""))
     unit_type = esc(fm.get("type", ""))
-    eyebrow = " · ".join(x for x in [county, unit_type] if x)
+    if unit_type == "總覽":
+        eyebrow = "全島總覽"
+    elif county == name:
+        eyebrow = " · ".join(x for x in ["縣市誌", unit_type] if x)
+    else:
+        eyebrow = " · ".join(x for x in [county, unit_type] if x)
 
     stats = fm.get("stats") or {}
     stat_labels = {"population": "人口", "area_km2": "面積 (km²)", "density": "人口密度"}
