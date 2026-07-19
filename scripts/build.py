@@ -27,6 +27,7 @@ CONTENT = ROOT / "content"
 OUT_PAGES = ROOT / "site" / "pages"
 OUT_INDEX = ROOT / "site" / "data" / "pages-index.json"
 OUT_THEMES = ROOT / "site" / "data" / "themes-index.json"
+OUT_SEARCH = ROOT / "site" / "data" / "search-index.json"
 IMG_MANIFEST = ROOT / "site" / "img" / "manifest.json"
 SOURCE_TITLES_FILE = ROOT / "scripts" / "source-titles.yaml"
 
@@ -261,6 +262,101 @@ def parse_file(path):
     if cur is not None:
         sections[cur] = "\n".join(buf).strip()
     return fm, sections
+
+# ---- 站內檢索索引（site/data/search-index.json）----
+# 供首頁 js/search.js 做 client-side 全文檢索；純文字，不含 markdown/HTML 語法。
+_SI_TABLE_SEP_RE = re.compile(r"^\s*\|?[\s:|-]+\|?\s*$", re.M)
+_SI_LINK_IMG_RE = re.compile(r"!?\[([^\]]*)\]\([^)]*\)")
+_SI_BOLD_RE = re.compile(r"\*\*([^*]+)\*\*")
+_SI_ITALIC_RE = re.compile(r"(?<!\*)\*([^*]+)\*(?!\*)")
+_SI_CODE_RE = re.compile(r"`([^`]+)`")
+_SI_HEADER_RE = re.compile(r"^#{1,6}\s+", re.M)
+_SI_QUOTE_RE = re.compile(r"^>\s?", re.M)
+_SI_UL_RE = re.compile(r"^\s*[-*+]\s+", re.M)
+_SI_OL_RE = re.compile(r"^\s*\d+\.\s+", re.M)
+_SI_HTML_TAG_RE = re.compile(r"<[^>]+>")
+_SI_WS_RE = re.compile(r"\s+")
+
+def strip_markdown_plain(text):
+    """把一段 markdown 正文去語法後留純文字：去表格線、連結／圖片語法（保留文字）、
+    粗斜體記號、行內 code 記號、標題井字、引用/清單前綴、殘留 HTML 標籤，空白正規化。"""
+    if not text:
+        return ""
+    t = text
+    t = _SI_TABLE_SEP_RE.sub(" ", t)
+    t = _SI_LINK_IMG_RE.sub(r"\1", t)
+    t = _SI_BOLD_RE.sub(r"\1", t)
+    t = _SI_ITALIC_RE.sub(r"\1", t)
+    t = _SI_CODE_RE.sub(r"\1", t)
+    t = _SI_HEADER_RE.sub("", t)
+    t = _SI_QUOTE_RE.sub("", t)
+    t = _SI_UL_RE.sub("", t)
+    t = _SI_OL_RE.sub("", t)
+    t = t.replace("|", " ")
+    t = _SI_HTML_TAG_RE.sub(" ", t)
+    return _SI_WS_RE.sub(" ", t).strip()
+
+def section_body_text(sections):
+    """章節標題（純文字保留）＋ 去語法正文，合併成單一字串。"""
+    parts = []
+    for title, content in sections.items():
+        if title:
+            parts.append(title)
+        stripped = strip_markdown_plain(content)
+        if stripped:
+            parts.append(stripped)
+    return _SI_WS_RE.sub(" ", " ".join(parts)).strip()
+
+def region_eyebrow_plain(fm):
+    """縣市／鄉鎮頁眉標純文字版，邏輯與 render_page() 內 eyebrow 完全一致（未 esc）。"""
+    name = fm.get("name", "")
+    county = fm.get("county", "")
+    unit_type = fm.get("type", "")
+    if unit_type == "總覽":
+        return "全島總覽"
+    elif county == name:
+        return " · ".join(x for x in ["縣市誌", unit_type] if x)
+    else:
+        return " · ".join(x for x in [county, unit_type] if x)
+
+def theme_eyebrow_plain(fm):
+    """主題頁眉標純文字版，邏輯與 render_theme() 內 eyebrow 完全一致（未 esc）。"""
+    return " · ".join(x for x in [fm.get("layer", ""), fm.get("layer_sub", ""), fm.get("theme_group", "")] if x)
+
+def build_search_index(regions_parsed, themes_parsed):
+    """組 site/data/search-index.json 的 records 陣列。url 與既有 pages-index.json／
+    themes-index.json 消費端一致，皆為 pages/{id}.html（相對首頁）。"""
+    records = []
+    for _path, fm, sections in regions_parsed:
+        pid = fm.get("id", "")
+        kw = [str(t) for t in (fm.get("tags_g5") or [])]
+        county = fm.get("county", "")
+        if county and county not in kw:
+            kw.append(county)
+        records.append({
+            "id": pid,
+            "url": f"pages/{pid}.html",
+            "title": fm.get("name", ""),
+            "sub": region_eyebrow_plain(fm),
+            "kw": kw,
+            "body": section_body_text(sections),
+        })
+    for _path, fm, sections in themes_parsed:
+        pid = fm.get("id", "")
+        kw = [str(t) for t in (fm.get("tags_g5") or [])]
+        for extra in (fm.get("layer"), fm.get("layer_sub"), fm.get("theme_group"), fm.get("chip_label")):
+            if extra and extra not in kw:
+                kw.append(extra)
+        records.append({
+            "id": pid,
+            "url": f"pages/{pid}.html",
+            "title": fm.get("name", ""),
+            "sub": theme_eyebrow_plain(fm),
+            "kw": kw,
+            "body": section_body_text(sections),
+        })
+    records.sort(key=lambda r: r["id"])
+    return records
 
 # ---- 五年級 badge ----
 def badgeify(html_str):
@@ -705,8 +801,16 @@ def main():
         json.dumps({"themes": themes_index}, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
+
+    search_records = build_search_index(regions_parsed, themes_parsed)
+    OUT_SEARCH.write_text(
+        json.dumps({"records": search_records}, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
+
     print(f"完成：建了 {built} 頁（地名 {len(index)}、主題 {len(themes_index)}）；"
-          f"索引 {OUT_INDEX.relative_to(ROOT)} + {OUT_THEMES.relative_to(ROOT)}。")
+          f"索引 {OUT_INDEX.relative_to(ROOT)} + {OUT_THEMES.relative_to(ROOT)} + "
+          f"{OUT_SEARCH.relative_to(ROOT)}（{len(search_records)} 筆）。")
 
 if __name__ == "__main__":
     main()

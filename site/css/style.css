@@ -151,6 +151,88 @@ a { color: var(--map-blue-deep); }
 .tab-panel.active { display: block; }
 .tab-panel .themes-section { border-top: none; padding-top: .4rem; }
 
+/* ---------- 首頁站內檢索（新增 2026-07-19：client-side 全文檢索，只在首頁） ---------- */
+.geo-search {
+  max-width: 640px;
+  margin: 1.4rem auto 0;
+  padding: 0 1.2rem;
+  position: relative;
+}
+.geo-search-input {
+  display: block;
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: .65rem .9rem;
+  transition: border-color .15s, box-shadow .15s;
+}
+.geo-search-input::placeholder { color: var(--ink-soft); opacity: .8; }
+.geo-search-input:focus {
+  outline: none;
+  border-color: var(--terra);
+  box-shadow: 0 0 0 3px rgba(181, 106, 60, .14);
+}
+.geo-search-hint {
+  margin: .35rem .1rem 0;
+  font-family: var(--sans);
+  font-size: .78rem;
+  color: var(--ink-soft);
+  min-height: 1.1em;
+}
+.geo-search-results {
+  margin-top: .3rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: 0 10px 26px rgba(43, 42, 38, .12);
+  max-height: 62vh;
+  overflow-y: auto;
+}
+.geo-search-item {
+  display: block;
+  padding: .6rem .9rem;
+  text-decoration: none;
+  color: var(--ink);
+  border-bottom: 1px solid var(--hair);
+  transition: background .12s;
+}
+.geo-search-item:last-child { border-bottom: none; }
+.geo-search-item:hover, .geo-search-item.active { background: var(--paper-2); }
+.gsi-title {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--terra-deep);
+  overflow-wrap: anywhere;
+}
+.gsi-sub {
+  display: block;
+  font-family: var(--sans);
+  font-size: .78rem;
+  color: var(--ink-soft);
+  margin-top: .1rem;
+}
+.gsi-snippet {
+  display: block;
+  font-family: var(--sans);
+  font-size: .86rem;
+  color: var(--ink-soft);
+  margin-top: .3rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.geo-search-empty { margin: 0; padding: .8rem .9rem; font-size: .9rem; color: var(--ink-soft); }
+.geo-search mark {
+  background: rgba(181, 106, 60, .18);  /* --terra 淡底 */
+  color: var(--terra-deep);
+  padding: 0 .05em;
+}
+
 /* ---------- 情境 hero 圖（§6：54 張一次到位） ---------- */
 .hero-wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.2rem; }
 figure.page-hero {
@@ -884,4 +966,7 @@ figure.geo-fig figcaption .cap-title { font-family: var(--serif); color: var(--i
   .page-header { padding: 1.4rem 1.3rem 1.6rem; }
   .contour-orn { width: 90px; height: 90px; opacity: .05; }
   figure.page-hero img { max-height: 220px; }
+  .geo-search { padding: 0 1rem; }
+  .geo-search-input { font-size: .95rem; padding: .6rem .8rem; }
+  .geo-search-results { max-height: 70vh; }
 }

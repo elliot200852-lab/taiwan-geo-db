@@ -17,6 +17,14 @@
     <h1>認識臺灣——人文與自然地理資料庫</h1>
   </header>
 
+  <div class="geo-search" id="geo-search">
+    <input type="search" id="geo-search-input" class="geo-search-input"
+           placeholder="檢索地名、主題、關鍵字⋯"
+           aria-label="站內檢索：地名、主題、關鍵字" autocomplete="off" spellcheck="false">
+    <p class="geo-search-hint" id="geo-search-hint" aria-live="polite"></p>
+    <div class="geo-search-results" id="geo-search-results" hidden></div>
+  </div>
+
   <nav class="geo-tabs" role="tablist" aria-label="首頁導覽">
     <button type="button" class="geo-tab" data-tab="general" role="tab" aria-selected="false">總論</button>
     <button type="button" class="geo-tab" data-tab="counties" role="tab" aria-selected="false">分縣市</button>
@@ -75,6 +83,7 @@
   <script src="vendor/leaflet.js"></script>
   <script src="js/map.js"></script>
   <script src="js/fab.js"></script>
+  <script src="js/search.js" defer></script>
 
   <script>
     // 首頁三分頁 hash 路由（#general / #counties / #themes）。
