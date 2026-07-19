@@ -1,20 +1,36 @@
-/* 認識臺灣 — 臺灣人文與自然地理資料庫
-   溫暖樸素、可讀性優先的教育風格。米白底、襯線中文標題。 */
+/* 認識臺灣 — 人文與自然地理資料庫
+   視覺改版 v1（2026-07-19，docs/DESIGN-SPEC.md）：輿圖風獨立變奏——
+   與 taiwan-arts-db 同字體系統、同紙感底色、同畫框思維，差異化在輿圖語彙：
+   圖廓雙線框、經緯細格、比例尺分隔線、等高線角飾。元素細、靜，不做強烈對比。 */
 
 :root {
-  --paper: #faf6ee;
-  --paper-2: #f3ecdd;
-  --ink: #33302a;
-  --ink-soft: #5c574d;
-  --line: #ddd3bf;
-  --terra: #b56a3c;      /* 主色：赭土 */
+  /* 紙與墨（與 arts-db 同族，色值微調向舊輿圖紙） */
+  --paper: #f7f3e8;      /* 全站底：陳年圖紙米白 */
+  --paper-2: #efe8d6;    /* 面板底 */
+  --card: #fcf9f0;       /* 卡片底 */
+  --ink: #2b2a26;        /* 暖墨 */
+  --ink-soft: #5c5850;
+  --line: #d9d1bc;
+  --hair: #e6dfd0;
+
+  /* 主輔色（沿用 geo-db 既有 terra/moss，不搬 arts-db 的 night/taupe） */
+  --terra: #b56a3c;      /* 赭土＝主強調色 */
   --terra-deep: #8f4f28;
-  --moss: #6d7a4f;       /* 輔色：苔綠 */
-  --sea: #cdd8d9;        /* 海（地圖底色）*/
+  --moss: #6d7a4f;       /* 苔綠＝輔助色 */
+  --gold: #caa14a;       /* 沿用，僅點綴 */
+
+  /* 輿圖新色 */
+  --map-blue: #3f5e7a;      /* 輿圖藍：連結、水系意象 */
+  --map-blue-deep: #2c4459;
+  --grid: rgba(63, 94, 122, .07);  /* 經緯格線 */
+
+  /* 沿用（Leaflet 地圖底色與圖例，非本次改版範圍，js/map.js 不動） */
+  --sea: #cdd8d9;
   --land-inactive: #ddd6c6;
-  --gold: #caa14a;
   --focus: #eddfc0;
+
   --serif: "Noto Serif TC", "Songti TC", "STSong", "PMingLiU", "SimSun", Georgia, "Times New Roman", serif;
+  --latin: "Cormorant Garamond", Georgia, "Times New Roman", serif;   /* 數字／年份／拉丁字專用 */
   --sans: "Noto Sans TC", "PingFang TC", "Heiti TC", "Microsoft JhengHei", system-ui, -apple-system, sans-serif;
 }
 
@@ -31,18 +47,47 @@ html, body {
   -webkit-text-size-adjust: 100%;
 }
 
-h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.4; color: var(--ink); }
-a { color: var(--terra-deep); }
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 700; line-height: 1.4; color: var(--ink); }
+h1 { font-weight: 900; }
+a { color: var(--map-blue-deep); }
 
-/* ---------- 首頁地圖 ---------- */
+/* ---------- 首頁站頭（§5a：左對齊，eyebrow 在上、h1 在下、雙髮線） ---------- */
 .site-head {
-  text-align: center;
-  padding: 2.4rem 1.2rem 1rem;
-  max-width: 760px;
+  position: relative;
+  text-align: left;
+  padding: 2.6rem 1.4rem 1.5rem;
+  max-width: 900px;
   margin: 0 auto;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 63px, var(--grid) 63px 64px),
+    repeating-linear-gradient(90deg, transparent 0 63px, var(--grid) 63px 64px);
 }
-.site-head h1 { font-size: 2rem; margin: 0 0 .5rem; letter-spacing: .04em; }
-.site-head p { color: var(--ink-soft); margin: .3rem 0; font-size: 1.02rem; }
+.site-head .eyebrow {
+  margin: 0 0 .6rem;
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .32em;
+  color: var(--ink-soft);
+}
+.site-head h1 {
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: .02em;
+  line-height: 1.3;
+}
+/* 站頭下方雙髮線（1px --line ＋ 3px 間隔 1px --hair） */
+.site-head::after {
+  content: "";
+  position: absolute;
+  left: 1.4rem;
+  right: 1.4rem;
+  bottom: 0;
+  height: 1px;
+  background: var(--line);
+  box-shadow: 0 4px 0 var(--hair);
+}
 
 .taiwan-intro {
   text-align: center;
@@ -65,42 +110,75 @@ a { color: var(--terra-deep); }
 }
 .intro-cta:hover { background: var(--terra-deep); transform: translateY(-1px); }
 
-/* ---------- 首頁三分頁（總論／分縣市／議題） ---------- */
+/* ---------- 首頁三分頁（總論／分縣市／議題）：極簡字標式 tab（§5a） ---------- */
 .geo-tabs {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: .4rem;
+  gap: 1.6rem;
   max-width: 960px;
   margin: 1rem auto 0;
   padding: 0 1rem;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--hair);
 }
 .geo-tab {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-family: var(--sans);
+  font-size: .92rem;
+  font-weight: 500;
+  letter-spacing: .1em;
   text-decoration: none;
   color: var(--ink-soft);
   background: transparent;
-  border: 1px solid transparent;
-  border-bottom: none;
-  border-radius: 8px 8px 0 0;
-  padding: .55rem 1.3rem;
+  border: none;
+  border-radius: 0;
+  padding: .7rem .2rem;
   cursor: pointer;
   position: relative;
-  top: 1px;
-  transition: background .15s, color .15s;
+  transition: color .15s;
 }
-.geo-tab:hover { color: var(--terra-deep); background: var(--paper-2); }
-.geo-tab.active {
-  color: var(--terra-deep);
-  background: var(--paper);
-  border-color: var(--line);
-  border-bottom: 1px solid var(--paper);
+.geo-tab:hover { color: var(--ink); background: transparent; }
+.geo-tab.active { color: var(--terra-deep); }
+.geo-tab.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--terra);
 }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 .tab-panel .themes-section { border-top: none; padding-top: .4rem; }
+
+/* ---------- 情境 hero 圖（§6：54 張一次到位） ---------- */
+.hero-wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.2rem; }
+figure.page-hero {
+  margin: 1.6rem 0 2rem;
+  background: #fffdf8;
+  border: 1px solid var(--terra);
+  outline: 1px solid var(--terra);
+  outline-offset: 4px;
+  padding: 8px;
+  box-shadow: 0 6px 18px rgba(43, 42, 38, .10);
+}
+figure.page-hero img {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  max-height: 340px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--hair);
+  background: var(--paper-2);
+}
+figure.page-hero figcaption {
+  text-align: right;
+  font-size: .72rem;
+  color: var(--ink-soft);
+  opacity: .75;
+  margin-top: .5rem;
+  padding: 0 .2rem;
+}
 
 /* 總論分頁 */
 .general-intro {
@@ -113,7 +191,7 @@ a { color: var(--terra-deep); }
 .general-intro .intro-cta { margin: .3rem 0 1.4rem; }
 .general-hint { font-size: .95rem; }
 
-/* 分縣市分頁：縣市卡 */
+/* 分縣市分頁：縣市卡（§7：--card 底、直角、hover translateY+shadow） */
 .county-cards {
   max-width: 960px;
   margin: 1.6rem auto 2rem;
@@ -125,15 +203,19 @@ a { color: var(--terra-deep); }
 }
 .county-card {
   display: block;
-  background: var(--paper-2);
+  background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 0;
   padding: .7rem .9rem;
   text-decoration: none;
   color: var(--ink);
-  transition: background .15s, border-color .15s, transform .15s;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
 }
-a.county-card:hover { background: var(--focus); border-color: var(--gold); transform: translateY(-1px); }
+a.county-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(43, 42, 38, .12);
+  border-color: var(--terra);
+}
 .county-card .cc-name { font-family: var(--serif); font-weight: 600; font-size: 1.08rem; color: var(--terra-deep); }
 .county-card .cc-sub { font-size: .82rem; color: var(--ink-soft); margin-left: .4rem; }
 .county-card--towns { grid-column: 1 / -1; background: var(--paper); border-style: dashed; }
@@ -164,7 +246,7 @@ a.county-card:hover { background: var(--focus); border-color: var(--gold); trans
   min-height: 420px;             /* aspect-ratio 不支援時的保底高度 */
   background: var(--sea);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 0;
 }
 /* 定著地圖：不縮放不拖曳，游標不做出可互動假象（縣市/鄉鎮多邊形仍會被 leaflet-interactive 設回 pointer） */
 .leaflet-container { background: var(--sea); font-family: var(--sans); cursor: default; }
@@ -181,7 +263,7 @@ a.county-card:hover { background: var(--focus); border-color: var(--gold); trans
   font-size: .92rem;
 }
 .map-legend span { display: inline-flex; align-items: center; gap: .45rem; }
-.swatch { width: 16px; height: 16px; border-radius: 3px; border: 1px solid rgba(0,0,0,.15); display: inline-block; }
+.swatch { width: 16px; height: 16px; border-radius: 0; border: 1px solid rgba(0,0,0,.15); display: inline-block; }
 .sw-yilan { background: #4e8a4e; }
 .sw-taipei { background: #c0504d; }
 .sw-newtaipei { background: #4472a8; }
@@ -233,7 +315,7 @@ a.county-card:hover { background: var(--focus); border-color: var(--gold); trans
   background: var(--ink);
   color: var(--paper);
   border: none;
-  border-radius: 4px;
+  border-radius: 0;
   font-family: var(--serif);
   font-size: .95rem;
   padding: 3px 9px;
@@ -243,6 +325,40 @@ a.county-card:hover { background: var(--focus); border-color: var(--gold); trans
 
 /* ---------- 內容頁 ---------- */
 .page-wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.2rem 4rem; }
+
+/* ---------- 子頁站識別列（§5b：新增區塊） ---------- */
+.site-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: .8rem 1.2rem;
+  border-bottom: 1px solid var(--hair);
+}
+.site-bar-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: .02em;
+}
+.site-bar-name:hover { color: var(--terra-deep); }
+.site-bar-tag {
+  flex: 0 0 auto;
+  font-family: var(--sans);
+  font-size: .72rem;
+  letter-spacing: .24em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
 
 /* ---------- 浮動導覽小浮標（FAB，取代舊 sticky topbar） ---------- */
 .geo-fab {
@@ -339,13 +455,40 @@ a.county-card:hover { background: var(--focus); border-color: var(--gold); trans
 }
 .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-.page-header { margin: 1rem 0 2rem; }
-.page-header .eyebrow { color: var(--moss); font-size: .95rem; letter-spacing: .08em; margin-bottom: .3rem; }
-.page-header h1 { font-size: 2.5rem; margin: 0 0 .8rem; letter-spacing: .03em; }
+/* ---------- 子頁頭（§5c：經緯細格底＋等高線角飾） ---------- */
+.page-header {
+  position: relative;
+  margin: 1.4rem 0 2rem;
+  padding: 1.8rem 1.8rem 2rem;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 63px, var(--grid) 63px 64px),
+    repeating-linear-gradient(90deg, transparent 0 63px, var(--grid) 63px 64px);
+}
+.page-header .eyebrow {
+  color: var(--terra);
+  font-family: var(--sans);
+  font-size: .85rem;
+  letter-spacing: .18em;
+  margin-bottom: .4rem;
+}
+.page-header h1 { font-size: clamp(2.1rem, 4.5vw, 3rem); font-weight: 900; margin: 0 0 .8rem; letter-spacing: .02em; }
+/* 等高線角飾：inline SVG，右上角、極淡、不可互動 */
+.contour-orn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 150px;
+  height: 150px;
+  color: var(--ink);
+  opacity: .06;
+  pointer-events: none;
+}
+.contour-orn path { fill: none; stroke: currentColor; stroke-width: 1; }
+
 .lede {
   font-size: 1.12rem;
   color: var(--ink-soft);
-  max-width: 46em;
+  max-width: 62ch;
   border-left: 3px solid var(--terra);
   padding-left: 1rem;
   margin: 1rem 0 1.6rem;
@@ -360,12 +503,33 @@ a.county-card:hover { background: var(--focus); border-color: var(--gold); trans
 .stat-card {
   background: var(--paper-2);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 0;
   padding: .7rem 1.1rem;
   min-width: 120px;
 }
-.stat-card .k { font-size: .82rem; color: var(--ink-soft); letter-spacing: .05em; }
-.stat-card .v { font-family: var(--serif); font-size: 1.25rem; color: var(--terra-deep); margin-top: .15rem; }
+.stat-card .k { font-family: var(--sans); font-size: .82rem; color: var(--ink-soft); letter-spacing: .05em; }
+.stat-card .v { font-family: var(--latin); font-style: italic; font-size: 1.25rem; color: var(--terra-deep); margin-top: .15rem; }
+
+/* ---------- 比例尺分隔線（§4.3：大段落之間） ---------- */
+.scale-rule {
+  width: 120px;
+  height: 4px;
+  margin: 2.4rem auto;
+  position: relative;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 15px, var(--paper) 15px 30px);
+}
+.scale-rule::before,
+.scale-rule::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 1px;
+  background: var(--line);
+  transform: translateY(-50%);
+}
+.scale-rule::before { right: 100%; margin-right: 10px; }
+.scale-rule::after { left: 100%; margin-left: 10px; }
 
 /* 雙欄 */
 .geo-cols {
@@ -376,27 +540,41 @@ a.county-card:hover { background: var(--focus); border-color: var(--gold); trans
 }
 .geo-block h2 {
   font-size: 1.5rem;
-  border-bottom: 2px solid var(--terra);
-  padding-bottom: .3rem;
+  font-weight: 700;
   margin: 0 0 1rem;
-  display: inline-block;
 }
-.geo-block.nature h2 { border-color: var(--moss); }
+.geo-block h2::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--terra);
+  margin: .6rem 0 0;
+}
+.geo-block.nature h2::after { background: var(--moss); }
 .geo-block p { margin: 0 0 1rem; }
 
-/* 教學特點 — 核心，視覺突出 */
+/* 教學特點 — 核心（§7：--paper-2 底＋左 3px --terra 邊） */
 .teaching {
-  background: var(--focus);
-  border: 1px solid var(--gold);
-  border-radius: 10px;
+  background: var(--paper-2);
+  border: none;
+  border-left: 3px solid var(--terra);
+  border-radius: 0;
   padding: 1.8rem 2rem;
   margin: 2.6rem 0;
-  box-shadow: 0 2px 10px rgba(160,120,40,.08);
 }
 .teaching > h2 {
   font-size: 1.7rem;
   margin: 0 0 .3rem;
   color: var(--terra-deep);
+}
+.teaching > h2::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--terra);
+  margin: .5rem 0 1rem;
 }
 .teaching .core-note { color: var(--ink-soft); font-size: .92rem; margin: 0 0 1.2rem; }
 .teaching h3 {
@@ -423,44 +601,69 @@ a.county-card:hover { background: var(--focus); border-color: var(--gold); trans
 }
 .badge.hist { background: var(--moss); }
 
-/* 說書稿切分提示 */
-.storyteller { margin: 2.4rem 0; }
-.storyteller h2 { font-size: 1.4rem; margin: 0 0 1rem; }
+/* 說書稿切分提示（§7：同 --paper-2 底＋左 3px --terra 邊） */
+.storyteller {
+  background: var(--paper-2);
+  border-left: 3px solid var(--terra);
+  padding: 1.6rem 1.8rem;
+  margin: 2.4rem 0;
+}
+.storyteller h2 { font-size: 1.4rem; margin: 0 0 .3rem; }
+.storyteller h2::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--gold);
+  margin: .5rem 0 1rem;
+}
 .storyteller blockquote,
 .storyteller .quote {
-  background: #fbfaf5;
+  background: var(--card);
   border-left: 4px solid var(--gold);
-  border-radius: 0 6px 6px 0;
+  border-radius: 0;
   padding: .9rem 1.2rem;
   margin: 0 0 1rem;
   color: var(--ink);
   font-size: 1rem;
 }
 
-/* 圖像 */
+/* 圖像：史料照畫框（§4.1b：雙線圖廓＋白襯紙＋內髮線＋陰影，取代圓角卡片） */
 figure.geo-fig {
-  margin: 1.2rem 0;
-  background: var(--paper-2);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: .5rem;
+  margin: 1.6rem 0;
+  background: #fffdf8;
+  border: 1px solid var(--terra);
+  outline: 1px solid var(--terra);
+  outline-offset: 4px;
+  padding: 10px;
+  border-radius: 0;
+  box-shadow: 0 6px 18px rgba(43, 42, 38, .10);
 }
 figure.geo-fig img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px;
+  border: 1px solid var(--hair);
+  border-radius: 0;
   background: #e8e2d4;
 }
 figure.geo-fig figcaption {
   font-size: .82rem;
   color: var(--ink-soft);
-  padding: .5rem .3rem .2rem;
+  padding: .6rem .3rem .1rem;
   line-height: 1.5;
 }
-figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
+figure.geo-fig figcaption .cap-title { font-family: var(--serif); color: var(--ink); font-weight: 700; }
 .gallery { margin: 2rem 0; }
 .gallery h2 { font-size: 1.4rem; }
+.gallery h2::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--terra);
+  margin: .5rem 0 0;
+}
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
 
 /* 頁尾 */
@@ -489,6 +692,14 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
   margin: 0 0 .4rem;
   letter-spacing: .04em;
 }
+.themes-section > h2::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--terra);
+  margin: .6rem auto 0;
+}
 .themes-lead {
   text-align: center;
   color: var(--ink-soft);
@@ -504,7 +715,7 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
 .themes-cat {
   background: var(--paper-2);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 0;
   padding: 1.2rem 1.3rem 1.4rem;
 }
 .tc-head { margin-bottom: .9rem; display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; }
@@ -519,33 +730,55 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
   padding-left: .5rem;
   margin: .8rem 0 .5rem;
 }
+/* 主題卡（§7：--card 底、直角、hover translateY+shadow） */
 .tc-theme {
   display: block;
   font-family: var(--serif);
   font-size: 1.05rem;
   color: var(--terra-deep);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0;
   text-decoration: none;
-  padding: .4rem .6rem;
-  border-radius: 6px;
-  transition: background .15s;
+  padding: .55rem .75rem;
+  margin: .35rem 0;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
 }
-.tc-theme:hover { background: var(--focus); }
+.tc-theme:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(43, 42, 38, .10);
+  border-color: var(--terra);
+}
 .tc-empty { color: var(--ink-soft); font-size: .92rem; font-style: italic; margin: .4rem .2rem; }
 
 /* ---------- 主題頁本文 ---------- */
 .theme-block { margin: 2rem 0; }
 .theme-block > h2 {
   font-size: 1.55rem;
-  border-bottom: 2px solid var(--terra);
-  padding-bottom: .3rem;
+  font-weight: 700;
   margin: 0 0 1rem;
-  display: inline-block;
+}
+.theme-block > h2::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--terra);
+  margin: .6rem 0 0;
 }
 .theme-block p { margin: 0 0 1rem; }
 
-/* 主題頁 → 縣市頁：這個現象在哪裡看得到 */
+/* 主題頁 → 縣市頁：這個現象在哪裡看得到（§7：.locator 卡套新卡片語言） */
 .locator { margin: 2.6rem 0; }
 .locator > h2 { font-size: 1.45rem; margin: 0 0 1rem; }
+.locator > h2::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--moss);
+  margin: .5rem 0 0;
+}
 .locator-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -553,16 +786,20 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
 }
 .locator-card {
   display: block;
-  background: var(--paper-2);
+  background: var(--card);
   border: 1px solid var(--line);
   border-left: 4px solid var(--moss);
-  border-radius: 6px;
+  border-radius: 0;
   padding: .8rem 1rem;
   text-decoration: none;
   color: var(--ink);
-  transition: background .15s, border-color .15s, transform .15s;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
 }
-.locator-card:hover { background: var(--focus); border-left-color: var(--terra); transform: translateY(-1px); }
+.locator-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(43, 42, 38, .12);
+  border-left-color: var(--terra);
+}
 .loc-place { display: block; font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--terra-deep); }
 .loc-hook { display: block; font-size: .9rem; color: var(--ink-soft); margin-top: .25rem; line-height: 1.55; }
 
@@ -572,9 +809,17 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
   padding: 1.2rem 1.4rem;
   background: var(--paper-2);
   border: 1px dashed var(--gold);
-  border-radius: 10px;
+  border-radius: 0;
 }
 .related-themes > h2 { font-size: 1.3rem; margin: 0 0 .3rem; color: var(--terra-deep); }
+.related-themes > h2::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--gold);
+  margin: .5rem 0 .9rem;
+}
 .related-themes .rt-note { color: var(--ink-soft); font-size: .9rem; margin: 0 0 .9rem; }
 .theme-chips { display: flex; flex-wrap: wrap; gap: .6rem; }
 .theme-chip {
@@ -590,15 +835,23 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
 }
 .theme-chip:hover { background: var(--focus); border-color: var(--gold); transform: translateY(-1px); }
 
-/* 縣市頁 → taiwan-arts-db 人物頁：這裡的人物（build 讀 arts-db map.yaml 反向注入） */
+/* 縣市頁 → taiwan-arts-db 人物頁：這裡的人物（build 讀 arts-db map.yaml 反向注入；只動 CSS） */
 .local-people {
   margin: 2.4rem 0;
   padding: 1.2rem 1.4rem;
   background: var(--paper-2);
   border: 1px dashed var(--moss);
-  border-radius: 10px;
+  border-radius: 0;
 }
 .local-people > h2 { font-size: 1.3rem; margin: 0 0 .3rem; color: var(--terra-deep); }
+.local-people > h2::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--moss);
+  margin: .5rem 0 .9rem;
+}
 .local-people .lp-note { color: var(--ink-soft); font-size: .9rem; margin: 0 0 .9rem; }
 .people-grid {
   display: grid;
@@ -607,16 +860,20 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
 }
 .people-card {
   display: block;
-  background: var(--paper);
+  background: var(--card);
   border: 1px solid var(--line);
   border-left: 4px solid var(--moss);
-  border-radius: 6px;
+  border-radius: 0;
   padding: .8rem 1rem;
   text-decoration: none;
   color: var(--ink);
-  transition: background .15s, border-color .15s, transform .15s;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
 }
-.people-card:hover { background: var(--focus); border-left-color: var(--terra); transform: translateY(-1px); }
+.people-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(43, 42, 38, .12);
+  border-left-color: var(--terra);
+}
 .pc-name { display: block; font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--terra-deep); }
 .pc-hook { display: block; font-size: .9rem; color: var(--ink-soft); margin-top: .25rem; line-height: 1.55; }
 .pc-src { display: block; font-size: .78rem; color: var(--ink-soft); margin-top: .4rem; opacity: .75; }
@@ -625,11 +882,14 @@ figure.geo-fig figcaption .cap-title { color: var(--ink); font-weight: 600; }
 @media (max-width: 760px) {
   body { font-size: 16px; }
   .geo-cols { grid-template-columns: 1fr; gap: 1.6rem; }
-  .page-header h1 { font-size: 2rem; }
   #map { max-height: 80vh; min-height: 380px; }   /* 直式手機以 aspect-ratio 取景，僅限制過高 */
   .teaching { padding: 1.3rem 1.2rem; }
+  .storyteller { padding: 1.2rem 1.3rem; }
   .themes-cats { grid-template-columns: 1fr; }
-  .geo-tabs { gap: .2rem; }
-  .geo-tab { font-size: .98rem; padding: .5rem .85rem; }
+  .geo-tabs { gap: .9rem; }
+  .geo-tab { font-size: .9rem; padding: .55rem .1rem; }
   .county-cards { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+  .page-header { padding: 1.4rem 1.3rem 1.6rem; }
+  .contour-orn { width: 90px; height: 90px; opacity: .05; }
+  figure.page-hero img { max-height: 220px; }
 }

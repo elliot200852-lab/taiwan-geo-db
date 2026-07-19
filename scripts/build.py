@@ -135,6 +135,44 @@ _SHARE_SVG  = ('<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="1
 _BACK_SVG   = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M12 5l-7 7 7 7"/></svg>'
 _COMPASS_SVG= '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2 5.2-5.2 2 2-5.2z"/></svg>'
 
+# ---- 視覺改版 v1（docs/DESIGN-SPEC.md，2026-07-19）共用片段 ----
+# 字體：與 taiwan-arts-db 同套 Google Fonts（§3）。
+_FONTS_HEAD = (
+    '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
+    '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
+    '  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500'
+    '&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">'
+)
+
+# 等高線角飾（§4.4）：inline SVG，內嵌模板不產生資產檔，aria-hidden、置於 .page-header 右上角。
+_CONTOUR_SVG = (
+    '<svg class="contour-orn" viewBox="0 0 160 160" aria-hidden="true" focusable="false">'
+    '<path d="M20 92 Q8 52 44 30 Q86 6 122 34 Q152 58 136 96 Q118 138 74 140 Q28 142 20 92Z"/>'
+    '<path d="M36 90 Q28 56 56 40 Q90 21 114 42 Q136 60 122 90 Q107 120 74 122 Q40 124 36 90Z"/>'
+    '<path d="M52 87 Q46 63 66 51 Q89 37 106 53 Q121 66 110 86 Q99 107 74 108 Q50 109 52 87Z"/>'
+    '</svg>'
+)
+
+# 比例尺分隔線（§4.3）：取代大段落之間的分隔。
+_SCALE_BAR = '<div class="scale-rule" aria-hidden="true"></div>'
+
+def site_bar():
+    """子頁站識別列（§5b）：新增區塊，加在 render_page()/render_theme() 模板最前。"""
+    return (
+        '<div class="site-bar">'
+        '<a class="site-bar-name" href="../index.html">認識臺灣——人文與自然地理資料庫</a>'
+        '<span class="site-bar-tag">教師備課用</span>'
+        '</div>'
+    )
+
+def page_hero_fig(pid, alt_name):
+    """情境 hero 圖（§6）：無條件輸出 <img>，不做存在檔案檢查——缺圖靠 verify_live_images.py 抓。"""
+    return (
+        f'<figure class="page-hero"><img src="../img/hero/{esc(pid)}.webp" '
+        f'alt="{esc(alt_name)}情境示意圖" loading="lazy">'
+        '<figcaption>情境插畫 · AI 生成意象</figcaption></figure>'
+    )
+
 def fab_block(home_href=None, up_href=None, up_label="上一層", rel_js="../js/fab.js"):
     """回傳浮標 + toast + fab.js 引用。home/up 為 None 時省略該鈕（首頁用）。"""
     actions = []
@@ -343,22 +381,32 @@ def render_page(fm, sections, related_themes=None, local_people=None):
     people_html = local_people_block(local_people)
     people_block = (people_html + "\n\n    ") if people_html else ""
 
+    pid = fm.get("id", "")
+    hero_fig = page_hero_fig(pid, fm.get("name", ""))
+    # 比例尺分隔線（§4.3）：只在對應的兩段都存在時才佔位，避免孤立分隔線
+    seam_teach_story = _SCALE_BAR if (teaching_section and story_section) else ""
+
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{name} — 認識臺灣</title>
+  {_FONTS_HEAD}
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  {site_bar()}
   <div class="page-wrap">
     <header class="page-header">
+      {_CONTOUR_SVG}
       <div class="eyebrow">{eyebrow}</div>
       <h1>{name}</h1>
       <div class="lede">{lede}</div>
       {stat_block}
     </header>
+
+    {hero_fig}
 
     <div class="geo-cols">
       <section class="geo-block nature">
@@ -371,7 +419,11 @@ def render_page(fm, sections, related_themes=None, local_people=None):
       </section>
     </div>
 
+    {_SCALE_BAR}
+
     {teaching_section}
+
+    {seam_teach_story}
 
     {story_section}
 
@@ -439,7 +491,8 @@ def render_theme(fm, sections, region_names):
         body_parts.append(
             f'<section class="theme-block"><h2>{esc(title)}</h2>{inner}</section>'
         )
-    body_html = "\n".join(body_parts)
+    # 比例尺分隔線（§4.3）：主題頁 theme-block 之間
+    body_html = f"\n{_SCALE_BAR}\n".join(body_parts)
 
     teaching_inner = badgeify(md2html(sections.get("教學特點", "")))
     teaching_section = ""
@@ -472,21 +525,29 @@ def render_theme(fm, sections, region_names):
     fab = fab_block(home_href="../index.html#general",
                     up_href="../index.html#themes", up_label="回議題列表")
 
+    pid = fm.get("id", "")
+    hero_fig = page_hero_fig(pid, fm.get("name", ""))
+
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{name} — 認識臺灣</title>
+  {_FONTS_HEAD}
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  {site_bar()}
   <div class="page-wrap theme-page">
     <header class="page-header">
+      {_CONTOUR_SVG}
       <div class="eyebrow">{eyebrow}</div>
       <h1>{name}</h1>
       <div class="lede">{lede}</div>
     </header>
+
+    {hero_fig}
 
     {body_html}
 

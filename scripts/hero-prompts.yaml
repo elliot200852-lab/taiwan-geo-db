@@ -1,0 +1,69 @@
+# taiwan-geo-db 視覺改版 v1 — 54 張情境 hero 圖 prompt 清單
+#
+# SSOT：docs/DESIGN-SPEC.md 第 6 節。
+# 這裡每一條只是「主體描述」（英文，供生圖），不含風格詞、不含「no text」等要求——
+# 風格前綴（鋼筆淡彩、大地色、no text 等）由 scripts/gen_hero_images.py 統一加在前面。
+#
+# 涵蓋：34 縣市/鄉鎮頁（含 taiwan 總覽頁本身）＋ 19 主題頁 ＋ index 總論頁頂 site-hero，共 54。
+# key＝page-id（對應 site/data/pages-index.json / themes-index.json 的 id，或固定字面 site-hero）。
+# 取材：每頁 frontmatter lede（定位速覽）與「自然地理」／「現象」段開頭，內容一字未改，只取意象。
+
+# ── 34 縣市/鄉鎮頁 ──────────────────────────────────────────
+changhua: "A vast, dead-flat alluvial rice-paddy plain hemmed between two braided rivers, with the low terraced silhouette of Bagua Tableland rising gently on the eastern horizon and a web of irrigation canals threading through the fields"
+chiayi-city: "A small gateway city sitting exactly where the vast Chianan Plain meets the rising foothills of the Alishan mountain range, flat farmland in the foreground giving way abruptly to forested slopes climbing toward the east"
+chiayi-county: "A dramatic vertical transect from a low sandy coastal shoal and lagoon in the far west, across the flat Chianan Plain, up through rolling foothills into the misty cypress-forested peaks of the Alishan range in the east"
+hsinchu-city: "A funnel-shaped coastal plain enclosed on three sides by low hills, with strong northeast monsoon wind visibly bending bamboo groves and rice-noodle drying racks on a windswept dune-backed shore"
+hsinchu-county: "A long sloping landscape falling from the jagged high peaks of the Snow Mountain range in the southeast down through mid-elevation ridges and terraces to a small braided river delta meeting the sea in the northwest"
+hualien: "The sheer marble cliffs of Taroko Gorge carved by the Liwu River, with the Central Mountain Range looming on one side and the low Coastal Range on the other across the long, narrow East Rift Valley"
+kaohsiung: "A low limestone hill of ancient uplifted coral reef standing beside a sheltered natural lagoon harbor, with the high peaks of the southern Central Mountain Range rising inland to the east"
+keelung: "A deep, drowned river-valley harbor cove ringed by steep misty green hills, a narrow rain-soaked inlet opening to the sea under low grey monsoon cloud"
+kinmen: "A low, wind-scoured granite island of bare rocky knolls and sand dunes, with a Kinmen wind-lion (Feng Shih Yeh) stone statue standing fully upright like a pillar on its hind legs, a small cape draped over its back, erect posture facing the sea toward the nearby mainland coast"
+lienchiang: "A cluster of steep granite peaks rising straight out of the sea like jagged stone teeth, narrow boat coves cut into precipitous cliffs under a windswept sky"
+miaoli: "A stepped landscape rising inland in bands of coastal plain, rolling hill, flat-topped tableland and finally high mountain, terraced fields and camphor-forested slopes layered one above the other"
+nantou: "The convergence of three great mountain ranges at the very center of the island, with Yushan's jagged summit rising above a sea of clouds and a river gorge threading through terraced valleys far below, no coastline in sight"
+new-taipei: "A rugged volcanic headland of sculpted sea-cliffs and stacked rock formations meeting the ocean, with the cone-shaped Datun volcanic peaks rising misty and green in the near distance behind the coast"
+penghu: "Flat-topped basalt tableland islands rimmed by tall hexagonal columnar-jointed cliffs like a giant stone organ, wind-bent grass and low dry-stone walls under a blustery open sky"
+pingtung: "A fan-shaped landscape opening from mountain foothills through a broad river-braided alluvial plain, narrowing south into a coral-reef peninsula with cliffs meeting turquoise sea"
+taichung: "A long low basin cradled between two parallel fault-line ridges, terraced rice fields and braided river gravel bars filling the trough beneath layered mountain silhouettes"
+tainan: "A dead-flat former lagoon shoreline where sandbars and river-delta mudflats merge into open water, shallow fish ponds and salt flats stretching toward a hazy horizon"
+taipei: "A ground-level view from a broad flat river plain: a wide calm river winds through reeds and open fields in the foreground, and far across the plain to the north a hazy skyline of gently rounded, long-dormant volcanic mountains rises like a soft wall (quiet grassy domes, no smoke), low forested hills closing the view on the east and west edges"
+taitung: "The long, straight East Rift Valley trench between the towering Central Mountain Range and the lower Coastal Range, with a volcanic island silhouette floating offshore in the Pacific beyond the coast"
+taiwan: "A ground-level view across a flat coastal gravel riverbed toward the abrupt, layered wall of Taiwan's central mountain spine rising straight out of the plain, a short braided river cutting through the foreground stones toward the sea"
+taoyuan: "A gently tilted tableland scattered with hundreds of small round irrigation ponds catching the sky like scattered mirrors, connecting canals threading between them under a wide open plateau sky"
+yilan-datong: "A deep, steep-walled river gorge in the high mountains, a fast grey braided river cutting through terraces of ancient cypress forest below jagged forested peaks"
+yilan-dongshan: "A perfectly straight, canal-like river channel cutting through a flat green plain, its course tracing back toward a distant waterfall tumbling from forested foothills at the mountain's edge"
+yilan-jiaoxi: "Wisps of steam rising from roadside vents and pools at the foot of steep northern mountains, a flat plain sloping away toward the sea with a small volcanic island visible offshore"
+yilan-luodong: "A perfectly flat rice plain at the crossing point of converging roads and a rail line, radiating outward toward a distant hazy mountain silhouette on the horizon"
+yilan-nanao: "A narrow corridor where steep mountains drop straight toward the Pacific, two braided rivers spilling from gorges to build a small fan-shaped delta of terraced fields at their combined mouth"
+yilan-sanxing: "A river bursting out of a mountain gorge onto a broad alluvial fan, coarse gravel near the peaks giving way to fine cultivated fields of green scallion rows spreading toward the plain"
+yilan-suao: "A plain narrowing to its final point where mountains and sea nearly meet, a sheltered natural cove harbor tucked between steep cliffs with the sheer wall of a rift-coast promontory beyond"
+yilan-toucheng: "A narrow ribbon of coastal plain pinned between steep mountains and open sea, a silted-up river-mouth harbor inlet with reed-lined channels and a volcanic island floating just offshore"
+yilan-wujie: "The confluence of three rivers spilling across a dead-flat delta plain into the Pacific, braided channels glinting across open green fields under a wide coastal sky"
+yilan-yilan: "A flat triangular river-delta plain with the faint circular trace of an old earthen city moat and embankment visible in the fields, radiating waterways and distant mountains ringing the horizon"
+yilan-yuanshan: "Clear spring water bubbling up through sandy pond floors at the foot of misty mountains, a patchwork of ponds and paddy fields catching the light where hills meet plain"
+yilan-zhuangwei: "A flat sandy river-mouth delta where a coastal plain meets the sea, low dunes and a long windbreak forest of wind-bent trees shielding fields from the open ocean gusts"
+yunlin: "An immense flat alluvial plain built entirely of river silt, endless green rice fields stretching to the horizon with a wide braided grey riverbed cutting across the middle distance"
+
+# ── 19 主題頁 ────────────────────────────────────────────────
+theme-coast: "A single sweeping coastline transect blending four distinct edges in one panorama, a rocky headland with wind-carved stone on the left, a wide muddy tidal flat at center, a coral-reef shallow bay further along, and a sheer cliff dropping straight to the sea on the right"
+theme-earthquake: "A raw, fresh fault scarp splitting straight across a green rural valley floor, terraced rice fields abruptly stepped upward on one side, layered mountains looming behind"
+theme-ecology: "A single mountain slope shown as a vertical transect, tropical coastal forest at its foot rising through subtropical broadleaf and misty temperate cypress forest to wind-stunted alpine scrub near a cloud-wrapped summit"
+theme-fishery: "A heart-shaped stone tidal weir curving across a shallow intertidal flat at low tide, silhouetted fishing boats resting in a nearby cove and distant salt-pan pools glinting under open coastal sky"
+theme-geothermal: "A misty valley of steaming sulfur vents and pale mineral-stained pools rising from cracked ground at the foot of volcanic hills, wisps of vapor drifting across terraced hot-spring basins"
+theme-irrigation: "A historic irrigation canal winding away from a small stone river weir, threading through a patchwork of flooded rice paddies that mirror the sky toward distant hills"
+theme-migration: "An old river-mouth landing point where a bamboo-palisaded earthen settlement wall encloses thatched houses among rice fields, small boats drawn up on the bank beneath layered coastal hills"
+theme-mountains: "The jagged spine of Taiwan's central mountain range breaking above a sea of clouds, a deep rift valley trench visible far below between two parallel ranges"
+theme-placenames: "A river-delta landscape where the faint earthworks of an old palisaded hamlet enclosure sit amid a patchwork of rice paddies and canals, layered traces of settlement visible in the fields at dusk"
+theme-population: "A single wide horizon where a dense glowing cluster of city lights and rooftops on the left fades gradually into empty dark mountains and a quiet undeveloped coastline on the right at dusk"
+theme-rain: "The same mountain ridge shown split down the middle, one side wrapped in heavy grey monsoon cloud pouring rain over misty terraced fields, the other side sunlit and dry with clear golden light"
+theme-rivers: "A wide braided riverbed of pale gravel bars threaded by a few thin channels of water, mountains rising steeply behind and a long bridge spanning the empty stone expanse"
+theme-soil: "A split landscape of dark, waterlogged black paddy soil in the foreground giving way to an exposed rust-red laterite terrace cliff face in the middle distance, green hills beyond"
+theme-springs: "A shallow sandy-bottomed spring pond at the foot of misty hills, clusters of bubbles rising through clear water among reeds, small terraced ponds stepping away toward rice fields"
+theme-tea: "Terraced tea plantations climbing in soft green rows up a steep, cloud-wrapped highland slope, mist drifting between the rows toward a high mountain ridge"
+theme-temples: "An old temple's grand curved rooftop rising at the exact center of a village, narrow streets and rooftops radiating outward from the temple courtyard toward distant hills"
+theme-transport: "A narrow road and rail line carved into the sheer face of a towering marble sea-cliff, clinging to the rock high above crashing waves with the cliff dropping straight into the Pacific"
+theme-typhoon: "Dark swirling storm clouds massing over a harbor at dusk, fishing boats crowding into a sheltered cove ahead of the approaching wind, waves already whipping against a breakwater"
+theme-wind: "A gust-swept coastal plain where drying racks of food sway sideways in strong wind beside a low dry-stone walled garden enclosure, wind-bent trees leaning uniformly in one direction"
+
+# ── index 總論 tab 頂 ──────────────────────────────────────────
+site-hero: "A sweeping aerial panorama of the whole island of Taiwan — a leaf-shaped island like a sweet potato, broad in the north and tapering to a narrow southern peninsula, its western coastline gently curved — the central mountain spine running north to south with a deep rift valley to its east, coastal plains fanning out to the west, rugged cliffs along the eastern shore, and small outlying islands scattered in the surrounding sea"

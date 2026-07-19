@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>認識臺灣 — 人文與自然地理資料庫</title>
+  <title>認識臺灣——人文與自然地理資料庫</title>
   <meta name="description" content="教師備課用的臺灣地理資料庫：互動地圖導航，每區以人文地理／自然地理雙區塊呈現。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="vendor/leaflet.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-head">
-    <h1>認識臺灣</h1>
-    <p>人文與自然地理資料庫 · 教師備課用</p>
+    <p class="eyebrow">教師備課用</p>
+    <h1>認識臺灣——人文與自然地理資料庫</h1>
   </header>
 
   <nav class="geo-tabs" role="tablist" aria-label="首頁導覽">
@@ -24,6 +27,12 @@
   <main>
     <!-- 總論 -->
     <section class="tab-panel" data-panel="general" role="tabpanel">
+      <div class="hero-wrap">
+        <figure class="page-hero">
+          <img src="img/hero/site-hero.webp" alt="臺灣地理與人文情境示意圖" loading="lazy">
+          <figcaption>情境插畫 · AI 生成意象</figcaption>
+        </figure>
+      </div>
       <div class="general-intro">
         <p>這是一個給老師備課用的臺灣人文與自然地理資料庫。每個地方分「自然地理」「人文地理」兩塊呈現，並附可直接帶進五年級課堂的教學素材與說書切分提示。</p>
         <a class="intro-cta" href="pages/taiwan.html">📖 臺灣概論——地形、氣候、人口、22 縣市總覽</a>
