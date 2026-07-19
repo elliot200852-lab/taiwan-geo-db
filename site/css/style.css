@@ -171,15 +171,6 @@ figure.page-hero img {
   border: 1px solid var(--hair);
   background: var(--paper-2);
 }
-figure.page-hero figcaption {
-  text-align: right;
-  font-size: .72rem;
-  color: var(--ink-soft);
-  opacity: .75;
-  margin-top: .5rem;
-  padding: 0 .2rem;
-}
-
 /* 總論分頁 */
 .general-intro {
   max-width: 720px;
@@ -677,6 +668,7 @@ figure.geo-fig figcaption .cap-title { font-family: var(--serif); color: var(--i
 .page-foot h3 { font-size: 1rem; margin: 0 0 .5rem; color: var(--ink); }
 .page-foot ul { padding-left: 1.2rem; margin: 0 0 1rem; }
 .page-foot li { margin: .2rem 0; word-break: break-all; }
+.src-host { font-family: var(--sans); font-size: .78rem; color: var(--ink-soft); opacity: .75; }
 .page-foot .credit { border-top: 1px dashed var(--line); padding-top: .8rem; margin-top: .8rem; }
 
 /* ---------- 首頁：主題入口 ---------- */

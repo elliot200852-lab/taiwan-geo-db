@@ -82,7 +82,7 @@
 ## 6. 情境 hero 圖（54 張，一次到位）
 
 - **配置**：34 縣市/鄉鎮頁＋19 主題頁各一張、index 總論 tab 頂一張 site-hero，共 54。
-- **位置**：`figure.page-hero` 緊接 `.page-header` 之後（index 為 `.general-intro` 頂）；`<img>` 寬滿內文欄、`aspect-ratio:21/9; object-fit:cover; max-height:340px`；套圖廓框；圖說靠右 0.72rem：「情境插畫 · AI 生成意象」（每頁必標，不可省）。
+- **位置**：`figure.page-hero` 緊接 `.page-header` 之後（index 為 `.general-intro` 頂）；`<img>` 寬滿內文欄、`aspect-ratio:21/9; object-fit:cover; max-height:340px`；套圖廓框；**不加圖說**（2026-07-19 David 拍板：一看就知道是繪圖，不需標註「情境插畫 · AI 生成意象」——原規則已作廢；史料照 `geo-fig` 的作者／授權／來源圖說不受影響，維持必標）。
 - **路徑約定（slug 推導，不進 frontmatter）**：`site/img/hero/{page-id}.webp`；index 用 `site/img/hero/site-hero.webp`。build.py **無條件**為每頁輸出 hero `<img>`（不做存在檢查）——缺圖時 `verify_live_images.py` 必然抓到，杜絕靜默缺圖。
 - **風格**：鋼筆淡彩（與 arts-db 76 張同風），限定大地色（赭土/苔綠/輿圖藍/米紙）；畫**地景**——縣市頁畫該地最具代表性的地理景觀（從該頁 lede/自然地理段取材），主題頁畫該主題的意象地景；橫幅寬構圖；不出現文字、不畫可辨識人臉（人物只允許遠景剪影）。
 - **prompt 風格前綴（批次腳本統一使用）**：

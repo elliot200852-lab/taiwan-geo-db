@@ -12,6 +12,7 @@
 """
 import sys, os, re, json, html
 import urllib.request
+from urllib.parse import urlparse
 from pathlib import Path
 
 try:
@@ -27,6 +28,7 @@ OUT_PAGES = ROOT / "site" / "pages"
 OUT_INDEX = ROOT / "site" / "data" / "pages-index.json"
 OUT_THEMES = ROOT / "site" / "data" / "themes-index.json"
 IMG_MANIFEST = ROOT / "site" / "img" / "manifest.json"
+SOURCE_TITLES_FILE = ROOT / "scripts" / "source-titles.yaml"
 
 # 反向鏈：taiwan-arts-db 人物頁（唯讀引用，見 _governance/protocols/cross-repo-reference.md）。
 # 本機優先讀同層 sibling repo（~/MyWork 下兩 repo 平行放）；CI 沒有 sibling 時改抓
@@ -55,6 +57,42 @@ def load_img_manifest():
     return {}
 
 IMG_MAP = load_img_manifest()
+
+# 資料來源 URL -> 中文標題對照（由 scripts/fetch_source_titles.py 產生／人工補洞）。
+# 屬 build 輸入而非內容，與 img manifest 同性質；缺檔或讀取失敗一律 fallback 裸 URL，
+# 不得讓 build 掛掉。母本 content/**/*.md 的 sources 維持純 URL，零改動。
+def load_source_titles():
+    if SOURCE_TITLES_FILE.exists():
+        try:
+            data = yaml.safe_load(SOURCE_TITLES_FILE.read_text(encoding="utf-8")) or {}
+            if isinstance(data, dict):
+                return data
+            print(f"  ! source-titles.yaml 內容非對照表格式，來源連結全部退回裸 URL")
+        except Exception as e:
+            print(f"  ! 讀 source-titles.yaml 失敗，來源連結全部退回裸 URL：{e}")
+    return {}
+
+SOURCE_TITLES = load_source_titles()
+
+def source_host(url):
+    """網域短形式：去 www.，供來源連結後綴顯示（如「(tcmb.culture.tw)」）。"""
+    try:
+        netloc = urlparse(url).netloc
+    except Exception:
+        return ""
+    return netloc[4:] if netloc.startswith("www.") else netloc
+
+def source_link_html(url):
+    """單條資料來源的 <a>：查得到中文標題就顯示「標題 (host)」，查不到就維持
+    裸 URL（原行為，向下相容）。"""
+    title = (SOURCE_TITLES.get(url) or "").strip()
+    href = esc(url)
+    if title:
+        host = esc(source_host(url))
+        host_span = f' <span class="src-host">({host})</span>' if host else ""
+        return (f'<a href="{href}" target="_blank" rel="noopener">{esc(title)}</a>'
+                f'{host_span}')
+    return f'<a href="{href}" target="_blank" rel="noopener">{esc(url)}</a>'
 
 # ---- 反向鏈資料：taiwan-arts-db 人物 pin（唯讀，arts-db 側零改動）----
 def load_arts_people():
@@ -166,11 +204,12 @@ def site_bar():
     )
 
 def page_hero_fig(pid, alt_name):
-    """情境 hero 圖（§6）：無條件輸出 <img>，不做存在檔案檢查——缺圖靠 verify_live_images.py 抓。"""
+    """情境 hero 圖（§6）：無條件輸出 <img>，不做存在檔案檢查——缺圖靠 verify_live_images.py 抓。
+    不加圖說（2026-07-19 David 拍板：一看就知道是繪圖，不需標註；史料照 geo-fig 的
+    figcaption 作者／授權／來源不受影響）。"""
     return (
         f'<figure class="page-hero"><img src="../img/hero/{esc(pid)}.webp" '
-        f'alt="{esc(alt_name)}情境示意圖" loading="lazy">'
-        '<figcaption>情境插畫 · AI 生成意象</figcaption></figure>'
+        f'alt="{esc(alt_name)}情境示意圖" loading="lazy"></figure>'
     )
 
 def fab_block(home_href=None, up_href=None, up_label="上一層", rel_js="../js/fab.js"):
@@ -347,10 +386,7 @@ def render_page(fm, sections, related_themes=None, local_people=None):
 
     # 頁尾來源
     sources = fm.get("sources") or []
-    src_items = "\n".join(
-        f'<li><a href="{esc(s)}" target="_blank" rel="noopener">{esc(s)}</a></li>'
-        for s in sources
-    )
+    src_items = "\n".join(f'<li>{source_link_html(s)}</li>' for s in sources)
     src_block = f'<h3>資料來源</h3><ul>{src_items}</ul>' if src_items else ""
 
     # 浮標「上一層」目標：概論→總論 tab、宜蘭鄉鎮→宜蘭縣地圖、其餘縣市→分縣市 tab。
@@ -521,10 +557,7 @@ def render_theme(fm, sections, region_names):
     gallery_html = figures_unplaced(images, placed)
 
     sources = fm.get("sources") or []
-    src_items = "\n".join(
-        f'<li><a href="{esc(s)}" target="_blank" rel="noopener">{esc(s)}</a></li>'
-        for s in sources
-    )
+    src_items = "\n".join(f'<li>{source_link_html(s)}</li>' for s in sources)
     src_block = f'<h3>資料來源</h3><ul>{src_items}</ul>' if src_items else ""
 
     fab = fab_block(home_href="../index.html#general",
