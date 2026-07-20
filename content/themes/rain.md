@@ -6,6 +6,7 @@ layer: 自然地理
 layer_sub: 島的身世
 theme_group: 天空的脾氣
 chip_label: 臺灣的雨
+tags_g5: [火燒寮, 梅雨, 地形雨]
 regions:
   - id: yilan-yilan
     hook: 東北季風正面迎風——蘭陽平原秋冬綿綿細雨、幾乎沒有乾季，宜蘭的水田就靠這場冬雨

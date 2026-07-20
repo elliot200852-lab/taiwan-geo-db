@@ -6,6 +6,7 @@ layer: 自然地理
 layer_sub: 島的身世
 theme_group: 土壤與生靈
 chip_label: 臺灣的垂直生態
+tags_g5: [檜木, 玉山圓柏, 特有種, 冰河孑遺]
 regions:
   - id: pingtung
     hook: 恆春半島與墾丁——臺灣唯一的熱帶，珊瑚礁海岸與熱帶季風林，是這道垂直階梯最底下那一格「不下雪的南國」

@@ -6,6 +6,7 @@ layer: 人文地理
 layer_sub: 人的足跡
 theme_group: 路怎麼連起來
 chip_label: 臺灣的鐵路與公路
+tags_g5: [蘇花公路, 北迴鐵路, 南迴鐵路, 中山高速公路]
 regions:
   - id: yilan-nanao
     hook: 北迴鐵路通車前的孤村——去臺北得先搭客運繞蘇花公路的懸崖到蘇澳，遇落石管制就在管制站前排隊等放行

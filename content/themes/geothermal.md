@@ -6,6 +6,7 @@ layer: 自然地理
 layer_sub: 島的身世
 theme_group: 大地的骨架
 chip_label: 臺灣的溫泉與地熱
+tags_g5: [北投石, 關子嶺, 清水地熱, 朝日溫泉]
 regions:
   - id: yilan-jiaoxi
     hook: 礁溪街上水溝冒白煙——蘭陽平原上少見的平原溫泉；再往山裡走，清水地熱煮蛋、發電，把地球的體溫變成綠電

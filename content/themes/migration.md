@@ -6,6 +6,7 @@ layer: 人文地理
 layer_sub: 人的足跡
 theme_group: 人從哪裡來
 chip_label: 臺灣的移民與族群
+tags_g5: [原住民, 客家, 眷村, 新住民]
 regions:
   - id: yilan-toucheng
     hook: 烏石港——1796 年吳沙率漳州、泉州、廣東移民由此登陸，把噶瑪蘭平原一步步變成漢人的「圍」與「結」

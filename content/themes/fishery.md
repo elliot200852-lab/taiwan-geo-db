@@ -6,6 +6,7 @@ layer: 人文地理
 layer_sub: 人的足跡
 theme_group: 人靠什麼生活
 chip_label: 臺灣的漁與鹽
+tags_g5: [黑鮪魚, 石滬, 烏魚, 井仔腳瓦盤鹽田]
 regions:
   - id: yilan-suao
     hook: 南方澳——黑潮流到大陸棚邊緣、冷暖水交會把深層養分帶上來，餵出成群鯖魚，全臺約九成鯖魚在此上岸，陸連島還圍出一座遮風好港

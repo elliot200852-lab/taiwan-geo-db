@@ -6,6 +6,7 @@ layer: 人文地理
 layer_sub: 人的足跡
 theme_group: 人靠什麼生活
 chip_label: 臺灣的水圳與稻米
+tags_g5: [嘉南大圳, 八堡圳, 瑠公圳, 烏山頭水庫]
 regions:
   - id: changhua
     hook: 八堡圳——清代臺灣最大的水圳，施世榜引濁水溪的水灌溉半線平原，「林先生」的傳說與二水跑水節留到今天

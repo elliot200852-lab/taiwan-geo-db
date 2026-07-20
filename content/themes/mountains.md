@@ -6,6 +6,7 @@ layer: 自然地理
 layer_sub: 島的身世
 theme_group: 大地的骨架
 chip_label: 臺灣的山脈
+tags_g5: [中央山脈, 玉山, 雪山, 海岸山脈, 蓬萊造山運動]
 regions:
   - id: yilan-datong
     hook: 太平山檜木林與雪山山脈北段——蘭陽溪從三千公尺高山一路沖下，紅檜扁柏就長在終年雲霧的高處

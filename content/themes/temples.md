@@ -6,6 +6,7 @@ layer: 人文地理
 layer_sub: 人的足跡
 theme_group: 人住在哪裡
 chip_label: 臺灣的廟宇與聚落
+tags_g5: [媽祖, 王爺, 土地公, 迎王]
 regions:
   - id: yilan-wujie
     hook: 利澤簡永安宮的媽祖是「八大庄」共同的信仰中心——元宵扛神轎賽跑的「走尪」，把冬山河下游八個庄頭綁成一氣，一間河港媽祖廟連起一整片聚落

@@ -6,6 +6,7 @@ layer: 自然地理
 layer_sub: 島的身世
 theme_group: 天空的脾氣
 chip_label: 臺灣的風
+tags_g5: [九降風, 落山風, 焚風]
 regions:
   - id: hsinchu-city
     hook: 「風城」新竹——喇叭口地形把秋冬的東北季風夾得又急又乾，這股「九降風」正好拿來曬米粉、曬柿餅

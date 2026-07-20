@@ -6,6 +6,7 @@ layer: 人文地理
 layer_sub: 人的足跡
 theme_group: 人住在哪裡
 chip_label: 臺灣的地名
+tags_g5: [結首制, 艋舺, 打狗]
 regions:
   - id: yilan-toucheng
     hook: 頭城（頭圍）是吳沙「開蘭第一城」——這裡的「圍」是築土牆刺竹自衛的聚落，頭圍一路排到五圍，號碼就是墾首制拓墾往南推進的里程碑

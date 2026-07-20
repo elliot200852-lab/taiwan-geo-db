@@ -6,6 +6,7 @@ layer: 自然地理
 layer_sub: 島的身世
 theme_group: 天空的脾氣
 chip_label: 臺灣的颱風
+tags_g5: [颱風眼, 眼牆, 焚風, 石門水庫]
 regions:
   - id: yilan-suao
     hook: 南方澳的遮風內灣是陸連島圍出來的天然避風港——颱風警報一響，滿港漁船趕在風前收工進港

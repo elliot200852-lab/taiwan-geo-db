@@ -6,6 +6,7 @@ layer: 自然地理
 layer_sub: 島的身世
 theme_group: 大地的骨架
 chip_label: 臺灣的海岸
+tags_g5: [女王頭, 珊瑚礁, 斷層海岸, 黑潮]
 regions:
   - id: new-taipei
     hook: 北邊的岬灣岩岸——大屯山餘脈探進海裡的野柳岬，砂岩被浪與風差別侵蝕，磨出女王頭和一列蕈狀岩

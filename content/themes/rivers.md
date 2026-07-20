@@ -6,6 +6,7 @@ layer: 自然地理
 layer_sub: 島的身世
 theme_group: 水的旅行
 chip_label: 臺灣的河流
+tags_g5: [濁水溪, 淡水河, 高屏溪, 立霧溪, 蘭陽溪]
 regions:
   - id: yilan-sanxing
     hook: 蘭陽溪（舊名宜蘭濁水溪）——夾在雪山與中央山脈之間，含砂混濁、坡陡流急，出山口鋪成一大片蘭陽沖積扇

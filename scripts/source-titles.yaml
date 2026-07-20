@@ -863,90 +863,101 @@ https://zh.wikipedia.org/zh-tw/外傘頂洲: 外傘頂洲 - 維基百科
 https://zh.wikipedia.org/zh-tw/新港奉天宮: 新港奉天宮 - 維基百科
 https://zh.wikipedia.org/zh-tw/阿里山林業鐵路: 阿里山林業鐵路 - 維基百科
 
+
+# ---- 以下為 2026-07-20 死鏈標題考證補洞（43 條中的 39 條，逐條附考證來源）----
+# 考證手段：wayback＝Wayback Machine 最近可用快照的 <title>；
+# 「直接下載現行 PDF」＝該 URL 原判定失敗僅因回應為 PDF 無 <title> 標籤，
+# 實際可下載，標題取自 PDF 正文首頁；查無標題者不寫、維持裸 URL fallback（見檔尾）。
+# 注意：若之後重跑 fetch_source_titles.py 全量改寫本檔，這些考證來源註記會被覆寫
+# （腳本只保留 key: value，不保留註解），標題本身則會保留；考證過程請查此次 commit。
+# [考證：wayback 2022-11-29 快照 title]
+http://gn.geog.ntu.edu.tw/GeoNames/usage.aspx: 地名資訊服務網
+# [考證：wayback 2026-02-12 快照 title]
+https://abda.hl.gov.tw/Ethnicity/Amis: 花蓮縣原住民族傳統文化數位典藏-族群探索-阿美族
+# [考證：wayback 2026-03-02 快照 title]
+https://afrch.forest.gov.tw/0000052: 林業鐵路-歷史介紹
+# [考證：wayback 2024-06-05 快照 title]
+? https://atmos.pccu.edu.tw/asWeb/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%BE%8E%E6%B9%96%E7%9A%84%E9%99%8D%E9%9B%A8%E9%87%8F%E6%9C%83%E8%BC%83%E8%87%BA%E7%81%A3%E6%9C%AC%E5%B3%B6%E5%B0%91%EF%BC%9F/
+: 為什麼澎湖的降雨量會較臺灣本島少？ – 中國文化大學大氣科學系
+# [考證：直接下載現行 PDF（2026-07-20），取正文首頁標題]
+https://cdprc.ey.gov.tw/File/8F36ACD860B74969?A=C: 113年國家防災日推動綱要計畫（行政院）
+# [考證：wayback 2026-03-10 快照 title]
+https://conservation.forest.gov.tw/0000139: 棲地保育 - 野生動物保護區 - 蘭陽溪口水鳥保護區
+# [考證：wayback 2024-01-30 快照 title]
+https://conservation.forest.gov.tw/0000504: 自然地景保育 - 自然地景、自然紀念物 - 自然地景 - 自然保留區 - 南澳闊葉樹林自然保留區
+# [考證：直接下載現行 PDF（2026-07-20），正文首頁標題與 URL 檔名解碼一致]
+? https://jcshieh.tw/wp-content/uploads/2017/04/%E8%8E%AB%E6%8B%89%E5%85%8B%E9%A2%B1%E9%A2%A8%E6%9A%B4%E9%9B%A8%E9%87%8F%E5%8F%8A%E6%B4%AA%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90.pdf
+: 莫拉克颱風暴雨量及洪流量分析（經濟部水利署）
+# [考證：wayback 2024-04-21 快照 title（原始 title 標籤文章名與站名間無分隔符，補一個「 - 」供辨讀，內容未改字）]
+https://kjmu.org.tw/%E5%8F%B0%E7%81%A3%E8%A1%97%E5%B1%8B%E4%BA%AD%E4%BB%94%E8%85%B3%E9%A8%8E%E6%A8%931/: 李乾朗／台灣街屋的亭仔腳與騎樓（上）：因應多雨氣候而生成的走道
+  - 財團法人空間母語文化藝術基金會
+# [考證：wayback 2024-12-17 快照 title]
+https://memorial.e-land.gov.tw/cp.aspx?n=D613EE8832975F6B: 宜蘭設治紀念館-宜蘭設治大事記
+# [考證：wayback 2016-05-20 快照 __VIEWSTATE 內嵌 h2 標題還原（現站 <title> 已空白，2019 年後版本 ViewState 加密無法還原）]
+https://nrch.culture.tw/twpedia.aspx?id=1501: 蘭陽溪 - 台灣大百科全書
+# [考證：wayback 2026-05-25 快照 title]
+https://statfy.mol.gov.tw/index12.aspx: 勞動統計查詢網
+# [考證：wayback 2024-04-15 快照 title]
+https://store.teascholar.com/blog/7001/introducing-mt-ali-high-mountain-oolong-tea-zh: 台灣最知名的高冷茶區：阿里山高山茶，高山輕發酵烏龍
+# [考證：wayback 2026-01-22 快照 title]
+https://storystudio.tw/article/gushi/formosa-tea: 十九世紀至今，臺灣如何維持歷久不衰的「茶葉王國」地位？
+# [考證：wayback 2022-10-03 快照 title]
+https://theme.matsu-nsa.gov.tw/GeologyTravel/Articles.aspx?a=2696&l=1: 聚落建築 - 馬祖國家風景區地質公園深度旅遊網
+# [考證：wayback 2024-06-16 快照 title]
+https://think.folklore.tw/posts/1085: 追憶171年前那場颱風：遺留口湖與四湖的水難者祠祀與牽水「車藏」儀式 – 民俗亂彈
+# [考證：wayback 2023-03-27 快照 title]
+https://travel.yilan.tw/zh-tw/attraction/details/392: 梅花湖 | 宜蘭旅遊網-宜蘭勁好玩
+# [考證：wayback 2022-12-07 快照 title（big5hkscs 解碼，原抓取判為亂碼因誤用 utf-8）]
+https://twstudy.iis.sinica.edu.tw/Han/Paper/mazu/JiSiViewCaoTun.htm: 由祭祀圈來看草屯鎮的地方組織*
+# [考證：wayback 2023-10-04 快照 title]
+https://water.ntpc.gov.tw/News/Detail/1483.htm: 新北水漾-淡水河流域介紹
+# [考證：直接下載現行 PDF（2026-07-20），正文首頁標題]
+https://ws.ndc.gov.tw/001/administrator/10/relfile/0/15175/11a5a84b-06d0-43bb-941b-f9485c31c896.pdf: 近年我國縣市人口變動情形及影響因素（國家發展委員會委託研究）
+# [考證：直接下載現行 PDF（2026-07-20），正文首頁標題]
+https://www.cwa.gov.tw/Data/service/hottopic/14277057430.pdf: 臺灣分區雨量的季節氣候特徵（中央氣象署）
+# [考證：直接下載現行 PDF（2026-07-20），正文首頁標題]
+https://www.cwa.gov.tw/V8/C/K/Encyclopedia/typhoon/typhoon.pdf: 颱風百問（中央氣象署編印）
+# [考證：wayback 2024-02-10 快照 title]
+https://www.e-land.gov.tw/cp.aspx?n=3BA711487C292039&s=B9E13A6E002BB978: 宜蘭縣政府全球資訊網 - Yilan County Government-宜蘭歷史
+# [考證：直接下載現行 PDF（2026-07-20），正文首頁標題]
+https://www.gsmma.gov.tw/uploads/1719285160557fsB5meX9.pdf: 0403花蓮地震地質調查報告（經濟部地質調查及礦業管理中心）
+# [考證：直接下載現行 PDF（2026-07-20），正文首頁標題]
+https://www.hakka.gov.tw/File/Attach/37585/File_96737.pdf: 110年全國客家人口暨語言基礎資料調查研究（客家委員會）
+# [考證：wayback 2021-09-17 快照 title（big5hkscs 解碼，原抓取判為亂碼因誤用 utf-8）]
+https://www.ilan-travel.com.tw/ilan-travel/subject/mackerel/intro.html: 南方澳鯖魚節簡介
+# [考證：wayback 2024-05-23 快照 title]
+https://www.jw.gov.tw/cp.aspx?n=85B9135C64708B8B&s=CF6C48CEFB93A5EE: 壯圍鄉公所-本鄉簡介
+# [考證：wayback 2024-05-21 快照 title]
+https://www.kunputw.com/archives/%E5%B0%8F%E4%BA%AC%E9%83%BD: 消失的台中—回不去的小京都 – 薰風
+# [考證：wayback 2022-02-14 快照 title]
+https://www.matsu.gov.tw/chhtml/content/371040100A/2112: 馬祖-連江縣政府-地質地形
+# [考證：wayback 2024-12-03 快照 title]
+https://www.nanao.e-land.gov.tw/cp.aspx?n=04302686A64D2F1B: 南澳鄉公所-行政區域
+# [考證：wayback 2020-02-17 快照正文首段標題（該頁為 Word 匯出 HTML，<title> 標籤本身為空）]
+https://www.nhu.edu.tw/~society/e-j/90/20.htm: 鹿港街區角頭廟安營鎮符領域之空間建構（南華大學社會學研究所電子期刊第90期，洪惠琪）
+# [考證：wayback 2026-03-11 快照 title]
+https://www.nmp.gov.tw/cl.aspx?n=8830: 國立臺灣史前文化博物館-卑南遺址公園
+# [考證：直接下載現行 PDF（2026-07-20），正文首頁標題]
+https://www.ntl.edu.tw/public/Attachment/49201348629.pdf: 漢族入墾：蘭陽平原的港街發展與街庄社會（溫振華）
+# [考證：直接下載現行 PDF（2026-07-20），正文首頁標題]
+https://www.ntl.edu.tw/public/Attachment/811615584426.pdf: 中國人移入：外省人的人數、來源與分布（葉高華）
+# [考證：wayback 2023-01-30 快照 title]
+https://www.tres.gov.tw/ws.php?id=3781: 文山包種茶(茶業改良場)
+# [考證：直接下載現行 PDF（2026-07-20），正文首頁標題]
+https://www.twcenter.org.tw/wp-content/uploads/2015/05/g02_04_02_05.pdf: 檜木霧林的原鄉-阿里山：阿里山開拓史（陳玉峰）
+# [考證：直接下載現行 PDF（2026-07-20），正文首頁標題]
+https://wwwacc.ntl.edu.tw/public/Attachment/811615572091.pdf: 戰後初期到1950年代臺灣人口移出與移入（林桶法）
+# [考證：直接下載現行 PDF（2026-07-20），正文首頁標題]
+https://wwwacc.ntl.edu.tw/public/Attachment/910297234612.pdf: 八堡圳開築工程傳奇人物（陳水源）
+# [考證：wayback 2024-08-12 快照 title]
+https://yshhr.e-land.gov.tw/cp.aspx?n=9AF5B09996D3F31B: 宜蘭縣政府-員山戶政-人口統計
+
 # ---- 以下為抓取失敗／查無標題，維持裸 URL fallback（人工複查用）----
-# http://gn.geog.ntu.edu.tw/GeoNames/usage.aspx
-#   原因：HTTPConnectionPool(host='gn.geog.ntu.edu.tw', port=80): Max retries exceeded with url: /GeoNames/usage.aspx (Caused by NameResolutionError("HTTPConnec
 # http://web.ilancity.gov.tw/ilanes-002/004-3.html
-#   原因：HTTPConnectionPool(host='web.ilancity.gov.tw', port=80): Max retries exceeded with url: /ilanes-002/004-3.html (Caused by ConnectTimeoutError(<HTTPCon
-# https://abda.hl.gov.tw/Ethnicity/Amis
-#   原因：HTTP 404
-# https://afrch.forest.gov.tw/0000052
-#   原因：curl fallback HTTP 404
-# https://atmos.pccu.edu.tw/asWeb/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%BE%8E%E6%B9%96%E7%9A%84%E9%99%8D%E9%9B%A8%E9%87%8F%E6%9C%83%E8%BC%83%E8%87%BA%E7%81%A3%E6%9C%AC%E5%B3%B6%E5%B0%91%EF%BC%9F/
-#   原因：HTTPSConnectionPool(host='atmos.pccu.edu.tw', port=443): Max retries exceeded with url: /asWeb/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%BE%8E%E6%B9%96%E7%9A%84%
-# https://cdprc.ey.gov.tw/File/8F36ACD860B74969?A=C
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://conservation.forest.gov.tw/0000139
-#   原因：curl fallback HTTP 404
-# https://conservation.forest.gov.tw/0000504
-#   原因：curl fallback HTTP 404
-# https://jcshieh.tw/wp-content/uploads/2017/04/%E8%8E%AB%E6%8B%89%E5%85%8B%E9%A2%B1%E9%A2%A8%E6%9A%B4%E9%9B%A8%E9%87%8F%E5%8F%8A%E6%B4%AA%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://kjmu.org.tw/%E5%8F%B0%E7%81%A3%E8%A1%97%E5%B1%8B%E4%BA%AD%E4%BB%94%E8%85%B3%E9%A8%8E%E6%A8%931/
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://memorial.e-land.gov.tw/cp.aspx?n=D613EE8832975F6B
-#   原因：curl fallback HTTP 404
+#   原因：2026-07-20 複查：DNS 可解析（210.69.149.36）但連線逾時（port 80 不通）；web.archive.org CDX 查無任何快照（從未被收錄）。維持裸 URL。
 # https://memory.culture.tw/Home/Detail?Id=485756&IndexCode=Culture_Event
-#   原因：HTTPSConnectionPool(host='memory.culture.tw', port=443): Max retries exceeded with url: /Home/Detail?Id=485756&IndexCode=Culture_Event (Caused by Name
-# https://nrch.culture.tw/twpedia.aspx?id=1501
-#   原因：標題為空
+#   原因：2026-07-20 複查：DNS 已無法解析（NXDOMAIN，域名疑似已停用）；web.archive.org CDX 查無此 Id=485756 的快照（同網域其他 Id 有收錄，僅此條缺）。維持裸 URL。
 # https://nrch.culture.tw/twpedia.aspx?id=3312
-#   原因：標題為空
-# https://statfy.mol.gov.tw/index12.aspx
-#   原因：HTTPSConnectionPool(host='statfy.mol.gov.tw', port=443): Max retries exceeded with url: /index12.aspx (Caused by ConnectTimeoutError(<HTTPSConnection(
-# https://store.teascholar.com/blog/7001/introducing-mt-ali-high-mountain-oolong-tea-zh
-#   原因：HTTPSConnectionPool(host='store.teascholar.com', port=443): Max retries exceeded with url: /blog/7001/introducing-mt-ali-high-mountain-oolong-tea-zh (
-# https://storystudio.tw/article/gushi/formosa-tea
-#   原因：標題疑似亂碼
-# https://theme.matsu-nsa.gov.tw/GeologyTravel/Articles.aspx?a=2696&l=1
-#   原因：curl fallback HTTP 404
-# https://think.folklore.tw/posts/1085
-#   原因：HTTPSConnectionPool(host='think.folklore.tw', port=443): Max retries exceeded with url: /posts/1085 (Caused by NameResolutionError("HTTPSConnection(ho
-# https://travel.yilan.tw/zh-tw/attraction/details/392
-#   原因：HTTPSConnectionPool(host='travel.yilan.tw', port=443): Max retries exceeded with url: /zh-tw/attraction/details/392 (Caused by NameResolutionError("HT
+#   原因：2026-07-20 複查：現站與歷次 wayback 快照 <title> 皆為空字串；2019 年後快照的 __VIEWSTATE 已加密無法逆推內容（對照 id=1501 的 2016 年舊快照可還原，此條最早快照已是加密版）；WebSearch 查無可信第三方轉載標題。維持裸 URL。
 # https://twgeoref.moeacgs.gov.tw/GipOpenWeb/wSite/ct?ctNode=1242&mp=105&xItem=148205
-#   原因：HTTPSConnectionPool(host='twgeoref.moeacgs.gov.tw', port=443): Max retries exceeded with url: /GipOpenWeb/wSite/ct?ctNode=1242&mp=105&xItem=148205 (Ca
-# https://twstudy.iis.sinica.edu.tw/Han/Paper/mazu/JiSiViewCaoTun.htm
-#   原因：標題疑似亂碼
-# https://water.ntpc.gov.tw/News/Detail/1483.htm
-#   原因：HTTPSConnectionPool(host='water.ntpc.gov.tw', port=443): Max retries exceeded with url: /News/Detail/1483.htm (Caused by NameResolutionError("HTTPSCon
-# https://ws.ndc.gov.tw/001/administrator/10/relfile/0/15175/11a5a84b-06d0-43bb-941b-f9485c31c896.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://www.cwa.gov.tw/Data/service/hottopic/14277057430.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://www.cwa.gov.tw/V8/C/K/Encyclopedia/typhoon/typhoon.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://www.e-land.gov.tw/cp.aspx?n=3BA711487C292039&s=B9E13A6E002BB978
-#   原因：curl fallback HTTP 404
-# https://www.gsmma.gov.tw/uploads/1719285160557fsB5meX9.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://www.hakka.gov.tw/File/Attach/37585/File_96737.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://www.ilan-travel.com.tw/ilan-travel/subject/mackerel/intro.html
-#   原因：標題疑似亂碼
-# https://www.jw.gov.tw/cp.aspx?n=85B9135C64708B8B&s=CF6C48CEFB93A5EE
-#   原因：curl fallback HTTP 404
-# https://www.kunputw.com/archives/%E5%B0%8F%E4%BA%AC%E9%83%BD
-#   原因：HTTP 500
-# https://www.matsu.gov.tw/chhtml/content/371040100A/2112
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://www.nanao.e-land.gov.tw/cp.aspx?n=04302686A64D2F1B
-#   原因：curl fallback HTTP 404
-# https://www.nhu.edu.tw/~society/e-j/90/20.htm
-#   原因：curl fallback HTTP 404
-# https://www.nmp.gov.tw/cl.aspx?n=8830
-#   原因：HTTP 404
-# https://www.ntl.edu.tw/public/Attachment/49201348629.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://www.ntl.edu.tw/public/Attachment/811615584426.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://www.tres.gov.tw/ws.php?id=3781
-#   原因：curl fallback 失敗（exit 60）：curl: (60) SSL: no alternative certificate subject name matches target host name 'www.tres.gov.tw' More details here: https://curl.se/docs/sslcerts.ht
-# https://www.twcenter.org.tw/wp-content/uploads/2015/05/g02_04_02_05.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://wwwacc.ntl.edu.tw/public/Attachment/811615572091.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://wwwacc.ntl.edu.tw/public/Attachment/910297234612.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://yshhr.e-land.gov.tw/cp.aspx?n=9AF5B09996D3F31B
-#   原因：curl fallback HTTP 404
+#   原因：2026-07-20 複查：DNS 已無法解析（NXDOMAIN，經濟部中央地質調查所舊站已併入 gsmma.gov.tw）；web.archive.org CDX 有同站其他 ctNode/xItem 快照，但此確切 xItem=148205 從未被收錄，無法還原對應頁面標題。維持裸 URL。

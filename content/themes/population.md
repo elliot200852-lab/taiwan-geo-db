@@ -6,6 +6,7 @@ layer: 人文地理
 layer_sub: 人的足跡
 theme_group: 人從哪裡來
 chip_label: 臺灣的人口分布
+tags_g5: [南方澳]
 regions:
   - id: taipei
     hook: 全臺人口密度最高——271 平方公里的臺北市擠進兩百四十多萬人，每平方公里近九千人

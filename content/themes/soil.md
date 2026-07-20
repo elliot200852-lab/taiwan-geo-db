@@ -6,6 +6,7 @@ layer: 自然地理
 layer_sub: 島的身世
 theme_group: 土壤與生靈
 chip_label: 臺灣的土壤
+tags_g5: [紅壤, 沖積土, 鹽土]
 regions:
   - id: yilan-sanxing
     hook: 蘭陽平原的深色水田土——蘭陽溪沖積、多雨低地累積有機質，孕育宜蘭好米

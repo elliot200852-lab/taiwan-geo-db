@@ -6,6 +6,7 @@ layer: 自然地理
 layer_sub: 島的身世
 theme_group: 水的旅行
 chip_label: 臺灣的湧泉與地下水
+tags_g5: [日月潭, 二峰圳, 地層下陷, 沖積扇]
 regions:
   - id: yilan-yuanshan
     hook: 員山扇端湧泉——蘭陽溪的水鑽進沖積扇、再從雷公埤與大湖「螃蟹冒泡」的沙底自己冒出來，既餵人喝水也餵魚

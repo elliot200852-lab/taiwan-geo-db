@@ -6,6 +6,7 @@ layer: 人文地理
 layer_sub: 人的足跡
 theme_group: 人靠什麼生活
 chip_label: 臺灣的茶
+tags_g5: [文山包種茶, 東方美人茶, 凍頂烏龍茶, 大稻埕, 小綠葉蟬]
 regions:
   - id: new-taipei
     hook: 坪林的文山包種茶——種在翡翠水庫上游，一片茶園要為下游幾百萬人的水負責
