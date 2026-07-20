@@ -1,0 +1,195 @@
+{
+  "媽祖": [
+    "theme-temples",
+    "taichung",
+    "yunlin",
+    "chiayi-county",
+    "miaoli",
+    "lienchiang",
+    "yilan-wujie",
+    "penghu",
+    "yilan-yilan",
+    "changhua"
+  ],
+  "龜山島": [
+    "yilan-toucheng",
+    "yilan-jiaoxi",
+    "theme-coast",
+    "theme-earthquake",
+    "theme-geothermal",
+    "yilan-yilan"
+  ],
+  "頭城": [
+    "yilan-toucheng",
+    "theme-placenames",
+    "yilan-yilan",
+    "theme-coast",
+    "theme-migration",
+    "theme-springs",
+    "theme-temples",
+    "yilan-dongshan",
+    "yilan-yuanshan"
+  ],
+  "溫泉": [
+    "theme-geothermal",
+    "yilan-jiaoxi",
+    "taipei",
+    "taitung",
+    "theme-mountains",
+    "yilan-suao",
+    "yilan-toucheng"
+  ],
+  "客家": [
+    "theme-migration",
+    "hsinchu-county",
+    "miaoli",
+    "kaohsiung",
+    "taichung",
+    "theme-temples",
+    "taoyuan",
+    "theme-placenames",
+    "pingtung",
+    "taitung"
+  ],
+  "原住民": [
+    "theme-migration",
+    "hualien",
+    "taiwan",
+    "chiayi-city",
+    "pingtung",
+    "miaoli",
+    "nantou",
+    "hsinchu-county",
+    "yilan-datong",
+    "kaohsiung"
+  ],
+  "颱風": [
+    "theme-typhoon",
+    "theme-rivers",
+    "theme-rain",
+    "taiwan",
+    "taipei",
+    "theme-wind",
+    "yilan-nanao",
+    "yunlin",
+    "pingtung",
+    "taitung"
+  ],
+  "玉山": [
+    "theme-ecology",
+    "nantou",
+    "taiwan",
+    "theme-mountains",
+    "chiayi-county",
+    "theme-rivers",
+    "kaohsiung",
+    "theme-earthquake"
+  ],
+  "九份": [
+    "new-taipei"
+  ],
+  "地震": [
+    "theme-earthquake",
+    "hualien",
+    "taichung",
+    "nantou",
+    "miaoli",
+    "taipei",
+    "taiwan",
+    "taitung",
+    "pingtung",
+    "theme-mountains"
+  ],
+  "老街": [
+    "yilan-toucheng",
+    "yilan-wujie",
+    "changhua",
+    "theme-temples",
+    "taoyuan",
+    "hsinchu-county",
+    "new-taipei",
+    "tainan",
+    "theme-migration",
+    "theme-rain"
+  ],
+  "國家公園": [
+    "kinmen",
+    "hualien",
+    "theme-earthquake"
+  ],
+  "濕地": [
+    "yilan-wujie",
+    "taichung",
+    "hsinchu-city",
+    "yilan-zhuangwei",
+    "tainan",
+    "taitung",
+    "theme-coast",
+    "theme-fishery",
+    "theme-irrigation",
+    "theme-soil"
+  ],
+  "離島": [
+    "theme-population",
+    "keelung",
+    "pingtung",
+    "theme-geothermal",
+    "kinmen",
+    "lienchiang",
+    "penghu",
+    "theme-coast",
+    "theme-wind",
+    "yilan-toucheng"
+  ],
+  "日治時期": [
+    "chiayi-county",
+    "taichung",
+    "yilan-luodong",
+    "miaoli",
+    "theme-geothermal",
+    "theme-springs",
+    "yilan-suao",
+    "changhua",
+    "chiayi-city",
+    "hualien"
+  ],
+  "水稻": [
+    "theme-fishery",
+    "theme-soil",
+    "yilan-dongshan",
+    "yilan-zhuangwei",
+    "theme-irrigation",
+    "theme-rain",
+    "changhua",
+    "chiayi-county"
+  ],
+  "東部": [
+    "theme-transport",
+    "theme-coast",
+    "theme-population",
+    "theme-geothermal",
+    "theme-rivers",
+    "theme-migration",
+    "taiwan",
+    "hualien",
+    "theme-earthquake",
+    "yilan-suao"
+  ],
+  "漁港": [
+    "theme-fishery",
+    "yilan-suao",
+    "keelung",
+    "theme-coast",
+    "theme-typhoon",
+    "theme-placenames",
+    "yilan-toucheng"
+  ],
+  "紅樹林": [
+    "tainan"
+  ],
+  "夜市": [
+    "theme-temples",
+    "keelung",
+    "yilan-luodong"
+  ]
+}

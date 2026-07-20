@@ -1,128 +1,60 @@
 /* 認識臺灣 — 首頁站內檢索（client-side 全文檢索，只在首頁掛載）
-   核心比對邏輯 geoSearchMatch(query, records) 是純函式，掛在本模組頂層；
+   計分／排序核心已抽到 search-core.js（taiwan-geo-db／taiwan-arts-db 雙 repo
+   同步檔，2026-07-20 收斂案；規則見該檔檔頭）。本檔是 geo-db 專屬 adapter：
+   只處理「kw 是陣列」這個資料形狀差異（join 成字串再交給 core，理由見
+   geoSearchMatch 內註解），UI 行為（lazy-load 索引、輸入、結果面板、鍵盤、
+   IME）維持原樣不動。
    Node 環境可直接 require('./search.js') 取得 { geoSearchMatch, normalize, splitQuery } 驗收，
    不會因為沒有 document/window 而噴錯（UI 掛載段落遇非瀏覽器環境會提前 return）。
+   瀏覽器需先載入 js/search-core.js（見 site/index.html 的 <script> 順序，
+   search-core.js 排在 search.js 之前，兩者皆 defer，執行序不受影響）。
    索引來源：data/search-index.json（scripts/build.py 產生，53 筆 { id, url, title, sub, kw, body }）。 */
 (function (root) {
   'use strict';
 
   // ---------------------------------------------------------------------
-  // 核心比對邏輯（純函式段落）
+  // geo-db adapter：呼叫共用核心 + 處理 kw 陣列形狀
   // ---------------------------------------------------------------------
 
-  // NFKC 正規化 + 小寫 + 空白正規化。中文不分詞，之後一律做子字串比對。
-  function normalize(s) {
-    if (s === null || s === undefined) return '';
-    var t = String(s);
-    if (typeof t.normalize === 'function') t = t.normalize('NFKC');
-    t = t.toLowerCase();
-    t = t.replace(/\s+/g, ' ').trim();
-    return t;
-  }
+  var SearchCore = (typeof module === 'object' && module.exports)
+    ? require('./search-core.js')
+    : root.SearchCore;
 
-  // 查詢字串以空白切成多詞（正規化後切），空字串過濾掉。
-  function splitQuery(query) {
-    var n = normalize(query);
-    if (!n) return [];
-    var parts = n.split(' ');
-    var out = [];
-    for (var i = 0; i < parts.length; i++) {
-      if (parts[i]) out.push(parts[i]);
-    }
-    return out;
-  }
+  var normalize = SearchCore.normalize;
+  var splitQuery = SearchCore.splitQuery;
+  var findAllIndexes = SearchCore.findAllIndexes;
 
-  // haystack 中 needle 的所有出現起始位置（子字串，不重疊往前找）。
-  function findAllIndexes(haystack, needle) {
-    var idxs = [];
-    if (!needle) return idxs;
-    var start = 0;
-    while (true) {
-      var i = haystack.indexOf(needle, start);
-      if (i === -1) break;
-      idxs.push(i);
-      start = i + needle.length;
-    }
-    return idxs;
-  }
+  // geo-db 計分權重與收斂前完全一致（title+100/前綴+50、kw+40、sub+20、
+  // body 每現+1 上限+5），不啟用 typeBoosts（該欄位只有 arts-db 用）。
+  var GEO_CONFIG = {
+    weights: { title: 100, titlePrefix: 50, kw: 40, sub: 20, bodyHit: 1, bodyCap: 5 }
+  };
 
   // 單一 query 對 records 做比對計分，回傳前 20 名（依分數高到低）。
-  // 每個 result：{ record, score, snippetPos }。snippetPos = body 內最早命中位置（無則 -1）。
-  // 計分：title 命中 +100（前綴再 +50）、kw +40、sub +20、body 每次出現 +1（每詞上限 +5，計分不變）；
-  // 多詞取 AND——任一詞在 title/kw/sub/body 都沒命中就整筆排除；命中詞分數加總。
-  // 排序：主鍵＝score（不變）。次鍵（tie-break，2026-07-20 加）＝body 未封頂的原始命中總數，
-  // 高者排前——解決「同分（都只靠 body 命中且都頂到 +5 上限）時，命中次數其實差很多的兩頁
-  // 排序卻看不出差別」的錯排（例：搜「媽祖」時縣市頁排到真正的媽祖主題頁 theme-temples 前面）。
-  // 兩鍵都相同才維持現行穩定序（Array#sort 為 stable sort，原陣列序＝records 傳入序）。
+  // 每個 result：{ record, score, snippetPos, rawBodyHits }。snippetPos = body 內最早命中位置（無則 -1）。
+  // 計分／多詞 AND／排序（含 tie-break：同分比未封頂 body 命中總數）規則全部在
+  // search-core.js，此處不重覆説明。本函式只做一件事：geo 的 kw 是陣列
+  // （例：["媽祖","廟會"]），core 期待的是單一字串——join(' ') 後再呼叫
+  // rankRecords。用空白分隔可安全 join：查詢詞（splitQuery 產物）本身絕不含
+  // 空白，故 join 造成的邊界不會被單一詞跨陣列元素誤匹配到，join 前後的
+  // 「任一 kw 元素含 term」語意完全等價。回傳的 record 是保留原欄位
+  // （id/url/title/sub/body）的淺拷貝物件，只有 kw 從陣列換成字串，UI 端
+  // 存取的欄位不受影響。
   function geoSearchMatch(query, records) {
-    var terms = splitQuery(query);
-    if (!terms.length || !records || !records.length) return [];
-
-    var results = [];
-    for (var ri = 0; ri < records.length; ri++) {
-      var rec = records[ri];
-      var titleN = normalize(rec.title);
-      var subN = normalize(rec.sub);
-      var kwList = rec.kw || [];
-      var kwN = [];
-      for (var ki = 0; ki < kwList.length; ki++) kwN.push(normalize(kwList[ki]));
-      var bodyN = normalize(rec.body);
-
-      var totalScore = 0;
-      var matchedAll = true;
-      var bodyFirstPositions = [];
-      var rawBodyHits = 0;   // tie-break 用：body 命中次數加總，不封頂、不計分
-
-      for (var ti = 0; ti < terms.length; ti++) {
-        var term = terms[ti];
-        var termScore = 0;
-        var termHit = false;
-
-        var titleIdx = titleN.indexOf(term);
-        if (titleIdx !== -1) {
-          termScore += 100;
-          if (titleIdx === 0) termScore += 50;
-          termHit = true;
-        }
-
-        var kwHit = false;
-        for (var kj = 0; kj < kwN.length; kj++) {
-          if (kwN[kj].indexOf(term) !== -1) { kwHit = true; break; }
-        }
-        if (kwHit) { termScore += 40; termHit = true; }
-
-        if (subN.indexOf(term) !== -1) { termScore += 20; termHit = true; }
-
-        var bodyIdxs = findAllIndexes(bodyN, term);
-        if (bodyIdxs.length) {
-          termScore += Math.min(bodyIdxs.length, 5);
-          termHit = true;
-          bodyFirstPositions.push(bodyIdxs[0]);
-          rawBodyHits += bodyIdxs.length;
-        }
-
-        if (!termHit) { matchedAll = false; break; }
-        totalScore += termScore;
-      }
-
-      if (!matchedAll) continue;
-
-      var snippetPos = -1;
-      if (bodyFirstPositions.length) {
-        snippetPos = bodyFirstPositions[0];
-        for (var pi = 1; pi < bodyFirstPositions.length; pi++) {
-          if (bodyFirstPositions[pi] < snippetPos) snippetPos = bodyFirstPositions[pi];
-        }
-      }
-
-      results.push({ record: rec, score: totalScore, snippetPos: snippetPos, rawBodyHits: rawBodyHits });
+    if (!records || !records.length) return [];
+    var canon = new Array(records.length);
+    for (var i = 0; i < records.length; i++) {
+      var rec = records[i];
+      canon[i] = {
+        id: rec.id,
+        url: rec.url,
+        title: rec.title,
+        sub: rec.sub,
+        body: rec.body,
+        kw: (rec.kw || []).join(' ')
+      };
     }
-
-    results.sort(function (a, b) {
-      if (b.score !== a.score) return b.score - a.score;
-      return b.rawBodyHits - a.rawBodyHits;
-    });
-    return results.slice(0, 20);
+    return SearchCore.rankRecords(canon, query, GEO_CONFIG, 20);
   }
 
   // Node（require）與瀏覽器（<script>）皆可用；純函式段落到此為止。
