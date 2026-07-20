@@ -48,8 +48,12 @@
 
   // 單一 query 對 records 做比對計分，回傳前 20 名（依分數高到低）。
   // 每個 result：{ record, score, snippetPos }。snippetPos = body 內最早命中位置（無則 -1）。
-  // 計分：title 命中 +100（前綴再 +50）、kw +40、sub +20、body 每次出現 +1（每詞上限 +5）；
+  // 計分：title 命中 +100（前綴再 +50）、kw +40、sub +20、body 每次出現 +1（每詞上限 +5，計分不變）；
   // 多詞取 AND——任一詞在 title/kw/sub/body 都沒命中就整筆排除；命中詞分數加總。
+  // 排序：主鍵＝score（不變）。次鍵（tie-break，2026-07-20 加）＝body 未封頂的原始命中總數，
+  // 高者排前——解決「同分（都只靠 body 命中且都頂到 +5 上限）時，命中次數其實差很多的兩頁
+  // 排序卻看不出差別」的錯排（例：搜「媽祖」時縣市頁排到真正的媽祖主題頁 theme-temples 前面）。
+  // 兩鍵都相同才維持現行穩定序（Array#sort 為 stable sort，原陣列序＝records 傳入序）。
   function geoSearchMatch(query, records) {
     var terms = splitQuery(query);
     if (!terms.length || !records || !records.length) return [];
@@ -67,6 +71,7 @@
       var totalScore = 0;
       var matchedAll = true;
       var bodyFirstPositions = [];
+      var rawBodyHits = 0;   // tie-break 用：body 命中次數加總，不封頂、不計分
 
       for (var ti = 0; ti < terms.length; ti++) {
         var term = terms[ti];
@@ -93,6 +98,7 @@
           termScore += Math.min(bodyIdxs.length, 5);
           termHit = true;
           bodyFirstPositions.push(bodyIdxs[0]);
+          rawBodyHits += bodyIdxs.length;
         }
 
         if (!termHit) { matchedAll = false; break; }
@@ -109,10 +115,13 @@
         }
       }
 
-      results.push({ record: rec, score: totalScore, snippetPos: snippetPos });
+      results.push({ record: rec, score: totalScore, snippetPos: snippetPos, rawBodyHits: rawBodyHits });
     }
 
-    results.sort(function (a, b) { return b.score - a.score; });
+    results.sort(function (a, b) {
+      if (b.score !== a.score) return b.score - a.score;
+      return b.rawBodyHits - a.rawBodyHits;
+    });
     return results.slice(0, 20);
   }
 

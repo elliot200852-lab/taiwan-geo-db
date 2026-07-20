@@ -1,8 +1,8 @@
 # scripts/build.py 依賴
 # 安裝：python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-markdown>=3.5
-PyYAML>=6.0
+markdown>=3.5,<4
+PyYAML>=6.0,<7
 
 # scripts/pull_images.py 依賴（從 Drive 拉圖片）
-google-api-python-client>=2.100
-google-auth>=2.23
+google-api-python-client>=2.100,<3
+google-auth>=2.23,<3

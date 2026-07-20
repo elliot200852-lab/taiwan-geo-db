@@ -19,19 +19,28 @@ import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAGES = ROOT / "site" / "pages"
+INDEX_HTML = ROOT / "site" / "index.html"
 IMG = ROOT / "site" / "img"
 DEFAULT_BASE = "https://elliot200852-lab.github.io/taiwan-geo-db"
 
-IMG_SRC = re.compile(r'<img[^>]+src="\.\./(img/[^"]+)"')
+# 子頁（site/pages/*.html）在 pages/ 目錄下一層，img src 帶 "../" 前綴。
+IMG_SRC_SUB = re.compile(r'<img[^>]+src="\.\./(img/[^"]+)"')
+# 首頁（site/index.html）在站根，img src 沒有 "../" 前綴（例：site-hero.webp）。
+IMG_SRC_ROOT = re.compile(r'<img[^>]+src="(img/[^"]+)"')
 
 
 def collect_refs():
     """從產出的 HTML 收集實際引用的圖片相對路徑（去重）。
     不直接列 site/img/：fetch_images 的共用圖機制會讓實體檔多於引用
-    （曾有孤兒檔 theme-rivers/02.webp），以 HTML 實際引用為準才是使用者會看到的。"""
+    （曾有孤兒檔 theme-rivers/02.webp），以 HTML 實際引用為準才是使用者會看到的。
+    2026-07-20 補洞：site/index.html（首頁 site-hero.webp）先前完全沒被掃到——
+    子頁 img src 帶 "../" 前綴、首頁在站根沒有該前綴，兩種路徑都要收。"""
     refs = set()
     for p in sorted(PAGES.glob("*.html")):
-        for m in IMG_SRC.finditer(p.read_text(encoding="utf-8")):
+        for m in IMG_SRC_SUB.finditer(p.read_text(encoding="utf-8")):
+            refs.add(m.group(1))
+    if INDEX_HTML.exists():
+        for m in IMG_SRC_ROOT.finditer(INDEX_HTML.read_text(encoding="utf-8")):
             refs.add(m.group(1))
     return sorted(refs)
 

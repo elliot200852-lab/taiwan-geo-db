@@ -28,8 +28,12 @@ OUT_PAGES = ROOT / "site" / "pages"
 OUT_INDEX = ROOT / "site" / "data" / "pages-index.json"
 OUT_THEMES = ROOT / "site" / "data" / "themes-index.json"
 OUT_SEARCH = ROOT / "site" / "data" / "search-index.json"
+OUT_SITEMAP = ROOT / "site" / "sitemap.xml"
 IMG_MANIFEST = ROOT / "site" / "img" / "manifest.json"
 SOURCE_TITLES_FILE = ROOT / "scripts" / "source-titles.yaml"
+
+# live 站絕對網址（無結尾斜線）：og:image／sitemap.xml 的絕對 URL 都靠這個組。
+SITE_BASE_URL = "https://elliot200852-lab.github.io/taiwan-geo-db"
 
 # 反向鏈：taiwan-arts-db 人物頁（唯讀引用，見 _governance/protocols/cross-repo-reference.md）。
 # 本機優先讀同層 sibling repo（~/MyWork 下兩 repo 平行放）；CI 沒有 sibling 時改抓
@@ -307,6 +311,29 @@ def section_body_text(sections):
             parts.append(stripped)
     return _SI_WS_RE.sub(" ", " ".join(parts)).strip()
 
+def meta_description(sections, limit=100):
+    """從「定位速覽」章節抽純文字前 limit 字，供 <meta name="description"> 與
+    og:description 共用（A-list #3）。只抽取既有欄位、不新寫任何文案；沿用站內檢索
+    索引同一支 strip_markdown_plain() 去 markdown 符號。53 頁全部有此章節（已核對），
+    抽不到時回傳空字串，呼叫端據此省略該 meta 標籤而不是印出空 content。"""
+    plain = strip_markdown_plain(sections.get("定位速覽", ""))
+    return plain[:limit].strip()
+
+def meta_tags_html(title_html, desc_plain, hero_abs_url):
+    """<head> 內 description ＋ Open Graph 共用區塊（A-list #3）。
+    title_html：已 esc 過、與 <title> 同值的 HTML；desc_plain：未 esc 的純文字（本函式負責 esc）。
+    og:type 固定 article（縣市／主題內容頁）；og:image 指向該頁 hero 的絕對 URL。"""
+    desc_html = esc(desc_plain) if desc_plain else ""
+    lines = []
+    if desc_html:
+        lines.append(f'<meta name="description" content="{desc_html}">')
+    lines.append(f'<meta property="og:title" content="{title_html}">')
+    if desc_html:
+        lines.append(f'<meta property="og:description" content="{desc_html}">')
+    lines.append('<meta property="og:type" content="article">')
+    lines.append(f'<meta property="og:image" content="{esc(hero_abs_url)}">')
+    return "\n  ".join(lines)
+
 def region_eyebrow_plain(fm):
     """縣市／鄉鎮頁眉標純文字版，邏輯與 render_page() 內 eyebrow 完全一致（未 esc）。"""
     name = fm.get("name", "")
@@ -357,6 +384,27 @@ def build_search_index(regions_parsed, themes_parsed):
         })
     records.sort(key=lambda r: r["id"])
     return records
+
+def build_sitemap(regions_parsed, themes_parsed):
+    """組 site/sitemap.xml：絕對 URL，含首頁與全部子頁（A-list #4）。
+    頁面清單直接沿用 regions_parsed／themes_parsed（與 pages-index.json／themes-index.json
+    同一份解析結果），不重新掃檔，避免兩份清單日後跑不同步。"""
+    urls = [f"{SITE_BASE_URL}/"]
+    for _path, fm, _sections in regions_parsed:
+        pid = fm.get("id", "")
+        if pid:
+            urls.append(f"{SITE_BASE_URL}/pages/{pid}.html")
+    for _path, fm, _sections in themes_parsed:
+        pid = fm.get("id", "")
+        if pid:
+            urls.append(f"{SITE_BASE_URL}/pages/{pid}.html")
+    items = "\n".join(f"  <url><loc>{esc(u)}</loc></url>" for u in urls)
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{items}\n"
+        "</urlset>\n"
+    )
 
 # ---- 五年級 badge ----
 def badgeify(html_str):
@@ -523,18 +571,22 @@ def render_page(fm, sections, related_themes=None, local_people=None):
     # 比例尺分隔線（§4.3）：只在對應的兩段都存在時才佔位，避免孤立分隔線
     seam_teach_story = _SCALE_BAR if (teaching_section and story_section) else ""
 
+    title_html = f"{name} — 認識臺灣"
+    meta_tags = meta_tags_html(title_html, meta_description(sections), f"{SITE_BASE_URL}/img/hero/{pid}.webp")
+
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{name} — 認識臺灣</title>
+  <title>{title_html}</title>
+  {meta_tags}
   {_FONTS_HEAD}
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   {site_bar()}
-  <div class="page-wrap">
+  <main class="page-wrap">
     <header class="page-header">
       {_CONTOUR_SVG}
       <div class="eyebrow">{eyebrow}</div>
@@ -573,7 +625,7 @@ def render_page(fm, sections, related_themes=None, local_people=None):
         圖片版權屬各原作者，授權標示如圖說。本頁為教師備課資料庫。
       </div>
     </footer>
-  </div>
+  </main>
 
   {fab}
 </body>
@@ -662,18 +714,22 @@ def render_theme(fm, sections, region_names):
     pid = fm.get("id", "")
     hero_fig = page_hero_fig(pid, fm.get("name", ""))
 
+    title_html = f"{name} — 認識臺灣"
+    meta_tags = meta_tags_html(title_html, meta_description(sections), f"{SITE_BASE_URL}/img/hero/{pid}.webp")
+
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{name} — 認識臺灣</title>
+  <title>{title_html}</title>
+  {meta_tags}
   {_FONTS_HEAD}
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   {site_bar()}
-  <div class="page-wrap theme-page">
+  <main class="page-wrap theme-page">
     <header class="page-header">
       {_CONTOUR_SVG}
       <div class="eyebrow">{eyebrow}</div>
@@ -700,7 +756,7 @@ def render_theme(fm, sections, region_names):
         圖片版權屬各原作者，授權標示如圖說。本頁為教師備課資料庫。
       </div>
     </footer>
-  </div>
+  </main>
 
   {fab}
 </body>
@@ -808,9 +864,13 @@ def main():
         encoding="utf-8"
     )
 
+    sitemap_xml = build_sitemap(regions_parsed, themes_parsed)
+    OUT_SITEMAP.write_text(sitemap_xml, encoding="utf-8")
+
     print(f"完成：建了 {built} 頁（地名 {len(index)}、主題 {len(themes_index)}）；"
           f"索引 {OUT_INDEX.relative_to(ROOT)} + {OUT_THEMES.relative_to(ROOT)} + "
-          f"{OUT_SEARCH.relative_to(ROOT)}（{len(search_records)} 筆）。")
+          f"{OUT_SEARCH.relative_to(ROOT)}（{len(search_records)} 筆）+ "
+          f"{OUT_SITEMAP.relative_to(ROOT)}（{built + 1} 條，含首頁）。")
 
 if __name__ == "__main__":
     main()

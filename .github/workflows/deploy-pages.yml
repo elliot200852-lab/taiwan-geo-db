@@ -56,3 +56,43 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # 跟 build job 一樣先拉 Drive 圖片、重 build，讓本機 site/img 有實體檔可比對大小
+      # （verify_live_images.py 沒有本機檔時只驗 200＋content-type，跳過大小比對）。
+      - name: Pull images from Google Drive
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_DRIVE_SA_KEY }}
+        run: python scripts/pull_images.py
+
+      - name: Build site
+        run: python scripts/build.py
+
+      # CDN 部署後不一定立即全球生效，失敗先等再重試，別一次紅就判定失敗（避免 transient 假紅）。
+      - name: Verify live images (retry for CDN propagation delay)
+        run: |
+          max_attempts=3
+          attempt=1
+          until python scripts/verify_live_images.py; do
+            if [ "$attempt" -ge "$max_attempts" ]; then
+              echo "✗ verify_live_images.py 連續 ${max_attempts} 次失敗，停止重試" >&2
+              exit 1
+            fi
+            echo "第 ${attempt} 次驗證失敗，等待 30 秒後重試（CDN 延遲）..." >&2
+            sleep 30
+            attempt=$((attempt+1))
+          done
