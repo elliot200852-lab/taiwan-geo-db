@@ -112,20 +112,36 @@ def to_webp(raw_bytes, out_path, url):
         return True
 
 
+_RUN_START = time.time()
+
+
 def main():
     if not CWEBP or not os.path.exists(CWEBP):
         sys.exit(f"找不到 cwebp：{CWEBP}（brew install webp）")
+
+    # --only PID...：只處理指定頁面。分批擴充鄉鎮頁時每輪只有幾頁是新的，
+    # 但 site/img/*/ 被 .gitignore 擋著、本機通常是空的，不加過濾就會把既有 350 張
+    # 全部重下一遍（每張間隔 1.5 秒，純浪費十幾分鐘還可能被上游限流）。
+    only = []
+    if "--only" in sys.argv:
+        only = [a for a in sys.argv[sys.argv.index("--only") + 1:] if not a.startswith("-")]
+        if not only:
+            sys.exit("--only 後面要接至少一個 page id，例如 --only new-taipei-tamsui")
+
     manifest = load_manifest()
     md_files = sorted(CONTENT.rglob("*.md")) if CONTENT.exists() else []
 
     total = skipped = fetched = 0
     failures = []
+    in_drive = 0
 
     for path in md_files:
         fm = parse_frontmatter(path)
         pid = fm.get("id")
         images = fm.get("images") or []
         if not pid or not images:
+            continue
+        if only and pid not in only:
             continue
         print(f"[{pid}] {len(images)} 張")
         for idx, img in enumerate(images):
@@ -140,6 +156,16 @@ def main():
             mapped = manifest.get(url)
             if mapped:
                 if (SITE / mapped).exists():
+                    skipped += 1
+                    continue
+                if only:
+                    # --only 模式下，「映射在、本機檔不在」的正常解釋是：這張圖早就在
+                    # Drive 上（本機 site/img/*/ 被 gitignore 擋著，本來就是空的），
+                    # 新頁只是共用了同一個 URL。重下一份沒有意義，還會在既有子夾裡
+                    # 多出一個要判斷該不該上傳的檔。跳過即可——build 查 manifest 拿到
+                    # 同一個路徑，CI 從 Drive 拉得到那個檔。
+                    print(f"  · {idx:02d} 已在 Drive（{mapped}），跳過")
+                    in_drive += 1
                     skipped += 1
                     continue
                 # 映射在、實體檔遺失 → 補回原本的那個檔（沿用既有映射，不搬路徑）
@@ -175,7 +201,17 @@ def main():
 
     print("\n===== 摘要 =====")
     print(f"總圖數 {total}｜新下載 {fetched}｜已存在跳過 {skipped}｜失敗 {len(failures)}")
+    if in_drive:
+        print(f"  其中 {in_drive} 張是與既有頁共用的 URL，實體檔已在 Drive，未重下")
     print(f"manifest：{MANIFEST.relative_to(ROOT)}（{len(manifest)} 筆）")
+    if fetched:
+        # 新產生的實體檔要手動上傳 Drive，忘了的話 CI 拉不到、該圖會 silently 退回
+        # 外部 URL（build 照樣綠）。這行是唯一會提醒的地方。
+        news = sorted({p.parent.name for p in (IMG_DIR).rglob("*.webp")
+                       if p.stat().st_mtime > _RUN_START})
+        print(f"\n⚠ 新圖落在這些子夾，記得上傳 Drive 並確認新夾共用給 channel-deployer SA：")
+        for d in news:
+            print(f"    site/img/{d}/")
     if failures:
         print("\n失敗清單：")
         for pid, idx, url, why in failures:

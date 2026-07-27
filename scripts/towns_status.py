@@ -5,9 +5,14 @@
 usage limit、關視窗、跨 session 而斷。斷掉之後**不准靠記憶重建進度**，
 一律跑這支，它只讀磁碟上的事實：母本在不在、字數夠不夠、圖有沒有、頁產出沒。
 
-    .venv/bin/python3 scripts/towns_status.py            # 全部
-    .venv/bin/python3 scripts/towns_status.py new-taipei # 只看某個縣市
-    .venv/bin/python3 scripts/towns_status.py --json     # 機器讀
+    .venv/bin/python3 scripts/towns_status.py                # 全部
+    .venv/bin/python3 scripts/towns_status.py new-taipei     # 只看某個縣市
+    .venv/bin/python3 scripts/towns_status.py --json         # 機器讀
+    .venv/bin/python3 scripts/towns_status.py --check-images # 另外逐張連出去驗 URL（慢）
+
+`--check-images` 存在的理由：母本的圖片授權是由**寫作 agent 填的**，而這是對外公開站，
+CC BY 要求正確標示作者——授權編錯比事實編錯更難善後。欄位有沒有填，離線就看得出來；
+URL 是不是真的存在，只有連出去才知道。收稿時跑一次，別靠信任。
 
 判準（與 docs/CONTENT-SPEC.md 對齊）：
   母本存在 → 正文 ≥2,500 字 → images ≥6 且每張有 license+author → sources ≥1
@@ -16,7 +21,10 @@ usage limit、關視窗、跨 session 而斷。斷掉之後**不准靠記憶重�
 """
 import json
 import re
+import subprocess
 import sys
+import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import yaml
@@ -38,11 +46,22 @@ def body_chars(sections):
 
 
 def parse(path):
+    """回 (frontmatter, sections)。frontmatter 壞掉時回 (None, {"_err": 原因})。
+
+    刻意不讓例外往上拋：這支腳本的用途就是「斷掉之後回來看做到哪」，
+    如果一個母本的 YAML 打錯字就讓整支盤點崩掉，那它在最需要的時候剛好不能用。
+    寫作 agent 產出的 frontmatter 真的會有壞的——實測撞過 `author: 某某（Flickr: xxx）`
+    這種沒加引號的冒號。壞了就把它當成一個「卡在這一步」的項目照常列出來。
+    """
     raw = path.read_text(encoding="utf-8")
     m = re.match(r"^---\s*\n(.*?)\n---\s*\n(.*)$", raw, re.S)
     if not m:
-        return None, {}
-    fm = yaml.safe_load(m.group(1)) or {}
+        return None, {"_err": "沒有 --- frontmatter 區塊"}
+    try:
+        fm = yaml.safe_load(m.group(1)) or {}
+    except yaml.YAMLError as e:
+        detail = str(e).replace("\n", " ")[:120]
+        return None, {"_err": f"YAML 解析失敗（{detail}）"}
     sections, cur, buf = {}, None, []
     for line in m.group(2).splitlines():
         h = re.match(r"^##\s+(.+?)\s*$", line)
@@ -55,6 +74,59 @@ def parse(path):
     if cur is not None:
         sections[cur] = "\n".join(buf).strip()
     return fm, sections
+
+
+_IMG_EXT_RE = re.compile(r"\.(jpe?g|png|webp|gif|tiff?)(\?|$)", re.I)
+
+
+def probe_url(url, tries=5):
+    """回 (ok, 描述)。ok＝HTTP 200 且（content-type 是圖 **或** 網址副檔名是圖）。
+    只讀 header，不下載內容。
+
+    兩個坑都是實測踩出來的，改判準前先看清楚：
+
+    1. **content-type 不能單獨當判準**。TCMB 的 S3（dcm.s3.hicloud.net.tw）對 .jpg
+       一律回 `application/octet-stream`——站上已經上線好幾個月的圖就是這樣回的。
+       只認 content-type 會把每一張 TCMB 圖都判成壞圖。
+    2. **429 要退避重試，不算失敗**。Wikimedia 對連續 header 請求會擋。
+       假警報比沒有檢查更糟：跑一次被騙一次之後，人就開始忽略這支腳本的紅字，
+       等於把驗收關掉。
+    """
+    ext_ok = bool(_IMG_EXT_RE.search(url))
+    last = ""
+    for attempt in range(tries):
+        try:
+            last = subprocess.run(
+                ["curl", "-sIL", "--max-time", "25", "-o", "/dev/null",
+                 "-w", "%{http_code} %{content_type}", url],
+                capture_output=True, text=True, timeout=30).stdout.strip()
+        except Exception as e:
+            last = f"連不上（{type(e).__name__}）"
+        if last.startswith("200") and ("image" in last or ext_ok):
+            return True, last
+        if last.startswith("429") or last.startswith("503"):
+            time.sleep(2 ** attempt * 2)   # 2s → 4s → 8s → 16s
+            continue
+        break
+    return False, last
+
+
+def check_images(units):
+    """逐張連出去驗圖片 URL。授權欄位填了不代表圖存在，這一關只有連線才驗得到。"""
+    jobs = []
+    for u in units:
+        for i, img in enumerate(u.get("_images_raw") or []):
+            if (img or {}).get("url"):
+                jobs.append((u, i, img["url"]))
+    if not jobs:
+        return
+    with ThreadPoolExecutor(max_workers=3) as pool:   # 併發壓低，別自己把自己限流
+        results = list(pool.map(lambda j: probe_url(j[2]), jobs))
+    for (u, i, url), (ok, desc) in zip(jobs, results):
+        if not ok:
+            u["images_bad"].append(f"#{i}: URL 不可用（{desc}）")
+            u["done"] = False
+            u["blocked_at"] = "圖片 URL 連不到：" + "；".join(u["images_bad"])
 
 
 def unit_report(pid, name_hint, md_path):
@@ -71,7 +143,7 @@ def unit_report(pid, name_hint, md_path):
     r["md"] = str(md_path.relative_to(ROOT))
     fm, sections = parse(md_path)
     if fm is None:
-        r["blocked_at"] = "frontmatter 壞掉（沒有 --- 區塊）"
+        r["blocked_at"] = "frontmatter 壞掉：" + sections.get("_err", "原因不明")
         return r
 
     r["name"] = fm.get("name") or name_hint
@@ -80,6 +152,7 @@ def unit_report(pid, name_hint, md_path):
 
     images = fm.get("images") or []
     r["images"] = len(images)
+    r["_images_raw"] = images   # 供 --check-images 連線驗證；輸出前會被剝掉
     for i, img in enumerate(images):
         missing = [k for k in ("url", "license", "author") if not (img or {}).get(k)]
         if missing:
@@ -146,6 +219,16 @@ def main():
     data = collect()
     if args:
         data = [d for d in data if d["county_id"] in args or d["county"] in args]
+
+    if "--check-images" in sys.argv:
+        all_units = [u for d in data for u in d["units"]]
+        total = sum(len(u.get("_images_raw") or []) for u in all_units)
+        print(f"逐張連線驗圖（{total} 張）…", file=sys.stderr)
+        check_images(all_units)
+
+    for d in data:                       # 內部欄位不外流
+        for u in d["units"]:
+            u.pop("_images_raw", None)
 
     if as_json:
         print(json.dumps(data, ensure_ascii=False, indent=2))

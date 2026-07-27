@@ -146,20 +146,40 @@ David 2026-07-23 立、07-24 制度化：**計劃核可後、第一個實作動�
 - 語氣：教師備課用、5–9 年級通識、段落敘事體、禁地方誌流水帳。
   **禁 AI 腔**——不用「不是 A 而是 B」「與其說…不如說」「不僅是…更是」這類對立翻轉句式。
 - 邊界：只寫那一個檔；不動 build.py／index.html／任何既有母本；不下載圖片；不 build；不 commit。
+- **YAML 值裡有冒號、`#`、引號、開頭是 `-` 或數字時一律用雙引號包起來**。實測撞過
+  `author: Minchi Chen（Flickr: minchi_chen）`——全形括號裡那個半形冒號讓整份 frontmatter
+  解析失敗，`fetch_images.py` 直接掛掉。派工時就講，比事後修划算。
 
 ## 8. 圖片鏈（母本齊了之後，主對話序列做）
 
 ```bash
 cd ~/MyWork/taiwan-geo-db
-.venv/bin/python3 scripts/fetch_images.py          # 下載→最長邊 1200→webp→寫 manifest
-# → 把新產生的 site/img/{page-id}/ 子夾上傳到 Drive「臺灣地理資料庫圖片」
-#   (1JGRyJhoRQyuPCF4UMp92mhSWcXkc4fkY)，並確認新夾共用給 channel-deployer SA
+
+# 0. 先驗 YAML——寫作 agent 產出的 frontmatter 真的會壞（見 §7 最後一條），
+#    壞了 fetch_images 會直接掛掉，早點知道比較好
+.venv/bin/python3 scripts/towns_status.py
+
+# 1. 抓圖。**一定要加 --only 指定這批的 page id**：site/img/*/ 被 gitignore 擋著、
+#    本機是空的，不加過濾會把既有 400+ 張全部重下一遍（每張間隔 1.5 秒）
+.venv/bin/python3 scripts/fetch_images.py --only new-taipei-xxx new-taipei-yyy
+
+# 2. 上傳 Drive。冪等可重跑；會逐檔比對 Drive 實際內容，並查新夾的權限
+.venv/bin/python3 scripts/upload_images_to_drive.py --dry-run     # 先看要傳什麼
+.venv/bin/python3 scripts/upload_images_to_drive.py new-taipei-xxx new-taipei-yyy
+
+# 3. 其餘
 .venv/bin/python3 scripts/fetch_source_titles.py   # 補頁尾來源的中文標題
 .venv/bin/python3 scripts/build.py                 # 零錯誤才算過
 node scripts/test-search.js                        # 檢索 golden 零回歸
+.venv/bin/python3 scripts/towns_status.py --check-images   # 逐張連線驗，收稿最後一關
 git add -u && git commit && git push               # ⚠️ 圖片一張都不進 repo，pre-commit hook 會擋
 .venv/bin/python3 scripts/verify_live_images.py    # CI 綠不等於圖在，這支全綠才算部署成功
 ```
+
+**為什麼上傳要獨立一支腳本**：`fetch_images.py` 只把圖抓到本機並寫 manifest，
+上傳是另一段、而且**忘了就會靜默壞掉**——CI 從 Drive 拉不到該圖，`build.py` 的
+`resolve_src()` 查不到只印警告就退回原始外部 URL，CI 照樣綠、頁面照樣產出。
+擋得住的只有 `verify_live_images.py`。
 
 ## 9. 完成定義（DoD，逐頁）
 
