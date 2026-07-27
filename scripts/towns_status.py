@@ -37,6 +37,32 @@ HERO = ROOT / "site" / "img" / "hero"
 MIN_BODY_CHARS = 2500      # CONTENT-SPEC §正文結構
 TARGET_BODY_CHARS = 4700   # 宜蘭 12 篇平均 5,100 字，低於此標為「偏短」
 MIN_IMAGES = 6             # CONTENT-SPEC：6–10 張
+MAX_IMAGES = 10            # 上限也是規格，第一批有一篇 11 張才被抓到
+# CONTENT-SPEC：教學特點佔全文 1/3 以上（本資料庫的核心）。
+# 這裡用 0.330 而不是 1/3，是刻意留 0.3 個百分點的容差：一篇 5,000 字的母本，
+# 0.3pp 只有 16 個字，卡在小數第三位判生死沒有意義，卻會讓早就上線的頁面在
+# 邊界上反覆進出「完成」名單。實際佔比一律印出來，要嚴格看的人自己看數字。
+MIN_TEACHING_RATIO = 0.330
+MAX_LEDE_CHARS = 150       # CONTENT-SPEC：定位速覽 ≤150 字
+
+# David 的硬規則：禁對立翻轉句式（memory feedback_avoid_ai_prose_antithesis）。
+# 2026-07-27 第一批獨立驗收在 8 篇裡抓出 15 條，全部是下面這幾種長相。
+# 做成自動掃描，免得每一批都要派一支 agent 用肉眼讀。
+#
+# ⚠️ 第一版寫得太窄、**漏報**：只認「這不是／那不是」開頭，於是
+# 「這個數字不是巧合，是…」整句溜過去。會漏報的檢查跟會誤報的一樣傷——
+# 前者讓人以為乾淨了，後者讓人不再看紅字，兩種都等於把驗收關掉。
+# 現在改成不限定「不是」前面的主詞。
+#
+# 這支只抓**句式**，抓不到「機械對仗排比」「每段收一句金句」這類要讀才看得出來的問題，
+# 也抓不到「臺灣多數平原聚落的起點是水田，林口的起點不是。」這種尾綴否定的變形。
+# 它是篩子不是閘門——過了不代表文風沒問題。
+_AI_PROSE_PATTERNS = [
+    (re.compile(r"不是[^，。；？！\n]{0,30}[，、]\s*而是"), "不是…而是"),
+    (re.compile(r"與其說[^，。；\n]{0,30}[，、]\s*不如說"), "與其說…不如說"),
+    (re.compile(r"不僅是[^，。；\n]{0,30}[，、]\s*更是"), "不僅是…更是"),
+    (re.compile(r"不是[^，。；？！\n]{1,30}[，、]\s*是[^，。；？！\n]{1,40}[。」，]"), "不是 X，是 Y"),
+]
 
 
 def body_chars(sections):
@@ -132,7 +158,8 @@ def check_images(units):
 def unit_report(pid, name_hint, md_path):
     """回傳一個單元的狀態 dict。md_path 不存在 → 尚未開始。"""
     r = {"id": pid, "name": name_hint, "md": None, "done": False, "blocked_at": None,
-         "chars": 0, "images": 0, "images_bad": [], "sources": 0,
+         "chars": 0, "teach_chars": 0, "teach_ratio": 0, "lede_chars": 0,
+         "ai_prose": [], "images": 0, "images_bad": [], "sources": 0,
          "page": (PAGES / f"{pid}.html").exists(),
          "hero": (HERO / f"{pid}.webp").exists(), "hero_off": False, "notes": []}
 
@@ -149,6 +176,22 @@ def unit_report(pid, name_hint, md_path):
     r["name"] = fm.get("name") or name_hint
     r["chars"] = body_chars(sections)
     r["hero_off"] = fm.get("hero") is False
+
+    # 教學特點佔比——這是本資料庫的核心，規格明訂 1/3 以上。
+    # 第一批有 4 篇因為〈人文地理〉膨脹而被稀釋到 1/3 以下（兩篇硬違規），
+    # 所以這一項要自動量，不能靠人讀。
+    teach = len(re.sub(r"\s", "", sections.get("教學特點", "")))
+    r["teach_chars"] = teach
+    r["teach_ratio"] = (teach / r["chars"]) if r["chars"] else 0
+    r["lede_chars"] = len(re.sub(r"\s", "", sections.get("定位速覽", "")))
+
+    # AI 腔掃描（David 硬規則）
+    body_all = "\n".join(sections.values())
+    hits = []
+    for pat, label in _AI_PROSE_PATTERNS:
+        for m in pat.finditer(body_all):
+            hits.append(f"{label}：{m.group(0)[:34]}")
+    r["ai_prose"] = hits
 
     images = fm.get("images") or []
     r["images"] = len(images)
@@ -167,8 +210,13 @@ def unit_report(pid, name_hint, md_path):
         r["blocked_at"] = "缺章節：" + "、".join(missing_sections)
     elif r["chars"] < MIN_BODY_CHARS:
         r["blocked_at"] = f"正文只有 {r['chars']} 字（規格要 ≥{MIN_BODY_CHARS}）"
+    elif r["teach_ratio"] < MIN_TEACHING_RATIO:
+        r["blocked_at"] = (f"教學特點只佔 {r['teach_ratio']*100:.1f}%（規格要 ≥33.3%）"
+                           f"——修法是砍〈人文地理〉，不是加教學特點")
     elif r["images"] < MIN_IMAGES:
         r["blocked_at"] = f"圖只有 {r['images']} 張（規格要 ≥{MIN_IMAGES}）"
+    elif r["images"] > MAX_IMAGES:
+        r["blocked_at"] = f"圖有 {r['images']} 張（規格上限 {MAX_IMAGES}）"
     elif r["images_bad"]:
         r["blocked_at"] = "圖片授權欄位不全：" + "；".join(r["images_bad"])
     elif r["sources"] == 0:
@@ -178,6 +226,11 @@ def unit_report(pid, name_hint, md_path):
     else:
         r["done"] = True
 
+    if r["ai_prose"]:
+        # 不擋（不是規格硬要求，是 David 的文風規則），但一定要看得見
+        r["notes"].append(f"AI 腔 {len(r['ai_prose'])} 條：" + "／".join(r["ai_prose"][:2]))
+    if r["lede_chars"] > MAX_LEDE_CHARS:
+        r["notes"].append(f"定位速覽 {r['lede_chars']} 字，超過 {MAX_LEDE_CHARS}")
     if r["done"] and r["chars"] < TARGET_BODY_CHARS:
         r["notes"].append(f"偏短（{r['chars']} 字，宜蘭均值約 5,100）")
     if r["done"] and not r["hero"] and not r["hero_off"]:
@@ -254,6 +307,7 @@ def main():
             for u in done:
                 note = ("　⚠ " + "；".join(u["notes"])) if u["notes"] else ""
                 print(f"    ✓ {u['name']:<16} {u['chars']:>5} 字 · "
+                      f"教學 {u['teach_ratio']*100:4.1f}% · "
                       f"圖 {u['images']} · 源 {u['sources']}{note}")
         if todo:
             print("  未完成：")

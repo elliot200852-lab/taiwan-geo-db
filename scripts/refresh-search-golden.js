@@ -13,7 +13,7 @@
  *   ③ 一致 → 純內容擴充，允許更新
  *      不一致 → 排序邏輯真的變了，**拒絕更新並非零離開**，回去查 search-core
  *
- * 用法：
+ * 用法（--new＝這一批「允許移動」的頁：新增的、或內容被改動過的）：
  *   node scripts/refresh-search-golden.js --new <id> [<id>...]      # 檢查，不寫入
  *   node scripts/refresh-search-golden.js --new <id> [...] --write  # 通過才寫入
  *
@@ -62,18 +62,24 @@ for (const q of Object.keys(golden)) {
   next[q] = got;
   if (JSON.stringify(got) === JSON.stringify(want)) { same++; continue; }
 
+  // 「允許移動」的頁要從**兩邊**都剔除再比。
+  // 第一版只從實得結果剔除，假設 golden 是「這批頁還不存在」的基準——
+  // 但同一批內第二次 refresh 時 golden 裡早就有它們了，那個假設就破了，
+  // 於是純粹改個錯字也會被誤判成排序回歸。剔除兩邊之後，這支比的
+  // 一律是「我沒碰過的頁，彼此的相對順序有沒有變」，跟 refresh 過幾次無關。
   const gotOld = got.filter((id) => !NEW.has(id));
+  const wantOld = want.filter((id) => !NEW.has(id));
   const inserted = got.filter((id) => NEW.has(id));
-  // 新頁擠進來會把原本排在後面的擠出 top-10，所以只比對前 gotOld.length 名
-  const wantHead = want.slice(0, gotOld.length);
-  if (JSON.stringify(gotOld) === JSON.stringify(wantHead)) {
+  // 移動的頁擠進擠出會改變 top-10 的尾巴，所以只比對兩邊都有的長度
+  const n = Math.min(gotOld.length, wantOld.length);
+  if (JSON.stringify(gotOld.slice(0, n)) === JSON.stringify(wantOld.slice(0, n))) {
     benign++;
     console.log(`  ○ 「${q}」既有頁順序不變，新頁進榜：${inserted.join("、")}`);
   } else {
-    regressions.push({ q, gotOld, wantHead });
+    regressions.push({ q, gotOld, wantOld });
     console.log(`  ✗ 「${q}」既有頁順序改變`);
-    console.log(`      實得(去掉新頁) ${JSON.stringify(gotOld)}`);
-    console.log(`      golden         ${JSON.stringify(wantHead)}`);
+    console.log(`      實得(去掉可移動頁) ${JSON.stringify(gotOld.slice(0, n))}`);
+    console.log(`      golden           ${JSON.stringify(wantOld.slice(0, n))}`);
   }
 }
 

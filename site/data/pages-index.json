@@ -127,6 +127,12 @@
       "type": "區"
     },
     {
+      "id": "new-taipei-zhonghe",
+      "name": "中和區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
       "id": "penghu",
       "name": "澎湖縣",
       "county": "澎湖縣",

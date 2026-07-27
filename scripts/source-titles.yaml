@@ -1093,8 +1093,6 @@ https://zh.wikipedia.org/zh-tw/阿里山林業鐵路: 阿里山林業鐵路 - �
 #   原因：HTTPConnectionPool(host='web.ilancity.gov.tw', port=80): Max retries exceeded with url: /ilanes-002/004-3.html (Caused by ConnectTimeoutError(<HTTPCon
 # https://idv.sinica.edu.tw/jclee/%E5%BA%B7%E7%AB%B9%E5%90%9B_Ilan-WPES_v8_2008_reduce.pdf
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://limeishu.org.tw/culture/news/5ab8be5760105629af9e1fcc
-#   原因：HTTP 404
 # https://memory.culture.tw/Home/Detail?Id=485756&IndexCode=Culture_Event
 #   原因：HTTPSConnectionPool(host='memory.culture.tw', port=443): Max retries exceeded with url: /Home/Detail?Id=485756&IndexCode=Culture_Event (Caused by Name
 # https://nrch.culture.tw/twpedia.aspx?id=3312
@@ -1123,6 +1121,8 @@ https://zh.wikipedia.org/zh-tw/阿里山林業鐵路: 阿里山林業鐵路 - �
 #   原因：curl fallback HTTP 503
 # https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=302185
 #   原因：curl fallback HTTP 503
+# https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=310822
+#   原因：curl fallback HTTP 503
 # https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=322846
 #   原因：curl fallback HTTP 503
 # https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=322981
@@ -1150,6 +1150,8 @@ https://zh.wikipedia.org/zh-tw/阿里山林業鐵路: 阿里山林業鐵路 - �
 # https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=224101
 #   原因：curl fallback HTTP 503
 # https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=224103
+#   原因：curl fallback HTTP 503
+# https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=235644
 #   原因：curl fallback HTTP 503
 # https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=512755
 #   原因：curl fallback HTTP 503

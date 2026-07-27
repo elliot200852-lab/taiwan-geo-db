@@ -36,11 +36,11 @@
     "theme-geothermal",
     "yilan-jiaoxi",
     "new-taipei-wulai",
-    "new-taipei-jinshan",
     "taipei",
+    "new-taipei-jinshan",
     "taitung",
-    "yilan",
     "theme-mountains",
+    "yilan",
     "yilan-suao",
     "yilan-toucheng"
   ],
@@ -58,9 +58,9 @@
   ],
   "原住民": [
     "theme-migration",
-    "new-taipei-wulai",
     "hualien",
     "taiwan",
+    "new-taipei-wulai",
     "chiayi-city",
     "pingtung",
     "miaoli",
@@ -73,8 +73,8 @@
     "theme-rivers",
     "theme-rain",
     "taiwan",
-    "new-taipei-wulai",
     "new-taipei-banqiao",
+    "new-taipei-wulai",
     "taipei",
     "theme-wind",
     "yilan-nanao",
@@ -105,7 +105,7 @@
     "taiwan",
     "taitung",
     "new-taipei-jinshan",
-    "new-taipei-ruifang"
+    "new-taipei-sanxia"
   ],
   "老街": [
     "new-taipei-sanxia",
@@ -190,9 +190,9 @@
     "yilan-suao",
     "keelung",
     "theme-coast",
+    "theme-typhoon",
     "new-taipei-jinshan",
     "new-taipei-tamsui",
-    "theme-typhoon",
     "theme-placenames",
     "yilan-toucheng"
   ],
