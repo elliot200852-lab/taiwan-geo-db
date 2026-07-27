@@ -161,8 +161,13 @@
               var towns = YILAN_TOWNS.filter(function (t) { return ready[t[0]]; })
                 .map(function (t) { return '<a class="cc-town" href="pages/' + t[0] + '.html">' + t[1] + '</a>'; })
                 .join('');
-              card.innerHTML = '<div class="cc-head"><span class="cc-name">宜蘭縣</span>' +
-                '<span class="cc-sub">12 鄉鎮市 · 點下方進入</span></div>' +
+              // 宜蘭縣概論頁補上之後，縣名本身可點進縣頁；還沒有縣頁時維持原本的純標題。
+              var head = ready['yilan']
+                ? '<a class="cc-name" href="pages/yilan.html">宜蘭縣</a>' +
+                  '<span class="cc-sub">縣概論 · 或點下方直接進鄉鎮</span>'
+                : '<span class="cc-name">宜蘭縣</span>' +
+                  '<span class="cc-sub">12 鄉鎮市 · 點下方進入</span>';
+              card.innerHTML = '<div class="cc-head">' + head + '</div>' +
                 '<div class="cc-towns">' + towns + '</div>';
               frag.appendChild(card);
             } else if (ready[c.id]) {

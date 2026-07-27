@@ -489,8 +489,34 @@ def local_people_block(people):
         f'<div class="people-grid">{cards}</div></section>'
     )
 
+# ---- 縣市頁 → 轄下鄉鎮頁的連結列 ----
+def towns_nav_block(towns, region_names):
+    """towns：縣市母本 frontmatter 的 `towns:`（轄下鄉鎮頁 id，順序即渲染順序）。
+
+    只渲染「母本確實存在、這次 build 真的產出了頁」的項（region_names 是唯一判準），
+    沒寫的鄉鎮不顯示——首頁 YILAN_TOWNS 的 ready 過濾是同一招，目的一樣：
+    分批補齊時永遠不會出現死連結。計數用「已產出／規劃總數」誠實標出進度。
+    """
+    if not towns:
+        return ""
+    ready = [t for t in towns if t in region_names]
+    if not ready:
+        return ""
+    links = "\n".join(
+        f'<a class="tn-town" href="{esc(t)}.html">{esc(region_names[t])}</a>'
+        for t in ready
+    )
+    count = (f'{len(ready)}' if len(ready) == len(towns)
+             else f'{len(ready)} / {len(towns)}')
+    return (
+        '<nav class="town-nav" aria-label="轄區">'
+        f'<div class="tn-head">轄區<span class="tn-count">{count}</span></div>'
+        f'<div class="tn-list">{links}</div></nav>'
+    )
+
 # ---- 組頁 ----
-def render_page(fm, sections, related_themes=None, local_people=None):
+def render_page(fm, sections, related_themes=None, local_people=None,
+                region_names=None, county_pages=None):
     name = esc(fm.get("name", "（未命名）"))
     county = esc(fm.get("county", ""))
     unit_type = esc(fm.get("type", ""))
@@ -533,13 +559,18 @@ def render_page(fm, sections, related_themes=None, local_people=None):
     src_items = "\n".join(f'<li>{source_link_html(s)}</li>' for s in sources)
     src_block = f'<h3>資料來源</h3><ul>{src_items}</ul>' if src_items else ""
 
-    # 浮標「上一層」目標：概論→總論 tab、宜蘭鄉鎮→宜蘭縣地圖、其餘縣市→分縣市 tab。
+    # 浮標「上一層」目標：概論→總論 tab、鄉鎮→所屬縣市頁（若該縣市頁存在）、縣市頁→分縣市 tab。
+    # 2026-07-27：原本宜蘭鄉鎮寫死回「index?county=宜蘭縣」，因為當時宜蘭縣沒有自己的頁。
+    # 補上宜蘭縣概論頁之後改成通則——有縣市頁就回縣市頁，新北市各區同一條路徑。
     county_raw = fm.get("county", "")
     pid_cur = fm.get("id", "")
     ptype_cur = fm.get("type", "")
+    parent_id = (county_pages or {}).get(county_raw)
     if pid_cur == "taiwan" or ptype_cur == "總覽":
         up_href, up_label = "../index.html#general", "回總論"
-    elif county_raw == "宜蘭縣":
+    elif parent_id and parent_id != pid_cur:
+        up_href, up_label = f"{parent_id}.html", f"回{county_raw}"
+    elif county_raw == "宜蘭縣" and not parent_id:
         up_href, up_label = "../index.html?county=宜蘭縣#counties", "回宜蘭縣地圖"
     else:
         up_href, up_label = "../index.html#counties", "回分縣市"
@@ -567,7 +598,15 @@ def render_page(fm, sections, related_themes=None, local_people=None):
     people_block = (people_html + "\n\n    ") if people_html else ""
 
     pid = fm.get("id", "")
-    hero_fig = page_hero_fig(pid, fm.get("name", ""))
+    # §6 規定 hero <img> 無條件輸出（缺圖必被 verify_live_images.py 抓到，杜絕靜默缺圖）。
+    # `hero: false` 是母本明示的暫時例外：情境圖還沒生的新頁先關掉，免得破圖並讓驗收全紅。
+    # 生完 hero 就把母本那行拿掉，行為即回到 §6。沒寫這欄的頁一律照舊無條件輸出。
+    hero_fig = "" if fm.get("hero") is False else page_hero_fig(pid, fm.get("name", ""))
+
+    # 轄區連結列（縣市頁專用，放在導言與數據之間）
+    towns_html = towns_nav_block(fm.get("towns") or [], region_names or {})
+    towns_block = (towns_html + "\n      ") if towns_html else ""
+
     # 比例尺分隔線（§4.3）：只在對應的兩段都存在時才佔位，避免孤立分隔線
     seam_teach_story = _SCALE_BAR if (teaching_section and story_section) else ""
 
@@ -592,7 +631,7 @@ def render_page(fm, sections, related_themes=None, local_people=None):
       <div class="eyebrow">{eyebrow}</div>
       <h1>{name}</h1>
       <div class="lede">{lede}</div>
-      {stat_block}
+      {towns_block}{stat_block}
     </header>
 
     {hero_fig}
@@ -775,7 +814,8 @@ def main():
     regions_parsed = []     # [(path, fm, sections)]
     themes_parsed = []      # [(path, fm, sections)]
     seen = {}
-    region_names = {}       # id -> name（供主題頁 locator 顯示地名）
+    region_names = {}       # id -> name（供主題頁 locator 顯示地名、轄區連結列過濾未產出的頁）
+    county_pages = {}       # county name -> 該縣市概論頁 id（county == name 即為縣市頁）
     for path in md_files:
         try:
             fm, sections = parse_file(path)
@@ -795,6 +835,8 @@ def main():
         else:
             regions_parsed.append((path, fm, sections))
             region_names[pid] = fm.get("name", "")
+            if fm.get("county") and fm.get("county") == fm.get("name"):
+                county_pages[fm["county"]] = pid
 
     # 反向索引：arts-db 人物 pin（county -> [{name, hook, url}]），唯讀、arts-db 側零改動
     arts_people = load_arts_people()
@@ -817,8 +859,14 @@ def main():
     built = 0
     for path, fm, sections in regions_parsed:
         pid = fm["id"]
+        # 轄區連結列會靜默略過還沒寫的鄉鎮（刻意：不產死連結），這裡把略過的印出來，
+        # 免得「少了幾個區」變成沒人看得見的事。
+        for t in (fm.get("towns") or []):
+            if t not in region_names:
+                print(f"  · {pid} 的轄區「{t}」尚無母本，連結列略過")
         out = OUT_PAGES / f"{pid}.html"
-        out.write_text(render_page(fm, sections, reverse.get(pid), arts_people.get(pid)),
+        out.write_text(render_page(fm, sections, reverse.get(pid), arts_people.get(pid),
+                                   region_names=region_names, county_pages=county_pages),
                        encoding="utf-8")
         index.append({
             "id": pid,

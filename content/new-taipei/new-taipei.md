@@ -3,6 +3,36 @@ id: new-taipei
 name: 新北市
 county: 新北市
 type: 直轄市
+towns:                       # 29 區，順序＝盆地核心→西側台地→大漢溪→山區→河口→北海岸→基隆河→東北角
+  - new-taipei-banqiao       # 板橋區
+  - new-taipei-sanchong      # 三重區
+  - new-taipei-zhonghe       # 中和區
+  - new-taipei-yonghe        # 永和區
+  - new-taipei-xinzhuang     # 新莊區
+  - new-taipei-luzhou        # 蘆洲區
+  - new-taipei-wugu          # 五股區
+  - new-taipei-taishan       # 泰山區
+  - new-taipei-linkou        # 林口區
+  - new-taipei-shulin        # 樹林區
+  - new-taipei-yingge        # 鶯歌區
+  - new-taipei-tucheng       # 土城區
+  - new-taipei-sanxia        # 三峽區
+  - new-taipei-xindian       # 新店區
+  - new-taipei-shenkeng      # 深坑區
+  - new-taipei-shiding       # 石碇區
+  - new-taipei-pinglin       # 坪林區
+  - new-taipei-wulai         # 烏來區
+  - new-taipei-tamsui        # 淡水區
+  - new-taipei-bali          # 八里區
+  - new-taipei-sanzhi        # 三芝區
+  - new-taipei-shimen        # 石門區
+  - new-taipei-jinshan       # 金山區
+  - new-taipei-wanli         # 萬里區
+  - new-taipei-xizhi         # 汐止區
+  - new-taipei-pingxi        # 平溪區
+  - new-taipei-ruifang       # 瑞芳區
+  - new-taipei-shuangxi      # 雙溪區
+  - new-taipei-gongliao      # 貢寮區
 stats:
   population: "4,039,299（2026-05，新北市民政局；全國人口最多的城市）"
   area_km2: "2,052.57"

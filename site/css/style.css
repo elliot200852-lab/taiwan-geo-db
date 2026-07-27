@@ -291,6 +291,8 @@ a.county-card:hover {
 }
 .county-card .cc-name { font-family: var(--serif); font-weight: 600; font-size: 1.08rem; color: var(--terra-deep); }
 .county-card .cc-sub { font-size: .82rem; color: var(--ink-soft); margin-left: .4rem; }
+a.cc-name { text-decoration: none; border-bottom: 1px solid var(--line); }
+a.cc-name:hover { border-bottom-color: var(--terra); }
 .county-card--towns { grid-column: 1 / -1; background: var(--paper); border-style: dashed; }
 .county-card--towns .cc-head { margin-bottom: .6rem; }
 .cc-towns { display: flex; flex-wrap: wrap; gap: .45rem; }
@@ -582,6 +584,37 @@ a.county-card:hover {
 }
 .stat-card .k { font-family: var(--sans); font-size: .82rem; color: var(--ink-soft); letter-spacing: .05em; }
 .stat-card .v { font-family: var(--latin); font-style: italic; font-size: 1.25rem; color: var(--terra-deep); margin-top: .15rem; }
+
+/* ---------- 轄區連結列（縣市頁 → 轄下鄉鎮頁，置於 lede 與 stats 之間） ----------
+   chip 視覺沿用首頁縣市卡裡的 .cc-town，讓「同一批鄉鎮入口」在首頁與縣市頁長得一樣。 */
+.town-nav { margin: 1.4rem 0 0; }
+.tn-head {
+  font-family: var(--sans);
+  font-size: .82rem;
+  letter-spacing: .18em;
+  color: var(--terra);
+}
+.tn-count {
+  font-family: var(--latin);
+  font-style: italic;
+  font-size: .95rem;
+  letter-spacing: 0;
+  color: var(--ink-soft);
+  margin-left: .5rem;
+}
+.tn-list { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .55rem; }
+.tn-town {
+  font-family: var(--sans);
+  font-size: .9rem;
+  color: var(--terra-deep);
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .3rem .8rem;
+  text-decoration: none;
+  transition: background .15s, border-color .15s;
+}
+.tn-town:hover { background: var(--focus); border-color: var(--gold); }
 
 /* ---------- 比例尺分隔線（§4.3：大段落之間） ---------- */
 .scale-rule {
