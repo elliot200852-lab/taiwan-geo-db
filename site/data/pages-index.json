@@ -103,6 +103,12 @@
       "type": "區"
     },
     {
+      "id": "new-taipei-luzhou",
+      "name": "蘆洲區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
       "id": "new-taipei",
       "name": "新北市",
       "county": "新北市",
@@ -133,8 +139,32 @@
       "type": "區"
     },
     {
+      "id": "new-taipei-shulin",
+      "name": "樹林區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-taishan",
+      "name": "泰山區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
       "id": "new-taipei-tamsui",
       "name": "淡水區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-tucheng",
+      "name": "土城區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-wugu",
+      "name": "五股區",
       "county": "新北市",
       "type": "區"
     },
@@ -165,6 +195,12 @@
     {
       "id": "new-taipei-yingge",
       "name": "鶯歌區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-yonghe",
+      "name": "永和區",
       "county": "新北市",
       "type": "區"
     },

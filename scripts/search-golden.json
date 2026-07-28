@@ -5,11 +5,11 @@
     "yunlin",
     "chiayi-county",
     "miaoli",
+    "new-taipei-tucheng",
     "lienchiang",
     "yilan-wujie",
-    "penghu",
-    "yilan-yilan",
-    "changhua"
+    "new-taipei-luzhou",
+    "penghu"
   ],
   "龜山島": [
     "yilan-toucheng",
@@ -76,9 +76,9 @@
     "taiwan",
     "new-taipei-banqiao",
     "new-taipei-sanchong",
+    "new-taipei-wugu",
     "new-taipei-wulai",
-    "taipei",
-    "theme-wind"
+    "taipei"
   ],
   "玉山": [
     "theme-ecology",
@@ -94,7 +94,8 @@
   "九份": [
     "new-taipei-ruifang",
     "new-taipei",
-    "new-taipei-gongliao"
+    "new-taipei-gongliao",
+    "new-taipei-tucheng"
   ],
   "地震": [
     "theme-earthquake",
@@ -127,16 +128,16 @@
     "theme-earthquake"
   ],
   "濕地": [
+    "new-taipei-wugu",
     "yilan-wujie",
     "taichung",
     "hsinchu-city",
+    "new-taipei-shulin",
     "yilan-zhuangwei",
     "yilan",
     "new-taipei-banqiao",
     "new-taipei-jinshan",
-    "new-taipei-ruifang",
-    "tainan",
-    "taitung"
+    "new-taipei-luzhou"
   ],
   "離島": [
     "theme-population",
@@ -155,12 +156,12 @@
     "taichung",
     "yilan-luodong",
     "miaoli",
+    "new-taipei-shulin",
     "new-taipei-wulai",
     "theme-geothermal",
     "theme-springs",
     "yilan-suao",
-    "changhua",
-    "chiayi-city"
+    "changhua"
   ],
   "水稻": [
     "new-taipei-linkou",
