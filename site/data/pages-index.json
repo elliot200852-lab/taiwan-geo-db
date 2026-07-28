@@ -73,8 +73,20 @@
       "type": "縣"
     },
     {
+      "id": "new-taipei-bali",
+      "name": "八里區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
       "id": "new-taipei-banqiao",
       "name": "板橋區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-gongliao",
+      "name": "貢寮區",
       "county": "新北市",
       "type": "區"
     },
@@ -109,6 +121,12 @@
       "type": "區"
     },
     {
+      "id": "new-taipei-sanchong",
+      "name": "三重區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
       "id": "new-taipei-sanxia",
       "name": "三峽區",
       "county": "新北市",
@@ -123,6 +141,30 @@
     {
       "id": "new-taipei-wulai",
       "name": "烏來區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-xindian",
+      "name": "新店區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-xinzhuang",
+      "name": "新莊區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-xizhi",
+      "name": "汐止區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-yingge",
+      "name": "鶯歌區",
       "county": "新北市",
       "type": "區"
     },

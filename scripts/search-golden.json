@@ -13,24 +13,24 @@
   ],
   "龜山島": [
     "yilan-toucheng",
+    "yilan",
     "yilan-jiaoxi",
     "theme-coast",
     "theme-earthquake",
     "theme-geothermal",
-    "yilan",
     "yilan-yilan"
   ],
   "頭城": [
     "yilan-toucheng",
     "theme-placenames",
+    "new-taipei-gongliao",
     "yilan",
     "yilan-yilan",
     "new-taipei-sanxia",
     "theme-coast",
     "theme-migration",
     "theme-springs",
-    "theme-temples",
-    "yilan-dongshan"
+    "theme-temples"
   ],
   "溫泉": [
     "theme-geothermal",
@@ -41,8 +41,8 @@
     "taitung",
     "theme-mountains",
     "yilan",
-    "yilan-suao",
-    "yilan-toucheng"
+    "new-taipei-bali",
+    "yilan-suao"
   ],
   "客家": [
     "theme-migration",
@@ -51,10 +51,10 @@
     "kaohsiung",
     "taichung",
     "theme-temples",
+    "new-taipei-xinzhuang",
     "taoyuan",
     "theme-placenames",
-    "new-taipei-tamsui",
-    "pingtung"
+    "new-taipei-tamsui"
   ],
   "原住民": [
     "theme-migration",
@@ -70,15 +70,15 @@
   ],
   "颱風": [
     "theme-typhoon",
+    "new-taipei-xizhi",
     "theme-rivers",
     "theme-rain",
     "taiwan",
     "new-taipei-banqiao",
+    "new-taipei-sanchong",
     "new-taipei-wulai",
     "taipei",
-    "theme-wind",
-    "yilan-nanao",
-    "yunlin"
+    "theme-wind"
   ],
   "玉山": [
     "theme-ecology",
@@ -93,7 +93,8 @@
   ],
   "九份": [
     "new-taipei-ruifang",
-    "new-taipei"
+    "new-taipei",
+    "new-taipei-gongliao"
   ],
   "地震": [
     "theme-earthquake",
@@ -198,6 +199,7 @@
   ],
   "紅樹林": [
     "new-taipei-tamsui",
+    "new-taipei-bali",
     "tainan"
   ],
   "夜市": [

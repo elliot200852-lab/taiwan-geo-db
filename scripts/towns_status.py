@@ -44,6 +44,12 @@ MAX_IMAGES = 10            # 上限也是規格，第一批有一篇 11 張才�
 # 邊界上反覆進出「完成」名單。實際佔比一律印出來，要嚴格看的人自己看數字。
 MIN_TEACHING_RATIO = 0.330
 MAX_LEDE_CHARS = 150       # CONTENT-SPEC：定位速覽 ≤150 字
+# 「字」在這裡算**純漢字**（不含標點、阿拉伯數字、空白）。這不是隨便選的：
+# 寫作 agent 自己就是這樣數的，閘門若用「非空白字元」會比它們嚴約 15%，
+# 於是每一批都要在「我判超標／它認為沒超」之間多空轉一輪。尺要同一把。
+# 附帶事實：既有 12 篇宜蘭用哪種計法都有一半以上超標（純漢字 7 篇、非空白 11 篇），
+# 這條規格在那一批根本沒被執行過——所以這裡只當提醒，不擋。
+_CJK_RE = re.compile(r"[\u4e00-\u9fff]")
 
 # David 的硬規則：禁對立翻轉句式（memory feedback_avoid_ai_prose_antithesis）。
 # 2026-07-27 第一批獨立驗收在 8 篇裡抓出 15 條，全部是下面這幾種長相。
@@ -183,7 +189,7 @@ def unit_report(pid, name_hint, md_path):
     teach = len(re.sub(r"\s", "", sections.get("教學特點", "")))
     r["teach_chars"] = teach
     r["teach_ratio"] = (teach / r["chars"]) if r["chars"] else 0
-    r["lede_chars"] = len(re.sub(r"\s", "", sections.get("定位速覽", "")))
+    r["lede_chars"] = len(_CJK_RE.findall(sections.get("定位速覽", "")))
 
     # AI 腔掃描（David 硬規則）
     body_all = "\n".join(sections.values())
