@@ -42,19 +42,19 @@
     "theme-mountains",
     "yilan",
     "new-taipei-bali",
-    "yilan-suao"
+    "new-taipei-wanli"
   ],
   "客家": [
     "theme-migration",
     "hsinchu-county",
     "miaoli",
     "kaohsiung",
+    "new-taipei-sanzhi",
     "taichung",
     "theme-temples",
     "new-taipei-xinzhuang",
     "taoyuan",
-    "theme-placenames",
-    "new-taipei-tamsui"
+    "theme-placenames"
   ],
   "原住民": [
     "theme-migration",
@@ -88,6 +88,7 @@
     "chiayi-county",
     "theme-rivers",
     "kaohsiung",
+    "new-taipei-pinglin",
     "new-taipei-wulai",
     "theme-earthquake"
   ],
@@ -111,15 +112,15 @@
   ],
   "老街": [
     "new-taipei-sanxia",
+    "new-taipei-shenkeng",
     "yilan-toucheng",
     "yilan-wujie",
     "new-taipei-tamsui",
     "changhua",
+    "new-taipei-shiding",
     "theme-temples",
     "new-taipei-jinshan",
-    "taoyuan",
-    "new-taipei-ruifang",
-    "hsinchu-county"
+    "taoyuan"
   ],
   "國家公園": [
     "new-taipei-jinshan",
@@ -189,14 +190,15 @@
   ],
   "漁港": [
     "theme-fishery",
+    "new-taipei-wanli",
     "yilan-suao",
     "keelung",
     "theme-coast",
     "theme-typhoon",
     "new-taipei-jinshan",
     "new-taipei-tamsui",
-    "theme-placenames",
-    "yilan-toucheng"
+    "new-taipei-shimen",
+    "theme-placenames"
   ],
   "紅樹林": [
     "new-taipei-tamsui",

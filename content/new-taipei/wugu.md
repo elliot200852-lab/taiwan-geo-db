@@ -3,7 +3,6 @@ id: new-taipei-wugu
 name: 五股區
 county: 新北市
 type: 區
-hero: false
 stats:
   population: "94,998（2026-06，新北市民政局；戶數 41,674）"
   area_km2: "34.8632"

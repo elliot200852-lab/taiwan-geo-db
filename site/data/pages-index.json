@@ -115,6 +115,12 @@
       "type": "直轄市"
     },
     {
+      "id": "new-taipei-pinglin",
+      "name": "坪林區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
       "id": "new-taipei-pingxi",
       "name": "平溪區",
       "county": "新北市",
@@ -139,6 +145,36 @@
       "type": "區"
     },
     {
+      "id": "new-taipei-sanzhi",
+      "name": "三芝區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-shenkeng",
+      "name": "深坑區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-shiding",
+      "name": "石碇區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-shimen",
+      "name": "石門區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-shuangxi",
+      "name": "雙溪區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
       "id": "new-taipei-shulin",
       "name": "樹林區",
       "county": "新北市",
@@ -159,6 +195,12 @@
     {
       "id": "new-taipei-tucheng",
       "name": "土城區",
+      "county": "新北市",
+      "type": "區"
+    },
+    {
+      "id": "new-taipei-wanli",
+      "name": "萬里區",
       "county": "新北市",
       "type": "區"
     },

@@ -3,7 +3,6 @@ id: new-taipei-yonghe
 name: 永和區
 county: 新北市
 type: 區
-hero: false
 stats:
   population: "210,840（2026-05，新北市民政局）"
   area_km2: "5.7138"

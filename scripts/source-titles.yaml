@@ -5,6 +5,8 @@
 # 人工補洞：直接在下方加一行 `url: 標題`；重跑本腳本不會清掉人工值，
 # 除非該 URL 這次重新抓到了新標題（以新抓到的為準）。
 
+http://ashan.gl.ntu.edu.tw/chinese/GeoPark/YehLiu/index-YehLiu_main01.html: 阿山的地科研究室-地質公園-野柳岬-形成史
+http://ashan.gl.ntu.edu.tw/chinese/GeoPark/YehLiu/index-YehLiu_main02.html: 阿山的地科研究室-地質公園-野柳岬-地形
 ? http://biogeo.ntnugeog.org/static/website/html/social/lesson2/Keyword2/%E6%B0%A3%E6%BA%AB%E5%9E%82%E7%9B%B4%E9%81%9E%E6%B8%9B%E7%8E%87.htm
 : 氣溫垂直遞減率
 http://gn.geog.ntu.edu.tw/GeoNames/usage.aspx: 地名資訊服務網
@@ -62,6 +64,7 @@ https://digitalarchives.tw/Exhibition/1141/1.html: 台灣特有植物(第 1頁)-
 https://e-info.org.tw/node/232836: 耗資7億 全台最大地熱電廠在宜蘭 清水地熱年發2500萬度綠電 - 環境資訊中心
 https://e-info.org.tw/node/234648: 百年二峰圳 開啟台灣水資源永續利用的溫柔工程 - 環境資訊中心
 https://e-info.org.tw/node/237728: 全台首座火山地熱發電 新北金山四磺子坪1MW先導電廠將商轉 - 環境資訊中心
+https://e-info.org.tw/node/238958: 到雙溪賞螢 「螢之道」嚴選綠色旅遊 感受里山百年農業文化 - 環境資訊中心
 https://e-info.org.tw/node/47397: 小琉球珊瑚礁的百年孤寂 - 環境資訊中心
 https://e-info.org.tw/node/58121: 飄洋過海來台灣──洋流與島民的生活 - 環境資訊中心
 https://e-info.org.tw/node/74082: 中央山脈造山運動活躍 玉山每年高五、六公分 - 環境資訊中心
@@ -81,13 +84,20 @@ https://fae.moa.gov.tw/map/food_item.php?type=AS02&id=113&local_id=191: 茶｜�
 https://fae.moa.gov.tw/map/food_item.php?type=AS02&id=148&local_id=173: 青蔥｜食農教育資訊整合平臺
 https://fae.moa.gov.tw/map/food_item.php?type=AS02&id=80&local_id=264: 空心菜(蕹菜)｜食農教育資訊整合平臺
 https://fae.moa.gov.tw/map/food_item.php?type=AS02&local_id=325: 九孔｜食農教育資訊整合平臺
+https://fae.moa.gov.tw/map/food_item.php?type=AS03&id=112: 茭白筍｜食農教育資訊整合平臺
+https://fae.moa.gov.tw/map/food_item.php?type=AS03&id=368: 石花菜｜食農教育資訊整合平臺
+https://fae.moa.gov.tw/map/food_item.php?type=AS03&id=47: 山藥｜食農教育資訊整合平臺
 https://fae.moa.gov.tw/map/food_item.php?type=AS04&id=169: 稻米｜食農教育資訊整合平臺
 https://fault.gsmma.gov.tw/About/FaultMore/0f0ba96791b44c849d9515ef3df9fd7c: 山腳斷層 - 經濟部地質調查及礦業管理中心 臺灣活動斷層
 https://fault.gsmma.gov.tw/About/FaultMore/55ae0384aecc43279b779ddf8a99e788: 車籠埔斷層 - 經濟部地質調查及礦業管理中心 臺灣活動斷層
+https://feitsui-elc.gov.taipei/News_Content.aspx?n=08E534E892DD2533&sms=18B8BA5B27477151&s=805E6E61F9329E0F: 翡翠水庫環境學習中心網站-學習焦點-翡翠水庫歷史
+https://fishery.ntpc.gov.tw/cht/index.php?code=list&flag=detail&ids=20&article_id=1448: 新北市政府漁業及漁港事業管理處
+  > 最新消息 > 新聞發佈 > 萬里蟹三足鼎立！三點蟹花蟹石蟳各有死忠！
 https://fishery.ntpc.gov.tw/cht/index.php?code=list&flag=detail&ids=60&article_id=507: 新北市政府漁業及漁港事業管理處
   > 漁港資訊 > 漁港介紹 > 金山地區 > 磺港漁港
 https://food.ltn.com.tw/article/1395: 秋冬正當季！南方澳的金礦「鯖魚」，形狀越扁的越好吃？ - 食譜自由配 - 自由電子報
 https://futurecity.cw.com.tw/article/3388: 全台NO1地熱發電廠！時隔30年在宜蘭重生，觀光人氣王年產值近8億元 - 未來城市＠天下 - 進步城市的新想像
+https://geopark.forest.gov.tw/FrontPointOfEntry.aspx?Sn=157: 臺灣地質公園網絡 地景資源特色
 https://georank.org/size/netherlands/taiwan: 'Total & land area: Netherlands vs Taiwan size comparison'
 https://gis.rchss.sinica.edu.tw/mapdap/lang/zh-tw/archives/3227/: 清朝劉銘傳鐵路(臺北橋至迴龍段)與捷運新莊線 « 地圖與遙測影像數位典藏計畫
 https://guavanthropology.tw/article/6833: 「我們一直都在」：蘭陽平原上的噶瑪蘭族 | guavanthropology.tw 芭樂人類學
@@ -95,6 +105,7 @@ https://gweb.wra.gov.tw/HydroInfo/StDataInfo/StDataInfo: 水文資訊網
 https://hch.hakka.gov.tw/reportdetail.asp?MenuID=10&SubID=28&ArID=1162&pageNums=2: 客家文化資產數位網
 https://hch.hakka.gov.tw/reportdetail.asp?MenuID=9&SubID=27&ArID=1096: 客家文化資產數位網
 https://hiking.biji.co/index.php?q=review&act=info&review_id=23746: 維基百科285座台灣3000公尺高山 - 健行筆記
+https://hiking.biji.co/index.php?q=trail&act=detail&id=131: 皇帝殿登山步道 - 健行筆記
 https://humanityisland.nccu.edu.tw/zhangxun01/: 信仰流動如水，從小女神到媽祖──中研院張珣探究兩岸文化媽祖 - 人文．島嶼
 https://ihc.cip.gov.tw/EJournal/EJournalCat/379: 原住民族文獻
 https://ilwct.e-land.gov.tw/cp.aspx?n=6649: 宜蘭縣五結鄉公所-養鴨博士與鴨子們
@@ -124,6 +135,7 @@ https://landscape.forest.gov.tw/Front/land_search/Landscape.aspx?id=kVsq7hIIvoI%
 https://landscape.forest.gov.tw/Front/land_search/Landscape.aspx?id=kVsq7hIIvoI%3D&Sn=79: 臺灣地景保育網 地景登錄點檢索
 https://landscape.forest.gov.tw/Front/land_search/Landscape.aspx?id=kVsq7hIIvoI=&Sn=67: 臺灣地景保育網 地景登錄點檢索
 https://landscape.forest.gov.tw/Front/land_search/Landscape.aspx?id=kVsq7hIIvoI=&Sn=83: 臺灣地景保育網 地景登錄點檢索
+https://law.moea.gov.tw/LawContent.aspx?id=FL035706: 經濟部主管法規共用系統-法規內容-水源保育與回饋費收費辦法
 https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0110007: 淡水河洪水平原管制辦法（新 88.06.30 訂定）-全國法規資料庫
 https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0110040: 溫泉法-全國法規資料庫
 https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0110041: 溫泉標準-全國法規資料庫
@@ -163,13 +175,27 @@ https://news.pts.org.tw/article/791324: 舊蘇花公路和仁至大清水路段�
 https://news.pts.org.tw/curation/127: 【專題】高鐵彰化與雲林站啟用近10年 地層下陷危機為何仍難解？ ｜ 公視新聞網 PNN
 https://news.tvbs.com.tw/life/880223: 台灣降雨量比全球多2.6倍 卻是缺水國家│TVBS新聞網
 https://newtaipei.travel/zh-tw/attractions/detail/109612: 十分瀑布公園 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/attractions/detail/109621: 新北市坪林茶業博物館 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/attractions/detail/109624: 石門洞 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/attractions/detail/109630: 石碇老街 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/attractions/detail/109642: 富貴角 | 新北市觀光旅遊網
 https://newtaipei.travel/zh-tw/attractions/detail/109666: 烏來溫泉 | 新北市觀光旅遊網
 https://newtaipei.travel/zh-tw/attractions/detail/109805: 蓋淡坑遺址 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/attractions/detail/109946: 皇帝殿登山步道 | 新北市觀光旅遊網
 https://newtaipei.travel/zh-tw/attractions/detail/110042: 菁桐車站 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/attractions/detail/110060: 虎豹潭 | 新北市觀光旅遊網
 https://newtaipei.travel/zh-tw/attractions/detail/110374: 金山跳石海岸 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/attractions/detail/110377: 石門風箏公園 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/attractions/detail/110833: 雙溪老街 | 新北市觀光旅遊網
 https://newtaipei.travel/zh-tw/attractions/detail/110892: 國際終戰和平紀念園區 | 新北市觀光旅遊網
 https://newtaipei.travel/zh-tw/attractions/detail/112163: 燭臺雙嶼 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/attractions/detail/302752: 雙溪渡船頭 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/attractions/detail/302763: 淡蘭吊橋(外按古道) | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/attractions/detail/402599: 筆架連峰登山步道 | 新北市觀光旅遊網
 https://newtaipei.travel/zh-tw/attractions/detail/402707: 獅子頭隘口 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/attractions/detail/403133: 石碇千島湖/翡翠水庫徒步區 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/column/458: 驚嘆奇景 野柳地質公園 | 新北市觀光旅遊網
+https://newtaipei.travel/zh-tw/shop/detail/402249: 林益和堂中藥店 | 新北市觀光旅遊網
 https://nrch.culture.tw/twpedia.aspx?id=1501: 蘭陽溪 - 台灣大百科全書
 https://nwp.tw/blog/articles/5740: 「蘭嶼低放貯存場」是什麼？ | 核廢料，去哪裡？
 https://opinion.cw.com.tw/blog/profile/194/article/5028: 原來這裡是紅露和米酒的原鄉哦──宜蘭酒廠 ｜ 魚夫 ／ 魚腸劍譜 ｜ 獨立評論
@@ -211,6 +237,7 @@ https://research.sinica.edu.tw/seqalu-paiwan-rover-formosa-archaeology-abandoned
   - 研之有物 │ 串聯您與中央研究院的橋梁
 https://research.sinica.edu.tw/tatun-volcano-group-magma-reservoir-structure/: 大屯山偷偷藏了一個岩漿牛奶罐？用震波破解大屯火山身下的秘密！
   - 研之有物 │ 串聯您與中央研究院的橋梁
+https://river.udn.com/river/story/124358/9503098: 【大台北水源保護系列報導之一】保護水源18年 慈心基金會在坪林推動有機種茶 | 編輯精選 | 河好如初
 https://scitechvista.nat.gov.tw/Article/C000003/detail?ID=376cbb6e-0cf2-485e-ab58-d83e8ed2f558: 溫泉：溫泉何處來|最新文章
   - 科技大觀園
 https://scitechvista.nat.gov.tw/Article/c000003/detail?ID=068d4147-4410-40e6-8821-706b66a58471: 臺北以前是座湖？懸而未決的歷史謎團|最新文章
@@ -222,6 +249,8 @@ https://scitechvista.nat.gov.tw/Article/c000003/detail?ID=bcb08a30-8aec-4089-964
 https://scweb.cwa.gov.tw/special/19990921/1999092101471273043.htm: 中央氣象局有感地震報告
 https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/55: 地震百問-54. 臺灣的地震頻率如何? - 中央氣象署地震測報中心
 https://shell.sinica.edu.tw/lanyang/lanyangold/intro.htm: 蘭陽溪介紹
+? https://shuj.shu.edu.tw/blog/2023/04/30/%E5%A4%A7%E8%87%AA%E7%84%B6%E9%AC%BC%E6%96%A7%E7%A5%9E%E5%B7%A5-%E5%A5%B3%E7%8E%8B%E9%A0%AD%E6%96%B7%E9%A0%B8%E5%8D%B1%E6%A9%9F/
+: 大自然鬼斧神工 女王頭斷頸危機 – 世新大學小世界
 https://smangus.org/history.html: 司馬庫斯 Qalang Smangus：部落歷史
 https://smiletaiwan.cw.com.tw/article/1828: 米鄉，米好香！濁水孕育出的香甜好米 - 彰化款款行 - 微笑台灣 - 用深度旅遊體驗鄉鎮魅力
 https://smiletaiwan.cw.com.tw/article/2293: 九降風下的物產，新竹米粉怎麼來？中元節為什麼要拜米粉？誰的打包帶？ - 貢丸湯 - 微笑台灣 - 用深度旅遊體驗鄉鎮魅力
@@ -256,6 +285,7 @@ https://taiwan-shugakuryoko.jp/spot_central/759/: 九二一地震教育園区 | 
 ? https://taiwan.md/nature/%E5%8F%B0%E7%81%A3%E9%AB%98%E5%B1%B1%E7%94%9F%E6%85%8B%E7%B3%BB%E8%88%87%E5%86%B0%E6%B2%B3%E5%AD%91%E9%81%BA/
 : 台灣高山生態系與冰河孑遺 | Taiwan.md
 https://taiwangods.moi.gov.tw: 臺灣宗教文化地圖
+https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=118: 淡水三芝八庄大道公輪祀-臺灣宗教文化地圖-臺灣宗教文化資產
 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=2: 金門風獅爺-臺灣宗教文化地圖-臺灣宗教文化資產
 https://taiwangods.moi.gov.tw/html/cultural/3_0011.aspx?i=203: 頂泰山巖-臺灣宗教文化地圖-臺灣宗教文化資產
 https://taiwangods.moi.gov.tw/html/landscape/1_0011.aspx?i=17: 三峽祖師廟-臺灣宗教文化地圖-臺灣宗教百景
@@ -278,6 +308,10 @@ https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=284423: 哈密�
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=284424: 走尪｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=310501: 1997年瓦磘溝變更都市計畫案專案小組會議｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=557497: 基隆戰役｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=559757: 百年林家草厝翻新｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=560761: 土庫庄 1898 日治二萬分之一臺灣堡圖（明治版）｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=560766: 1898 深坑一帶行政區界圖｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=560768: 1905 文山堡｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=602908: 利澤簡永安宮走尪｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=603111: 小米復耕｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=603135: 結頭份歌仔戲文化節｜國家文化記憶庫
@@ -285,6 +319,7 @@ https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=603151: 寒溪�
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=630014: 飄著英國國旗的淡水紅毛城｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Event&id=732349: 桃園市107年文面節成年禮活動｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Invisible&id=159732: 口湖牽水藏｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Invisible&id=553773: 深坑包種茶｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Invisible&id=616042: 煤礦坑外作業（七）煤礦內保命自救器材｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Invisible&id=686102: 2019奇立板海祭畫面｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=139966: 真的很冷嗎？蘇澳冷泉｜國家文化記憶庫
@@ -307,6 +342,7 @@ https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=234436: 建築�
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=258741: 本山五坑初創期的馬拉式礦車｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=258989: 暖暖鳥瞰透視圖｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=259080: 〈金包里海邊民家〉｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=267786: 野柳林添禎捨身救人雕像｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=267884: 烏來空中纜車｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=283045: 泰雅族南澳群的紡織工業｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=289335: 奇立丹傳奇(選自《第五屆蘭陽文學獎得獎作品集》)｜國家文化記憶庫
@@ -319,13 +355,16 @@ https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=310822: 淡水�
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=322846: 入選-淡水鄞山寺｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=322981: 入選-板橋 林本源園邸｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=323294: 入選-井仔腳鹽田｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=323761: 昔日石碇鄉公所｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=483191: 臺北高等學校1938年第11屆理甲班學生在川端橋合影｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=501809: 淡蘭古道之北路(官道)、中路(民道)及南路(商道)之運輸路線圖｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=512734: 三星蔥｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=514414: 梅花湖｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=514535: 莎韻之鐘｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=514586: 外太魯閣的平埔族居民｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=550437: 新北泰山巖殿前之拜殿左員光｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=569292: 臺灣各地區茶葉特色-新北市林口龍壽茶｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=601059: 炭火焙爐｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=602916: 三星銀柳｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=604704: 第二名-水湳洞選煉廠遺址｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=604808: 入選-三峽宰樞廟內景｜國家文化記憶庫
@@ -334,16 +373,21 @@ https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=606074: 入選-
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=684647: 碧潭與碧潭吊橋｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=684684: 臺灣第一段通車的高速公路（三重至中壢）｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=684710: 南迴線正式營運，環島鐵路網正式完成｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=684728: 台視「去年夏天」萬里翡翠灣出外景｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=684731: 鶯歌陶瓷｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=732459: 烏來社蕃務警察官吏駐在所照片｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=734053: 時光之流｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=754739: 野柳停車場及店家｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Organization&id=200053: 永和社區大學｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_People&id=148698: 楊嘯霞｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_People&id=329471: 三峽篤農黃新來｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_People&id=685563: 瑞芳老街｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_People&id=736772: 三貂角海女｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=163591: 滬尾｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=212520: 基隆金包里輕便鐵道野柳隧道｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=219002: 石底大斜坑｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=219008: 頌德碑｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=2216284: 新北市深坑區深坑國民小學｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=2220918: 卯澳寫真館及卯澳駐宅維護｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=223184: 海山煤礦｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=223192: 大松煤礦｜國家文化記憶庫
@@ -389,9 +433,12 @@ https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=512763: 五十�
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=512778: 烏石港舊址｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=512829: 利澤簡永安宮外觀｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=514056: 東岳湧泉公園｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=560050: 深坑蔡氏古厝｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=560177: 蔡家茶園｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=560930: 滬尾｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=592095: 八里第一處有人定居的地點：大坌坑遺址｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=592105: 八里第一種公共交通工具：渡船｜國家文化記憶庫
+https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=601058: 新北市石門區茶山步道｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=602727: 淡水海關碼頭現況｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=602841: 由英商嘉士洋行倉庫園區向淡水拍攝之淡水河｜國家文化記憶庫
 https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Place&id=602859: 三角湧地區茶葉採收｜國家文化記憶庫
@@ -422,12 +469,15 @@ https://travel.yilan.tw/zh-tw/attraction/details/392: 梅花湖 | 宜蘭旅遊�
 https://twgeoref.gsmma.gov.tw/GipOpenWeb/wSite//ct?xItem=110469&ctNode=217&mp=6: 臺灣地質知識服務網-知識樹總覽-林口紅土微觀土粒結構之研究
 https://twgeoref.gsmma.gov.tw/GipOpenWeb/wSite/ct?xItem=141077&ctNode=1233&mp=105: 地質知識服務網地質百科-地質百科-金瓜石礦區
 https://twgeoref.gsmma.gov.tw/GipOpenWeb/wSite/ct?xItem=146290&ctNode=1233&mp=105: 地質知識服務網地質百科-地質百科-大屯火山群
+https://twgeoref.gsmma.gov.tw/GipOpenWeb/wSite/ct?xItem=323031&ctNode=1407&mp=6: 臺灣地質知識服務網-地質新聞-女王頭驚見「超長裂痕」網憂斷頭
+  野柳地質公園揭頸圍數據澄清
 https://twh.boch.gov.tw/non_material/intro.aspx?id=749: 賽夏族矮靈祭-非物質文化遺產
 https://twh.boch.gov.tw/taiwan/intro.aspx?id=15&lang=zh_tw: 桃園臺地陂塘-臺灣世界遺產潛力點
 https://twh.boch.gov.tw/taiwan/intro.aspx?id=16&lang=zh_tw: 排灣族及魯凱族石板屋聚落-臺灣世界遺產潛力點
 https://twh.boch.gov.tw/taiwan/intro.aspx?id=17&lang=zh_tw: 烏山頭水庫及嘉南大圳-臺灣世界遺產潛力點
 https://twh.boch.gov.tw/taiwan/intro.aspx?id=7&lang=zh_tw: 阿里山林業暨鐵道文化景觀-臺灣世界遺產潛力點
 https://twstudy.iis.sinica.edu.tw/Han/Paper/mazu/JiSiViewCaoTun.htm: 由祭祀圈來看草屯鎮的地方組織*
+https://ubrand.udn.com/ubrand/story/123652/9269305: 曾經是最熱鬧的中繼站...坪林茶業在雪隧通車後衰落 警示東北角4區 | 共好社會 | 倡議家
 https://udn.com/news/story/7326/9229221: 推估與這2原因相關 雲林地層下陷防治25年來首見「零顯著下陷區」 | 雲嘉南 | 地方 | 聯合新聞網
 https://vip.udn.com/vip/story/121942/6073143: 照片看歷史／1980年北迴鐵路通車 花蓮萬人鼓樂相迎 | 圖片故事 | 聯合報
 https://vocus.cc/article/5d594c56fd89780001bca8a1: 僑鄉、僑匯、與洋樓－金門行記（二）
@@ -435,6 +485,8 @@ https://vocus.cc/article/6004f550fd89780001591c42: 【地方誌搜查隊】從�
 https://vocus.cc/article/63eee22dfd8978000188e181: 〔環境〕宜蘭水源地面臨開發危機！ 宜蘭溪北二十二萬人將沒水喝？
 https://vocus.cc/article/679ee394fd89780001d5dcdf: 新莊水文人文巡禮（五）：戲館巷、挑水巷、米市巷，百年廟街百工傳奇
 https://voicettank.org/single-post/2020/06/21/062101/: 歪打正著談地名與地方制度：回溯1920年的改變 – 思想坦克｜Voicettank
+https://wangtea.com.tw/pouchong-origin: 包種茶的由來 — 有記名茶 Wang Tea
+https://wanlicrab.tw/: 在台灣 就是要吃萬里蟹 - 萬里蟹品牌官網 - 在台灣，就是要吃尚青ㄟ萬里蟹！
 https://water.ntpc.gov.tw/News/Detail/1483.htm: 新北水漾-淡水河流域介紹
 https://web.tainan.gov.tw/publicdisaster/News_Content.aspx?n=21784&s=7637731: 臺南市政府防災資訊服務網站-Q.颱風種類依照其中心附近最大風速，分為輕度颱風、中度颱風及強烈颱風三種，請問其區分標準如何?
 https://wedid.ntpc.gov.tw/Governance/Detail/R6yPpQ8dLwYJ: 新北市政府施政成果網|施政成果|永和大陳社區都市更新案
@@ -443,6 +495,7 @@ https://wenshan.org.tw/wss/index.php/%E5%9C%B0%E7%90%86/item/2006-%E7%91%A0%E5%8
 https://women.nmth.gov.tw/?p=20161: 莎勇之鐘 - 臺灣女人
 https://ws.ndc.gov.tw/001/administrator/10/relfile/0/15175/11a5a84b-06d0-43bb-941b-f9485c31c896.pdf: 近年我國縣市人口變動情形及影響因素（國家發展委員會委託研究）
 https://www.7stareco.org.tw/water/geo/geo14.htm: 游牧民族
+https://www.agriculture.ntpc.gov.tw/information.php?p_id=46: 茭白筍
 https://www.agriharvest.tw/archives/103558/: 具多元效益的天然藍染工藝作物 林下經濟作物馬藍的栽培技術 - 農傳媒
 https://www.agriharvest.tw/archives/23760/: 【寓軍於農】失根的好茶部落，走出莫拉克風災再現魯凱文化 - 農傳媒
 https://www.agriharvest.tw/archives/25361/: 歷經十年研究，「神話之鳥」黑嘴端鳳頭燕鷗跨國遷徙路徑大揭密 - 農傳媒
@@ -466,9 +519,12 @@ https://www.banqiao.ntpc.gov.tw/home.jsp?id=69aaea7a71818a80: 人文古今-新�
 https://www.banqiao.ntpc.gov.tw/home.jsp?id=8c4540120c916d8b: 板橋憶往(簡史)-新北市板橋區公所
 https://www.banqiao.ntpc.gov.tw/home.jsp?id=9a82909484ee3b60: 地理生態-新北市板橋區公所
 https://www.besttea1.com/blog/posts/oriental-beauty-tea-intro: 白毫烏龍｜東方美人茶是什麼茶？膨風茶 5 大別名、功效、產地、價格完整指南
+https://www.biosmonthly.com/article/6974: 【本週聚焦】景美溪風起雲湧二百年（一）：扛起臺北經濟命脈的黃金航路 ｜ BIOS monthly
 https://www.bnext.com.tw/article/83700/taiwan-science-park: 台灣科學園區有幾個？第一個科學園區為何選新竹？竹科、中科、南科介紹|數位時代 BusinessNext
 https://www.ca.ntpc.gov.tw/home.jsp?id=0de11fd46b419ad1: 29區面積-新北市政府民政局
 https://www.ca.ntpc.gov.tw/home.jsp?id=88f142fb0f4a0762: 人口統計-新北市政府民政局
+https://www.ca.ntpc.gov.tw/home.jsp?id=ae81490241be0b0c: 新北最大百年梯田-石門嵩山-新北市政府民政局
+https://www.ca.ntpc.gov.tw/home.jsp?id=ed947a5a3b0af96d: 全台唯一綠石槽-石門老梅-新北市政府民政局
 https://www.ca.ntpc.gov.tw/home.jsp?id=fa9c81c8c2e597b8: 各區人口統計-新北市政府民政局
 https://www.ceramics.ntpc.gov.tw/xmdoc/cont?xsmsid=0G289657816037689043&sid=0G294532986633213720: 化泥成形
   | 新北市立鶯歌陶瓷博物館
@@ -481,6 +537,7 @@ https://www.cgmh.org.tw/tw/Systems/AreaInfo/5: 林口長庚紀念醫院|長庚�
 https://www.chiayi.gov.tw/News_Content.aspx?n=512&s=216166: 射日塔
 https://www.chiayi.gov.tw/News_Content.aspx?n=512&s=216171: 嘉義的歷史沿革
 https://www.chinatimes.com/newspapers/20211110000525-260107: 大陸搶註冊 宜蘭冬山素馨茶改名外銷 - 地方 - 中國時報
+https://www.chinatimes.com/realtimenews/20160730002109-260503: 過路客不再來 坪林茶行生意衰落 - 社會 - 中央社
 https://www.chinatimes.com/realtimenews/20180515000988-260405: 林口台地易起霧！孕育龍壽茶飄香又回甘 - 生活 - 中時新聞網
 https://www.chinatimes.com/realtimenews/20221114002522-260405: 重劃區裡的建築瑰寶 泰山李石樵故居見證塭仔圳百年歷史 - 生活 - 中時新聞網
 https://www.cip.gov.tw/zh-tw/menu/data-list/6726E5B80C8822F9-info.html?cumid=6726E5B80C8822F9: 原住民族分布區域
@@ -519,6 +576,7 @@ https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/900858ce-6cc5-4678-a137-ecfd09800f14
 https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/acb034c7-e184-4a39-be3f-381db50a6abe: 《國家語言發展法》—改善語言斷層危機、尊重多元文化發展
   (行政院全球資訊網-重要政策)
 https://www.ey.gov.tw/state/D00B53C98CD4F08F/0fe638e7-c0bf-401e-b9f2-3db11eecd508: 宗教信仰在臺灣 (國情簡介-宗教)
+https://www.feitsui.gov.taipei/News_Content.aspx?n=F1ADCCE2242DCAD0&s=8C1F267BFF9920D5: 臺北翡翠水庫管理局-歷史沿革-歷史沿革
 https://www.foodnext.net/news/newsnow/paper/5357569698: 恆春洋蔥盛產期到了！冬季擾人落山風，吹出質優味美的好洋蔥 @ 食力foodNEXT‧食事求實的知識頻道
 https://www.forest.gov.tw/0004557: 林務局時期大事紀
 https://www.forest.gov.tw/0007956: 哈盆自然保留區
@@ -631,6 +689,7 @@ https://www.necoast-nsa.gov.tw/Articles.aspx?a=109&l=1: 地質-東北角及宜�
 https://www.necoast-nsa.gov.tw/Attraction-Content.aspx?a=278&l=1: 烏石港-東北角及宜蘭海岸國家風景區觀光資訊網
 https://www.necoast-nsa.gov.tw/Attraction-Content.aspx?a=286&l=1: 壯圍沙丘生態園區-東北角及宜蘭海岸國家風景區觀光資訊網
 https://www.newsmarket.com.tw/blog/120358/: 宜蘭是一座博物館05》員山好水好滋味，尋訪自來水、勝洋水草和蜂釆館 | 上下游新聞
+https://www.newtaipei.travel/zh-tw/attractions/detail/110400: 三芝三板橋 | 新北市觀光旅遊網
 https://www.nhu.edu.tw/~society/e-j/90/20.htm: 鹿港街區角頭廟安營鎮符領域之空間建構（南華大學社會學研究所電子期刊第90期，洪惠琪）
 https://www.nlsc.gov.tw/cp.aspx?n=1486: 國土測繪中心全球資訊網-中文網-玉山高度測量
 https://www.nmmst.gov.tw/chhtml/publication_detail/519/6/24: 國立海洋科技博物館-電子專刊
@@ -645,6 +704,8 @@ https://www.nownews.com/news/6715701: 今日歷史／八八風災16週年！莫�
 https://www.ntl.edu.tw/public/Attachment/49201348629.pdf: 漢族入墾：蘭陽平原的港街發展與街庄社會（溫振華）
 https://www.ntl.edu.tw/public/Attachment/811615584426.pdf: 中國人移入：外省人的人數、來源與分布（葉高華）
 https://www.ntpc.gov.tw/ch/home.jsp?id=6b161aa1cf2e17e9&dataserno=3d79a25891f2a7c1e6e3575895aa949f: 常見問答-有關擴大五股都市計畫（部分更寮及水碓地區）目前規劃情形如何？-新北市政府
+https://www.ntpc.gov.tw/ch/home.jsp?id=e8ca970cde5c00e1&dataserno=573ee88a9203b4bce89026db55ca03f5: 市政新聞-三芝茭白筍盛產中
+  農藝共融預告豐饒盛會-新北市政府
 https://www.ntpc.gov.tw/ch/home.jsp?id=e8ca970cde5c00e1&dataserno=8d8e5a86f880cb896ff27e79120d6784: 市政新聞-人定勝天！全台首座火山型地熱開發案鑽研半世紀新北市金山區四磺子坪地熱發電廠
   10月成功商轉-新北市政府
 https://www.ntsec.edu.tw/LiveSupply-Content.aspx?cat=6841&a=6829&lsid=15613: Error Page
@@ -675,9 +736,23 @@ https://www.sanxia.ntpc.gov.tw/home.jsp?id=72d11405ac902ac4: 地方沿革-新北
 https://www.sanxia.ntpc.gov.tw/home.jsp?id=b53646fbee8d8864: 三峽概述-新北市三峽區公所
 https://www.sanxias.com.tw/portal_a1.php?owner_num=a1_60564&button_num=a1: 三峽老街商圈官方網站-三角湧傳奇
 https://www.sanxias.com.tw/portal_a1.php?owner_num=a1_60566&button_num=a1: 三峽老街商圈官方網站-三峽藍染
+https://www.sanzhi.ntpc.gov.tw/home.jsp?id=9a82909484ee3b60: 地理環境-新北市三芝區公所
+https://www.sanzhi.ntpc.gov.tw/home.jsp?id=b53646fbee8d8864: 文史概述-新北市三芝區公所
+https://www.sanzhi.ntpc.gov.tw/home.jsp?id=e32fc9bbd6f35420: 地形-新北市三芝區公所
 https://www.sea.matsu.edu.tw/bluetears.html: 藍眼淚 連江縣戶外教育及海洋教育中心
+https://www.sef.org.tw/article-1-129-10927: 雙溪印象：遙想淡蘭古道風華◆文／見 暘《交流雜誌107年8月號第160期（歷史資料）》 - 交流雜誌(文章) - 財團法人海峽交流基金會
 https://www.seinsights.asia/article/9142: 台灣年降雨量豐沛，為何名列全球缺水國家之列？ | 社企流 | 華文界最具影響力的社會創新主題平台
 https://www.shanchuanchaye.com.tw/blog/highgrowntea: 高山茶是什麼茶？山頭氣是什麼？台灣高山茶產區、製茶步驟一次懂！ | 山川製茶|台灣茶葉推薦
+https://www.shenkeng.ntpc.gov.tw/home.jsp?id=e32fc9bbd6f35420: 地理和交通-新北市深坑區公所
+? https://www.shenkeng.ntpc.gov.tw/home.jsp?id=eb99d34af4f4ff80&act=be4f48068b2b0031&dataserno=8e69ba0f86c9d9e2895eb362abe28881&mserno=54338cf3583ea6b493774b149bfe3f0e
+: 最新消息-新北市深坑區公所
+https://www.shiding.ntpc.gov.tw/: 新北市石碇區公所
+? https://www.shimen.ntpc.gov.tw/home.jsp?id=1746a22a2af02008&act=be4f48068b2b0031&dataserno=46e73bccc684c78446d6125bbd6b6bcd
+: 熱門景點-新北市石門區公所
+https://www.shimen.ntpc.gov.tw/home.jsp?id=8f9ce89fcc9fec83: 石門風箏節由來-新北市石門區公所
+https://www.shimen.ntpc.gov.tw/home.jsp?id=edb3530183e1532c: 老梅里-新北市石門區公所
+https://www.shimen.ntpc.gov.tw/home.jsp?id=fca44abc7f7eefa9: 石門茶-新北市石門區公所
+https://www.shuangxi.ntpc.gov.tw/home.jsp?id=69aaea7a71818a80: 地理生態-新北市雙溪區公所
 https://www.shulin.ntpc.gov.tw/home.jsp?id=69aaea7a71818a80: 地理生態-新北市樹林區公所
 https://www.shulin.ntpc.gov.tw/home.jsp?id=8c4540120c916d8b: 人文古今-新北市樹林區公所
 https://www.sinyitea.com.tw/shop/%E7%A6%8F%E5%A3%BD%E6%A2%A8%E5%B1%B1%E8%8C%B6/: 福壽梨山茶, 海拔2000公尺茶園生產-150克(2026年春茶)
@@ -736,12 +811,14 @@ https://www.taiwan.net.tw/m1.aspx?sNo=0001108&id=448: 枋寮褒忠亭義民廟 >
 https://www.taiwan.net.tw/m1.aspx?sNo=0001119&id=10352: 七股鹽山 > 臺南市 > 交通部觀光署
 https://www.taiwan.net.tw/m1.aspx?sNo=0001124&id=2228: 清水斷崖 > 花蓮縣 > 交通部觀光署
 https://www.taiwan.net.tw/m1.aspx?sNo=0001124&id=R39: 六十石山 > 花蓮縣 > 交通部觀光署
+https://www.taiwan.net.tw/m1.aspx?sNo=0042291&uid=80: 坪林區 > 小鎮漫遊 > 交通部觀光署
 https://www.taiwan.net.tw/m1.aspx?sNo=0042806: 中央山脈 > 交通部觀光署
 https://www.taiwanwatch.org.tw/node/998: 福隆海水浴場 將從「台灣海岸線」消失 | 看守台灣 Taiwan Watch
 https://www.taroko.gov.tw/cp.aspx?n=5760: 中華民國內政部國家公園署
 https://www.taroko.gov.tw/cp.aspx?n=5761: 中華民國內政部國家公園署
 https://www.taroko.gov.tw/cp.aspx?n=5762: 中華民國內政部國家公園署
 https://www.taroko.gov.tw/zh-tw/Tourism/AttractionDetail?id=12: 中華民國內政部國家公園署
+https://www.tbrs.gov.tw/ws.php?id=3781: 文山包種茶(茶及飲料作物改良場)
 https://www.tbrs.gov.tw/ws.php?id=3782: 碧螺春綠茶(茶及飲料作物改良場)
 https://www.tfri.gov.tw/News_Content3.aspx?n=7511&s=16028: 恆春熱帶植物園
 https://www.th.gov.tw/Epaper_Content/238/6728/: 國史館-臺灣文獻館-臺灣人、臺灣事-八堡圳相關史事雜談
@@ -791,6 +868,7 @@ https://www.wra.gov.tw/cp.aspx?n=3261: 水利署全球資訊網-蘭陽溪
 https://www.wra.gov.tw/cp.aspx?n=3685: 水利署全球資訊網-臺灣流域面積最大的河川為何？
 https://www.wra.gov.tw/cp.aspx?n=3691: 水利署全球資訊網-臺灣最長的河川是哪一條？
 https://www.wra.gov.tw/cp.aspx?n=3720: 水利署全球資訊網-依據中央氣象局的長期統計，每年颱風侵襲台灣的平均約有幾次？
+https://www.wra.gov.tw/cp.aspx?n=3880: 水利署全球資訊網-水源保育與回饋業務
 https://www.wra.gov.tw/epaper/Article_Detail.aspx?s=1078&n=30173: 水利署電子報-主題式查詢
 https://www.wra.gov.tw/epaper/Article_Detail.aspx?s=1174&n=30173: 水利署電子報-主題式查詢
 https://www.wra.gov.tw/epaper/Article_Detail.aspx?s=3755&n=30173&sms=9942: 水利署電子報-主題式查詢
@@ -803,7 +881,9 @@ https://www.wra.gov.tw/wra10/cl.aspx?n=23918: 第十河川分署-淡水河(台�
 https://www.wra.gov.tw/wra10/cp.aspx?n=26903: 第十河川分署-碧潭
 https://www.wra.gov.tw/wra10/cp.aspx?n=32495: 第十河川分署-新店溪
 https://www.wra.gov.tw/wranb/News_Content.aspx?n=36732&s=191663: 水利署北區水資源分署-台水公司管轄-鳶山堰
+https://www.wra.gov.tw/wranb/News_Content.aspx?n=36734&s=189890: 水利署北區水資源分署-地方政府管轄-翡翠水庫
 https://www.wra.gov.tw/wratb/: 臺北水源特定區管理分署
+https://www.wra.gov.tw/wratb/cp.aspx?n=15769&dn=15770: 臺北水源特定區管理分署-轄區範圍
 https://www.wrs.ntpc.gov.tw/home.jsp?act=be4f48068b2b0031&dataserno=6c25b47117d9dbe04b2fbbe57950c850&id=f06672ba2aadbd3c: 防洪設施管理-新北市政府水利局
 https://www.wugu.ntpc.gov.tw/home.jsp?id=9a82909484ee3b60: 地方沿革-新北市五股區公所
 https://www.wugu.ntpc.gov.tw/home.jsp?id=e32fc9bbd6f35420: 人口概況-新北市五股區公所
@@ -817,6 +897,8 @@ https://www.yingge.ntpc.gov.tw/home.jsp?id=6fed0da13b535525: 鶯歌的發展-新
 https://www.yingge.ntpc.gov.tw/home.jsp?id=72d11405ac902ac4: 鶯歌的由來-新北市鶯歌區公所
 https://www.yingge.ntpc.gov.tw/home.jsp?id=8b767bd17dc29316: 鶯歌的概況-新北市鶯歌區公所
 https://www.yingge.ntpc.gov.tw/home.jsp?id=aa967983e02a861f: 鶯歌的傳說-新北市鶯歌區公所
+https://www.ylgeopark.org.tw/AboutYehliuView/CenturyOldRocks: 千萬年奇岩 - 野柳地質公園官網
+https://www.ylgeopark.org.tw/YehliuKnowledgeView/PuntoDiablos: 魔鬼岬 - 野柳地質公園官網
 https://www.ymsnp.gov.tw/News2.aspx?n=18012&sms=13406: 中華民國內政部國家公園署
 https://www.ymsnp.gov.tw/cp.aspx?n=18116: 中華民國內政部國家公園署
 https://www.yonghe.ntpc.gov.tw/home.jsp?id=9a82909484ee3b60: 歷史沿革-新北市永和區公所
@@ -849,6 +931,8 @@ https://zh.wikipedia.org/wiki/%E5%9C%9F%E5%9C%B0%E5%BB%9F: 土地廟 - 維基百
 https://zh.wikipedia.org/wiki/%E5%BA%B7%E7%86%99%E8%87%BA%E5%8C%97%E6%B9%96: 康熙臺北湖 - 維基百科
 https://zh.wikipedia.org/wiki/%E6%A1%83%E5%9C%92%E8%87%BA%E5%9C%B0%E7%BE%A4: 桃園臺地群 - 維基百科
 https://zh.wikipedia.org/wiki/%E6%B0%B4%E7%A8%BB%E5%9C%9F: 水稻土 - 維基百科
+https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%9D%91%E9%BB%83%E6%B0%8F%E6%B0%B8%E5%AE%89%E5%B1%85: 深坑黃氏永安居
+  - 維基百科
 https://zh.wikipedia.org/wiki/%E6%BE%8E%E6%B9%96%E7%B8%A3: 澎湖縣 - 維基百科
 https://zh.wikipedia.org/wiki/%E7%8D%BB%E9%A6%98%E7%A2%91: 獻馘碑 - 維基百科
 https://zh.wikipedia.org/wiki/%E7%AB%B9%E5%A1%B9%E5%9F%8E: 竹塹城 - 維基百科
@@ -860,6 +944,7 @@ https://zh.wikipedia.org/wiki/%E8%87%BA%E7%81%A3%E5%A4%96%E7%9C%81%E4%BA%BA: 外
 https://zh.wikipedia.org/wiki/%E8%87%BA%E7%81%A3%E8%A1%8C%E6%94%BF%E5%8D%80%E5%8A%83: 臺灣行政區劃 - 維基百科
 https://zh.wikipedia.org/wiki/%E8%8A%B1%E6%9D%B1%E7%B8%B1%E8%B0%B7: 花東縱谷 - 維基百科
 https://zh.wikipedia.org/wiki/%E8%B7%91%E9%A6%AC%E5%8F%A4%E9%81%93: 跑馬古道 - 維基百科
+https://zh.wikipedia.org/wiki/%E9%80%A3%E6%97%A5%E6%98%A5: 連日春 - 維基百科
 https://zh.wikipedia.org/wiki/%E9%83%AD%E9%8C%AB%E7%91%A0: 郭錫瑠 - 維基百科
 https://zh.wikipedia.org/wiki/%E9%84%AD%E6%88%90%E5%8A%9F%E6%94%BB%E8%87%BA%E4%B9%8B%E5%BD%B9: 鄭成功攻臺之役
   - 維基百科
@@ -871,6 +956,7 @@ https://zh.wikipedia.org/zh-hans/1935%E5%B9%B4%E6%96%B0%E7%AB%B9-%E5%8F%B0%E4%B8
 https://zh.wikipedia.org/zh-hant/%E5%8F%B0%E7%81%A3%E6%BA%AB%E6%B3%89: 台灣溫泉 - 維基百科
 https://zh.wikipedia.org/zh-hant/%E5%A4%A7%E9%9B%AA%E5%B1%B1%E6%9E%97%E5%A0%B4: 大雪山林場 - 維基百科
 https://zh.wikipedia.org/zh-hant/%E5%A5%B3%E7%8E%8B%E9%A0%AD: 野柳女王頭 - 維基百科
+https://zh.wikipedia.org/zh-hant/%E5%B8%82%E9%81%93106%E8%99%9F: 市道106號 - 維基百科
 https://zh.wikipedia.org/zh-hant/%E6%B3%B0%E5%AE%89%E9%84%89: 泰安鄉 - 維基百科
 https://zh.wikipedia.org/zh-hant/%E6%BE%8E%E6%B9%96%E6%B5%B7%E6%88%98: 澎湖海戰 - 維基百科
 https://zh.wikipedia.org/zh-hant/%E6%BF%81%E6%B0%B4%E6%BA%AA%E6%B2%96%E7%A9%8D%E5%B9%B3%E5%8E%9F: 濁水溪沖積平原
@@ -895,7 +981,10 @@ https://zh.wikipedia.org/zh-tw/%E4%B8%89%E5%B3%BD%E6%AD%B7%E5%8F%B2: 三峽歷�
 https://zh.wikipedia.org/zh-tw/%E4%B8%89%E5%B3%BD%E6%B2%B3: 三峽河 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%89%E5%B3%BD%E8%80%81%E8%A1%97: 三峽老街 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%89%E5%B3%BD%E9%95%B7%E7%A6%8F%E5%B7%96: 三峽長福巖 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E4%B8%89%E5%BF%A0%E5%BB%9F_(%E8%87%BA%E7%81%A3): 三忠廟 (臺灣) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%89%E6%98%9F%E9%84%89_(%E5%8F%B0%E7%81%A3): 三星鄉 (台灣) - 維基百科
+https://zh.wikipedia.org/zh-tw/%E4%B8%89%E8%8A%9D%E5%8D%80: 三芝區 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E4%B8%89%E8%B2%82%E5%B6%BA%E9%9A%A7%E9%81%93: 三貂嶺隧道 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%89%E8%B2%82%E8%A7%92: 三貂角 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%89%E9%87%8D%E5%8D%80: 三重區 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%92%8C%E5%8D%80: 中和區 - 維基百科
@@ -922,6 +1011,8 @@ https://zh.wikipedia.org/zh-tw/%E5%85%AB%E4%BA%8C%E4%B8%89%E7%B4%80%E5%BF%B5%E5%
 https://zh.wikipedia.org/zh-tw/%E5%85%AB%E5%8D%A6%E5%8F%B0%E5%9C%B0: 八卦台地 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%85%AB%E5%A0%A1%E5%9C%B3: 八堡圳 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%85%AB%E7%94%B0%E8%88%87%E4%B8%80: 八田與一 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E5%85%AB%E9%80%A3%E6%BA%AA_(%E4%B8%89%E8%8A%9D%E5%8D%80): 八連溪 (三芝區) -
+  維基百科
 https://zh.wikipedia.org/zh-tw/%E5%85%AB%E9%87%8C%E5%8D%80: 八里區 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%85%AD%E5%A0%86: 六堆 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%86%AC%E5%B1%B1%E6%B2%B3: 冬山河 - 維基百科
@@ -932,6 +1023,7 @@ https://zh.wikipedia.org/zh-tw/%E5%87%8C%E9%9B%B2%E7%A6%AA%E5%AF%BA: 凌雲禪�
 https://zh.wikipedia.org/zh-tw/%E5%87%8D%E9%A0%82%E7%83%8F%E9%BE%8D%E8%8C%B6: 凍頂烏龍茶 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%87%B1%E9%81%94%E6%A0%BC%E8%98%AD%E6%97%8F: 凱達格蘭族 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8A%A0%E7%A6%AE%E5%AE%9B%E6%88%B0%E5%BD%B9: 加禮宛事件 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E5%8C%97%E5%8B%A2%E6%BA%AA: 北勢溪 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8C%97%E5%9F%94%E8%80%81%E8%A1%97: 北埔老街 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8C%97%E6%8A%95%E6%BA%AB%E6%B3%89: 北投溫泉 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8C%97%E6%B5%B7%E5%9D%91%E9%81%93_(%E5%8D%97%E7%AB%BF%E9%84%89): 北海坑道
@@ -1000,6 +1092,8 @@ https://zh.wikipedia.org/zh-tw/%E5%99%B6%E7%91%AA%E8%98%AD%E6%97%8F: 噶瑪蘭�
 https://zh.wikipedia.org/zh-tw/%E5%9C%93%E9%80%9A%E7%A6%AA%E5%AF%BA_(%E6%96%B0%E5%8C%97%E5%B8%82): 圓通禪寺
   (新北市) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%9C%9F%E5%9F%8E%E5%8D%80: 土城區 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E5%9D%AA%E6%9E%97%E4%BA%A4%E6%B5%81%E9%81%93: 坪林交流道 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E5%9D%AA%E6%9E%97%E5%8D%80: 坪林區 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%9F%94%E9%87%8C%E9%85%92%E5%BB%A0: 埔里酒廠 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%9F%BA%E9%9A%86%E5%B8%82: 基隆市 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%9F%BA%E9%9A%86%E6%B2%B3: 基隆河 - 維基百科
@@ -1032,9 +1126,11 @@ https://zh.wikipedia.org/zh-tw/%E5%AE%9C%E8%98%AD%E5%9C%8B%E9%9A%9B%E7%AB%A5%E7%
 https://zh.wikipedia.org/zh-tw/%E5%AE%9C%E8%98%AD%E5%B8%82: 宜蘭市 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%AE%9C%E8%98%AD%E7%B6%A0%E8%89%B2%E5%8D%9A%E8%A6%BD%E6%9C%83: 宜蘭綠色博覽會
   - 維基百科
+https://zh.wikipedia.org/zh-tw/%E5%AE%9C%E8%98%AD%E7%B7%9A: 宜蘭線 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%AE%9C%E8%98%AD%E7%B8%A3: 宜蘭縣 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%AE%A2%E5%AE%B6%E8%A3%94%E8%87%BA%E7%81%A3%E4%BA%BA: 客家裔臺灣人 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%AF%8C%E8%B2%B4%E8%A7%92: 富貴角 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E5%AF%8C%E8%B2%B4%E8%A7%92%E7%87%88%E5%A1%94: 富貴角燈塔 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%AF%92%E6%BA%AA%E8%AA%9E: 臺灣宜蘭克里奧語 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%B0%84%E6%97%A5%E5%A1%94: 射日塔 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%B0%96%E5%B1%B1_(%E6%96%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AD%97): 尖山
@@ -1048,6 +1144,7 @@ https://zh.wikipedia.org/zh-tw/%E5%B1%B1%E4%BD%B3%E8%BB%8A%E7%AB%99: 山佳車�
 https://zh.wikipedia.org/zh-tw/%E5%B6%BA%E8%85%B3%E7%80%91%E5%B8%83: 嶺腳瀑布 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%B7%A6%E7%87%9F%E6%B5%B7%E8%BB%8D%E7%9C%B7%E6%9D%91: 左營海軍眷村 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%B7%B4%E8%B3%BD%E6%97%8F: 巴賽族 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E5%B8%82%E9%81%93106%E4%B9%99%E7%B7%9A: 市道106號 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%B9%B3%E6%BA%AA%E5%8D%80: 平溪區 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%B9%B3%E6%BA%AA%E5%A4%A9%E7%87%88%E7%AF%80: 平溪天燈節 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%B9%B3%E6%BA%AA%E7%B7%9A: 平溪線 - 維基百科
@@ -1091,10 +1188,13 @@ https://zh.wikipedia.org/zh-tw/%E6%97%A5%E6%9C%88%E6%BD%AD%E6%B0%B4%E5%8A%9B%E9%
   - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%98%87%E5%B9%B3%E6%88%B2%E9%99%A2: 昇平戲院 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%98%8E%E5%BF%97%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%B8: 明志科技大學 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E6%99%AF%E7%BE%8E%E6%BA%AA: 景美溪 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9C%88%E4%B8%96%E7%95%8C: 月世界 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9C%9D%E6%97%A5%E6%BA%AB%E6%B3%89: 朝日溫泉 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9D%8E%E5%BB%BA%E8%88%88: 李建興 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9D%8E%E6%A2%85%E6%A8%B9: 李梅樹 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E6%9D%8E%E7%99%BB%E8%BC%9D: 李登輝 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E6%9D%9C%E8%81%B0%E6%98%8E: 杜聰明 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9D%B1%E5%8C%97%E5%AD%A3%E9%A2%A8: 東北季風 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9D%B1%E6%96%B9%E7%BE%8E%E4%BA%BA%E8%8C%B6: 東方美人茶 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9D%B1%E6%B8%AF%E8%BF%8E%E7%8E%8B%E5%B9%B3%E5%AE%89%E7%A5%AD%E5%85%B8: 東港迎王平安祭典
@@ -1121,6 +1221,7 @@ https://zh.wikipedia.org/zh-tw/%E6%A1%83%E5%9C%92%E8%87%BA%E5%9C%B0%E7%BE%A4: �
 https://zh.wikipedia.org/zh-tw/%E6%A2%85%E8%8A%B1%E6%B9%96: 梅花湖 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%A2%85%E9%9B%A8_(%E5%8F%B0%E7%81%A3): 梅雨 (台灣) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%A2%A8%E5%B1%B1: 梨山 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E6%A5%93%E5%AD%90%E6%9E%97: 楓子林 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%A8%B9%E6%9E%97%E5%8D%80: 樹林區 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%A8%B9%E6%9E%97%E5%8D%81%E4%B8%89%E5%85%AC: 樹林十三公 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%A8%B9%E6%9E%97%E6%BF%9F%E5%AE%89%E5%AE%AE: 樹林濟安宮 - 維基百科
@@ -1150,6 +1251,9 @@ https://zh.wikipedia.org/zh-tw/%E6%B7%A1%E6%B0%B4%E7%B7%9A_(%E5%8F%B0%E9%90%B5):
 https://zh.wikipedia.org/zh-tw/%E6%B7%A1%E6%B1%9F%E5%A4%A7%E6%A9%8B: 淡江大橋 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%B7%A1%E6%B5%B7%E8%BC%95%E8%BB%8C: 淡海輕軌 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%B7%A1%E8%98%AD%E5%8F%A4%E9%81%93: 淡蘭古道 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E6%B7%B1%E5%9D%91%E5%8D%80: 深坑區 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E6%B7%B1%E5%9D%91%E8%80%81%E8%A1%97: 深坑老街 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E6%B7%B1%E5%9D%91%E9%9B%86%E9%A0%86%E5%BB%9F: 深坑集順廟 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%B7%B1%E6%BE%B3%E5%B2%AC%E8%A7%92: 深澳岬角 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%B7%B1%E6%BE%B3%E7%B7%9A: 深澳線 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%B8%85%E6%B0%B4%E5%9C%B0%E7%86%B1%E7%99%BC%E9%9B%BB%E5%BB%A0: 清水地熱發電廠
@@ -1197,6 +1301,8 @@ https://zh.wikipedia.org/zh-tw/%E7%9B%B4%E6%BD%AD%E5%A3%A9: 直潭堰 - 維基�
 https://zh.wikipedia.org/zh-tw/%E7%9B%B4%E8%BD%84%E5%B8%82%E5%B1%B1%E5%9C%B0%E5%8E%9F%E4%BD%8F%E6%B0%91%E5%8D%80: 直轄市山地原住民區
   - 維基百科
 https://zh.wikipedia.org/zh-tw/%E7%9C%BC%E9%8F%A1%E6%B4%9E: 眼鏡洞 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E7%9F%B3%E7%A2%87%E5%8D%80: 石碇區 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E7%9F%B3%E9%96%80%E5%8D%80: 石門區 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E7%9F%B3%E9%96%80%E6%B0%B4%E5%BA%AB_(%E8%87%BA%E7%81%A3): 石門水庫 (臺灣) -
   維基百科
 https://zh.wikipedia.org/zh-tw/%E7%A2%A7%E6%BD%AD: 碧潭 - 維基百科
@@ -1209,6 +1315,8 @@ https://zh.wikipedia.org/zh-tw/%E7%A6%8F%E9%9A%86%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%
 https://zh.wikipedia.org/zh-tw/%E7%A9%BA%E8%BB%8D%E4%B8%89%E9%87%8D%E4%B8%80%E6%9D%91: 空軍三重一村 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E7%AB%B9%E6%9E%97%E5%B1%B1%E8%A7%80%E9%9F%B3%E5%AF%BA: 竹林山觀音寺 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E7%AC%AC%E4%B8%80%E6%A0%B8%E8%83%BD%E7%99%BC%E9%9B%BB%E5%BB%A0: 第一核能發電廠
+  - 維基百科
+https://zh.wikipedia.org/zh-tw/%E7%AC%AC%E4%BA%8C%E6%A0%B8%E8%83%BD%E7%99%BC%E9%9B%BB%E5%BB%A0: 第二核能發電廠
   - 維基百科
 https://zh.wikipedia.org/zh-tw/%E7%AC%AC%E5%85%AD%E5%A5%97%E8%BC%95%E6%B2%B9%E8%A3%82%E8%A7%A3%E5%BB%A0: 第六套輕油裂解廠
   - 維基百科
@@ -1249,7 +1357,9 @@ https://zh.wikipedia.org/zh-tw/%E8%87%BA%E7%81%A3%E8%A1%8C%E6%94%BF%E5%8D%80%E4%
 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E7%81%A3%E8%A1%8C%E6%94%BF%E5%8D%80%E4%BA%BA%E5%8F%A3%E5%AF%86%E5%BA%A6%E8%A1%A8: 臺灣行政區人口密度表
   - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E7%81%A3%E8%A9%B1: 臺灣話 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E8%88%8A%E4%B8%89%E8%B2%82%E5%B6%BA%E9%9A%A7%E9%81%93: 舊三貂嶺隧道 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%89%8B%E8%88%BA: 艋舺 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E8%8A%9D%E8%98%AD%E4%B8%89%E5%A0%A1: 芝蘭三堡 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%8A%B1%E6%9D%B1%E7%B8%B1%E8%B0%B7: 花東縱谷 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%8A%B1%E8%93%AE%E7%B8%A3: 花蓮縣 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%8A%B9%E5%A3%81%E6%9D%91: 芹壁村 - 維基百科
@@ -1262,6 +1372,8 @@ https://zh.wikipedia.org/zh-tw/%E8%8E%AB%E6%8B%89%E5%85%8B%E9%A2%B1%E9%A2%A8: �
 https://zh.wikipedia.org/zh-tw/%E8%8E%AB%E9%82%A3%C2%B7%E9%AD%AF%E9%81%93: 莫那·魯道 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%8F%81%E6%A1%90%E8%BB%8A%E7%AB%99: 菁桐車站 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%8F%B2%E5%BE%8B%E5%AE%BE%E6%B5%B7%E6%9D%BF%E5%9D%97: 菲律賓海板塊 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E8%90%AC%E9%87%8C%E5%8D%80: 萬里區 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E8%90%AC%E9%87%8C%E8%9F%B9: 萬里蟹 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%90%BD%E5%B1%B1%E9%A2%A8: 落山風 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%98%86%E6%B4%B2%E5%8D%80: 蘆洲區 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%98%86%E6%B4%B2%E6%9D%8E%E5%AE%85: 蘆洲李宅 - 維基百科
@@ -1292,6 +1404,10 @@ https://zh.wikipedia.org/zh-tw/%E8%B7%91%E6%B0%B4%E7%A5%AD: 跑水祭 - 維基�
 https://zh.wikipedia.org/zh-tw/%E9%80%A3%E6%B1%9F%E7%B8%A3_(%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B): 連江縣
   (中華民國) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%84%9E%E5%B1%B1%E5%AF%BA: 鄞山寺 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E9%87%8E%E6%9F%B3: 野柳風景特定區 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E9%87%8E%E6%9F%B3%E5%A5%B3%E7%8E%8B%E9%A0%AD: 野柳女王頭 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E9%87%8E%E6%9F%B3%E9%A2%A8%E6%99%AF%E7%89%B9%E5%AE%9A%E5%8D%80: 野柳風景特定區
+  - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%87%91%E5%B1%B1%E5%8D%80_(%E5%8F%B0%E7%81%A3): 金山區 (台灣) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%87%91%E5%B1%B1%E5%B0%8F%E7%99%BD%E9%B6%B4: 金山小白鶴 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%87%91%E5%B1%B1%E6%BA%AB%E6%B3%89: 金山溫泉 - 維基百科
@@ -1308,6 +1424,9 @@ https://zh.wikipedia.org/zh-tw/%E9%99%B3%E7%B4%94%E7%B2%BE: 陳純精 - 維基�
 https://zh.wikipedia.org/zh-tw/%E9%9A%98%E5%AF%AE%E6%BA%AA: 隘寮溪 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%9B%84%E9%8E%AE%E8%A0%BB%E7%85%99%E7%A2%91: 雄鎮蠻煙碑 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%9B%99%E6%BA%AA%E5%8D%80: 雙溪區 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E9%9B%99%E6%BA%AA%E6%B0%B4%E5%BA%AB_(%E8%87%BA%E7%81%A3): 雙溪水庫 (臺灣) -
+  維基百科
+https://zh.wikipedia.org/zh-tw/%E9%9B%99%E6%BA%AA_(%E6%96%B0%E5%8C%97%E5%B8%82): 雙溪 (新北市) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%9B%9E%E7%B1%A0%E5%B1%B1_(%E5%8F%B0%E7%81%A3%E5%8F%A4%E5%90%8D): 雞籠山
   (台灣古名) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%9B%AA%E5%B1%B1%E9%9A%A7%E9%81%93: 雪山隧道 - 維基百科
@@ -1338,6 +1457,7 @@ https://zh.wikipedia.org/zh-tw/%E9%B6%AF%E6%AD%8C%E7%9F%B3_(%E6%96%B0%E5%8C%97%E
 https://zh.wikipedia.org/zh-tw/%E9%B6%AF%E6%AD%8C%E8%BB%8A%E7%AB%99: 鶯歌車站 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%B6%AF%E6%AD%8C%E9%99%B6%E7%93%B7%E8%80%81%E8%A1%97: 鶯歌陶瓷老街 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%B9%BF%E6%B8%AF%E9%BE%8D%E5%B1%B1%E5%AF%BA: 鹿港龍山寺 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E9%B9%BF%E7%AA%9F%E5%9F%BA%E5%9C%B0%E6%A1%88: 鹿窟基地案 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%B9%BF%E8%A7%92%E6%BA%AA%E4%BA%BA%E5%B7%A5%E6%BA%BC%E5%9C%B0: 鹿角溪人工溼地
   - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%BB%83%E7%B4%94%E9%9D%92: 黃純青 - 維基百科
@@ -1345,6 +1465,7 @@ https://zh.wikipedia.org/zh-tw/%E9%BB%83%E9%87%91%E7%80%91%E5%B8%83: 黃金瀑�
 https://zh.wikipedia.org/zh-tw/%E9%BC%BB%E9%A0%AD%E8%A7%92: 鼻頭角 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%BE%8D%E9%96%80%E6%A0%B8%E8%83%BD%E7%99%BC%E9%9B%BB%E5%BB%A0: 龍門核能發電廠
   - 維基百科
+https://zh.wikipedia.org/zh-tw/%E9%BE%9C%E5%90%BC%E6%BC%81%E6%B8%AF: 龜吼漁港 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%BE%9C%E5%B1%B1%E5%B3%B6: 龜山島 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E9%BE%9C%E5%B1%B1%E7%99%BC%E9%9B%BB%E6%89%80: 龜山發電廠 - 維基百科
 https://zh.wikipedia.org/zh-tw/1935%E5%B9%B4%E6%96%B0%E7%AB%B9-%E5%8F%B0%E4%B8%AD%E5%9C%B0%E9%9C%87: 1935年新竹-台中地震
@@ -1360,6 +1481,16 @@ https://zh.wikipedia.org/zh-tw/新港奉天宮: 新港奉天宮 - 維基百科
 https://zh.wikipedia.org/zh-tw/阿里山林業鐵路: 阿里山林業鐵路 - 維基百科
 
 # ---- 以下為抓取失敗／查無標題，維持裸 URL fallback（人工複查用）----
+# http://ashan.gl.ntu.edu.tw/chinese/GeoPark/YehLiu/index-YehLiu_main03_03.html
+#   原因：標題疑似亂碼
+# http://ashan.gl.ntu.edu.tw/chinese/GeoPark/YehLiu/index-YehLiu_main03_04.html
+#   原因：標題疑似亂碼
+# http://ashan.gl.ntu.edu.tw/chinese/GeoPark/YehLiu/index-YehLiu_main03_05.html
+#   原因：標題疑似亂碼
+# http://ashan.gl.ntu.edu.tw/chinese/GeoPark/YehLiu/index-YehLiu_main03_09.html
+#   原因：標題疑似亂碼
+# http://ashan.gl.ntu.edu.tw/chinese/GeoPark/YehLiu/index-YehLiu_main03_11.html
+#   原因：標題疑似亂碼
 # http://web.ilancity.gov.tw/ilanes-002/004-3.html
 #   原因：HTTPConnectionPool(host='web.ilancity.gov.tw', port=80): Max retries exceeded with url: /ilanes-002/004-3.html (Caused by ConnectTimeoutError(<HTTPCon
 # https://idv.sinica.edu.tw/jclee/%E5%BA%B7%E7%AB%B9%E5%90%9B_Ilan-WPES_v8_2008_reduce.pdf
@@ -1374,6 +1505,8 @@ https://zh.wikipedia.org/zh-tw/阿里山林業鐵路: 阿里山林業鐵路 - �
 #   原因：curl fallback 失敗（exit 60）：curl: (60) SSL certificate problem: certificate has expired More details here: https://curl.se/docs/sslcerts.html curl failed to verify the legitimac
 # https://www.facebook.com/twgeoref/posts/5551060674990360/
 #   原因：HTTP 400
+# https://www.newsmarket.com.tw/blog/46115/
+#   原因：HTTP 403
 # https://www.ris.gov.tw/info-popudata/app/awFastDownload/file/s000-11505.xls/s000/11505/
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.tamsui.ntpc.gov.tw/userfiles/3120400/files/%E5%9C%B0%E7%90%86%E5%BF%97.pdf

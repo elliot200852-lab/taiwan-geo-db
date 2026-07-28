@@ -3,7 +3,6 @@ id: new-taipei-luzhou
 name: 蘆洲區
 county: 新北市
 type: 區
-hero: false
 stats:
   population: "195,552（2026-06，新北市民政局）"
   area_km2: "7.4351"

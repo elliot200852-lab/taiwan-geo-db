@@ -3,7 +3,6 @@ id: new-taipei-taishan
 name: 泰山區
 county: 新北市
 type: 區
-hero: false
 stats:
   population: "78,093（2026-05，新北市民政局；17 里、466 鄰、32,627 戶）"
   area_km2: "19.1603"

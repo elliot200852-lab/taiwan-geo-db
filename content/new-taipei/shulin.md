@@ -3,7 +3,6 @@ id: new-taipei-shulin
 name: 樹林區
 county: 新北市
 type: 區
-hero: false
 stats:
   population: "176,724（2026-05，新北市民政局；42 里、72,001 戶）"
   area_km2: "33.1288"

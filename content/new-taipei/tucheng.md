@@ -3,7 +3,6 @@ id: new-taipei-tucheng
 name: 土城區
 county: 新北市
 type: 區
-hero: false
 stats:
   population: "242,739（2026-05，新北市政府民政局人口統計；47 里 1,236 鄰、102,759 戶）"
   area_km2: "29.5578"
