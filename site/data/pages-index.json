@@ -283,6 +283,18 @@
       "type": "區"
     },
     {
+      "id": "taipei-daan",
+      "name": "大安區",
+      "county": "臺北市",
+      "type": "區"
+    },
+    {
+      "id": "taipei-datong",
+      "name": "大同區",
+      "county": "臺北市",
+      "type": "區"
+    },
+    {
       "id": "taipei-nangang",
       "name": "南港區",
       "county": "臺北市",
@@ -325,8 +337,20 @@
       "type": "區"
     },
     {
+      "id": "taipei-xinyi",
+      "name": "信義區",
+      "county": "臺北市",
+      "type": "區"
+    },
+    {
       "id": "taipei-zhongshan",
       "name": "中山區",
+      "county": "臺北市",
+      "type": "區"
+    },
+    {
+      "id": "taipei-zhongzheng",
+      "name": "中正區",
       "county": "臺北市",
       "type": "區"
     },
