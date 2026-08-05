@@ -25,50 +25,21 @@ cd ~/MyWork/taiwan-geo-db
 
 ---
 
-## 0-A. 收官批進行中——下個 session 從這裡接手（2026-08-05 深夜懸置，David 指示斷點交接）
+## 0-A. 臺北 12/12 全席收官（2026-08-05 完成，dispatch 2026-08-05-003）
 
-**現況一句話**：收官批 4 篇（大同/中正/大安/信義）**母本已寫完、兩輪查核已做完、圖片鏈已上 Drive，
-只剩「套用下方 9 處修正 → 拆 hero 旗標 → 收尾鏈 → 一次 commit」**。全部未 commit（磁碟＝唯一事實）。
+**一句話**：**臺北 12/12 上線**——收官批大同、中正、大安、信義 4 區
+（commit df0978b，CI 綠、verify_live_images 850/850 全綠），全站鄉鎮頁 53/53。
+臺北段結案；**下一個縣市等 David 點名**（NotebookLM 歸檔要不要做也等 David 答）。
 
-### 已完成（不要重做）
-- 4 篇母本在 `content/taipei/`（datong/zhongzheng/daan/xinyi.md），towns_status 閘門全綠。
-- 紅隊 Stage1+2 已跑（孤兒題材已收：文協/二二八/白恐/鐵道部/臺北車站/華山/五分埔/富陽）。
-- 查核 B（文風重複）：兩輪全過——含五處修正（大安拆遷段換「兩通電話」、中正官廳段去猜謎、
-  大安對仗句、信義速覽 136 字、信義兩段壓縮）已落檔且覆核通過。
-- 查核 A（事實）：報告已出，**其中中正篇 3 處已修**（長野第二名中選、南機場 2105/2107 並陳、巴爾頓「生前」）。
-- hero 4 張已生並上 Drive hero/（北門碉堡式、101 竹節各一修才過目檢）；內容圖 39 張已 fetch＋上 Drive
-  4 新子夾（SA writer 權限已驗）；manifest.json 755 筆（未 commit）。
-
-### 待辦①：套用查核 A 剩餘 9 處修正（逐字照抄，位置為 2026-08-05 深夜行號）
-1. daan.md L124【必修，考證寫反】「是誤以為臺大西側那一段就是瑠公圳第二幹線」→「是誤以為臺大西側那一段就是霧裡薛圳第二支線」
-2. daan.md L118【必修】「1922 年 4 月 1 日，臺灣總督府在古亭町設立七年制的臺北高等學校，主要招收在臺日本人子弟。」→「1922 年 4 月 1 日，臺灣總督府設立七年制的高等學校（初期借用臺北一中校舍），主要招收在臺日本人子弟；1926 年遷入古亭町校舍、改稱臺北高等學校。」
-3. daan.md L120【必修，查無依據】刪「，組合長是後來的帝大總長幣原坦」
-4. daan.md L122「1960 年雷震案後補助被停、著作被查禁、1966 年連教職也停了」→「1960 年雷震案後受牽連，1964 年補助被停、著作被查禁，1966 年連教職也停了」
-5. daan.md sources L86–87 兩條臺師大死鏈刪除，補 `https://zh.wikipedia.org/zh-tw/%E6%A2%81%E5%AF%A6%E7%A7%8B%E6%95%85%E5%B1%85`（已驗 200）
-6. xinyi.md L115【必修，正文漏了自己 sources 裡的關鍵一步】「隔年復工。」→「隔年復工；1976 年 1 月更名聯勤第二〇六廠。」；L119「（遷往三峽或大溪兩說並存，待覆核）」→「（多數資料指向三峽，另有大溪一說）」
-7. xinyi.md L125「約六到七成為外省籍」→「約六成為外省籍」（報導者原文 58%）
-8. datong.md L118「卻不被當地同安人接納，只好再遷大稻埕落腳」→「卻不被當地同安人接納（另一說是當時連日大雨、無法築土埆牆建屋），只好再遷大稻埕落腳」；sources 補 `https://zh.wikipedia.org/zh-tw/%E4%BA%8C%E4%BA%8C%E5%85%AB%E4%BA%8B%E4%BB%B6`（天馬茶房查緝細節的直接支撐）
-9. zhongzheng.md L50 圖題改「臺北府城北門（承恩門）夜景（五座城門中唯一保持 1884 年原貌者）」（該圖實為國稅局大樓倒影夜景，題文對齊畫面）；L134「是臺北市幼年人口比例最高的行政區」→「幼年人口比例居全市前列」（「最」字缺可逐字核對出處）
-
-### 待辦②：收尾鏈（照抄執行）
-```bash
-cd ~/MyWork/taiwan-geo-db
-sed -i '' '/^hero: false/d' content/taipei/datong.md content/taipei/zhongzheng.md content/taipei/daan.md content/taipei/xinyi.md
-.venv/bin/python3 scripts/fetch_source_titles.py
-.venv/bin/python3 scripts/build.py                       # 應 95 頁零錯誤
-.venv/bin/python3 scripts/towns_status.py taipei         # 12/12 全綠、無 hero 警告
-node scripts/refresh-search-golden.js --new taipei-datong taipei-zhongzheng taipei-daan taipei-xinyi --write
-node scripts/test-search.js                              # 23 項全過
-git add -A && git commit && git push                     # 一次 commit（訊息照前兩批格式，12/12 收官）
-gh run watch <run-id> --exit-status                      # CI 約 10–17 分鐘
-.venv/bin/python3 scripts/verify_live_images.py          # 應 ~850/850 全綠，這是上線判準
-```
-然後：更新本檔 §0（臺北 12/12 全席收官）＋memory project_taiwan_geo_db＋清 /tmp/geo-hb 與 /tmp/used-images.txt。
-臺北 12/12＝鄉鎮線臺北段結案，記得問 David 要不要 NotebookLM（Gemini Notebook）歸檔、以及下一個縣市點名。
+收官批做完的事：紅隊 Stage1+2（孤兒題材收：文協/二二八/白恐/鐵道部/臺北車站/華山/
+五分埔/富陽）；查核 A 12 處修正全落檔（含瑠公圳誤植改霧裡薛圳第二支線、臺北高校
+1926 遷古亭町、刪幣原坦無據句、兵工廠 1976 更名二〇六廠、六張犁外省籍比例改
+報導者原文 58%）；查核 B 兩輪全過；hero 4 張＋內容圖 39 張上 Drive（北門碉堡式、
+101 竹節各一修）；search golden 2 組新頁進榜、既有頁排序零改變。
 
 ### 本批新欠帳（等 David）
 6. 民生社區計畫人口 45,000/55,000/70,000 各方不一（松山頁已並陳），需 1964 原始計畫文件。
-7. 中正「幼年人口比例最高」待官方統計覆核（先改保守，見待辦①之 9）。
+7. 中正「幼年人口比例最高」待官方統計覆核（正文已改保守「居全市前列」）。
 8. 兵工廠遷廠三峽/大溪兩維基條目互相矛盾（正文已採「多數指向三峽」）。
 
 ## 0-B. 上一段落（2026-08-05 晚場：臺北第二批收官）
