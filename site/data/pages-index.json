@@ -277,10 +277,34 @@
       "type": "直轄市"
     },
     {
+      "id": "taipei-beitou",
+      "name": "北投區",
+      "county": "臺北市",
+      "type": "區"
+    },
+    {
       "id": "taipei",
       "name": "臺北市",
       "county": "臺北市",
       "type": "直轄市"
+    },
+    {
+      "id": "taipei-wanhua",
+      "name": "萬華區",
+      "county": "臺北市",
+      "type": "區"
+    },
+    {
+      "id": "taipei-wenshan",
+      "name": "文山區",
+      "county": "臺北市",
+      "type": "區"
+    },
+    {
+      "id": "taipei-zhongshan",
+      "name": "中山區",
+      "county": "臺北市",
+      "type": "區"
     },
     {
       "id": "taitung",

@@ -36,13 +36,13 @@
     "theme-geothermal",
     "yilan-jiaoxi",
     "new-taipei-wulai",
+    "taipei-beitou",
     "taipei",
     "new-taipei-jinshan",
     "taitung",
     "theme-mountains",
     "yilan",
-    "new-taipei-bali",
-    "new-taipei-wanli"
+    "new-taipei-bali"
   ],
   "客家": [
     "theme-migration",
@@ -75,10 +75,10 @@
     "theme-rain",
     "taiwan",
     "new-taipei-banqiao",
+    "taipei-beitou",
     "new-taipei-sanchong",
     "new-taipei-wugu",
-    "new-taipei-wulai",
-    "taipei"
+    "new-taipei-wulai"
   ],
   "玉山": [
     "theme-ecology",
@@ -135,10 +135,10 @@
     "hsinchu-city",
     "new-taipei-shulin",
     "yilan-zhuangwei",
+    "taipei-beitou",
     "yilan",
     "new-taipei-banqiao",
-    "new-taipei-jinshan",
-    "new-taipei-luzhou"
+    "new-taipei-jinshan"
   ],
   "離島": [
     "theme-population",
@@ -201,6 +201,7 @@
     "theme-placenames"
   ],
   "紅樹林": [
+    "taipei-beitou",
     "new-taipei-tamsui",
     "new-taipei-bali",
     "tainan"

@@ -8,6 +8,19 @@ stats:
   area_km2: "271.80"
   density: "約 8,930 人/km²（2026-05）"
 tags_g5: [臺灣地理, 臺灣歷史]
+towns:            # 照地理走：北緣火山區→基隆河沿線→盆地西側老市街→盆地中心→東南丘陵
+  - taipei-beitou
+  - taipei-shilin
+  - taipei-neihu
+  - taipei-nangang
+  - taipei-songshan
+  - taipei-zhongshan
+  - taipei-datong
+  - taipei-wanhua
+  - taipei-zhongzheng
+  - taipei-daan
+  - taipei-xinyi
+  - taipei-wenshan
 images:
   - url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Aerial_panorama_of_Taipei_city%27s_west_side_facing_the_Tamsui_River.jpg/1280px-Aerial_panorama_of_Taipei_city%27s_west_side_facing_the_Tamsui_River.jpg
     title: 臺北市西側空拍全景，面向淡水河（可見盆地與環抱的山）
