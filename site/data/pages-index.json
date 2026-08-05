@@ -283,6 +283,30 @@
       "type": "區"
     },
     {
+      "id": "taipei-nangang",
+      "name": "南港區",
+      "county": "臺北市",
+      "type": "區"
+    },
+    {
+      "id": "taipei-neihu",
+      "name": "內湖區",
+      "county": "臺北市",
+      "type": "區"
+    },
+    {
+      "id": "taipei-shilin",
+      "name": "士林區",
+      "county": "臺北市",
+      "type": "區"
+    },
+    {
+      "id": "taipei-songshan",
+      "name": "松山區",
+      "county": "臺北市",
+      "type": "區"
+    },
+    {
       "id": "taipei",
       "name": "臺北市",
       "county": "臺北市",

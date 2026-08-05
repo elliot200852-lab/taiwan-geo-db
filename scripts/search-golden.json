@@ -40,9 +40,9 @@
     "taipei",
     "new-taipei-jinshan",
     "taitung",
+    "taipei-shilin",
     "theme-mountains",
-    "yilan",
-    "new-taipei-bali"
+    "yilan"
   ],
   "客家": [
     "theme-migration",
@@ -133,24 +133,24 @@
     "yilan-wujie",
     "taichung",
     "hsinchu-city",
+    "taipei-nangang",
     "new-taipei-shulin",
     "yilan-zhuangwei",
     "taipei-beitou",
     "yilan",
-    "new-taipei-banqiao",
-    "new-taipei-jinshan"
+    "new-taipei-banqiao"
   ],
   "離島": [
     "theme-population",
     "keelung",
     "pingtung",
+    "taipei-songshan",
     "theme-geothermal",
     "kinmen",
     "lienchiang",
     "penghu",
     "theme-coast",
-    "theme-wind",
-    "yilan-toucheng"
+    "theme-wind"
   ],
   "日治時期": [
     "chiayi-county",
@@ -185,8 +185,8 @@
     "theme-migration",
     "taiwan",
     "hualien",
-    "theme-earthquake",
-    "yilan-suao"
+    "taipei-songshan",
+    "theme-earthquake"
   ],
   "漁港": [
     "theme-fishery",
@@ -204,11 +204,14 @@
     "taipei-beitou",
     "new-taipei-tamsui",
     "new-taipei-bali",
-    "tainan"
+    "tainan",
+    "taipei-shilin"
   ],
   "夜市": [
+    "taipei-songshan",
     "theme-temples",
     "keelung",
+    "taipei-shilin",
     "yilan-luodong",
     "new-taipei-banqiao"
   ]
