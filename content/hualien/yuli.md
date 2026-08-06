@@ -3,7 +3,6 @@ id: hualien-yuli
 name: 玉里鎮
 county: 花蓮縣
 type: 鎮
-hero: false
 stats:
   population: "21,006（2026-07，花蓮縣玉里鎮戶政事務所月統計報表）"
   area_km2: "252.372"

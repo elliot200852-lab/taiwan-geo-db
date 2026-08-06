@@ -3,7 +3,6 @@ id: hualien-hualien
 name: 花蓮市
 county: 花蓮縣
 type: 市
-hero: false
 stats:
   population: "95,845（2026-07，花蓮縣政府民政處）"
   area_km2: "29.41"

@@ -3,7 +3,6 @@ id: hualien-fuli
 name: 富里鄉
 county: 花蓮縣
 type: 鄉
-hero: false
 stats:
   population: "9,377（2026-07，花蓮縣政府民政處戶政科）"
   area_km2: "176.3705"

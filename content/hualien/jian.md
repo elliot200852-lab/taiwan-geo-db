@@ -3,7 +3,6 @@ id: hualien-jian
 name: 吉安鄉
 county: 花蓮縣
 type: 鄉
-hero: false
 stats:
   population: "82,707（2026-07，花蓮縣政府民政處人口統計）"
   area_km2: "65.2582"

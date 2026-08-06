@@ -3,7 +3,6 @@ id: hualien-wanrong
 name: 萬榮鄉
 county: 花蓮縣
 type: 鄉
-hero: false
 stats:
   population: "6,079（2026-07，花蓮縣政府民政處戶政科）"
   area_km2: "618.4910"

@@ -37,15 +37,16 @@
     "yilan-jiaoxi",
     "new-taipei-wulai",
     "taipei-beitou",
+    "hualien-wanrong",
     "taipei",
+    "hualien-ruisui",
     "new-taipei-jinshan",
     "taitung",
-    "taipei-shilin",
-    "theme-mountains",
-    "yilan"
+    "taipei-shilin"
   ],
   "客家": [
     "theme-migration",
+    "hualien-fenglin",
     "hsinchu-county",
     "miaoli",
     "kaohsiung",
@@ -53,8 +54,7 @@
     "taichung",
     "theme-temples",
     "new-taipei-xinzhuang",
-    "taoyuan",
-    "theme-placenames"
+    "hualien-shoufeng"
   ],
   "原住民": [
     "theme-migration",
@@ -74,23 +74,23 @@
     "theme-rivers",
     "theme-rain",
     "taiwan",
+    "hualien-fenglin",
+    "hualien-guangfu",
+    "hualien-jian",
     "new-taipei-banqiao",
-    "taipei-beitou",
-    "new-taipei-sanchong",
-    "new-taipei-wugu",
-    "new-taipei-wulai"
+    "taipei-beitou"
   ],
   "玉山": [
     "theme-ecology",
     "theme-mountains",
+    "hualien-zhuoxi",
     "nantou",
     "taiwan",
     "chiayi-county",
     "theme-rivers",
     "kaohsiung",
     "new-taipei-pinglin",
-    "new-taipei-wulai",
-    "theme-earthquake"
+    "new-taipei-wulai"
   ],
   "九份": [
     "new-taipei-ruifang",
@@ -103,12 +103,12 @@
     "hualien",
     "taichung",
     "nantou",
+    "hualien-hualien",
     "miaoli",
     "taipei",
     "taiwan",
-    "taitung",
-    "new-taipei-jinshan",
-    "new-taipei-sanxia"
+    "hualien-yuli",
+    "taitung"
   ],
   "老街": [
     "new-taipei-sanxia",
@@ -123,7 +123,10 @@
     "taoyuan"
   ],
   "國家公園": [
+    "hualien-zhuoxi",
+    "hualien-xiulin",
     "new-taipei-jinshan",
+    "hualien-xincheng",
     "kinmen",
     "hualien",
     "theme-earthquake"
@@ -134,11 +137,11 @@
     "taichung",
     "hsinchu-city",
     "taipei-nangang",
+    "hualien-guangfu",
     "new-taipei-shulin",
     "yilan-zhuangwei",
     "taipei-beitou",
-    "yilan",
-    "new-taipei-banqiao"
+    "yilan"
   ],
   "離島": [
     "theme-population",
@@ -153,16 +156,16 @@
     "theme-coast"
   ],
   "日治時期": [
+    "hualien-wanrong",
     "chiayi-county",
+    "hualien-yuli",
     "keelung-renai",
     "taichung",
     "yilan-luodong",
+    "hualien-jian",
+    "hualien-ruisui",
     "keelung-xinyi",
-    "miaoli",
-    "new-taipei-shulin",
-    "new-taipei-wulai",
-    "taipei-daan",
-    "theme-geothermal"
+    "miaoli"
   ],
   "水稻": [
     "new-taipei-linkou",
@@ -170,23 +173,23 @@
     "theme-soil",
     "yilan-dongshan",
     "yilan-zhuangwei",
+    "hualien-fuli",
     "theme-irrigation",
     "theme-rain",
     "changhua",
-    "chiayi-county",
-    "new-taipei-banqiao"
+    "chiayi-county"
   ],
   "東部": [
     "theme-transport",
     "theme-coast",
     "theme-population",
+    "hualien-ruisui",
+    "hualien-fenglin",
+    "hualien-hualien",
     "theme-geothermal",
     "theme-rivers",
-    "theme-migration",
-    "taiwan",
-    "hualien",
-    "taipei-songshan",
-    "theme-earthquake"
+    "hualien-zhuoxi",
+    "theme-migration"
   ],
   "漁港": [
     "keelung-zhongzheng",
@@ -209,6 +212,7 @@
   ],
   "夜市": [
     "taipei-songshan",
+    "hualien-hualien",
     "theme-temples",
     "keelung",
     "taipei-shilin",

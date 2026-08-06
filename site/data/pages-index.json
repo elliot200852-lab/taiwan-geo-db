@@ -31,10 +31,88 @@
       "type": "縣"
     },
     {
+      "id": "hualien-fengbin",
+      "name": "豐濱鄉",
+      "county": "花蓮縣",
+      "type": "鄉"
+    },
+    {
+      "id": "hualien-fenglin",
+      "name": "鳳林鎮",
+      "county": "花蓮縣",
+      "type": "鎮"
+    },
+    {
+      "id": "hualien-fuli",
+      "name": "富里鄉",
+      "county": "花蓮縣",
+      "type": "鄉"
+    },
+    {
+      "id": "hualien-guangfu",
+      "name": "光復鄉",
+      "county": "花蓮縣",
+      "type": "鄉"
+    },
+    {
+      "id": "hualien-hualien",
+      "name": "花蓮市",
+      "county": "花蓮縣",
+      "type": "市"
+    },
+    {
       "id": "hualien",
       "name": "花蓮縣",
       "county": "花蓮縣",
       "type": "縣"
+    },
+    {
+      "id": "hualien-jian",
+      "name": "吉安鄉",
+      "county": "花蓮縣",
+      "type": "鄉"
+    },
+    {
+      "id": "hualien-ruisui",
+      "name": "瑞穗鄉",
+      "county": "花蓮縣",
+      "type": "鄉"
+    },
+    {
+      "id": "hualien-shoufeng",
+      "name": "壽豐鄉",
+      "county": "花蓮縣",
+      "type": "鄉"
+    },
+    {
+      "id": "hualien-wanrong",
+      "name": "萬榮鄉",
+      "county": "花蓮縣",
+      "type": "鄉"
+    },
+    {
+      "id": "hualien-xincheng",
+      "name": "新城鄉",
+      "county": "花蓮縣",
+      "type": "鄉"
+    },
+    {
+      "id": "hualien-xiulin",
+      "name": "秀林鄉",
+      "county": "花蓮縣",
+      "type": "鄉"
+    },
+    {
+      "id": "hualien-yuli",
+      "name": "玉里鎮",
+      "county": "花蓮縣",
+      "type": "鎮"
+    },
+    {
+      "id": "hualien-zhuoxi",
+      "name": "卓溪鄉",
+      "county": "花蓮縣",
+      "type": "鄉"
     },
     {
       "id": "kaohsiung",

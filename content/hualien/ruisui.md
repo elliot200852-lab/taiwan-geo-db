@@ -3,7 +3,6 @@ id: hualien-ruisui
 name: 瑞穗鄉
 county: 花蓮縣
 type: 鄉
-hero: false
 stats:
   population: "10,351（2026-07，花蓮縣政府民政處月報表 2）"
   area_km2: "135.5862"

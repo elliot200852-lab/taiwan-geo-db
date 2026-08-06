@@ -3,7 +3,6 @@ id: hualien-zhuoxi
 name: 卓溪鄉
 county: 花蓮縣
 type: 鄉
-hero: false
 stats:
   population: "5,814（2026-07，花蓮縣政府民政處月報表2「各鄉鎮市村里現住人口數按性別及原住民身分分」）"
   area_km2: "1021.3130"
@@ -11,25 +10,25 @@ stats:
   note: "花蓮縣三個山地鄉之一，面積全縣第二大、人口密度全縣最低；轄崙山、立山、太平、卓溪、卓清、古風共 6 村。2026-07 原住民人口 5,570 人，佔全鄉 95.8%，其中山地原住民 5,330 人；以布農族為主，立山村與崙山村另有太魯閣族與賽德克族"
 tags_g5: [臺灣地理, 臺灣歷史]
 images:
-  - url: https://upload.wikimedia.org/wikipedia/commons/7/71/Laku_Laku_River_%E6%8B%89%E5%BA%AB%E5%9E%83%E5%BA%AB%E6%BA%AA_-_panoramio.jpg
+  - url: https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Laku_Laku_River_%E6%8B%89%E5%BA%AB%E5%9E%83%E5%BA%AB%E6%BA%AA_-_panoramio.jpg/1280px-Laku_Laku_River_%E6%8B%89%E5%BA%AB%E5%9E%83%E5%BA%AB%E6%BA%AA_-_panoramio.jpg
     title: 拉庫拉庫溪（樂樂溪）河谷——卓溪鄉的主軸與八通關越嶺道東段的路線
     source: Wikimedia Commons
     license: CC BY 3.0
     author: lienyuan lee
     section: 自然地理
-  - url: https://upload.wikimedia.org/wikipedia/commons/2/24/Siougulan.JPG
+  - url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Siougulan.JPG/1280px-Siougulan.JPG
     title: 秀姑巒山（3,825 公尺）——中央山脈最高峰，位在卓溪鄉與南投縣信義鄉交界
     source: Wikimedia Commons
     license: CC BY 3.0
     author: Kailing3
     section: 自然地理
-  - url: https://upload.wikimedia.org/wikipedia/commons/6/63/%E8%8A%B1%E8%93%AE%E5%8D%97%E5%AE%89%E7%80%91%E5%B8%83.jpg
+  - url: https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/%E8%8A%B1%E8%93%AE%E5%8D%97%E5%AE%89%E7%80%91%E5%B8%83.jpg/1280px-%E8%8A%B1%E8%93%AE%E5%8D%97%E5%AE%89%E7%80%91%E5%B8%83.jpg
     title: 南安瀑布——卓清村南安部落旁，玉山國家公園東部園區入口一帶
     source: Wikimedia Commons
     license: CC BY-SA 4.0
     author: Matt8830
     section: 自然地理
-  - url: https://upload.wikimedia.org/wikipedia/commons/4/4f/%E5%A4%A7%E5%88%86%E7%80%91%E5%B8%83.jpg
+  - url: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/%E5%A4%A7%E5%88%86%E7%80%91%E5%B8%83.jpg/1280px-%E5%A4%A7%E5%88%86%E7%80%91%E5%B8%83.jpg
     title: 大分瀑布——八通關越嶺道東段深處，今日臺灣黑熊的重要棲地
     source: Wikimedia Commons
     license: CC BY 3.0
@@ -41,7 +40,7 @@ images:
     license: CC BY-SA 3.0
     author: Abu0804
     section: 自然地理
-  - url: https://upload.wikimedia.org/wikipedia/commons/c/c7/Walami_Trail_%E7%93%A6%E6%8B%89%E7%B1%B3%E6%AD%A5%E9%81%93_-_panoramio.jpg
+  - url: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Walami_Trail_%E7%93%A6%E6%8B%89%E7%B1%B3%E6%AD%A5%E9%81%93_-_panoramio.jpg/1280px-Walami_Trail_%E7%93%A6%E6%8B%89%E7%B1%B3%E6%AD%A5%E9%81%93_-_panoramio.jpg
     title: 瓦拉米步道——今日走的就是 1919 至 1921 年開闢的八通關越道路東段路基
     source: Wikimedia Commons
     license: CC BY 3.0

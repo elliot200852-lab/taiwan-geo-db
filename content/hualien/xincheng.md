@@ -3,7 +3,6 @@ id: hualien-xincheng
 name: 新城鄉
 county: 花蓮縣
 type: 鄉
-hero: false
 stats:
   population: "20,365（2026-07，花蓮縣政府民政處人口統計表2）"
   area_km2: "29.4095（2026-07，花蓮縣政府民政處人口及行政區域分佈密度表）"

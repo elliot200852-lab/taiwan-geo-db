@@ -3,7 +3,6 @@ id: hualien-xiulin
 name: 秀林鄉
 county: 花蓮縣
 type: 鄉
-hero: false
 stats:
   population: "17,260（2026-07，花蓮縣政府民政處戶政科）"
   area_km2: "1641.8555"

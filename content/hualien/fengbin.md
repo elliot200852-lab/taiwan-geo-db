@@ -3,7 +3,6 @@ id: hualien-fengbin
 name: 豐濱鄉
 county: 花蓮縣
 type: 鄉
-hero: false
 stats:
   population: "4,077（2026-07，花蓮縣政府民政處月報表1）"
   area_km2: "162.4332"

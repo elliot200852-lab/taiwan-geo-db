@@ -3,7 +3,6 @@ id: hualien-fenglin
 name: 鳳林鎮
 county: 花蓮縣
 type: 鎮
-hero: false
 stats:
   population: "10,075（2026-07，花蓮縣政府民政處人口統計表一）"
   area_km2: "120.5181"
