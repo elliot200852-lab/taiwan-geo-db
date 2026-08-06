@@ -50,7 +50,47 @@ transcript symlink 與已完工 agent 的心跳都會假死**）→查核 A（So
 12. 查核 B 低嚴重度觀察未修：七頁教學特點開場句式模板化（「這一區最適合教…」）；
     中正正文 5,256 字微超 5,200 上限（施工前既有，修正輪已淨降 27 字，容忍）。
 
-## 0-A. 花蓮 13/13 全席收官（2026-08-06，與基隆同日）＋臺東進行中
+## 0-A. 斷點交接：花蓮收官、臺東 7/16 定稿（2026-08-06 午，session 收單）
+
+**下一個 session 從這裡接。進來第一件事照舊：跑 `towns_status.py taitung` 盤點磁碟，不要信下面的數字。**
+
+### 臺東現況（2026-08-06 12:45 收單時）
+- **7 區定稿、已過寫作自檢、有 §K 回報、已 commit 到 `origin/east-towns` 分支**：
+  池上、關山、海端、鹿野、延平、長濱、臺東市（id `taitung-taitung`，檔名 `taitung-city.md`）。
+  **未查核、未跑圖片鏈、未發布。**
+- **2 區草稿在磁碟但收單時 agent 仍在寫、無 §K 回報**：成功（chenggong.md）、東河（donghe.md），
+  在 worktree `~/MyWork/_workspace/geo-east-wt/content/taitung/`（未 commit）。
+  處置：檔案完整且四章節齊就當初稿收、**照樣全額查核**；不完整就重派該區。
+- **7 區完全未派**：卑南、太麻里、金峰、大武、達仁、綠島、蘭嶼。
+- **David 拍板的節奏：寫作 agent 一次最多 4 支輪替**（一次 13 支被打回），一支收稿即補位一支。
+
+### 續做清單（照序）
+1. 在 worktree `_workspace/geo-east-wt`（分支 east-towns，已 rebase 到 374f2f0 後的 main）續派剩餘各區，
+   派工單樣式照本批（模板 §D 臺東列＋兩份黑名單）。黑名單已持久化：
+   **裝置黑名單＝repo `docs/devices-used-east.txt`**（/tmp 那份會被清）；
+   已用圖片清單用模板 §G 程式碼即時重生。
+2. 全縣收齊 → 查核 A（事實）＋查核 B（文風/撞題）各一支 → 修正一支。**既知修正清單**：
+   ①海端 stats 是維基層級（2026-06）→ 用民政處 RRRP03320（115-07）補正（池上/延平/臺東市支都成功下載過，
+   走 taitung.gov.tw 主站；部分 agent 對民政處子網域 NXDOMAIN）；
+   ②鹿野 stats 同（2026-06 內政部→115-07 民政處）；
+   ③長濱「臺灣最古老」措辭之文資局公告原文（nchdb 20060501000007）未能覆核，查核輪再試。
+3. 圖片鏈照 §8（fetch --only 全部 16 個 taitung-* id → upload Drive → source titles）。
+   ⚠ 原檔 URL 一律轉 /thumb/1280px（花蓮批 6 張踩過，修法＝母本與 manifest 鍵一起改）。
+4. hero 16 張：prompt 照花蓮批做法派 Sonnet 從各頁定位速覽起草、append 進 hero-prompts.yaml；
+   gen_hero_images.py 用系統 python3、low、並發 2；逐張目檢（地標與地質狀態）。
+   生圖授權：David 2026-08-06 已為「花蓮＋臺東收官」整條線授權（嚴格 low），臺東沿用、不必重問。
+5. 發布走隔離 worktree 模式（本批花蓮用 `_workspace/geo-pub`，分支 east-hualien-publish）：
+   發布前 git fetch 看有無其他 session 推過 main → rebase → 乾淨 build（別把未定稿母本掃進
+   pages-index/sitemap，這是開 worktree 的原因）→ golden `refresh --new` 白名單 →
+   `towns_status.py taitung --check-images`（批量 429＝假陽性，單獨重驗；連 `check-search-core-sync`
+   需要 sibling：`_workspace/taiwan-arts-db` symlink 已建）→ commit → push <branch>:main → CI →
+   `verify_live_images.py` 全綠才算完。
+6. 全部收完的清理：`git worktree remove` 兩個 worktree（geo-east-wt、geo-pub）＋刪 east-towns/
+   east-hualien-publish 分支；`_workspace/geo-east-reviews/` 兩份花蓮查核報告收走或刪；
+   縣頁 taitung.md 的 towns: 16 條已在（花蓮批一併 commit）。
+7. 結案後：NotebookLM「認識臺灣」筆記本補花蓮 13＋臺東 16（94→123 來源，檔名帶縣名慣例），先問 David。
+
+## 0-A(舊). 花蓮 13/13 全席收官（2026-08-06，與基隆同日）＋臺東進行中
 
 **一句話**：**花蓮 13/13 上線**（commit 374f2f0，CI 綠、verify_live_images 1061/1061 全綠），
 全站鄉鎮頁 73/73。同日稍早基隆 7/7 由另一 session 收官（603c0f8）。
