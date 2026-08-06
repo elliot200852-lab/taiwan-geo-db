@@ -54,11 +54,11 @@ transcript symlink 與已完工 agent 的心跳都會假死**）→查核 A（So
 
 **下一個 session 從這裡接。進來第一件事照舊：跑 `towns_status.py taitung` 盤點磁碟，不要信下面的數字。**
 
-### 臺東現況（2026-08-06 12:45 收單時）
-- **7 區定稿、已過寫作自檢、有 §K 回報、已 commit 到 `origin/east-towns` 分支**：
-  池上、關山、海端、鹿野、延平、長濱、臺東市（id `taitung-taitung`，檔名 `taitung-city.md`）。
-  **未查核、未跑圖片鏈、未發布。**
-- **2 區草稿在磁碟但收單時 agent 仍在寫、無 §K 回報**：成功（chenggong.md）、東河（donghe.md），
+### 臺東現況（2026-08-06 12:55 收單時）
+- **8 區定稿、已過寫作自檢、有 §K 回報、已 commit 到 `origin/east-towns` 分支（2e3d519）**：
+  池上、關山、海端、鹿野、延平、長濱、成功、臺東市（id `taitung-taitung`，檔名 `taitung-city.md`）。
+  **未查核、未跑圖片鏈、未發布。** 成功頁另修正派工單一錯：三仙台非火山岩頸、是海蝕切斷的岬角。
+- **1 區草稿在磁碟但收單時 agent 仍在寫、無 §K 回報**：東河（donghe.md），
   在 worktree `~/MyWork/_workspace/geo-east-wt/content/taitung/`（未 commit）。
   處置：檔案完整且四章節齊就當初稿收、**照樣全額查核**；不完整就重派該區。
 - **7 區完全未派**：卑南、太麻里、金峰、大武、達仁、綠島、蘭嶼。
