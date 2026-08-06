@@ -43,10 +43,52 @@
       "type": "直轄市"
     },
     {
+      "id": "keelung-anle",
+      "name": "安樂區",
+      "county": "基隆市",
+      "type": "區"
+    },
+    {
       "id": "keelung",
       "name": "基隆市",
       "county": "基隆市",
       "type": "市"
+    },
+    {
+      "id": "keelung-nuannuan",
+      "name": "暖暖區",
+      "county": "基隆市",
+      "type": "區"
+    },
+    {
+      "id": "keelung-qidu",
+      "name": "七堵區",
+      "county": "基隆市",
+      "type": "區"
+    },
+    {
+      "id": "keelung-renai",
+      "name": "仁愛區",
+      "county": "基隆市",
+      "type": "區"
+    },
+    {
+      "id": "keelung-xinyi",
+      "name": "信義區",
+      "county": "基隆市",
+      "type": "區"
+    },
+    {
+      "id": "keelung-zhongshan",
+      "name": "中山區",
+      "county": "基隆市",
+      "type": "區"
+    },
+    {
+      "id": "keelung-zhongzheng",
+      "name": "中正區",
+      "county": "基隆市",
+      "type": "區"
     },
     {
       "id": "kinmen",

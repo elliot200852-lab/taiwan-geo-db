@@ -143,26 +143,26 @@
   "離島": [
     "theme-population",
     "keelung",
+    "keelung-zhongzheng",
     "pingtung",
     "taipei-songshan",
     "theme-geothermal",
     "kinmen",
     "lienchiang",
     "penghu",
-    "theme-coast",
-    "theme-wind"
+    "theme-coast"
   ],
   "日治時期": [
     "chiayi-county",
+    "keelung-renai",
     "taichung",
     "yilan-luodong",
+    "keelung-xinyi",
     "miaoli",
     "new-taipei-shulin",
     "new-taipei-wulai",
     "taipei-daan",
-    "theme-geothermal",
-    "theme-springs",
-    "yilan-suao"
+    "theme-geothermal"
   ],
   "水稻": [
     "new-taipei-linkou",
@@ -189,16 +189,16 @@
     "theme-earthquake"
   ],
   "漁港": [
+    "keelung-zhongzheng",
     "theme-fishery",
     "new-taipei-wanli",
     "yilan-suao",
+    "keelung-zhongshan",
     "keelung",
     "theme-coast",
     "theme-typhoon",
     "new-taipei-jinshan",
-    "new-taipei-tamsui",
-    "new-taipei-shimen",
-    "theme-placenames"
+    "new-taipei-tamsui"
   ],
   "紅樹林": [
     "taipei-beitou",
@@ -213,6 +213,7 @@
     "keelung",
     "taipei-shilin",
     "yilan-luodong",
+    "keelung-renai",
     "new-taipei-banqiao",
     "taipei-zhongzheng"
   ]

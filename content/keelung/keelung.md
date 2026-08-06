@@ -3,10 +3,18 @@ id: keelung
 name: 基隆市
 county: 基隆市
 type: 市
+towns:
+  - keelung-zhongzheng
+  - keelung-xinyi
+  - keelung-renai
+  - keelung-zhongshan
+  - keelung-anle
+  - keelung-nuannuan
+  - keelung-qidu
 stats:
-  population: "359,836（2025-12，基隆市民政處）"
+  population: "358,287（2026-07，基隆市民政處）"
   area_km2: "132.76"
-  density: "約 2,711 人/km²（2025-12）"
+  density: "約 2,699 人/km²（2026-07）"
 tags_g5: [臺灣地理, 臺灣歷史]
 images:
   - url: https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/2021_Port_of_Keelung_TAIWAN.jpg/1280px-2021_Port_of_Keelung_TAIWAN.jpg
