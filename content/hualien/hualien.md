@@ -3,6 +3,20 @@ id: hualien
 name: 花蓮縣
 county: 花蓮縣
 type: 縣
+towns:
+  - hualien-xincheng      # 新城鄉
+  - hualien-xiulin        # 秀林鄉
+  - hualien-hualien       # 花蓮市
+  - hualien-jian          # 吉安鄉
+  - hualien-shoufeng      # 壽豐鄉
+  - hualien-fenglin       # 鳳林鎮
+  - hualien-wanrong       # 萬榮鄉
+  - hualien-guangfu       # 光復鄉
+  - hualien-fengbin       # 豐濱鄉
+  - hualien-ruisui        # 瑞穗鄉
+  - hualien-yuli          # 玉里鎮
+  - hualien-zhuoxi        # 卓溪鄉
+  - hualien-fuli          # 富里鄉
 stats:
   population: "311,399（2026-05，花蓮縣政府民政處／維基百科彙整）"
   area_km2: "4628.57"

@@ -3,6 +3,23 @@ id: taitung
 name: 臺東縣
 county: 臺東縣
 type: 縣
+towns:
+  - taitung-changbin      # 長濱鄉
+  - taitung-chishang      # 池上鄉
+  - taitung-haiduan       # 海端鄉
+  - taitung-guanshan      # 關山鎮
+  - taitung-luye          # 鹿野鄉
+  - taitung-yanping       # 延平鄉
+  - taitung-chenggong     # 成功鎮
+  - taitung-donghe        # 東河鄉
+  - taitung-beinan        # 卑南鄉
+  - taitung-taitung       # 臺東市
+  - taitung-taimali       # 太麻里鄉
+  - taitung-jinfeng       # 金峰鄉
+  - taitung-dawu          # 大武鄉
+  - taitung-daren         # 達仁鄉
+  - taitung-ludao         # 綠島鄉
+  - taitung-lanyu         # 蘭嶼鄉
 stats:
   population: "約 20.8 萬（2026-05，臺東縣主計處／維基百科彙整）"
   area_km2: "3515.25"
