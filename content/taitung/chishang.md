@@ -5,7 +5,7 @@ county: 臺東縣
 type: 鄉
 hero: false
 stats:
-  population: "7,453（2026-07，臺東縣政府民政處月統計報表）"
+  population: "7,453 人（2026-07，臺東縣政府民政處月統計報表）"
   area_km2: "82.6854"
   density: "約 90 人/km²（2026-07）"
 tags_g5: [臺灣地理, 臺灣歷史]
