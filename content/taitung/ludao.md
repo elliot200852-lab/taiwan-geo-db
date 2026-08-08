@@ -3,7 +3,6 @@ id: taitung-ludao
 name: 綠島鄉
 county: 臺東縣
 type: 鄉
-hero: false
 stats:
   population: "4,321（2026-07，臺東縣政府民政處月統計報表 RRRP03320）"
   area_km2: "15.0919"

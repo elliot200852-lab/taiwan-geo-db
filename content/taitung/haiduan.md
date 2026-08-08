@@ -3,7 +3,6 @@ id: taitung-haiduan
 name: 海端鄉
 county: 臺東縣
 type: 鄉
-hero: false
 stats:
   population: "4,310 人（2026-07，臺東縣關山戶政事務所《臺東縣各鄉鎮市現住人口數按性別及原住民身分分》115年7月）"
   area_km2: "880.04"

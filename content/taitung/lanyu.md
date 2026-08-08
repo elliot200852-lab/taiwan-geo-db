@@ -3,7 +3,6 @@ id: taitung-lanyu
 name: 蘭嶼鄉
 county: 臺東縣
 type: 鄉
-hero: false
 stats:
   population: "5,173（2026-07，臺東縣政府民政處月統計報表 RRRP03320《臺東縣各鄉鎮市現住人口數按性別及原住民身分分》，中華民國 115 年 7 月底）"
   area_km2: "48.3892"

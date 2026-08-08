@@ -3,7 +3,6 @@ id: taitung-taimali
 name: 太麻里鄉
 county: 臺東縣
 type: 鄉
-hero: false
 stats:
   population: "10,445（2026-07，臺東縣太麻里戶政事務所）"
   area_km2: "96.65"

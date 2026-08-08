@@ -3,7 +3,6 @@ id: taitung-taitung
 name: 臺東市
 county: 臺東縣
 type: 市
-hero: false
 stats:
   population: "102,177（2026-07，臺東縣政府民政處月統計報表 RRRP03320）"
   area_km2: "109.7691"

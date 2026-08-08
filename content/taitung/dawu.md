@@ -3,7 +3,6 @@ id: taitung-dawu
 name: 大武鄉
 county: 臺東縣
 type: 鄉
-hero: false
 stats:
   population: "5,314 人（2026-07，臺東縣太麻里戶政事務所）"
   area_km2: "69.1454"

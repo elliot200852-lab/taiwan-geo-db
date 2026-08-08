@@ -38,11 +38,11 @@
     "new-taipei-wulai",
     "taipei-beitou",
     "hualien-wanrong",
+    "taitung-beinan",
     "taipei",
     "hualien-ruisui",
     "new-taipei-jinshan",
-    "taitung",
-    "taipei-shilin"
+    "taitung"
   ],
   "客家": [
     "theme-migration",
@@ -50,11 +50,11 @@
     "hsinchu-county",
     "miaoli",
     "kaohsiung",
+    "taitung-guanshan",
     "new-taipei-sanzhi",
     "taichung",
     "theme-temples",
-    "new-taipei-xinzhuang",
-    "hualien-shoufeng"
+    "new-taipei-xinzhuang"
   ],
   "原住民": [
     "theme-migration",
@@ -66,19 +66,19 @@
     "miaoli",
     "nantou",
     "hsinchu-county",
-    "yilan-datong"
+    "taitung-dawu"
   ],
   "颱風": [
     "theme-typhoon",
+    "taitung-taimali",
     "new-taipei-xizhi",
     "theme-rivers",
+    "taitung-lanyu",
     "theme-rain",
     "taiwan",
     "hualien-fenglin",
     "hualien-guangfu",
-    "hualien-jian",
-    "new-taipei-banqiao",
-    "taipei-beitou"
+    "hualien-jian"
   ],
   "玉山": [
     "theme-ecology",
@@ -106,9 +106,9 @@
     "hualien-hualien",
     "miaoli",
     "taipei",
+    "taitung",
     "taiwan",
-    "hualien-yuli",
-    "taitung"
+    "hualien-yuli"
   ],
   "老街": [
     "new-taipei-sanxia",
@@ -141,7 +141,7 @@
     "new-taipei-shulin",
     "yilan-zhuangwei",
     "taipei-beitou",
-    "yilan"
+    "taitung-taitung"
   ],
   "離島": [
     "theme-population",
@@ -153,7 +153,7 @@
     "kinmen",
     "lienchiang",
     "penghu",
-    "theme-coast"
+    "taitung-lanyu"
   ],
   "日治時期": [
     "hualien-wanrong",
@@ -161,11 +161,11 @@
     "hualien-yuli",
     "keelung-renai",
     "taichung",
+    "taitung-donghe",
+    "taitung-yanping",
     "yilan-luodong",
     "hualien-jian",
-    "hualien-ruisui",
-    "keelung-xinyi",
-    "miaoli"
+    "hualien-ruisui"
   ],
   "水稻": [
     "new-taipei-linkou",
@@ -174,10 +174,10 @@
     "yilan-dongshan",
     "yilan-zhuangwei",
     "hualien-fuli",
+    "taitung-luye",
     "theme-irrigation",
     "theme-rain",
-    "changhua",
-    "chiayi-county"
+    "changhua"
   ],
   "東部": [
     "theme-transport",
@@ -186,22 +186,22 @@
     "hualien-ruisui",
     "hualien-fenglin",
     "hualien-hualien",
+    "taitung-taitung",
     "theme-geothermal",
     "theme-rivers",
-    "hualien-zhuoxi",
-    "theme-migration"
+    "hualien-zhuoxi"
   ],
   "漁港": [
+    "taitung-dawu",
     "keelung-zhongzheng",
     "theme-fishery",
     "new-taipei-wanli",
     "yilan-suao",
     "keelung-zhongshan",
+    "taitung-chenggong",
     "keelung",
     "theme-coast",
-    "theme-typhoon",
-    "new-taipei-jinshan",
-    "new-taipei-tamsui"
+    "taitung-changbin"
   ],
   "紅樹林": [
     "taipei-beitou",

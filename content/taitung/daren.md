@@ -3,7 +3,6 @@ id: taitung-daren
 name: 達仁鄉
 county: 臺東縣
 type: 鄉
-hero: false
 stats:
   population: "3,521 人（2026-07，臺東縣太麻里戶政事務所）"
   area_km2: "306.4454"

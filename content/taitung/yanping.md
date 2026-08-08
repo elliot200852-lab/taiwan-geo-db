@@ -3,7 +3,6 @@ id: taitung-yanping
 name: 延平鄉
 county: 臺東縣
 type: 鄉
-hero: false
 stats:
   population: "3,613 人（2026-07 月底，臺東縣政府民政處月統計報表 RRRP03320《臺東縣各鄉鎮市現住人口數按性別及原住民身分分》）"
   area_km2: "455.8805"

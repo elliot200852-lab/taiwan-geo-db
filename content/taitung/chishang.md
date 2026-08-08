@@ -3,7 +3,6 @@ id: taitung-chishang
 name: 池上鄉
 county: 臺東縣
 type: 鄉
-hero: false
 stats:
   population: "7,453 人（2026-07，臺東縣政府民政處月統計報表）"
   area_km2: "82.6854"

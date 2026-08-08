@@ -3,7 +3,6 @@ id: taitung-beinan
 name: 卑南鄉
 county: 臺東縣
 type: 鄉
-hero: false
 stats:
   population: "16,210 人（2026-07，臺東縣政府民政處月統計報表 RRRP03320）"
   area_km2: "約 413"

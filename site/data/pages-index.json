@@ -475,10 +475,106 @@
       "type": "區"
     },
     {
+      "id": "taitung-beinan",
+      "name": "卑南鄉",
+      "county": "臺東縣",
+      "type": "鄉"
+    },
+    {
+      "id": "taitung-changbin",
+      "name": "長濱鄉",
+      "county": "臺東縣",
+      "type": "鄉"
+    },
+    {
+      "id": "taitung-chenggong",
+      "name": "成功鎮",
+      "county": "臺東縣",
+      "type": "鎮"
+    },
+    {
+      "id": "taitung-chishang",
+      "name": "池上鄉",
+      "county": "臺東縣",
+      "type": "鄉"
+    },
+    {
+      "id": "taitung-daren",
+      "name": "達仁鄉",
+      "county": "臺東縣",
+      "type": "鄉"
+    },
+    {
+      "id": "taitung-dawu",
+      "name": "大武鄉",
+      "county": "臺東縣",
+      "type": "鄉"
+    },
+    {
+      "id": "taitung-donghe",
+      "name": "東河鄉",
+      "county": "臺東縣",
+      "type": "鄉"
+    },
+    {
+      "id": "taitung-guanshan",
+      "name": "關山鎮",
+      "county": "臺東縣",
+      "type": "鎮"
+    },
+    {
+      "id": "taitung-haiduan",
+      "name": "海端鄉",
+      "county": "臺東縣",
+      "type": "鄉"
+    },
+    {
+      "id": "taitung-jinfeng",
+      "name": "金峰鄉",
+      "county": "臺東縣",
+      "type": "鄉"
+    },
+    {
+      "id": "taitung-lanyu",
+      "name": "蘭嶼鄉",
+      "county": "臺東縣",
+      "type": "鄉"
+    },
+    {
+      "id": "taitung-ludao",
+      "name": "綠島鄉",
+      "county": "臺東縣",
+      "type": "鄉"
+    },
+    {
+      "id": "taitung-luye",
+      "name": "鹿野鄉",
+      "county": "臺東縣",
+      "type": "鄉"
+    },
+    {
+      "id": "taitung-taimali",
+      "name": "太麻里鄉",
+      "county": "臺東縣",
+      "type": "鄉"
+    },
+    {
+      "id": "taitung-taitung",
+      "name": "臺東市",
+      "county": "臺東縣",
+      "type": "市"
+    },
+    {
       "id": "taitung",
       "name": "臺東縣",
       "county": "臺東縣",
       "type": "縣"
+    },
+    {
+      "id": "taitung-yanping",
+      "name": "延平鄉",
+      "county": "臺東縣",
+      "type": "鄉"
     },
     {
       "id": "taiwan",

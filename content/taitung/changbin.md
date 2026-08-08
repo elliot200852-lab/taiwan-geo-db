@@ -3,7 +3,6 @@ id: taitung-changbin
 name: 長濱鄉
 county: 臺東縣
 type: 鄉
-hero: false
 stats:
   population: "6,417 人（2026-07，臺東縣政府民政處人口統計；其中原住民族 3,962 人）"
   area_km2: "155.1868"

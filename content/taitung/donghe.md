@@ -3,7 +3,6 @@ id: taitung-donghe
 name: 東河鄉
 county: 臺東縣
 type: 鄉
-hero: false
 stats:
   population: "7,751 人（2026 年 7 月底／民國 115 年 7 月底，臺東縣政府民政處《臺東縣各鄉鎮市現住人口數按性別及原住民身分分》RRRP03320）"
   area_km2: "210.1908"
