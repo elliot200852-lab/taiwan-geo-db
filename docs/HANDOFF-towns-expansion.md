@@ -25,6 +25,37 @@ cd ~/MyWork/taiwan-geo-db
 
 ---
 
+## 0-Z. 斷點交接：臺東 16/16 全鏈完成、已推 main、CI 進行中（2026-08-08 收工）
+
+**下一個 session 從這裡接，剩驗收與清理，約 15 分鐘。**
+
+### 已完成（全在 commit 2aac797，已推上 origin/main）
+16/16 母本（9 前批＋卑南/太麻里/金峰/大武/達仁/綠島/蘭嶼 7 支 Opus 三三批完成）→
+查核 A（3 高全修：縣頁池上斷層觀察點錦園→**大坡國小**、海端 4,310／鹿野 6,983 升 115-07，
+16 鄉加總＝縣頁 207,747 算術鎖死；南迴通車年 1992→1991）＋查核 B（六頁減脂 6,225–6,489→≤5,200、
+「逐項列舉收攏」骨架 9 撞改寫 4、六頁教學特點開場去模板化）→ 圖片鏈（fetch／Drive 上傳逐檔比對過／
+source titles）→ 16 hero（10 一次過、5 一修、**綠島三修**——「像動物的岩石」prompt 會生出雕像臉，
+第三版整個拿掉擬像描述改畫朝日溫泉圓池才過；已上 Drive hero/、旗標全拆）→ golden 重定基準
+（16 新頁進榜、縣頁因「地震儀」修正句入 --new 白名單、既有排序零改變、test-search 23 區塊全綠）→
+check-images 15/16＋鹿野 #7 批量 429 單獨重驗 200（假陽性）→ rebase → **push main（a86a34c..2aac797）**。
+
+### 下一個 session 要做的（照序）
+1. `gh run list` 看 run 31246307074（2026-08-08 07:30Z 起，收工時跑到 27 分仍 in_progress——
+   **這個 repo 的部署本來就要 28–30 分鐘**，前兩次成功 run 分別 27m51s／29m45s，別誤判成卡死）。
+   若失敗：先看是暫時抖還是 undici（見 memory cloud-class-5a 前例），重跑即可，內容都在 main 上。
+2. CI 綠後 `.venv/bin/python3 scripts/verify_live_images.py` 全綠才算上線（預期 +16 hero＋約 150 內容圖）。
+3. 清理：`git worktree remove _workspace/geo-east-wt`＋`_workspace/geo-pub`、刪 east-towns／
+   east-hualien-publish 分支（本地＋origin）、`_workspace/geo-east-reviews/`（兩份花蓮＋兩份臺東查核報告、
+   dup-20260808 重複寫作件——查核 A 已用畢可刪）。
+4. 縣頁欠帳（等 David）：taitung.md 文風「不是A而是B」×3、定位速覽 212 字超 150——都是舊稿既有，與
+   基隆縣頁同病；davices 檔已含基隆節。臺東批查核 B 確認臺東頁與基隆裝置零撞。
+5. NotebookLM「認識臺灣」補花蓮 13＋臺東 16（94→123），先問 David。
+6. 臺東收官後下一縣市等 David 點名。
+
+### 本批新坑（一行版）
+寫作 agent 自量字數與 towns_status 口徑差 ~20%（自報 5,200＝腳本 6,300），派工單的字數上限
+要明講「以 towns_status 口徑為準」；「像動物的岩石」類 prompt 直說擬像必出雕像臉，改寫景不寫像。
+
 ## 0-0. 基隆 7/7 全席收官（2026-08-06 完成）
 
 **一句話**：**基隆 7/7 上線**——中正、信義、仁愛、中山、安樂、暖暖、七堵一批做完
