@@ -137,7 +137,10 @@ transcript symlink 與已完工 agent 的心跳都會假死**）→查核 A（So
 
 ### 本批新增的坑與紀律（看門狗三代教訓，續做必讀）
 - **task .output 檔是 symlink**：`stat` 不加 `-L` 量到連結本身（大小恆 124、mtime 不動）——
-  mtime 與 size 兩種活性判準都會因此全面誤報。正解＝`stat -L` 追真檔，腳本在 `/tmp/geo-hb/size-watch.sh`。
+  mtime 與 size 兩種活性判準都會因此全面誤報。正解＝`stat -L` 追真檔。
+  （原 `/tmp/geo-hb/size-watch.sh` 是當批 scratchpad 暫存檔、已隨系統清除，別再去找；
+  同型腳本另存 `~/MyWork/_scripts/agent-size-watch.sh`，惟該檔未入版控、去留待 David 裁決，
+  引用前先確認它還在。要用的是上面那條 `stat -L` 紀律，不是特定腳本。）
 - **心跳檔判準的兩種誤報**：①復活的 agent 還沒寫新心跳、被停機前舊時間戳觸發（重掛前先 touch）；
   ②完工 agent 心跳自然停止（每次收稿後重掛看門狗換名單）。
 - **長自檢段（寫完稿後的字數自檢）可 20 分鐘不打心跳**——判死前先 tail transcript 內部 timestamp。
