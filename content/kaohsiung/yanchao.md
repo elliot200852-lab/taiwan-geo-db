@@ -3,7 +3,7 @@ id: kaohsiung-yanchao
 name: 燕巢區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "28,304 人（11,487 戶；2026-03／民國115年3月，高雄市民政局戶籍人口統計月報表 表1）"
   area_km2: "65.3950（維基百科彙整；區公所「地理環境」頁與主計處統計網線上頁未列出區級面積，來源層級如實標註）"

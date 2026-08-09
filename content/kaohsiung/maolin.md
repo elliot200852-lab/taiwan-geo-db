@@ -3,7 +3,7 @@ id: kaohsiung-maolin
 name: 茂林區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "1,865 人（2026-03，高雄市民政局「高雄市戶籍人口統計月報表」表1；同期 639 戶、3 里 19 鄰，為高雄市 38 區中人口最少者）"
   area_km2: "194.00"

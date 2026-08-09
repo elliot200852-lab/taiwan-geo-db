@@ -3,7 +3,7 @@ id: kaohsiung-liugui
 name: 六龜區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "11,193 人（5,412 戶；2026-03，高雄市民政局戶籍人口統計月報表表1）"
   area_km2: "194.1584（來源層級：維基百科彙整；區公所與主計處網站為動態頁，本次未取得可引用的面積表）"

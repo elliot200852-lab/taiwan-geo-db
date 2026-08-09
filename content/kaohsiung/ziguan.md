@@ -3,7 +3,7 @@ id: kaohsiung-ziguan
 name: 梓官區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "34,578（2026-03／民國115年3月，高雄市民政局戶籍人口統計月報表 表1；14,044 戶）"
   area_km2: "11.5967（來源層級：維基百科彙整自歷年高雄縣統計要覽；主計處年報土地面積表未取得）"

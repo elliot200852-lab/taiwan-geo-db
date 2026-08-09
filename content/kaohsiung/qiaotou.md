@@ -3,7 +3,7 @@ id: kaohsiung-qiaotou
 name: 橋頭區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "43,386（2026-03／民國115年3月，高雄市民政局戶籍人口統計月報表 表1）"
   area_km2: "25.9379"

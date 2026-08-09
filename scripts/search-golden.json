@@ -39,10 +39,10 @@
     "taipei-beitou",
     "hualien-wanrong",
     "taitung-beinan",
+    "kaohsiung-liugui",
     "taipei",
     "hualien-ruisui",
-    "new-taipei-jinshan",
-    "taitung"
+    "new-taipei-jinshan"
   ],
   "客家": [
     "theme-migration",
@@ -89,8 +89,8 @@
     "chiayi-county",
     "theme-rivers",
     "kaohsiung",
-    "new-taipei-pinglin",
-    "new-taipei-wulai"
+    "kaohsiung-namaxia",
+    "new-taipei-pinglin"
   ],
   "九份": [
     "new-taipei-ruifang",
@@ -119,8 +119,8 @@
     "changhua",
     "new-taipei-shiding",
     "theme-temples",
-    "new-taipei-jinshan",
-    "taoyuan"
+    "kaohsiung-liugui",
+    "new-taipei-jinshan"
   ],
   "國家公園": [
     "hualien-zhuoxi",
@@ -134,14 +134,14 @@
   "濕地": [
     "new-taipei-wugu",
     "yilan-wujie",
+    "kaohsiung-dashu",
     "taichung",
     "hsinchu-city",
     "taipei-nangang",
     "hualien-guangfu",
     "new-taipei-shulin",
     "yilan-zhuangwei",
-    "taipei-beitou",
-    "taitung-taitung"
+    "taipei-beitou"
   ],
   "離島": [
     "theme-population",
@@ -152,8 +152,8 @@
     "theme-geothermal",
     "kinmen",
     "lienchiang",
-    "penghu",
-    "taitung-lanyu"
+    "kaohsiung-qianzhen",
+    "penghu"
   ],
   "日治時期": [
     "hualien-wanrong",
@@ -174,10 +174,10 @@
     "yilan-dongshan",
     "yilan-zhuangwei",
     "hualien-fuli",
+    "kaohsiung-mituo",
     "taitung-luye",
     "theme-irrigation",
-    "theme-rain",
-    "changhua"
+    "theme-rain"
   ],
   "東部": [
     "theme-transport",
@@ -192,16 +192,16 @@
     "hualien-zhuoxi"
   ],
   "漁港": [
+    "kaohsiung-qianzhen",
     "taitung-dawu",
+    "kaohsiung-ziguan",
     "keelung-zhongzheng",
     "theme-fishery",
     "new-taipei-wanli",
     "yilan-suao",
     "keelung-zhongshan",
     "taitung-chenggong",
-    "keelung",
-    "theme-coast",
-    "taitung-changbin"
+    "kaohsiung-mituo"
   ],
   "紅樹林": [
     "taipei-beitou",
@@ -211,6 +211,7 @@
     "taipei-shilin"
   ],
   "夜市": [
+    "kaohsiung-xinxing",
     "taipei-songshan",
     "hualien-hualien",
     "theme-temples",

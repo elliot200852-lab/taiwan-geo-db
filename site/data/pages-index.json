@@ -115,10 +115,82 @@
       "type": "鄉"
     },
     {
+      "id": "kaohsiung-dashu",
+      "name": "大樹區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-gushan",
+      "name": "鼓山區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
       "id": "kaohsiung",
       "name": "高雄市",
       "county": "高雄市",
       "type": "直轄市"
+    },
+    {
+      "id": "kaohsiung-liugui",
+      "name": "六龜區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-maolin",
+      "name": "茂林區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-mituo",
+      "name": "彌陀區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-namaxia",
+      "name": "那瑪夏區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-qianzhen",
+      "name": "前鎮區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-qiaotou",
+      "name": "橋頭區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-xinxing",
+      "name": "新興區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-yanchao",
+      "name": "燕巢區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-yancheng",
+      "name": "鹽埕區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-ziguan",
+      "name": "梓官區",
+      "county": "高雄市",
+      "type": "區"
     },
     {
       "id": "keelung-anle",

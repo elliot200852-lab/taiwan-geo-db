@@ -3,7 +3,7 @@ id: kaohsiung-qianzhen
 name: 前鎮區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "176,394 人（2026-03／民國115年3月，高雄市民政局戶籍人口統計月報表 表1；82,791 戶、59 里 1,297 鄰）"
   area_km2: "19.1207（來源層級：維基百科彙整；市府主計處年報土地面積表本次無法取得）"

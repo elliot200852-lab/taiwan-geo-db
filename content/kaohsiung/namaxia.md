@@ -3,7 +3,7 @@ id: kaohsiung-namaxia
 name: 那瑪夏區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "3,103 人（953 戶；2026-03，高雄市民政局戶籍人口統計月報表表1）"
   area_km2: "252.99（252.9895，高雄市那瑪夏區公所「地理位置」）"

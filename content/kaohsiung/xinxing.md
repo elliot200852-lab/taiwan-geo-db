@@ -3,7 +3,7 @@ id: kaohsiung-xinxing
 name: 新興區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "49,404 人（2026-03，高雄市民政局戶籍人口統計月報表1）"
   area_km2: "1.9764"

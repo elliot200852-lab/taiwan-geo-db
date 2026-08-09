@@ -3,7 +3,7 @@ id: kaohsiung-mituo
 name: 彌陀區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "17,687 人（2026-03／民國115年3月，高雄市民政局戶籍人口統計月報表 表1；6,997 戶、12 里 204 鄰）"
   area_km2: "14.7772（來源層級：維基百科彙整；市府主計處年報土地面積表與區公所網站均未列出區級面積數值）"

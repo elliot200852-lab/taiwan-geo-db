@@ -3,7 +3,7 @@ id: kaohsiung-yancheng
 name: 鹽埕區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "21,814 人（2026-03／民國115年3月，高雄市民政局戶籍人口統計月報表 表1）"
   area_km2: "1.416（鹽埕區公所「人文面積」頁，並自述為全市面積最小的區；維基百科作 1.4161，市府主計處年報土地面積表本次無法取得）"

@@ -3,7 +3,7 @@ id: kaohsiung-gushan
 name: 鼓山區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "140,534 人（2026-03／民國115年3月，高雄市民政局戶籍人口統計月報表 表1）"
   area_km2: "14.7523（維基百科彙整，原始資料為內政部國土測繪中心；市府主計處年報土地面積表本次無法取得）"
