@@ -45,6 +45,25 @@ content/{county}/{unit}.md ──build.py──> site/pages/*.html ──> Pages
 python scripts/verify_live_images.py        # 全綠才算部署成功
 ```
 
+### 頁面層 live 驗收：走 Kitesurf 雲端無頭瀏覽器（2026-08-09 David 拍板）
+
+`verify_live_images.py` 只驗圖；**頁面層**（文字內容、版面渲染）的公開頁 live 驗收改走
+`~/MyWork/_scripts/kitesurf.sh`（Cloudflare Browser Run，憑證已配好），取代本機 headless Chrome：
+
+```bash
+# markdown 為主——驗文字內容（整頁含 meta 抽成 md，錯字/亂碼/缺段一眼可見；
+# 2026-08-09 首測就抓到市級頁「辖域」簡體錯字）
+_scripts/kitesurf.sh markdown  "https://elliot200852-lab.github.io/taiwan-geo-db/pages/{id}.html" out.md
+sleep 10   # 額度紀律：Quick Action 每 10 秒 1 次、瀏覽器時數每天 10 分鐘，抽驗幾頁即可、別逐頁掃
+# screenshot 驗版面（桌面一發＋手機視口一發；--viewport 是真視口模擬，
+# 沒有本機 Chrome 視窗最小寬的假溢出問題）
+_scripts/kitesurf.sh screenshot "https://elliot200852-lab.github.io/taiwan-geo-db/pages/{id}.html" out.png
+sleep 10
+_scripts/kitesurf.sh screenshot "https://elliot200852-lab.github.io/taiwan-geo-db/pages/{id}.html" out-m.png --viewport 390x844
+```
+
+JS 重的頁畫出空白底色時加 `--chromium` 換引擎重拍。登入閘頁它進不去——本站全公開、不適用此限制。
+
 ## 加圖片
 
 `scripts/fetch_images.py` **只在本機 macOS 跑**（依賴 `sips` 與 homebrew `cwebp`），
