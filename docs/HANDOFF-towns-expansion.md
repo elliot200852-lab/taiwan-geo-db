@@ -25,6 +25,101 @@ cd ~/MyWork/taiwan-geo-db
 
 ---
 
+## 0-KH. 高雄批總計畫（2026-08-09 立；動工前先讀這節）
+
+**David 拍板的節奏（2026-08-09）**：38 區分 4 個 session 做——**每個 session 最多 12 區
+（4 批×3 支寫作輪替）；12 區全鏈走完（查核→修正→圖片鏈→hero→發布→verify 全綠）
+就寫 handoff、換新 session 續做**。理由＝防長 session 漂移：context 一長，規格執行會走樣，
+臺東 16 區單 session 已在邊緣。寫作一批 3 支（在 David 2026-08-06「一次最多 4 支」上限內）。
+
+### Session 切分
+| Session | 批次 | 內容 |
+|---|---|---|
+| KH-S1 | 高雄一～四 | 12 區 |
+| KH-S2 | 高雄五～八 | 12 區 |
+| KH-S3 | 高雄九～十二 | 12 區 |
+| KH-S4 | 高雄十三＋收官 | 末 2 區＋縣頁 towns: 全列＋NotebookLM 歸檔（先問 David）＋worktree/分支清理 |
+
+38 區逐區主軸與批次分組＝`writing-brief-template.md` §D 高雄節（分組原則：同批 3 區
+地理性質異質——平行寫作讀不到彼此的稿；莫拉克敏感頁分散到不同批）。
+
+### 每個 session 的固定流程（KH-S2 起照抄，不要重新發明）
+1. 開工：`~/MyWork/_scripts/dispatch-preflight.sh ~/MyWork/taiwan-geo-db` →
+   在 **worktree 內**跑 `towns_status.py kaohsiung`（縣頁 `towns:` 38 條已於 KH-S1 先行加入，
+   盤點從第一天就量得到 N/38）→ git fetch 確認前 session 已推 main → 讀本節＋§6／§6b 坑單。
+2. **紅隊關卡（§5）每 session 動工前重跑**，攻不動才發批。
+3. worktree `_workspace/geo-kh-wt`（分支 kh-towns）續用；不存在就從 origin/kh-towns 重開。
+   **本批全鏈（寫作、圖片鏈、build、發布前驗證）一律在 worktree 內跑**——§8 的
+   `cd ~/MyWork/taiwan-geo-db` 對高雄批一律讀作 `cd ~/MyWork/taiwan-geo-db/_workspace/geo-kh-wt`。
+   `check-search-core-sync` 需要 sibling：`_workspace/taiwan-arts-db` symlink（KH-S1 已建；
+   不在就重建，**它不在時該腳本靜默 exit 0＝fail-open，等於守衛沒跑**）。
+4. 每批 3 支 Opus 寫作（派工單＝模板全文＋§D 該區行＋used-images 重生檔＋
+   `docs/devices-used-kaohsiung.txt`）；**收稿閘＝跑 towns_status 後由主對話逐項對照批規格線
+   人工核數字**——腳本只硬擋下限（≥2,500 字／教學 ≥33%／圖 6–10 三欄），**4,500–5,200 上限、
+   35%、速覽 ≤150 它不擋只顯示**，超線退回該支自修（字數以腳本口徑為準，agent 自量低估約 20%）。
+   過閘才 commit 進 kh-towns，一批一 commit（斷點保險）。
+5. 4 批收齊（12 區）→ 查核 A（事實，Sonnet；**敏感頁必須逐字比對 `content/themes/typhoon.md`
+   莫拉克段的傷亡數字口徑**，placenames/migration 等主題頁高雄段一併對）＋
+   查核 B（文風/撞題，Sonnet，**拆兩支各 6 頁**——單支讀 6 萬字對 200 個裝置會自己漂移）→
+   修正（Sonnet；重寫等級才升 Opus）→ 複驗。
+6. 圖片鏈照 §8 序列跑（在 worktree 內）→ 本 session 12 張 hero（Sonnet 從各頁定位速覽起草
+   prompt、append `hero-prompts.yaml` → `gen_hero_images.py` 用**系統 python3**、low、並發 2、
+   逐張目檢地標與地質狀態）。**生圖授權：David 2026-08-09 已為高雄整條線授權
+   （gpt-image-2 嚴格 low），後續 session 沿用、不必重問。**
+7. 發布：git fetch → rebase main → build 零錯誤 → `node scripts/test-search.js`
+   （golden `refresh --new` 純新頁白名單、既有排序零改變；縣頁只在 KH-S1 因加 `towns:` 進一次
+   白名單，之後不再動縣頁）→ `towns_status.py --check-images`（批量 429＝假陽性單獨重驗）→
+   commit → push kh-towns:main → CI（28–30 分是常態，別誤判卡死）→
+   `verify_live_images.py` 全綠才算上線。
+8. handoff：更新本節「進度斷點」（完成區、commit hash、verify 數字、欠帳、下一批批號）＋
+   本 session 36 個新說書裝置 append 進 `docs/devices-used-kaohsiung.txt`（持久化，/tmp 會被清）＋
+   **隱性狀態清單逐項確認**（worktree 路徑與分支、arts-db symlink、devices txt、
+   hero-prompts.yaml 累積狀態、scratchpad 內會被清掉的檔）→ commit push → 收 session。
+
+### 驗收標準（開跑前立，2026-08-09）
+- 正例：每批收稿當場 towns_status 全過（4,500–5,200 字腳本口徑、教學特點 ≥35%、
+  定位速覽 ≤150、圖 6–10 且 url/license/author 三欄齊、sources 實查）。
+- 反例：寫作 agent 灌水或 YAML 壞＝該批收稿閘當場抓，不留到批末；圖漏上 Drive＝
+  `verify_live_images.py` 逐張 200 抓（**CI 綠不算上線**）。
+- 抽驗：每 session fresh-context 查核 A/B＋檢索 golden 零回歸＋live 全綠。
+
+### 高雄批特有紀律
+- **敏感頁（莫拉克傷亡）＝5 支 A 級**：那瑪夏、六龜、甲仙、桃源、杉林（大愛園區）——比照
+  花蓮光復慣例：只寫多來源交叉查證過的事實、保守表述、標明資料時點、寧缺勿錯。
+  分散在不同批**循序寫**（寫完驗完一支才動下一支）；每支後寫的派工單必附
+  `content/themes/typhoon.md` 莫拉克段＋已完成的前面莫拉克頁當口徑對照；
+  **KH-S4 收官加一道五頁莫拉克口徑一致性複查（Sonnet 小支）**。
+- **三個市中心小區（前金／新興／苓雅）主軸必須切開**，§D 明寫分界，不然會寫成三篇一樣的。
+- 市級頁三裝置（馬卡道少年種竹／高雄港口白／美濃反水庫青年）＋五探究題不准重用（模板 §E 高雄節）。
+- **說書裝置文類由派工端統一指定**（38 區×3 裝置配置表＝模板 §D 高雄節附表）；
+  擬人地形／物件口白全站已飽和，本批一支都不准用。
+- 人口＝高雄市民政局戶籍人口統計月報表1，**取當時最新可得月、照實標**（2026-08 實查只到
+  115-03；⚠ 該站錯誤參數也回 HTTP 200、內容是「資料有誤」，要開檔驗月份字串）。
+  縣頁加總鎖死**不承諾**（跨 session 月份會漂，照花蓮前例「各頁自標年月」）。
+- 小區（前金／新興／鹽埕等）**寫不滿寧取 4,500 下緣、禁灌水**——腳本抓得到砍、抓不到灌，
+  灌水是本批規格的預設失敗方向。
+- WebSearch 每 session 有 200 次共用上限（§6b 實證）：派工單明講省著用、優先 WebFetch
+  直打官方 URL 與 API；查核 A 排最後、最吃搜尋，前段就要省。
+- 圖片量能（228–380 張新圖、38 個新 Drive 子夾）是全批唯一沒有前例的規模——
+  **第一批＝小樣校準**：三區收稿時把「湊滿 6 張合規授權圖」的實際難度回報進度斷點，
+  湊不滿回報缺口、不硬塞爛圖。
+
+### 紅隊 Stage 2 裁決（2026-08-09，Stage 1 全文見 session 紀錄）
+成立並已修入本節：towns_status 對高雄失明（→縣頁 `towns:` 38 條 KH-S1 先行加入）；
+腳本不擋上限（→收稿閘改「腳本跑數字＋主對話人工核線」）；模板高雄節不存在（→併入後才准發批）；
+計畫未版控（→本節與模板同 commit 進 kh-towns 並推 origin）；check-search-core-sync 在 worktree
+fail-open（→重建 `_workspace/taiwan-arts-db` symlink）；§8 與 worktree 矛盾（→全鏈在 worktree 跑）；
+`_workspace/` 未進 .gitignore（→補一行）；主題頁撞題無檢查（→查核 A 對 typhoon/placenames/
+migration；敏感頁口徑逐字比對）；查核 B 單支過載（→拆兩支各 6 頁）；裝置台帳三套不互通
+（→模板 §E 指向兩份 devices txt）；handoff 漏隱性狀態（→步驟 8 清單）。
+不成立（一行理由）：改 5 頁分區制／拆兩條線＝範圍是 David 拍板的產品決策（38 區、今晨明示）；
+發布壓成一次＝跨 session 積壓未驗證產出違反假收斂守衛，且 CI/golden 成本在 towns: 一次加齊後
+大半消失；「12 區治不了漂移」＝節奏已拍板，主對話另以「查核報告讀檔不讀全文」自律。
+
+### 進度斷點（每 session 收官更新；**磁碟才是事實來源**，這裡只放指標）
+- 2026-08-09：計畫立案、kh-towns worktree 已開；紅隊 Stage 1+2 已跑（裁決見上節）；
+  38 區分工表草案審核中（尚未併入模板）；KH-S1 未發批。
+
 ## 0-Z. 臺東 16/16 全席上線（2026-08-08 收官；驗收已完成，剩清理）
 
 **收工前最後一刻補記：CI run 31246307074 已 success（30m25s，常態時長）；

@@ -3,6 +3,45 @@ id: kaohsiung
 name: 高雄市
 county: 高雄市
 type: 直轄市
+towns:
+  - kaohsiung-qijin
+  - kaohsiung-gushan
+  - kaohsiung-yancheng
+  - kaohsiung-qianjin
+  - kaohsiung-xinxing
+  - kaohsiung-lingya
+  - kaohsiung-qianzhen
+  - kaohsiung-xiaogang
+  - kaohsiung-sanmin
+  - kaohsiung-zuoying
+  - kaohsiung-nanzi
+  - kaohsiung-fengshan
+  - kaohsiung-niaosong
+  - kaohsiung-renwu
+  - kaohsiung-dashe
+  - kaohsiung-dashu
+  - kaohsiung-daliao
+  - kaohsiung-linyuan
+  - kaohsiung-gangshan
+  - kaohsiung-qiaotou
+  - kaohsiung-yanchao
+  - kaohsiung-tianliao
+  - kaohsiung-alian
+  - kaohsiung-luzhu
+  - kaohsiung-hunei
+  - kaohsiung-qieding
+  - kaohsiung-yongan
+  - kaohsiung-mituo
+  - kaohsiung-ziguan
+  - kaohsiung-qishan
+  - kaohsiung-meinong
+  - kaohsiung-neimen
+  - kaohsiung-shanlin
+  - kaohsiung-jiaxian
+  - kaohsiung-liugui
+  - kaohsiung-maolin
+  - kaohsiung-taoyuan
+  - kaohsiung-namaxia
 stats:
   population: "約 271 萬（2,711,406，2026-05，內政部戶政司／高雄市民政局）"
   area_km2: "2,952.00"
