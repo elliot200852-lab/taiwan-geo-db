@@ -118,6 +118,51 @@ migration；敏感頁口徑逐字比對）；查核 B 單支過載（→拆兩�
 
 ### 進度斷點（每 session 收官更新；**磁碟才是事實來源**，這裡只放指標）
 
+**2026-08-17 KH-S2 中途斷點（20:55 寫；David 5 小時額度 92%、22:10 reset——之後接著做、不重來）**
+
+- 本 session 身份／位置：cwd `~/MyWork`（david-personal），全鏈在 worktree `_workspace/geo-kh-wt`@kh-towns。
+  批五 楠梓/路竹/旗津 **已過閘、已 commit 8b068fa 進 kh-towns**（5197/5200/5198 字、教學 36.6/35.9/36.8%、
+  速覽 136/116/108、圖 10/9/10、AI 腔 0）。**批六 苓雅/大社/永安 三支 Opus 20:29 派出、寫作中**
+  （20:53 磁碟已見 lingya/dashe/yongan.md 草稿 21–28KB，**未收稿、未 commit**——agent 還會縮字精修，
+  §6b 鐵律：一批收齊過閘才 commit）。
+- **接手序列（22:10 後）**：
+  1. `git status` 看 worktree：若 lingya/dashe/yongan.md 三檔都在且 `towns_status` 內部量測全過線
+     （腳本口徑 4,500–5,200／教學 ≥35%／速覽 ≤150／圖 6–10 四欄齊／ai_prose 空／images_bad 空）
+     → 三支 agent 已完工，照批五做法 commit 一批一 commit。量測法（腳本只對已 build 頁印數字，未 build 用內部函式）：
+     `cd $WT && ../../.venv/bin/python3 -c "import sys;sys.path.insert(0,'scripts');import towns_status as t;from pathlib import Path;[print(s,{k:v for k,v in t.unit_report('kaohsiung-'+s,s,(Path('content')/'kaohsiung'/(s+'.md')).resolve()).items() if k not in('_images_raw','md')}) for s in ['lingya','dashe','yongan']]"`
+  2. 若某檔缺或不過線＝該支被額度打斷：同 session 內先 TaskStop 再 SendMessage 那支 resume（context 保留、續跑）；
+     另開 session 或叫不醒＝照派工單重派一支 Opus（半成品刪掉重寫，別讓 agent 接別人的中途稿）。
+  3. 批六 commit 後 → 重生 used-images → 批七 三民/美濃/茄萣 → 批八 左營/甲仙🅰/大寮，一批 3 支 Opus、
+     收齊過閘 commit 才發下一批（David 2026-08-17 明示：三個做完再做三個、不能一次；12 支寫作全部派完）。
+  4. 12 區收齊 → 查核 A（Sonnet；甲仙 A 級逐字比對 typhoon.md 莫拉克段＋那瑪夏/六龜段 1 口徑）＋
+     查核 B 兩支各 6 頁（Sonnet）→ 修正（Sonnet；重寫級才 Opus）→ 複驗 → 圖片鏈 §8（worktree 內）→
+     12 hero（Sonnet 起草 prompt、gen_hero_images.py 系統 python3、low、並發 2）→ build/golden/check-images →
+     push kh-towns:main → CI 28–32 分 → verify_live 全綠 → 本節收官更新＋devices 台帳 append。
+- **派工單在磁碟（scratchpad 會被清，已複本）**：`~/MyWork/_workspace/geo-kh-reviews/kh-s2-briefs/`——
+  `kh-common-brief.md`（共同段：必讀清單／硬規格／邊界／回報格式，內含 `$WT` 定義與「禁止停手等待」條款）＋
+  `kh-b6-*.md`／`kh-b7-*.md`／`kh-b8-*.md`（每區：輸出檔、體例標竿、必讀鄰區、§D 主軸逐字、三段裝置家族＋錨點；
+  甲仙那份含 A 級口徑對照清單）＋ `kh-s2-notes.md`（本 session 逐批筆記與派工單更正）。
+  派工＝「先讀共同段，再讀你的區那份，兩份照做」＋ model:opus。**USED_IMAGES 路徑每批要換**：
+  用模板 §G 那段在 worktree 內重生到新路徑，`sed` 換掉派工單裡的 `used-images-batchN.txt` 路徑（b7/b8 現在還是 `__USED__` 佔位）。
+  共同段第 6 條「已完成 12 區」要照實況改成 15／18／21。
+- **看門狗要盯對檔**：Agent tool 給的 `tasks/<id>.output` 是 124 byte 存根從不更新（本 session 誤報一次）；
+  真 transcript＝`~/.claude/projects/-Users-Dave-MyWork/<session-id>/subagents/agent-<id>.jsonl`，
+  `agent-liveness-watch.sh 20 300 150 <那些 jsonl>`。稿檔 mtime 也是誠實訊號。
+- **派工 SSOT 待回寫**（批五查出，KH-S2 收官時改 `writing-brief-template.md` §D＋`kaohsiung-writing-plan.md` §一／§八，
+  兩檔同步）：①路竹「一甲、二甲、三甲」鏈不存在——實為一甲／三甲／下甲／窯仔甲，「二甲」在臺南六甲；
+  「甲＝屯墾編號」未定論兩說並陳；可確證明鄭編制地名＝三鎮、左協、營前、營後；②月眉池路竹查無（湖內圍仔內有
+  「月眉池慈濟宮」＝**湖內頁批十派工時注意**），路竹 F13 錨點改「被燒掉的田契」；③華山殿只查到農曆九月廿五
+  寧靖王誕辰，「春秋兩祭」待查證；④楠梓加工出口區三說（官方沿革／吳蔡論文正文 1970、同論文表 3 1971、維基 1969）
+  採 1970 攤開分歧、epza.gov.tw 全站連不上；⑤旗津第二港口 1967-10 開工／1975-06 完工（高雄畫刊）、「打狗最早漢人聚落」
+  查無改用區公所措辭、過港隧道長度兩說 1,670／1,550、旗後砲台 2019-02-22 升國定。
+- 跨頁備忘（本批新增）：1961 半屏山崩塌在楠梓金田里、官方結論人為山腳開挖、傷亡兩說採 19 死 26 失蹤並標時點；
+  壽山國家自然公園日期兩口徑（2011-09-20 設置／11-01 公告實施）——各頁不重述機制只指鼓山；路竹圖 9 為原檔 URL
+  形式（check-images 429 假陽性預期）；路竹區公所正確網址 lujhu-dist.kcg.gov.tw。
+- 隱性狀態：worktree kh-towns 領先 main 1 commit（8b068fa）＋本 handoff commit；arts-db symlink 在；
+  hero-prompts.yaml 尚未加本 session 任何一條；devices 台帳尚未 append 本 session（等 12 區收齊一次入冊）；
+  三份 KH-S1 查核報告仍在 `~/MyWork/_workspace/geo-kh-reviews/`。
+
+
 **2026-08-09 KH-S1 全鏈收官（12/38 上線；同日兩個 session 完成，本段由後半 session 收）**
 
 - **12/38 全鏈上線**：批一批二（前半 session）＋批三 8fafa2c（前鎮、大樹、茂林）＋批四 eba5423
