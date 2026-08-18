@@ -115,6 +115,18 @@
       "type": "鄉"
     },
     {
+      "id": "kaohsiung-daliao",
+      "name": "大寮區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-dashe",
+      "name": "大社區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
       "id": "kaohsiung-dashu",
       "name": "大樹區",
       "county": "高雄市",
@@ -127,10 +139,22 @@
       "type": "區"
     },
     {
+      "id": "kaohsiung-jiaxian",
+      "name": "甲仙區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
       "id": "kaohsiung",
       "name": "高雄市",
       "county": "高雄市",
       "type": "直轄市"
+    },
+    {
+      "id": "kaohsiung-lingya",
+      "name": "苓雅區",
+      "county": "高雄市",
+      "type": "區"
     },
     {
       "id": "kaohsiung-liugui",
@@ -139,8 +163,20 @@
       "type": "區"
     },
     {
+      "id": "kaohsiung-luzhu",
+      "name": "路竹區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
       "id": "kaohsiung-maolin",
       "name": "茂林區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-meinong",
+      "name": "美濃區",
       "county": "高雄市",
       "type": "區"
     },
@@ -157,6 +193,12 @@
       "type": "區"
     },
     {
+      "id": "kaohsiung-nanzi",
+      "name": "楠梓區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
       "id": "kaohsiung-qianzhen",
       "name": "前鎮區",
       "county": "高雄市",
@@ -165,6 +207,24 @@
     {
       "id": "kaohsiung-qiaotou",
       "name": "橋頭區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-qieding",
+      "name": "茄萣區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-qijin",
+      "name": "旗津區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-sanmin",
+      "name": "三民區",
       "county": "高雄市",
       "type": "區"
     },
@@ -187,8 +247,20 @@
       "type": "區"
     },
     {
+      "id": "kaohsiung-yongan",
+      "name": "永安區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
       "id": "kaohsiung-ziguan",
       "name": "梓官區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-zuoying",
+      "name": "左營區",
       "county": "高雄市",
       "type": "區"
     },

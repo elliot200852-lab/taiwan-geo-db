@@ -3,7 +3,7 @@ id: kaohsiung-yongan
 name: 永安區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "13,431 人（2026-03，高雄市民政局「高雄市戶籍人口統計月報表」表1）"
   area_km2: "22.6141（2025 年底，內政部戶政司「各縣市鄉鎮市區土地面積及人口密度」表六；區公所另作 21.5634）"

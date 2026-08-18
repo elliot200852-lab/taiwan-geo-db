@@ -134,17 +134,18 @@
   "濕地": [
     "new-taipei-wugu",
     "yilan-wujie",
+    "kaohsiung-qieding",
     "kaohsiung-dashu",
     "taichung",
+    "kaohsiung-yongan",
     "hsinchu-city",
     "taipei-nangang",
     "hualien-guangfu",
-    "new-taipei-shulin",
-    "yilan-zhuangwei",
-    "taipei-beitou"
+    "kaohsiung-nanzi"
   ],
   "離島": [
     "theme-population",
+    "kaohsiung-qijin",
     "keelung",
     "keelung-zhongzheng",
     "pingtung",
@@ -152,8 +153,7 @@
     "theme-geothermal",
     "kinmen",
     "lienchiang",
-    "kaohsiung-qianzhen",
-    "penghu"
+    "kaohsiung-qianzhen"
   ],
   "日治時期": [
     "hualien-wanrong",
@@ -205,7 +205,9 @@
   ],
   "紅樹林": [
     "taipei-beitou",
+    "kaohsiung-yongan",
     "new-taipei-tamsui",
+    "kaohsiung-qieding",
     "new-taipei-bali",
     "tainan",
     "taipei-shilin"
@@ -218,8 +220,8 @@
     "keelung",
     "taipei-shilin",
     "yilan-luodong",
-    "keelung-renai",
-    "new-taipei-banqiao",
-    "taipei-zhongzheng"
+    "kaohsiung-dashe",
+    "kaohsiung-nanzi",
+    "keelung-renai"
   ]
 }
