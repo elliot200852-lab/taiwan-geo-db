@@ -35,8 +35,8 @@ cd ~/MyWork/taiwan-geo-db
 ### Session 切分
 | Session | 批次 | 內容 |
 |---|---|---|
-| KH-S1 | 高雄一～四 | 12 區 |
-| KH-S2 | 高雄五～八 | 12 區 |
+| KH-S1 | 高雄一～四 | 12 區 ✅ 2026-08-09 收官 |
+| KH-S2 | 高雄五～八 | 12 區 ✅ 2026-08-18 收官（24/38） |
 | KH-S3 | 高雄九～十二 | 12 區 |
 | KH-S4 | 高雄十三＋收官 | 末 2 區＋縣頁 towns: 全列＋NotebookLM 歸檔（先問 David）＋worktree/分支清理 |
 
@@ -118,50 +118,40 @@ migration；敏感頁口徑逐字比對）；查核 B 單支過載（→拆兩�
 
 ### 進度斷點（每 session 收官更新；**磁碟才是事實來源**，這裡只放指標）
 
-**2026-08-17 KH-S2 中途斷點（20:55 寫；David 5 小時額度 92%、22:10 reset——之後接著做、不重來）**
+**2026-08-18 KH-S2 全鏈收官（24/38 上線；2026-08-17 19:20 開工、跨兩次額度 reset、08-18 收）**
 
-- 本 session 身份／位置：cwd `~/MyWork`（david-personal），全鏈在 worktree `_workspace/geo-kh-wt`@kh-towns。
-  批五 楠梓/路竹/旗津 **已過閘、已 commit 8b068fa 進 kh-towns**（5197/5200/5198 字、教學 36.6/35.9/36.8%、
-  速覽 136/116/108、圖 10/9/10、AI 腔 0）。**批六 苓雅/大社/永安 三支 Opus 20:29 派出、寫作中**
-  （20:53 磁碟已見 lingya/dashe/yongan.md 草稿 21–28KB，**未收稿、未 commit**——agent 還會縮字精修，
-  §6b 鐵律：一批收齊過閘才 commit）。
-- **接手序列（22:10 後）**：
-  1. `git status` 看 worktree：若 lingya/dashe/yongan.md 三檔都在且 `towns_status` 內部量測全過線
-     （腳本口徑 4,500–5,200／教學 ≥35%／速覽 ≤150／圖 6–10 四欄齊／ai_prose 空／images_bad 空）
-     → 三支 agent 已完工，照批五做法 commit 一批一 commit。量測法（腳本只對已 build 頁印數字，未 build 用內部函式）：
-     `cd $WT && ../../.venv/bin/python3 -c "import sys;sys.path.insert(0,'scripts');import towns_status as t;from pathlib import Path;[print(s,{k:v for k,v in t.unit_report('kaohsiung-'+s,s,(Path('content')/'kaohsiung'/(s+'.md')).resolve()).items() if k not in('_images_raw','md')}) for s in ['lingya','dashe','yongan']]"`
-  2. 若某檔缺或不過線＝該支被額度打斷：同 session 內先 TaskStop 再 SendMessage 那支 resume（context 保留、續跑）；
-     另開 session 或叫不醒＝照派工單重派一支 Opus（半成品刪掉重寫，別讓 agent 接別人的中途稿）。
-  3. 批六 commit 後 → 重生 used-images → 批七 三民/美濃/茄萣 → 批八 左營/甲仙🅰/大寮，一批 3 支 Opus、
-     收齊過閘 commit 才發下一批（David 2026-08-17 明示：三個做完再做三個、不能一次；12 支寫作全部派完）。
-  4. 12 區收齊 → 查核 A（Sonnet；甲仙 A 級逐字比對 typhoon.md 莫拉克段＋那瑪夏/六龜段 1 口徑）＋
-     查核 B 兩支各 6 頁（Sonnet）→ 修正（Sonnet；重寫級才 Opus）→ 複驗 → 圖片鏈 §8（worktree 內）→
-     12 hero（Sonnet 起草 prompt、gen_hero_images.py 系統 python3、low、並發 2）→ build/golden/check-images →
-     push kh-towns:main → CI 28–32 分 → verify_live 全綠 → 本節收官更新＋devices 台帳 append。
-- **派工單在磁碟（scratchpad 會被清，已複本）**：`~/MyWork/_workspace/geo-kh-reviews/kh-s2-briefs/`——
-  `kh-common-brief.md`（共同段：必讀清單／硬規格／邊界／回報格式，內含 `$WT` 定義與「禁止停手等待」條款）＋
-  `kh-b6-*.md`／`kh-b7-*.md`／`kh-b8-*.md`（每區：輸出檔、體例標竿、必讀鄰區、§D 主軸逐字、三段裝置家族＋錨點；
-  甲仙那份含 A 級口徑對照清單）＋ `kh-s2-notes.md`（本 session 逐批筆記與派工單更正）。
-  派工＝「先讀共同段，再讀你的區那份，兩份照做」＋ model:opus。**USED_IMAGES 路徑每批要換**：
-  用模板 §G 那段在 worktree 內重生到新路徑，`sed` 換掉派工單裡的 `used-images-batchN.txt` 路徑（b7/b8 現在還是 `__USED__` 佔位）。
-  共同段第 6 條「已完成 12 區」要照實況改成 15／18／21。
-- **看門狗要盯對檔**：Agent tool 給的 `tasks/<id>.output` 是 124 byte 存根從不更新（本 session 誤報一次）；
-  真 transcript＝`~/.claude/projects/-Users-Dave-MyWork/<session-id>/subagents/agent-<id>.jsonl`，
-  `agent-liveness-watch.sh 20 300 150 <那些 jsonl>`。稿檔 mtime 也是誠實訊號。
-- **派工 SSOT 待回寫**（批五查出，KH-S2 收官時改 `writing-brief-template.md` §D＋`kaohsiung-writing-plan.md` §一／§八，
-  兩檔同步）：①路竹「一甲、二甲、三甲」鏈不存在——實為一甲／三甲／下甲／窯仔甲，「二甲」在臺南六甲；
-  「甲＝屯墾編號」未定論兩說並陳；可確證明鄭編制地名＝三鎮、左協、營前、營後；②月眉池路竹查無（湖內圍仔內有
-  「月眉池慈濟宮」＝**湖內頁批十派工時注意**），路竹 F13 錨點改「被燒掉的田契」；③華山殿只查到農曆九月廿五
-  寧靖王誕辰，「春秋兩祭」待查證；④楠梓加工出口區三說（官方沿革／吳蔡論文正文 1970、同論文表 3 1971、維基 1969）
-  採 1970 攤開分歧、epza.gov.tw 全站連不上；⑤旗津第二港口 1967-10 開工／1975-06 完工（高雄畫刊）、「打狗最早漢人聚落」
-  查無改用區公所措辭、過港隧道長度兩說 1,670／1,550、旗後砲台 2019-02-22 升國定。
-- 跨頁備忘（本批新增）：1961 半屏山崩塌在楠梓金田里、官方結論人為山腳開挖、傷亡兩說採 19 死 26 失蹤並標時點；
-  壽山國家自然公園日期兩口徑（2011-09-20 設置／11-01 公告實施）——各頁不重述機制只指鼓山；路竹圖 9 為原檔 URL
-  形式（check-images 429 假陽性預期）；路竹區公所正確網址 lujhu-dist.kcg.gov.tw。
-- 隱性狀態：worktree kh-towns 領先 main 1 commit（8b068fa）＋本 handoff commit；arts-db symlink 在；
-  hero-prompts.yaml 尚未加本 session 任何一條；devices 台帳尚未 append 本 session（等 12 區收齊一次入冊）；
-  三份 KH-S1 查核報告仍在 `~/MyWork/_workspace/geo-kh-reviews/`。
-
+- **24/38 全鏈上線**：批五 8b068fa（楠梓、路竹、旗津）→ 批六 5eeef2d（苓雅、大社、永安）→ 批七 ae423bb（三民、美濃、茄萣）
+  → 批八 54ddeac（左營、甲仙🅰、大寮）→ 查核 A／B1／B2 → 修正輪＋fresh 複驗 → 圖鏈＋12 hero fa2572f → push main →
+  CI 32083377923 success（41m） → **verify_live 1476/1476 全綠**。12 頁腳本口徑 5,158–5,199 字、教學 35.6–37.4%、速覽（Python len）133–149、
+  圖 114 張全 Commons、AI 腔 0。
+- 查核結果：A **零事實錯誤**（甲仙 A 級逐字比對 typhoon／那瑪夏／六龜／光復全達標，零傷亡數字；四 B 級合格；抽驗年代數字
+  全數相符）。B 高 6／中 8／低 4 全裁決落地：五頁速覽超 150（苓雅 170 最嚴重）縮回；**F04／F13／F17／F03／F16／F09／F08 的
+  「AI 提示」鷹架句跨頁逐字複製＝本 session 最大系統性問題**（第一輪修完 fresh 複驗仍抓到 F04／F03 兩處殘留，主對話手改）；
+  三民五年級小標撞新興改名；大社國字年份；路竹票數保守化。A 的唯一「中」（茄萣↔永安興達電廠分工方向）裁決不改頁面
+  （現況即派工意圖：永安只寫 LNG、茄萣寫機組年代事實並標明廠址在永安）。
+- **派工 SSOT 已回寫**（template §D＋writing-plan §一／§8-3／§8-4 兩檔 byte-identical）：路竹「一甲二甲三甲」鏈不存在／
+  月眉池在湖內／春秋祭只查到秋祭；大寮「大泉」在大樹；甲仙「日光小林」在杉林（**杉林批十三派工單已標**）；永安興達電廠廠址；
+  楠梓年代三說；左營「潟湖」無據；美濃「美濃圳」查無、水出西側入旗山溪；三民車站非遷回原址；旗津第二港口 1967-10／1975-06；
+  大社觀音山砂岩非火山；苓雅市議會不在苓雅。**KH-S3 派工前先讀 §8-4 第 6 點**（F16 全站已用 5 次、F13 8 次，
+  換錨點方向或減量；鷹架句禁貼分界條款原文）。
+- 圖鏈：114 內容圖 fetch 零失敗→Drive 12 新子夾（SA 直接授權、逐檔比對過）→manifest 1321 筆；hero 12 張一次成功、
+  目檢 11 過、左營一修（v1 蓮池潭畫成橢圓蓄水池→v2 近景城牆被馬路切斷＋荷葉長湖＋龜山雙峰）；已上 Drive hero/、母本
+  `hero: true`（沿 KH-S1 慣例）。source-titles +226（3 條 curl 逾時留裸 URL）。build 155 頁零錯誤；golden `--new` 12 純新頁
+  進榜 4 組、既有排序零改變、test-search 23 區塊全綠；check-images 三張批量 429（三民 #7 原檔 URL、橋頭 #1、六龜 #3）
+  單獨重驗皆 200＝假陽性。
+- **本 session 操作教訓**：①Agent tool 給的 `tasks/<id>.output` 是 124 byte 存根，看門狗要盯
+  `~/.claude/projects/-Users-Dave-MyWork/<session>/subagents/agent-<id>.jsonl`（本 session 誤報一次）；②寫作 agent 被
+  5 小時額度切斷兩次（批六 22:10、批八 03:10）——**同 session 內 SendMessage 那支即可從中斷處續跑、context 全保留**，
+  三支×兩批全部救回、零重派；③修正輪改寫鷹架句會把正文撐超 5,200，派工單要明講上限含說書稿；④派工單預寫成磁碟檔
+  （`~/MyWork/_workspace/geo-kh-reviews/kh-s2-briefs/`）＋共同段抽出來，一批只要換 USED_IMAGES 路徑就能發，值得沿用；
+  ⑤MyWork `_logs/work-sessions/` 序號會與並行 session 撞號（003 被 YT session 覆寫、改登 004），寫接續檔前先 `ls`。
+- devices 台帳：本 session 36 段已 append（`docs/devices-used-kaohsiung.txt` 共 24 節 72 段）。
+- **下一 session＝KH-S3（高雄九～十二，12 區）**：批九 前金/旗山/田寮 → 批十 小港/內門/湖內 → 批十一 鳳山/桃源🅰/鳥松 →
+  批十二 仁武/岡山/林園，照「每個 session 的固定流程」1–8；桃源 A 級派工單附 typhoon.md 莫拉克段＋那瑪夏、六龜、甲仙三頁段 1
+  當口徑對照；小港／林園 B 級。**派工單做法照 kh-s2-briefs 那套**（共同段＋每區一檔）——KH-S3 開工先把該夾 copy 一份改名。
+- 隱性狀態：worktree `_workspace/geo-kh-wt`@kh-towns 與 main 同指（本 handoff commit 後再推一次）；arts-db symlink 在；
+  hero-prompts.yaml 高雄 24 條；三份 KH-S2 查核報告在主 repo `_workspace/geo-kh-reviews/checkA/B1/B2-KH-S2.md`
+  （KH-S3 派工可參考）；kh-s2-briefs/ 在 MyWork `_workspace/geo-kh-reviews/`（不進 git，KH-S4 收官後可刪）。
 
 **2026-08-09 KH-S1 全鏈收官（12/38 上線；同日兩個 session 完成，本段由後半 session 收）**
 
