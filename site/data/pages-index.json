@@ -139,6 +139,12 @@
       "type": "區"
     },
     {
+      "id": "kaohsiung-hunei",
+      "name": "湖內區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
       "id": "kaohsiung-jiaxian",
       "name": "甲仙區",
       "county": "高雄市",
@@ -199,6 +205,18 @@
       "type": "區"
     },
     {
+      "id": "kaohsiung-neimen",
+      "name": "內門區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-qianjin",
+      "name": "前金區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
       "id": "kaohsiung-qianzhen",
       "name": "前鎮區",
       "county": "高雄市",
@@ -223,8 +241,26 @@
       "type": "區"
     },
     {
+      "id": "kaohsiung-qishan",
+      "name": "旗山區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
       "id": "kaohsiung-sanmin",
       "name": "三民區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-tianliao",
+      "name": "田寮區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-xiaogang",
+      "name": "小港區",
       "county": "高雄市",
       "type": "區"
     },

@@ -3,7 +3,7 @@ id: kaohsiung-neimen
 name: 內門區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "12,493 人（5,268 戶；2026-03／民國115年3月，高雄市民政局戶籍人口統計月報表 表1）"
   area_km2: "95.6624（內門區公所「地理位置」頁；維基百科彙整作 95.6224，兩份數字差 0.04 平方公里）"

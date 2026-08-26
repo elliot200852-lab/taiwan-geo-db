@@ -90,7 +90,7 @@
     "theme-rivers",
     "kaohsiung",
     "kaohsiung-namaxia",
-    "new-taipei-pinglin"
+    "kaohsiung-qishan"
   ],
   "九份": [
     "new-taipei-ruifang",
@@ -120,7 +120,7 @@
     "new-taipei-shiding",
     "theme-temples",
     "kaohsiung-liugui",
-    "new-taipei-jinshan"
+    "kaohsiung-qishan"
   ],
   "國家公園": [
     "hualien-zhuoxi",
@@ -174,10 +174,10 @@
     "yilan-dongshan",
     "yilan-zhuangwei",
     "hualien-fuli",
+    "kaohsiung-hunei",
     "kaohsiung-mituo",
     "taitung-luye",
-    "theme-irrigation",
-    "theme-rain"
+    "theme-irrigation"
   ],
   "東部": [
     "theme-transport",
