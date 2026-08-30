@@ -3,7 +3,7 @@ id: kaohsiung-taoyuan
 name: 桃源區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "4,185 人（1,470 戶；2026-03，高雄市民政局戶籍人口統計月報表表1）"
   area_km2: "928.98（來源層級：桃源區公所「疆域」頁；主計處年報土地面積表為動態頁，本次未取得可引用的表）"

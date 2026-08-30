@@ -3,7 +3,7 @@ id: kaohsiung-linyuan
 name: 林園區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "67,199 人（28,594 戶；2026-03／民國115年3月，高雄市民政局戶籍人口統計月報表 表1）"
   area_km2: "32.2860（來源層級：維基百科彙整；林園區公所官網未列面積數字，高雄市主計處統計年報土地面積表本次未取得逐區檔案）"

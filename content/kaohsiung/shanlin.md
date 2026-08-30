@@ -3,7 +3,7 @@ id: kaohsiung-shanlin
 name: 杉林區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "10,503 人（4,856 戶；2026-03，高雄市民政局戶籍人口統計月報表表1）"
   area_km2: "104.0036（高雄市杉林區區政統計年報，2024 年）"

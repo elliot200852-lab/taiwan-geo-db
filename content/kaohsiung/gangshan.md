@@ -3,7 +3,7 @@ id: kaohsiung-gangshan
 name: 岡山區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "94,452 人（2026-03，高雄市民政局戶籍人口統計月報表1）"
   area_km2: "47.9421（來源層級：岡山區公所區政簡介；內政部戶政司「各縣市鄉鎮市區土地面積及人口密度」表六與高雄市主計處統計年報土地面積表本次均未取得可引用之岡山逐區數字）"

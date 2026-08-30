@@ -3,7 +3,7 @@ id: kaohsiung-alian
 name: 阿蓮區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "26,674 人（2026-03，高雄市民政局戶籍人口統計月報表1）"
   area_km2: "34.6164（內政部戶政司「各縣市鄉鎮市區土地面積及人口密度」表六，114 年底）"

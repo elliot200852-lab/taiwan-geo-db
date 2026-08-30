@@ -3,7 +3,7 @@ id: kaohsiung-niaosong
 name: 鳥松區
 county: 高雄市
 type: 區
-hero: false
+hero: true
 stats:
   population: "43,535 人（2026-03，高雄市民政局戶籍人口統計月報表1；20,555 戶、7 里 191 鄰）"
   area_km2: "24.5927（內政部戶政司「各縣市鄉鎮市區土地面積及人口密度」表六，2025 年底；維基百科彙整同值）"

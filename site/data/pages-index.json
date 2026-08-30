@@ -115,6 +115,12 @@
       "type": "鄉"
     },
     {
+      "id": "kaohsiung-alian",
+      "name": "阿蓮區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
       "id": "kaohsiung-daliao",
       "name": "大寮區",
       "county": "高雄市",
@@ -129,6 +135,18 @@
     {
       "id": "kaohsiung-dashu",
       "name": "大樹區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-fengshan",
+      "name": "鳳山區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-gangshan",
+      "name": "岡山區",
       "county": "高雄市",
       "type": "區"
     },
@@ -159,6 +177,12 @@
     {
       "id": "kaohsiung-lingya",
       "name": "苓雅區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-linyuan",
+      "name": "林園區",
       "county": "高雄市",
       "type": "區"
     },
@@ -211,6 +235,12 @@
       "type": "區"
     },
     {
+      "id": "kaohsiung-niaosong",
+      "name": "鳥松區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
       "id": "kaohsiung-qianjin",
       "name": "前金區",
       "county": "高雄市",
@@ -247,8 +277,26 @@
       "type": "區"
     },
     {
+      "id": "kaohsiung-renwu",
+      "name": "仁武區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
       "id": "kaohsiung-sanmin",
       "name": "三民區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-shanlin",
+      "name": "杉林區",
+      "county": "高雄市",
+      "type": "區"
+    },
+    {
+      "id": "kaohsiung-taoyuan",
+      "name": "桃源區",
       "county": "高雄市",
       "type": "區"
     },

@@ -8,8 +8,8 @@
     "new-taipei-tucheng",
     "lienchiang",
     "yilan-wujie",
-    "new-taipei-luzhou",
-    "penghu"
+    "kaohsiung-gangshan",
+    "new-taipei-luzhou"
   ],
   "龜山島": [
     "yilan-toucheng",
@@ -74,11 +74,11 @@
     "new-taipei-xizhi",
     "theme-rivers",
     "taitung-lanyu",
+    "kaohsiung-shanlin",
     "theme-rain",
     "taiwan",
     "hualien-fenglin",
-    "hualien-guangfu",
-    "hualien-jian"
+    "hualien-guangfu"
   ],
   "玉山": [
     "theme-ecology",
@@ -139,9 +139,9 @@
     "taichung",
     "kaohsiung-yongan",
     "hsinchu-city",
-    "taipei-nangang",
-    "hualien-guangfu",
-    "kaohsiung-nanzi"
+    "kaohsiung-linyuan",
+    "kaohsiung-niaosong",
+    "taipei-nangang"
   ],
   "離島": [
     "theme-population",
@@ -169,6 +169,7 @@
   ],
   "水稻": [
     "new-taipei-linkou",
+    "kaohsiung-shanlin",
     "theme-fishery",
     "theme-soil",
     "yilan-dongshan",
@@ -176,8 +177,7 @@
     "hualien-fuli",
     "kaohsiung-hunei",
     "kaohsiung-mituo",
-    "taitung-luye",
-    "theme-irrigation"
+    "taitung-luye"
   ],
   "東部": [
     "theme-transport",
@@ -196,16 +196,17 @@
     "taitung-dawu",
     "kaohsiung-ziguan",
     "keelung-zhongzheng",
+    "kaohsiung-linyuan",
     "theme-fishery",
     "new-taipei-wanli",
     "yilan-suao",
     "keelung-zhongshan",
-    "taitung-chenggong",
-    "kaohsiung-mituo"
+    "taitung-chenggong"
   ],
   "紅樹林": [
     "taipei-beitou",
     "kaohsiung-yongan",
+    "kaohsiung-linyuan",
     "new-taipei-tamsui",
     "kaohsiung-qieding",
     "new-taipei-bali",
@@ -222,6 +223,6 @@
     "yilan-luodong",
     "kaohsiung-dashe",
     "kaohsiung-nanzi",
-    "keelung-renai"
+    "kaohsiung-niaosong"
   ]
 }
