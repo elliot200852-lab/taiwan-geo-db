@@ -25,6 +25,30 @@ cd ~/MyWork/taiwan-geo-db
 
 ---
 
+## 0-P0. 管線 Phase 0 改制（2026-08-31 review 裁決；下一縣市開工照此發批）
+
+高雄收官後 David 要求 review over-engineering（誘因：每寫幾區燒掉 weekly limit 15%）。
+紅隊實測：每支寫作 agent 實際輸入約 48.5 萬字元，其中 57% 是 USED_IMAGES 圖片清單、
+另有台帳與 30 篇說書稿提示同內容重讀兩遍、鄰區母本全文 7 檔。裁決＝**動輸入端，
+一條品質規制都不放鬆**（完整裁決＝`~/MyWork/_workspace/geo-kh-reviews/geo-pipeline-review-20260831.md`）：
+
+1. **圖片去重改腳本閘**：`towns_status.py` 每次跑都做跨頁 URL 重複比對（撞到＝未完成）；
+   歷史共用豁免＝`docs/image-url-dup-baseline.txt`（8 條，只准縮不准長）。
+   **派工單不再附 USED_IMAGES／used-images 檔，寫作 agent 一行已用 URL 都不讀。**
+2. **台帳與說書稿提示，寫作 agent 兩份都不讀**（同內容各 3.8 萬字元）：派工端跑
+   `scripts/dispatch_slices.py --sentences` 抽已用開場句／收尾句，照 §8-4 第 8 點
+   「開場句與收尾約束句一起逐段指定」寫進派工單。台帳讀者＝派工端與查核端。
+3. **鄰區必讀改切片**：派工端跑 `scripts/dispatch_slices.py --slices <slug…>` 把鄰區
+   說書稿提示＋一句分工約束貼進派工單；寫作 agent 不讀鄰區母本全文。
+4. **每 session 收官記額度消耗**：pipeline-state 記一行「本 session 用掉 weekly limit
+   約 N%／寫作×N 查核×N 修正×N」——review 時發現全線零計量，只能靠 David 口述。
+5. 撤回的提案（別再提）：一支連寫 3 區（與 2026-08-09「防漂移」拍板衝突）、
+   台帳索引化（破壞查核 B 逐字比對）、5k 寫作卡（雙 SSOT）、放掉逐段指定（與
+   §8-4 第 8 點當日實證相反）。
+6. **動下一縣市（241 頁）前，三個架構題先問 David**：①說書稿切分提示老師實際用到
+   什麼程度（決定整條防撞體系去留）②撞題唯一性從「全站」收到「同縣市＋相鄰縣市＋
+   同名區」？（18 家族已數學上不敷）③A/B 測一頁 Sonnet 寫作。
+
 ## 0-KH. 高雄批總計畫（2026-08-09 立；動工前先讀這節）
 
 **David 拍板的節奏（2026-08-09）**：38 區分 4 個 session 做——**每個 session 最多 12 區

@@ -1,0 +1,11 @@
+# 跨頁共用圖 URL 豁免清單（towns_status.py check_image_dup 用）
+# 2026-08-31 立閘時已存在的歷史共用（縣頁↔主題頁為主）。只准縮不准長：
+# 新頁不准再用站上出現過的圖——撞到就換一張，不是來這裡加一行。
+https://dcm.s3.hicloud.net.tw/new/collection/2020-11-16/667be16f-d56d-47fa-8a0c-5247f833161c/db00eaa0-359f-4a77-93b5-afa71c41f880.jpg
+https://dcm.s3.hicloud.net.tw/new/excel/place/2020-11-11/f52184de-33a1-4d5a-8a72-52adcf89a439/collection/d6cd8b99-b926-43e7-8b7e-3e4d3a1b3fff/24c0cf0a-33c0-407e-9406-3d937dbabd18.jpg
+https://upload.wikimedia.org/wikipedia/commons/2/28/2020_River_Terraces_of_Lanyang_River.jpg
+https://upload.wikimedia.org/wikipedia/commons/4/4a/Hehuanshan_in_winter.jpg
+https://upload.wikimedia.org/wikipedia/commons/8/84/%E8%98%AD%E9%99%BD%E6%B2%B3%E8%B0%B7_Lanyang_River_Valley_-_panoramio.jpg
+https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Tainan_Taiwan_Fort-Zeelandia-01.jpg/1280px-Tainan_Taiwan_Fort-Zeelandia-01.jpg
+https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Shifen_Waterfall_20130902.jpg/1280px-Shifen_Waterfall_20130902.jpg
+https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Tea_plantation_in_Puli_Township%2C_Nantou_County_20131211.jpg/1280px-Tea_plantation_in_Puli_Township%2C_Nantou_County_20131211.jpg

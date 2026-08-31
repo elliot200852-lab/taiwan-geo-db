@@ -244,12 +244,12 @@
 
 ⚠ 高雄批 38 篇是全站單縣市最大的一批，**同批平行寫作的 agent 讀不到彼此的稿**——每支的派工單必須把「本區的說書裝置文類」寫死（例如：本區用訪談對話／本區用行前簡報／本區用比較清單），由派工端統一調度，不由寫作 agent 自選。
 
-高雄批已用裝置持久台帳＝`docs/devices-used-kaohsiung.txt`（每 session 收官 append）；東部各批全站清單＝`docs/devices-used-east.txt`。查核 B 判定指引＝`docs/kaohsiung-writing-plan.md` §8-4。
+已用裝置持久台帳＝`docs/devices-used-kaohsiung.txt`（每 session 收官 append）；東部各批全站清單＝`docs/devices-used-east.txt`。查核 B 判定指引＝`docs/kaohsiung-writing-plan.md` §8-4。
+**台帳的讀者是派工端與查核端，不是寫作 agent**（2026-08-31 改制）：台帳內容＝各頁「說書稿切分提示」的抄本，過去要求寫作 agent「台帳＋30 篇提示」兩份都全讀，等於同一份內容讀兩遍（各 3.8 萬字元）。改制後寫作 agent **兩份都不讀**——派工端從台帳抽出「本區被指定家族的已用角度／已用開場句／已用收尾句」逐條貼進派工單（§8-4 第 8 點：開場句與收尾約束句**一起**逐段指定），寫作 agent 照單避開即可。
 
 **山地原民鄉注意**：體例標竿 `content/yilan/nanao.md` 的三個裝置（泰雅耆老對孫子說故事／莎韻之鐘宣傳版與史實版雙聲對照／北迴鐵路施工工人回憶湧泉）同樣不准再用、不准近似——你被指定讀它是學「敘事骨幹貫穿全篇」的體例，不是抄裝置。
-兩縣說書裝置合計會超過 80 個，**開工前把同縣已完成各區的 `## 說書稿切分提示` 全讀過**（同批平行寫作的讀不到，靠各自派工單的主軸分工避開）。
 
-動手前把你鄰近已寫各區的 `## 說書稿切分提示` 全讀過（含新北相鄰區），確認形式與題材都沒撞。
+**鄰區分工改切片供應**（2026-08-31 改制）：寫作 agent 不再讀鄰區母本全文（過去 5–7 檔×約 1 萬字元）。派工端把各鄰區的 `## 說書稿切分提示`（每檔約 1,200 字元）＋一句分工約束（例：「大樹＝1913 起點／本頁＝1950 年代／大寮＝當代伏流水」）直接貼進派工單。鄰區的**事實**要用時自己 WebSearch 查證，不靠讀站上頁面轉抄。
 
 **這三個一個都不能再用**（第一批有兩篇撞到近乎逐字，是最像「機器批次產出」的痕跡）。
 你的「五年級即用」小標題也要跟市級頁的不同名（第一批有兩處同名）。
@@ -297,27 +297,12 @@
 - **`images` 6–10 張，上限就是 10，不准超**（第一批有一篇 11 張）。
 - 每張標 `section: 自然地理` 或 `section: 人文地理`——**只有這兩個值會被掛進章節**，
   寫別的（例如 `section: 定位速覽`）等於無效標籤，那張圖會掉到頁尾圖像廊。
-- **避開已被其他頁用過的圖**：清單在
-  每一批開工前用下面這段重新產生一份給 agent 讀（scratchpad 會被系統清掉，不要留在那裡當長期資產）：
-
-  ```bash
-  .venv/bin/python3 - <<'PY' > /tmp/used-images.txt
-  import re, yaml
-  from pathlib import Path
-  used = {}
-  for p in sorted(Path("content").rglob("*.md")):
-      m = re.match(r"^---\s*\n(.*?)\n---\s*\n", p.read_text(encoding="utf-8"), re.S)
-      if not m: continue
-      try: fm = yaml.safe_load(m.group(1)) or {}
-      except Exception: continue
-      for img in (fm.get("images") or []):
-          u = (img or {}).get("url")
-          if u: used.setdefault(u, []).append(fm.get("name", p.stem))
-  print(f"# 全站已使用的圖片 URL（{len(used)} 個），新頁請避開")
-  for u, who in sorted(used.items()):
-      print(f"{u}  ← {'、'.join(who)}")
-  PY
-  ```
+- **不准用站上已出現過的圖——由腳本閘把關，不用讀清單**（2026-08-31 改制）：
+  `towns_status.py` 每次跑都做跨頁重複比對，新頁的圖 URL 撞任何既有頁＝直接判未完成。
+  寫作 agent 一行已用 URL 都不用讀；收稿被咬到就換一張圖重交。
+  （改制前是把全站已用 URL 清單〔27 萬字元、逐批在長〕塞給每支 agent「讀完並記得」——
+  那是拿語言模型做集合運算，吃掉 57% 的輸入額度而且一定會漏。派工單**不要再附
+  USED_IMAGES／used-images 檔**。歷史共用豁免在 `docs/image-url-dup-baseline.txt`，只准縮不准長。）
 - ⚠️ **YAML 值裡有冒號、`#`、引號時一律用雙引號包起來**。實測撞過
   `author: Minchi Chen（Flickr: minchi_chen）`——全形括號裡那個半形冒號讓整份 frontmatter
   解析失敗，下游腳本直接掛掉。

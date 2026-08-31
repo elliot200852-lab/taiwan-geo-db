@@ -143,6 +143,48 @@ def probe_url(url, tries=5):
     return False, last
 
 
+DUP_BASELINE = ROOT / "docs" / "image-url-dup-baseline.txt"
+
+
+def check_image_dup(data):
+    """新頁圖片 URL 撞任何既有頁＝fail（離線、每次都跑）。
+
+    2026-08-31 立（管線 review Phase 0）：在這之前，防重複用圖靠的是把全站已用
+    圖 URL 清單（USED_IMAGES，27 萬字元、1,377 行、逐批在長）塞給每支寫作 agent
+    「讀完並記得」——那是拿語言模型做集合運算，塞掉 57% 的輸入額度而且一定會漏。
+    集合運算腳本做，agent 一行 URL 都不用讀。
+
+    docs/image-url-dup-baseline.txt＝立閘時已存在的 8 條跨頁共用 URL（縣頁↔主題頁
+    的歷史共用，fetch_images.py 對共用 URL 本來就重用同一實體檔）。只豁免這些；
+    清單只准縮不准長——新頁要用的圖在站上出現過，就換一張。
+    """
+    baseline = set()
+    if DUP_BASELINE.exists():
+        baseline = {ln.strip() for ln in DUP_BASELINE.read_text().splitlines()
+                    if ln.strip() and not ln.startswith("#")}
+    url_files = {}
+    for md in CONTENT.rglob("*.md"):
+        fm, _ = parse(md)
+        for img in (fm or {}).get("images") or []:
+            u = (img or {}).get("url")
+            if u:
+                url_files.setdefault(u, set()).add(md.name)
+    for d in data:
+        for r in d["units"]:
+            if not r["md"]:
+                continue
+            own = Path(r["md"]).name
+            for i, img in enumerate(r.get("_images_raw") or []):
+                u = (img or {}).get("url")
+                if not u or u in baseline:
+                    continue
+                others = url_files.get(u, set()) - {own}
+                if others:
+                    r["images_bad"].append(f"#{i}: 圖 URL 與 {'、'.join(sorted(others))} 重複")
+                    r["done"] = False
+                    r["blocked_at"] = "圖片跨頁重複：" + "；".join(r["images_bad"])
+
+
 def check_images(units):
     """逐張連出去驗圖片 URL。授權欄位填了不代表圖存在，這一關只有連線才驗得到。"""
     jobs = []
@@ -278,6 +320,8 @@ def main():
     data = collect()
     if args:
         data = [d for d in data if d["county_id"] in args or d["county"] in args]
+
+    check_image_dup(data)   # 離線、便宜，每次都跑
 
     if "--check-images" in sys.argv:
         all_units = [u for d in data for u in d["units"]]
