@@ -1,6 +1,44 @@
 ---
 id: tainan
 name: 臺南市
+towns:
+  - tainan-zhongxi
+  - tainan-dong
+  - tainan-nan
+  - tainan-bei
+  - tainan-anping
+  - tainan-annan
+  - tainan-yongkang
+  - tainan-guiren
+  - tainan-xinhua
+  - tainan-zuozhen
+  - tainan-yujing
+  - tainan-nanxi
+  - tainan-nanhua
+  - tainan-rende
+  - tainan-guanmiao
+  - tainan-longqi
+  - tainan-guantian
+  - tainan-madou
+  - tainan-jiali
+  - tainan-xigang
+  - tainan-qigu
+  - tainan-jiangjun
+  - tainan-xuejia
+  - tainan-beimen
+  - tainan-xinying
+  - tainan-houbi
+  - tainan-baihe
+  - tainan-dongshan
+  - tainan-liujia
+  - tainan-xiaying
+  - tainan-liuying
+  - tainan-yanshui
+  - tainan-shanhua
+  - tainan-danei
+  - tainan-shanshang
+  - tainan-xinshi
+  - tainan-anding
 county: 臺南市
 type: 直轄市
 stats:

@@ -162,18 +162,21 @@ def check_image_dup(data):
     if DUP_BASELINE.exists():
         baseline = {ln.strip() for ln in DUP_BASELINE.read_text().splitlines()
                     if ln.strip() and not ln.startswith("#")}
+    # ⚠️ 一律用「相對路徑」不用 basename 當身分：站上已有五組跨縣同名檔
+    # （taoyuan.md、datong.md、xinyi.md、zhongshan.md、zhongzheng.md 各兩份），
+    # basename 比對會讓同名檔之間共用圖被靜默放行（2026-09-01 紅隊抓到）。
     url_files = {}
     for md in CONTENT.rglob("*.md"):
         fm, _ = parse(md)
         for img in (fm or {}).get("images") or []:
             u = (img or {}).get("url")
             if u:
-                url_files.setdefault(u, set()).add(md.name)
+                url_files.setdefault(u, set()).add(str(md.relative_to(ROOT)))
     for d in data:
         for r in d["units"]:
             if not r["md"]:
                 continue
-            own = Path(r["md"]).name
+            own = r["md"]
             for i, img in enumerate(r.get("_images_raw") or []):
                 u = (img or {}).get("url")
                 if not u or u in baseline:

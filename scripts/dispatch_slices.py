@@ -27,9 +27,17 @@ _SENT_SPLIT = re.compile(r"(?<=[。？！])")
 def slices(slugs):
     """抽指定頁的 ## 說書稿切分提示 全文——派工單「鄰區分工」段的原料。"""
     for slug in slugs:
-        hits = list(CONTENT.rglob(f"{slug}.md"))
+        # 站上有跨縣同名檔（taoyuan/datong/xinyi…），slug 可帶縣夾消歧：
+        #   dispatch_slices.py --slices kaohsiung/taoyuan
+        # 裸 slug 命中多檔＝直接報錯要求消歧，不准靜默取第一個（2026-09-01 紅隊）。
+        hits = (list(CONTENT.rglob(f"{slug}.md")) if "/" not in slug
+                else [p for p in [CONTENT / f"{slug}.md"] if p.exists()])
         if not hits:
             print(f"⚠ 找不到 content/**/{slug}.md")
+            continue
+        if len(hits) > 1:
+            opts = "、".join(str(p.relative_to(CONTENT))[:-3] for p in hits)
+            print(f"⚠ {slug} 命中多檔（{opts}）——用 縣夾/slug 消歧後重跑")
             continue
         raw = hits[0].read_text(encoding="utf-8")
         m = re.search(r"^## 說書稿切分提示\s*\n(.*?)(?=^## |\Z)", raw, re.M | re.S)
