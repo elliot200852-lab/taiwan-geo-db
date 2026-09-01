@@ -619,6 +619,12 @@
       "type": "直轄市"
     },
     {
+      "id": "tainan-liuying",
+      "name": "柳營區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan",
       "name": "臺南市",
       "county": "臺南市",
