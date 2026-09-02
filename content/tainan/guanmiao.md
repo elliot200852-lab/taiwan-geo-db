@@ -3,7 +3,6 @@ id: tainan-guanmiao
 name: 關廟區
 county: 臺南市
 type: 區
-hero: false
 stats:
   population: "33,007（2026-07，臺南市政府民政局）"
   area_km2: "53.6413（2025-09，臺南市政府資料開放平台）"

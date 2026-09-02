@@ -3,7 +3,6 @@ id: tainan-madou
 name: 麻豆區
 county: 臺南市
 type: 區
-hero: false
 stats:
   population: "42,636（2026-07，臺南市政府民政局）"
   area_km2: "53.9744（2025-09，臺南市政府資料開放平台）"

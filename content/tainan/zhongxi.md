@@ -3,7 +3,6 @@ id: tainan-zhongxi
 name: 中西區
 county: 臺南市
 type: 區
-hero: false
 stats:
   population: "74,859（2026-07，臺南市政府民政局）"
   area_km2: "6.26（2025-09，臺南市政府資料開放平台）"

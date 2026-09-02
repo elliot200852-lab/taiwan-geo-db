@@ -3,7 +3,6 @@ id: tainan-houbi
 name: 後壁區
 county: 臺南市
 type: 區
-hero: false
 stats:
   population: "20,626（2026-07，臺南市政府民政局）"
   area_km2: "72.2189（2025-09，臺南市政府資料開放平台）"
