@@ -60,7 +60,25 @@ cd ~/MyWork/taiwan-geo-db
    ③**下一縣市＝臺南 37 區**；第一頁用 Sonnet 寫作做 A/B（機器閘＋fresh Opus 評審），
    過了 Sonnet 承擔更大寫作比例。
 
-## 0-KH. 高雄批總計畫（2026-08-09 立；動工前先讀這節）
+## 0-TN. 臺南批（37 區）固定流程（2026-09-02 立；批 2 起照此發批，取代 §0-KH 對臺南的適用）
+
+規格正本＝`docs/tainan-writing-plan.md`（排批 §3、口徑 §4、人口面積 §7）＋`docs/writing-brief-template.md` §E-0 新制。
+**§0-KH 是高雄批專用**；臺南批只沿用它兩件事：①每 session 最多 12 區；②步驟 6–7 的圖片鏈／hero／發布／verify 序列。
+§0-KH 第 4 點的 used-images 重生檔、`devices-used-*.txt`、第 8 點的台帳 append **全部不適用**（§0-P0 第 1／2 點與 §E-0 第 2 點已作廢）。
+
+1. **工作樹＝主 repo `~/MyWork/taiwan-geo-db` main，不用 worktree**（`geo-tn-wt`／`tn-towns` 於 2026-09-02 作廢刪除：它停在 b477eea，沒有新版 plan 與 `towns:` 37 條，照 §0-KH 進去跑會對臺南失明）。開工：`_scripts/dispatch-preflight.sh` → `towns_status.py tainan` → 紅隊關卡（§5）。
+2. **派工單**＝`~/MyWork/_workspace/geo-tn-briefs/<批>/` 共同段＋每區一檔（批 2 範本 `b2/tn-b2-common.md`），內容＝模板 §A–C／§E-0／§F–K 指讀＋plan §1-A 深入探討＋§3-P-1 三條硬限制＋§4 通則與該區 §4-B 口徑逐字＋**§7 整節要點逐字（月份鎖 2026-07／面積 2025-09）**＋fact_gate 流程。**不附**題目清單、台帳、鄰區全文、used-images。同事件後頁（§4-A 四組）附該組第一頁定稿那段逐字。
+3. **模型**＝Opus 寫作（一批 3 支平行、每支 1 區）；Sonnet 查核＋修正＋fresh 驗收（§3-P-2）。
+4. **收稿閘（腳本，收稿當場跑）**：`towns_status.py tainan`（字數／教學比／速覽／圖 6–10 三欄／跨頁圖重複）＋`scripts/fact_gate.py <md> --map <slug>-factmap.txt`（寫作端交的對照表，必須 ✓）＋`bash scripts/check-duplicate-titles.sh`（豁免檔 `docs/title-dup-baseline.txt` 只准縮不准長）＋build 後該頁 `<blockquote>` 內 `<li>` 數＝段數×3。任一不過退回該支。
+5. **查核（Sonnet，1 支／批）**：拿 factmap 逐條開來源驗真假（腳本只保證指得到，指得對是這一步）；段末收束句自己重數（≤2）；〈自然地理〉越層（§3-P-1 第三條）；撞題（§E-0 第 3 點）；AI 腔；§4-B 口徑逐字對。→ 修正（Sonnet；重寫等級升 Opus）→ fresh 驗收（Sonnet）。
+6. 圖片鏈→hero（生圖每批問 David）→ build → `node scripts/test-search.js` → `--check-images` → commit → push main → CI → `verify_live_images.py` 全綠才算上線（照 §0-KH 6–7）。
+7. handoff：更新下方「進度斷點」＋plan §3-P-2 的額度對帳一行。
+
+### 進度斷點（磁碟才是事實來源，這裡只放指標）
+- 2026-09-01：柳營（pilot）、後壁（批 1）上線＝2/37。後壁 hero 未生（欠帳）。
+- 下一批＝**批 2 關廟・麻豆・中西**（TN-S1 第 2 批）。
+
+## 0-KH. 高雄批總計畫（高雄批專用；臺南批見 §0-TN）（2026-08-09 立；動工前先讀這節）
 
 **David 拍板的節奏（2026-08-09）**：38 區分 4 個 session 做——**每個 session 最多 12 區
 （4 批×3 支寫作輪替）；12 區全鏈走完（查核→修正→圖片鏈→hero→發布→verify 全綠）

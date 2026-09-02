@@ -32,7 +32,12 @@ grep -h '【五年級' content/*/*.md \
   | sed 's/.*\*\*\(.*\)\*\*.*/\1/' \
   | sort > "$TMP"
 
-DUPES="$(uniq -d "$TMP")"
+# 歷史豁免：docs/title-dup-baseline.txt（格式「<容許次數> <小標>」，只准縮不准長）。
+# 用「次數」而不是「名單」豁免：新頁再撞同一條會讓全站次數超過容許值，照樣被抓。
+BASE="docs/title-dup-baseline.txt"
+DUPES="$(uniq -c "$TMP" | awk -v base="$BASE" '
+  BEGIN { while ((getline line < base) > 0) { if (line ~ /^#/ || line == "") continue; n = index(line, " "); allow[substr(line, n+1)] = substr(line, 1, n-1) + 0 } }
+  { cnt = $1; $1 = ""; sub(/^ /, ""); lbl = $0; if (cnt > 1 && cnt > allow[lbl] + 0) print lbl }')"
 
 if [[ -z "$DUPES" ]]; then
   echo "✓ 五年級即用小標無逐字重複。"
