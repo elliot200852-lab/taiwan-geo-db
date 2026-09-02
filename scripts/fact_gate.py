@@ -24,6 +24,7 @@
 不算失敗；引文明確不在來源裡＝✗。過＝exit 0；不過＝列出缺漏，exit 1。
 """
 import hashlib
+import html
 import re
 import subprocess
 import sys
@@ -126,7 +127,7 @@ def fetch_text(url: str, cache_dir: Path) -> str | None:
         return None
     txt = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", raw, flags=re.S | re.I)
     txt = re.sub(r"<[^>]+>", " ", txt)
-    txt = norm(re.sub(r"&[a-z#0-9]+;", " ", txt))
+    txt = norm(html.unescape(txt))   # 先解 entity（含 &#x8CC7; 大寫十六進位——關廟批實測漏掉會整頁亂碼）
     f.write_text(txt, encoding="utf-8")
     _cache[url] = txt
     return txt
