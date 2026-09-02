@@ -72,6 +72,7 @@ sources:
   - https://zh.wikipedia.org/zh-tw/%E7%B8%BD%E7%88%BA%E8%97%9D%E6%96%87%E4%B8%AD%E5%BF%83
   - https://zh.wikipedia.org/zh-tw/%E9%BA%BB%E8%B1%86%E6%96%87%E6%97%A6
   - https://zh.wikipedia.org/zh-tw/%E8%A5%BF%E6%8B%89%E9%9B%85%E6%97%8F
+  - https://zh.wikipedia.org/zh-tw/%E5%A4%A7%E6%AD%A6%E5%A3%A0%E6%97%8F
   - https://zh.wikipedia.org/zh-tw/%E9%BA%BB%E8%B1%86%E6%96%87%E8%A1%A1%E6%AE%BF
   - https://zh.wikipedia.org/zh-tw/%E9%A2%B1%E9%A2%A8%E4%B8%B9%E5%A8%9C%E7%B5%B2_(2025%E5%B9%B4)
   - https://madou.tainan.gov.tw/cp.aspx?n=24567

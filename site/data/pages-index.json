@@ -619,6 +619,12 @@
       "type": "直轄市"
     },
     {
+      "id": "tainan-guanmiao",
+      "name": "關廟區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan-houbi",
       "name": "後壁區",
       "county": "臺南市",
@@ -631,10 +637,22 @@
       "type": "區"
     },
     {
+      "id": "tainan-madou",
+      "name": "麻豆區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan",
       "name": "臺南市",
       "county": "臺南市",
       "type": "直轄市"
+    },
+    {
+      "id": "tainan-zhongxi",
+      "name": "中西區",
+      "county": "臺南市",
+      "type": "區"
     },
     {
       "id": "taipei-beitou",
