@@ -3,7 +3,6 @@ id: tainan-xigang
 name: 西港區
 county: 臺南市
 type: 區
-hero: false
 stats:
   population: "24,753（2026-07，臺南市政府民政局）"
   area_km2: "33.7666（2025-09，臺南市政府資料開放平台）"

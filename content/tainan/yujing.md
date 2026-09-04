@@ -3,7 +3,6 @@ id: tainan-yujing
 name: 玉井區
 county: 臺南市
 type: 區
-hero: false
 stats:
   population: "12,571（2026-07，臺南市政府民政局）"
   area_km2: "76.3662（2025-09，臺南市政府資料開放平台）"
