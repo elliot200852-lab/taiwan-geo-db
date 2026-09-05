@@ -625,6 +625,12 @@
       "type": "區"
     },
     {
+      "id": "tainan-beimen",
+      "name": "北門區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan-guanmiao",
       "name": "關廟區",
       "county": "臺南市",
@@ -643,6 +649,12 @@
       "type": "區"
     },
     {
+      "id": "tainan-longqi",
+      "name": "龍崎區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan-madou",
       "name": "麻豆區",
       "county": "臺南市",
@@ -657,6 +669,12 @@
     {
       "id": "tainan-xigang",
       "name": "西港區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
+      "id": "tainan-xinshi",
+      "name": "新市區",
       "county": "臺南市",
       "type": "區"
     },
