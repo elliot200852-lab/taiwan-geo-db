@@ -39,10 +39,10 @@
     "taipei-beitou",
     "hualien-wanrong",
     "taitung-beinan",
+    "tainan-baihe",
     "kaohsiung-liugui",
     "taipei",
-    "hualien-ruisui",
-    "new-taipei-jinshan"
+    "hualien-ruisui"
   ],
   "客家": [
     "theme-migration",
@@ -101,14 +101,14 @@
   "地震": [
     "theme-earthquake",
     "hualien",
+    "tainan-baihe",
     "taichung",
     "nantou",
     "hualien-hualien",
     "miaoli",
     "taipei",
     "taitung",
-    "taiwan",
-    "hualien-yuli"
+    "taiwan"
   ],
   "老街": [
     "new-taipei-sanxia",
