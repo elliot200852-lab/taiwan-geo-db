@@ -703,6 +703,12 @@
       "type": "區"
     },
     {
+      "id": "tainan-zuozhen",
+      "name": "左鎮區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "taipei-beitou",
       "name": "北投區",
       "county": "臺北市",
