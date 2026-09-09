@@ -25,6 +25,35 @@ cd ~/MyWork/taiwan-geo-db
 
 ---
 
+## 0-TH. 主題頁怎麼寫（2026-09-09 立，第 20 張〈臺灣的國家公園〉實跑後定；下一張照此）
+
+主題頁**不是鄉鎮頁**，別套 §0-TN 的規格：`towns_status.py` 不看它、字數與圖數的標準也不同。
+規格正本＝`docs/CONTENT-SPEC.md`〈主題頁〉那節；派工單範本＝`~/MyWork/_workspace/geo-themes-np/brief-writer.md`
+（寫作）與 `brief-check.md`（查核），兩份都是照臺南批的骨架改的，下一張直接複製改題目。
+
+實跑出來的參數（19 張既有主題頁的實際落點，不是憑空定的）：
+正文 **4,500–6,500 字**、教學特點 **33–36%**、圖 **3–4 張**（鄉鎮頁是 6–10，主題頁體例就是少）、
+sources **20–32 條**、`regions` **4–10 條**。說書稿一樣是 3 段四欄槽位（build 後 `<li>` 9 個）。
+
+流程與臺南批同：Opus 寫作 1 支 → 收稿閘（`fact_gate --fetch` ＋ build 後 `<li>` 數 ＋
+`check-duplicate-titles.sh` ＋ 圖片 `curl` 200）→ fresh Sonnet 查核 1 支 → **修正主對話自己動手** →
+hero（`hero-prompts.yaml` 補一條 key＝page id、`gen_hero_images.py --only <id>`，quality low）→
+`fetch_images.py --only <id>` → `upload_images_to_drive.py <id> hero` → build → `test-search.js`
+（新頁進榜就 `refresh-search-golden.js --new <id> --write`，它自己會擋掉「既有頁排序改變」的情況）
+→ commit／push → CI → `verify_live_images.py`。
+
+**這一輪最貴的教訓——fact_gate 過了不代表事實對**（它自己的 docstring 早就寫了，這是第一次被實際打臉）：
+〈國家公園〉初稿寫「2011 年 11 月 12 日立法院三讀通過《國家公園法》修正案增設國家自然公園」，
+逐字出自維基百科、閘 100% 命中；但全國法規資料庫沿革頁顯示該法自 1972 年公布後**只修正過一次**＝
+民國 99-12-08。**法規的日期、條次、沿革一律開 `law.moj.gov.tw` 的 `LawHistory.aspx?pcode=…`，
+不准只信維基**——同一頁其他條文本來就引了法規庫，交叉核對只差一次 fetch。
+同型風險：機關改制日、公告日 vs 成立日、計畫面積的新舊值（台江 39,310 vs 40,731.31、
+壽山 1,123 vs 1,131.19 都是「舊值不是錯值」）。
+
+**面積類主題頁的口徑**：以行政院國情簡介〈國家公園簡介〉（資料來源內政部）為單一基準，
+陸域／海域／合計分開標；官方各版切分不一致時（東沙陸域有 178.57／176.85／168.97 三套）
+只寫總數最安全，要寫切分就標是誰的數字。
+
 ## 0-P0. 管線 Phase 0 改制（2026-08-31 review 裁決；下一縣市開工照此發批）
 
 高雄收官後 David 要求 review over-engineering（誘因：每寫幾區燒掉 weekly limit 15%）。
