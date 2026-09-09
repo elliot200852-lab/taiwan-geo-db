@@ -60,13 +60,13 @@
     "theme-migration",
     "hualien",
     "taiwan",
+    "theme-national-parks",
     "new-taipei-wulai",
     "chiayi-city",
     "pingtung",
     "miaoli",
     "nantou",
-    "hsinchu-county",
-    "taitung-dawu"
+    "hsinchu-county"
   ],
   "颱風": [
     "theme-typhoon",
@@ -84,13 +84,13 @@
     "theme-ecology",
     "theme-mountains",
     "hualien-zhuoxi",
+    "theme-national-parks",
     "nantou",
     "taiwan",
     "chiayi-county",
     "theme-rivers",
     "kaohsiung",
-    "kaohsiung-namaxia",
-    "kaohsiung-qishan"
+    "kaohsiung-namaxia"
   ],
   "九份": [
     "new-taipei-ruifang",
@@ -123,6 +123,7 @@
     "kaohsiung-liugui"
   ],
   "國家公園": [
+    "theme-national-parks",
     "hualien-zhuoxi",
     "hualien-xiulin",
     "new-taipei-jinshan",

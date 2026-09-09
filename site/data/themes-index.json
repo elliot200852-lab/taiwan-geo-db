@@ -57,6 +57,13 @@
       "theme_group": "大地的骨架"
     },
     {
+      "id": "theme-national-parks",
+      "name": "一條線劃下去——臺灣的國家公園",
+      "layer": "自然地理",
+      "layer_sub": "島的身世",
+      "theme_group": "土壤與生靈"
+    },
+    {
       "id": "theme-placenames",
       "name": "地名裡的祖先——臺灣的地名",
       "layer": "人文地理",
