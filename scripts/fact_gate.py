@@ -33,6 +33,11 @@ from pathlib import Path
 
 import yaml
 
+# 事實佐證快取（--fetch 抓下來的來源全文）。以腳本自身位置推導，不寫死 home 路徑
+# ——2026-09-13 Deep Review D4：舊路徑 ~/MyWork/_workspace/geo-tn-b2/.source-cache
+# 雖名為 b2，實際上臺南批 2–6 共用；來源網站下架就無法重建，搬進 repo 自己的樹並 gitignore。
+SOURCE_CACHE = Path(__file__).resolve().parent.parent / ".source-cache"
+
 UNIT = r"(?:平方公里|km²|公頃|公里|公尺|公噸|公斤|甲|人|戶|元|歲|里|鄰|家|間|座|株|棵|ha|％|%)"
 NUM = r"\d[\d,\.]*\s*(?:萬|億)?\s*"
 YEAR4 = r"(?:1[0-9]{3}|20[0-9]{2})"
@@ -215,9 +220,8 @@ def main():
     sources = [str(s) for s in (fm.get("sources") or [])]
     items = extract(fm, body, body_start)
     if "--map" in sys.argv:
-        cache = Path.home() / "MyWork/_workspace/geo-tn-b2/.source-cache"
         sys.exit(verify(items, sources, Path(sys.argv[sys.argv.index("--map") + 1]),
-                        "--fetch" in sys.argv, cache))
+                        "--fetch" in sys.argv, SOURCE_CACHE))
     print_table(items, len(sources))
 
 

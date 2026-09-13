@@ -8,3 +8,7 @@ __pycache__/
 # 只擋子目錄：site/img/manifest.json 是 build.py 的輸入、必須留在 repo。
 site/img/*/
 _workspace/
+
+# fact_gate.py --fetch 的事實佐證快取（來源網站全文，2026-09-13 從 MyWork/_workspace/
+# geo-tn-b2/.source-cache 搬回來）。來源網站下架就無法重建，本機留著但不進 git。
+.source-cache/
