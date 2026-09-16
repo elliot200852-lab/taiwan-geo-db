@@ -1093,6 +1093,7 @@ https://tmach-culture.tainan.gov.tw/page.asp?mainid=%7B4BFD4957-E841-49E4-9F9B-D
 https://tmh.taitung.gov.tw/demographics: 臺東縣太麻里戶政事務所 人口統計 每月戶數人口數統計
 https://tmh.taitung.gov.tw/demographics/detail/G49MVP2BRP: 臺東縣太麻里戶政事務所 人口統計 每月人口數及原住民人口數統計
 https://tncmmm.gov.taipei/cp.aspx?n=F3E6D382F4B2C852: 臺灣新文化運動紀念館-本館緣起
+https://tnsouth.tainan.gov.tw/News_Content.aspx?n=16956&s=5841428: 區公所-南區-鯤鯓里
 https://tnsouth.tainan.gov.tw/News_Content.aspx?n=16956&s=5841440: 區公所-南區-同安里
 https://tnsouth.tainan.gov.tw/News_Content.aspx?n=16956&s=5841442: 區公所-南區-佛壇里
 https://tnsouth.tainan.gov.tw/News_Content.aspx?n=16956&s=5841445: 區公所-南區-明德里
@@ -3617,7 +3618,7 @@ https://zshr.gov.taipei/cp.aspx?n=A7135430A296F3C4: 臺北市中山區戶政事�
 # https://urban-web.kcg.gov.tw/KDA/web_upload/KDA05/KDA0501/%E8%A8%88%E7%95%AB%E6%9B%B820240219151445-7.pdf
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://urban-web.kcg.gov.tw/KDA/web_upload/KDA05/KDA0501/20170216135742-7.pdf
-#   原因：curl fallback 失敗（exit 28）：curl: (28) Operation timed out after 15000 milliseconds with 9666560 out of 10320124 bytes received
+#   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://w3fs.tainan.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvMTgvcmVsZmlsZS84ODY3LzE1Mjk5LzRlZThhMjFhLWZjM2QtNGYyYi1hMzZjLWY2NzczNjNiNjRiNS5wZGY%3d&n=6Ie65Y2X5biC6b6N5bSO5bel5qWt5Y2A5oyH5a6a6Ieq54S25Zyw5pmv6KmV5Lyw5aCx5ZGK5pu4LnBkZg%3d%3d
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://w3fs.tainan.gov.tw/download.ashx?u=LzAwMi9GUzAxLzE2L3JlbGZpbGUvOTg0NS84MTU3LzZkYjFmY2NjLWQ5YWEtNDQ4MS04ODVhLTNiN2E1Mzg4NGE0My54bHM%3D&n=MDXoh7rljZfluILlkITljYDkurrlj6PlubTpvaHntZDmp4vph43opoHmjIfmqJkueGxz&icon=.xls
