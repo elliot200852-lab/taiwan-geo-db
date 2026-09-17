@@ -1,6 +1,7 @@
 {
   "媽祖": [
     "theme-temples",
+    "tainan-annan",
     "taichung",
     "yunlin",
     "chiayi-county",
@@ -8,8 +9,7 @@
     "new-taipei-tucheng",
     "lienchiang",
     "yilan-wujie",
-    "kaohsiung-gangshan",
-    "new-taipei-luzhou"
+    "kaohsiung-gangshan"
   ],
   "龜山島": [
     "yilan-toucheng",
@@ -130,6 +130,7 @@
     "hualien-xincheng",
     "kinmen",
     "hualien",
+    "tainan-annan",
     "theme-earthquake"
   ],
   "濕地": [
