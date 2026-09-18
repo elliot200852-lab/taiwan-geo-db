@@ -679,6 +679,12 @@
       "type": "區"
     },
     {
+      "id": "tainan-nanhua",
+      "name": "南化區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan-nanxi",
       "name": "楠西區",
       "county": "臺南市",
