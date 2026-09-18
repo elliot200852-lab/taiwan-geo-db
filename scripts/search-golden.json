@@ -194,6 +194,7 @@
     "hualien-zhuoxi"
   ],
   "漁港": [
+    "tainan-jiangjun",
     "kaohsiung-qianzhen",
     "taitung-dawu",
     "kaohsiung-ziguan",
@@ -202,8 +203,7 @@
     "theme-fishery",
     "new-taipei-wanli",
     "yilan-suao",
-    "keelung-zhongshan",
-    "taitung-chenggong"
+    "keelung-zhongshan"
   ],
   "紅樹林": [
     "taipei-beitou",
@@ -212,6 +212,7 @@
     "new-taipei-tamsui",
     "kaohsiung-qieding",
     "new-taipei-bali",
+    "tainan-jiangjun",
     "tainan",
     "tainan-beimen",
     "taipei-shilin"
