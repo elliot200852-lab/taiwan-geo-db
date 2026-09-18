@@ -703,6 +703,12 @@
       "type": "直轄市"
     },
     {
+      "id": "tainan-xiaying",
+      "name": "下營區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan-xigang",
       "name": "西港區",
       "county": "臺南市",
