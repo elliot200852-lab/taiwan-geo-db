@@ -43,6 +43,13 @@
       "theme_group": "人靠什麼生活"
     },
     {
+      "id": "theme-landforms",
+      "name": "山與平原之間——臺灣的盆地、台地與丘陵",
+      "layer": "自然地理",
+      "layer_sub": "島的身世",
+      "theme_group": "大地的骨架"
+    },
+    {
       "id": "theme-migration",
       "name": "一波波上岸的人——臺灣的移民與族群",
       "layer": "人文地理",
