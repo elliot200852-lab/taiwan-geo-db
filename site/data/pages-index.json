@@ -739,6 +739,12 @@
       "type": "區"
     },
     {
+      "id": "tainan-shanhua",
+      "name": "善化區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan",
       "name": "臺南市",
       "county": "臺南市",
