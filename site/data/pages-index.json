@@ -685,6 +685,12 @@
       "type": "區"
     },
     {
+      "id": "tainan-liujia",
+      "name": "六甲區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan-liuying",
       "name": "柳營區",
       "county": "臺南市",
