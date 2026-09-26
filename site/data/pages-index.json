@@ -745,6 +745,12 @@
       "type": "區"
     },
     {
+      "id": "tainan-shanshang",
+      "name": "山上區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan",
       "name": "臺南市",
       "county": "臺南市",
