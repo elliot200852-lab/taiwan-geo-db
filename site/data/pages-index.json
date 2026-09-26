@@ -661,6 +661,12 @@
       "type": "區"
     },
     {
+      "id": "tainan-dong",
+      "name": "東區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan-dongshan",
       "name": "東山區",
       "county": "臺南市",
