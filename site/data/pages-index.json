@@ -781,6 +781,12 @@
       "type": "區"
     },
     {
+      "id": "tainan-xinhua",
+      "name": "新化區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan-xinshi",
       "name": "新市區",
       "county": "臺南市",

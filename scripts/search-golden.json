@@ -101,14 +101,14 @@
   "地震": [
     "theme-earthquake",
     "hualien",
+    "tainan-xinhua",
     "tainan-baihe",
     "taichung",
     "tainan-shanhua",
     "nantou",
     "tainan-yongkang",
     "hualien-hualien",
-    "miaoli",
-    "tainan-dongshan"
+    "miaoli"
   ],
   "老街": [
     "new-taipei-sanxia",
@@ -118,9 +118,9 @@
     "new-taipei-tamsui",
     "changhua",
     "new-taipei-shiding",
+    "tainan-xinhua",
     "tainan-yanshui",
-    "theme-temples",
-    "kaohsiung-liugui"
+    "theme-temples"
   ],
   "國家公園": [
     "theme-national-parks",
