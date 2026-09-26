@@ -691,6 +691,12 @@
       "type": "區"
     },
     {
+      "id": "tainan-jiali",
+      "name": "佳里區",
+      "county": "臺南市",
+      "type": "區"
+    },
+    {
       "id": "tainan-jiangjun",
       "name": "將軍區",
       "county": "臺南市",
