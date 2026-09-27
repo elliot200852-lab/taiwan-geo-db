@@ -326,7 +326,7 @@ David 實況＝說書稿提示「偶爾用」，撞題治理成本與使用頻�
   curl -s "https://commons.wikimedia.org/w/api.php?action=query&titles=File:XXX.jpg&prop=imageinfo&iiprop=extmetadata|url&format=json"
   ```
   取 `extmetadata` 的 `LicenseShortName`／`Artist`；URL 用 `.../thumb/.../1280px-....jpg` 形式。
-- **TCMB**：`python3 ~/MyWork/WaldorfTeacherOS-Repo/setup/scripts/tcmb-search.py --search "地名"`
+- **TCMB**：`python3 ~/MyWork/david-workspace/teacheros/setup/scripts/tcmb-search.py --search "地名"`
   （不確定參數先 `--help`）。⚠️ **`tcmb.culture.tw` 線上站一律禁止 WebFetch／curl。**
   2026-07-28 實證：它掛站時部分請求「不回應也不逾時」，一支懸住的 WebFetch 就把整支
   agent 無聲凍死（當日三支＋前一晚兩支，共五支死於此，先前誤診為額度中斷）。

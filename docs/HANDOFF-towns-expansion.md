@@ -882,7 +882,7 @@ David 2026-07-23 立、07-24 制度化：**計劃核可後、第一個實作動�
 - 事實紀律：禁止幻覺、`sources` 逐條實際查證過的 URL、人口面積引官方並標年月、
   查不到寫「待查證」。
 - 圖片紀律：Wikimedia 打 API 讀 `extmetadata` 取 `LicenseShortName`/`Artist`；
-  TCMB 跑 `python3 ~/MyWork/WaldorfTeacherOS-Repo/setup/scripts/tcmb-search.py --search "地名"`；
+  TCMB 跑 `python3 ~/MyWork/david-workspace/teacheros/setup/scripts/tcmb-search.py --search "地名"`；
   每張 `curl -sI` 驗 200；拿不到授權的圖不收。
 - 語氣：教師備課用、5–9 年級通識、段落敘事體、禁地方誌流水帳。
   **禁 AI 腔**——不用「不是 A 而是 B」「與其說…不如說」「不僅是…更是」這類對立翻轉句式。

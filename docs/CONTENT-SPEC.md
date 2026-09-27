@@ -48,7 +48,7 @@ sources:            # 事實查證來源 URL（逐條）
 - 每個事實可追溯：sources 逐條列 URL；查不到就寫「待查證」，不硬掰。
 - 段落敘事體，教師可直接讀；避免 bullet 堆砌正文。
 - 禁止地方誌流水帳（歷任首長、機關學校列表、節慶羅列）。
-- 圖片檢索：TCMB 本機索引 `python3 ~/MyWork/WaldorfTeacherOS-Repo/setup/scripts/tcmb-search.py --search "冬山"`（人文優先）；
+- 圖片檢索：TCMB 本機索引 `python3 ~/MyWork/david-workspace/teacheros/setup/scripts/tcmb-search.py --search "冬山"`（人文優先）；
   Wikimedia Commons API（自然地理優先），授權作者從 `prop=imageinfo&iiprop=extmetadata` 讀出。
 - 縣市級頁面（北北基）同結構，正文 1,500 字以上即可，視野放在全市尺度（不逐區展開）。
 
