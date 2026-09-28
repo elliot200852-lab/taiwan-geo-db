@@ -79,6 +79,36 @@ sources:
   - https://zh.wikipedia.org/zh-hant/%E5%A4%A7%E9%9B%AA%E5%B1%B1%E6%9E%97%E5%A0%B4
   - https://hch.hakka.gov.tw/reportdetail.asp?MenuID=10&SubID=28&ArID=1162&pageNums=2
   - https://www.nmns.edu.tw/park_921/galleries/cheguanpu-fault-gallery/index.html
+towns:
+  - taichung-zhong
+  - taichung-dong
+  - taichung-nan
+  - taichung-xi
+  - taichung-bei
+  - taichung-xitun
+  - taichung-nantun
+  - taichung-beitun
+  - taichung-fengyuan
+  - taichung-tanzi
+  - taichung-daya
+  - taichung-shengang
+  - taichung-houli
+  - taichung-shigang
+  - taichung-dongshi
+  - taichung-xinshe
+  - taichung-heping
+  - taichung-taiping
+  - taichung-dali
+  - taichung-wufeng
+  - taichung-wuri
+  - taichung-dadu
+  - taichung-longjing
+  - taichung-shalu
+  - taichung-wuqi
+  - taichung-qingshui
+  - taichung-dajia
+  - taichung-waipu
+  - taichung-daan
 ---
 
 ## 定位速覽
