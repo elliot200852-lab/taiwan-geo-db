@@ -117,7 +117,8 @@ def fetch_text(url: str, cache_dir: Path) -> str | None:
     if f.exists():
         _cache[url] = f.read_text(encoding="utf-8")
         return _cache[url]
-    if "tcmb.culture.tw" in url or re.search(r"\.(xls|xlsx|ods|pdf|zip)(\?|$)", url, re.I):
+    if ("tcmb.culture.tw" in url or "awFastDownload" in url
+            or re.search(r"\.(xls|xlsx|ods|pdf|zip)(\?|$)", url, re.I)):
         _cache[url] = None      # TCMB 禁打；二進位檔不比對
         return None
     try:
@@ -130,9 +131,19 @@ def fetch_text(url: str, cache_dir: Path) -> str | None:
     if r.returncode != 0 or not raw or "<html" not in raw.lower() and len(raw) < 200:
         _cache[url] = None
         return None
+    # 二進位檔偽裝成網址（副檔名不在結尾，例：戶政司 awFastDownload/…xls/…/）→ 不比對。
+    # 2026-09-28 臺中批紅隊 H2：抓回 32 萬字 Big5 亂碼被當正文，引文比不到就判 ✗。
+    if "\x00" in raw[:4096] or raw[:8] in ("PK\x03\x04", "\ufffd\ufffd\ufffd\ufffd"):
+        _cache[url] = None
+        return None
     txt = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", raw, flags=re.S | re.I)
     txt = re.sub(r"<[^>]+>", " ", txt)
     txt = norm(html.unescape(txt))   # 先解 entity（含 &#x8CC7; 大寫十六進位——關廟批實測漏掉會整頁亂碼）
+    # SPA 空殼（Angular／Vue 未渲染的 {{…}} 模板、正文極短）→ 當作抓不到，交人工開。
+    # 同一紅隊 H2：臺中人口平台 TCCReport01.html 回 438 字殼，舊邏輯判「引文不在來源」＝✗。
+    if "{{" in txt and len(txt) < 3000:
+        _cache[url] = None
+        return None
     f.write_text(txt, encoding="utf-8")
     _cache[url] = txt
     return txt

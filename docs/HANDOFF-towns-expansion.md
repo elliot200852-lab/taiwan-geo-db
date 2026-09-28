@@ -30,7 +30,9 @@ cd ~/MyWork/taiwan-geo-db
 - **計畫**＝`docs/taichung-writing-plan.md`（主軸 §2、排批 §3＝3 session／15 批：14 批×2 區＋批 3 和平單區、口徑 §4、`towns:` 29 條 §6、人口面積 §7＝人口鎖 2026-08 民政局、面積 2017-08 民政局）。
 - **批 1 派工單**＝`~/MyWork/_workspace/geo-tc-briefs/b1/`（中區・大甲；`README.md`＝開跑後主對話照序做的 14 步）。批 2 起 prep 範本＝同夾 `tc-b1-prep-common.md`。
 - **流程**＝§0-TN 同一套（Opus 寫作、Sonnet 查核每頁 1 支、修正主對話、fresh Sonnet 每批 1 支、Opus 整批最後驗收），差別只在並行度：**2026-09-28 David 拍板：一批 2 區平行寫作，計畫寫完即直接開跑、不必再問；一批全鏈走完（上線 verify 全綠）就停手，等 David 說「繼續」才開下一批。**
-- **狀態（2026-09-28）**：計畫與批 1 派工單已備，**批 1 即將開跑**；`content/taichung/taichung.md` 尚未貼 `towns:`（開跑步驟 1 才貼）。
+- **狀態（2026-09-28 深夜）**：`towns:` 29 條已貼入 `taichung.md`（被平行 session 收工 commit 617e4db 一起推上 origin）；紅隊關卡已跑（報告＝`~/MyWork/_workspace/geo-kh-reviews/taichung-redteam-b1-20260928.md`，高 4 中 9 低 9，修正落實見計畫 §3 上方註記）；**批 1 開跑**。fresh 驗收改回每頁 1 支。
+- **在製品保護（紅隊 H1）**：平行 session 收工會把 geo-db 在製品逐路徑推上公開 repo（2026-09-28 23:22 實際發生）。每批開跑前把該批兩區 md＋html 寫進 `.git/info/exclude`，commit 前才移除；pre-acceptance 的 build 跑完即 `git restore site/`。
+- **fact_gate 2026-09-28 修**：SPA 空殼（含 `{{`、<3,000 字）與 `awFastDownload`／NUL 位元組的二進位回應一律當「抓不到」→ 標「?」，不再誤判 ✗（紅隊 H2：臺中人口平台、戶政司表六）。
 
 ---
 
