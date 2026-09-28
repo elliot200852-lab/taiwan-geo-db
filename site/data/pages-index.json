@@ -613,10 +613,22 @@
       "type": "縣"
     },
     {
+      "id": "taichung-dajia",
+      "name": "大甲區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
       "id": "taichung",
       "name": "臺中市",
       "county": "臺中市",
       "type": "直轄市"
+    },
+    {
+      "id": "taichung-zhong",
+      "name": "中區",
+      "county": "臺中市",
+      "type": "區"
     },
     {
       "id": "tainan-anding",

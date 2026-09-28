@@ -5,6 +5,7 @@
 # 人工補洞：直接在下方加一行 `url: 標題`；重跑本腳本不會清掉人工值，
 # 除非該 URL 這次重新抓到了新標題（以新抓到的為準）。
 
+http://api.lib.ntnu.edu.tw:8080/server/api/core/bitstreams/f5edbd68-9f43-4d5b-ad1e-546475af6475/content: 臺灣師範大學地理學系學位論文－第三章 日治時代臺中市的誕生
 http://ashan.gl.ntu.edu.tw/chinese/GeoPark/YehLiu/index-YehLiu_main01.html: 阿山的地科研究室-地質公園-野柳岬-形成史
 http://ashan.gl.ntu.edu.tw/chinese/GeoPark/YehLiu/index-YehLiu_main02.html: 阿山的地科研究室-地質公園-野柳岬-地形
 ? http://biogeo.ntnugeog.org/static/website/html/social/lesson2/Keyword2/%E6%B0%A3%E6%BA%AB%E5%9E%82%E7%9B%B4%E9%81%9E%E6%B8%9B%E7%8E%87.htm
@@ -42,6 +43,8 @@ https://aborgpedia.alcd.center/detail?cat=0&id=11012&race=8: 臺灣原住民族�
 https://aborgpedia.alcd.center/detail?cat=0&id=11136&race=4: 臺灣原住民族事典 - Ryuhing金岳部落
 https://aborgpedia.alcd.center/detail?cat=0&id=11198&race=3: 臺灣原住民族事典 - Cikasuan七腳川部落
 https://aborgpedia.alcd.center/detail?cat=0&id=11757&race=0: 臺灣原住民族事典 - 「開山撫番」道路
+https://aborgpedia.alcd.center/detail?id=11738&search=&cat=0&race=41&writer=: 臺灣原住民族事典 - 大甲西社事件
+https://aborgpedia.alcd.center/detail?id=11739&search=&cat=0&race=41&writer=: 臺灣原住民族事典 - 大甲西社事件再起
 https://acc.taitung.gov.tw/News.aspx?n=15087&sms=13430: 人口統計資料 - 臺東縣政府主計處
 https://afrch.forest.gov.tw/0000052: 林業鐵路-歷史介紹
 https://agri.kcg.gov.tw/ActivitiesDetailC001100.aspx?Cond=0e583b19-256a-47d6-92ff-a9c4aa4d01b5: 台灣第九座高雄泥岩惡地地質公園審議通過-高雄市政府農業局網站
@@ -178,6 +181,8 @@ https://dashu.kcg.gov.tw/cp.aspx?n=AAB57C9B1285B2EE: 高雄市大樹區公所-�
 https://dashu.kcg.gov.tw/cp.aspx?n=CAE55873634328CA&s=B2EB74AFF5C932FB: 高雄市大樹區公所-水果特產
 https://data.boch.gov.tw/opendata/v2/assetsCase/1.1.json: 文化部文化資產局開放資料－古蹟（1.1.json）
 https://data.boch.gov.tw/opendata/v2/assetsCase/1.2.json: 文化部文化資產局開放資料－歷史建築（1.2.json）
+https://data.boch.gov.tw/opendata/v2/assetsCase/1.4.json: 文化部文化資產局開放資料－紀念建築（1.4.json）
+https://data.boch.gov.tw/opendata/v2/assetsCase/4.2.json: 文化部文化資產局開放資料－傳統工藝（4.2.json）
 https://data.boch.gov.tw/opendata/v2/assetsCase/5.1.json: 文化部文化資產局開放資料－民俗（5.1.json）
 ? https://data.boch.gov.tw/upload/documents/2021-07-26/fb47f75c-9f25-42f5-ad76-ccd9f1bf90e3/%E5%AE%89%E5%AE%9A%E7%9C%9F%E8%AD%B7%E5%AE%AE%E5%85%AC%E5%91%8A.docx.pdf
 : 臺南縣政府公告登錄「安定真護宮王船祭」為縣定民俗（2009-10-02，PDF）
@@ -195,6 +200,7 @@ https://data.tainan.gov.tw/Resource/61304c54-3f5e-4acf-a28a-9350615bee93?handler
 https://db.nmtl.gov.tw/site2/dictionary?id=Dictionary01372: 台灣文學辭典資料庫
 https://db.nmtl.gov.tw/site2/ikm?id=37: 台灣文學知識平台
 https://deh.csie.ncku.edu.tw/poi_detail/10591: 文史脈流網站
+https://demographics.taichung.gov.tw/Demographic/WebPage/TCCReport01.html: 臺中市政府民政局 - 人口統計管理平台 - 表01-里鄰戶數及人口數
 https://den.ncdr.nat.gov.tw/1330/1342/20538/20588/: 0403花蓮規模7.2地震及地質分析說明-全球災害事件簿
 https://den.ncdr.nat.gov.tw/1386/1395/1407/24758/26287/: 2015年蘇迪勒颱風災害調查彙整報告-防減災線上博物館
 https://den.ncdr.nat.gov.tw/special/%E9%A6%AC%E5%A4%AA%E9%9E%8D/index.html: 馬太鞍溪堰塞湖 災害全紀錄
@@ -270,6 +276,7 @@ https://enews.moenv.gov.tw/Page/3B3C62C78849F32F/10db564b-158e-455f-b1ae-6208247
 https://epb2.tnepb.gov.tw/cpdc/ch/mode02.asp?m=201205170854071&t=sub: 場址介紹 - 歷史沿革 - 中石化(台鹼)安順廠整治場址
 https://epb2.tnepb.gov.tw/cpdc/ch/mode02.asp?m=201205170854073&t=sub: 場址介紹 - 場址概況 - 中石化(台鹼)安順廠整治場址
 https://esg.businesstoday.com.tw/article/category/180687/post/202303130012: 水資源危機》台灣年降雨量是世界平均雨量 3 倍，為何卻名列全－ESG永續台灣
+https://estate.ltn.com.tw/article/1738: 台中車站高架化 第一階段16日通車 - 地產天下 - 自由電子報
 https://event.gvm.com.tw/windpower/: 台灣海峽的綠金寶藏能否成真?
 https://eventsinfocus.org/issues/104: 低放最終處置候選場址：達仁與烏坵鄉 | 焦點事件
 https://eventsinfocus.org/issues/1836: 亞泥花蓮新城山礦區大事記 | 焦點事件
@@ -1402,6 +1409,8 @@ https://wanlicrab.tw/: 在台灣 就是要吃萬里蟹 - 萬里蟹品牌官網 -
 https://water.moenv.gov.tw/Public/CHT/River/Erren.aspx: 二仁溪
 https://water.ntpc.gov.tw/News/Detail/1483.htm: 新北水漾-淡水河流域介紹
 https://waterworks.tainan.gov.tw/index.php?modify=about: 關於 | 臺南山上花園水道博物館
+? https://web.archive.org/web/20181212042927/http://www.nmns.edu.tw/public/exhibit/2010/metropolitian/exhibition/fanziyuan.htm
+: 國立自然科學博物館 -> 城市考古 -> 展示單元 -> 番仔園文化
 https://web.ncku.edu.tw/p/404-1000-161108.php?Lang=zh-tw: 校園資訊 - NCKU, 國立成功大學 National Cheng Kung University
 https://web.ncku.edu.tw/p/412-1000-6300.php?Lang=zh-tw: 校史 - NCKU, 國立成功大學 National Cheng Kung University
 https://web.tainan.gov.tw/Nation/News_Content.aspx?n=934&s=5759: 臺南市政府原住民族事務委員會-臺南客家亮點─鹿陶洋江家聚落
@@ -1549,6 +1558,9 @@ https://www.ca.ntpc.gov.tw/home.jsp?id=ed947a5a3b0af96d: 全台唯一綠石槽-�
 https://www.ca.ntpc.gov.tw/home.jsp?id=fa9c81c8c2e597b8: 各區人口統計-新北市政府民政局
 ? https://www.catholic-tainan.org/church-history/%E8%8F%81%E5%AF%AE/%E8%81%96%E5%8D%81%E5%AD%97%E6%9E%B6%E5%A4%A9%E4%B8%BB%E5%A0%82
 : 菁寮, 聖十字架天主堂
+https://www.central.taichung.gov.tw/1699766/post: 臺中市中區區公所-休閒文化-第二市場及六角樓~文化與味蕾的饗宴
+https://www.central.taichung.gov.tw/831735/831736/831738/831739/863986/post: 臺中市中區區公所-歷史沿革-歷史沿革
+https://www.central.taichung.gov.tw/831735/831736/831738/831740/863996/post: 臺中市中區區公所-地理環境-地理環境
 https://www.ceramics.ntpc.gov.tw/xmdoc/cont?xsmsid=0G289657816037689043&sid=0G294532986633213720: 化泥成形
   | 新北市立鶯歌陶瓷博物館
 https://www.ceramics.ntpc.gov.tw/xmdoc/cont?xsmsid=0G289657816037689043&sid=0G294534132728424215: 回看所來處
@@ -1588,6 +1600,9 @@ https://www.cip.gov.tw/zh-tw/tribe/grid-list/91A2A514F76BAEACD0636733C6861689/in
 https://www.cip.gov.tw/zh-tw/tribe/grid-list/AE6EE12F5F284D59D0636733C6861689/info.html?cumid=D0636733C6861689: 鄒族
 https://www.cip.gov.tw/zh-tw/tribe/grid-list/F39C8394699DD2D6D0636733C6861689/info.html?cumid=D0636733C6861689: 布農族
 https://www.cip.gov.tw/zh-tw/tribe/grid-list/index.html?cumid=8F19BF08AE220D65: 原住民族16族簡介
+https://www.civil.taichung.gov.tw/93496/post: 臺中市政府民政局全球資訊網-區里行政科-臺中市各行政區所轄面積
+https://www.civil.taichung.gov.tw/94833/post: 臺中市政府民政局全球資訊網-常見問答-請問臺中市面積有多大、共分幾個行政區、有多少個里？多少個鄰？最大區及最小區各是哪一區？面積為何？
+https://www.civil.taichung.gov.tw/media/18166/new-taichung-sy-public-attachment-10201d-71051530265.xls: 臺中市各區土地面積表
 https://www.cna.com.tw/news/ahel/202106220225.aspx: 南化水庫防淤隧道 趁溢流大雨排砂試運轉 | 生活 | 中央社 CNA
 https://www.cna.com.tw/news/ahel/202108260267.aspx: 關廟服務區推竹藝創生 從阿嬤年代籮筐到現代躺椅 | 生活 | 中央社 CNA
 https://www.cna.com.tw/news/ahel/202109100287.aspx: 全台第9座 高雄泥岩惡地地質公園審議通過 | 生活 | 中央社 CNA
@@ -1632,6 +1647,7 @@ https://www.csc.com.tw/csc/gc/gro_eng_p6.html: 興達海洋基礎股份有限公
 https://www.ctee.com.tw/news/20260810701216-431401: 產量少2成！麻豆文旦驚爆「延遲性災損」 果農曝不敢漲原因 - 生活 - 工商時報
 https://www.ctwant.com/article/208127: 玉里斷層不存在？學術界錯了70年 台大學者：改為這名字比較合適 | 生活 | CTWANT
 https://www.ctwant.com/article/431279/: 高雄市第100期市地重劃區開發完成 仁武邁向水岸宜居新未來 | 生活 | CTWANT
+https://www.culture.taichung.gov.tw/2186654/post: 臺中市政府文化局-數位閱讀-文化城中城歷史現場 - 臺中戲院與謝雪紅
 https://www.cw.com.tw/article/5075470: 那瑪夏部落女性 挺進重建之路｜天下雜誌
 https://www.cw.com.tw/article/5088361: 救命水在這！台灣也有地底大水庫｜天下雜誌
 https://www.cwa.gov.tw/Data/service/hottopic/14277057430.pdf: 臺灣分區雨量的季節氣候特徵（中央氣象署）
@@ -1641,6 +1657,18 @@ https://www.cy.gov.tw/News_Content.aspx?n=124&sms=8912&s=8255: 0206美濃地震�
   提案糾正內政部及臺南市政府
 https://www.cy.gov.tw/News_Content.aspx?n=125&s=14239: 監委趙永清、田秋堇調查核四廠重件碼頭影響鹽寮福隆沙灘流失案，經調查涉有疏失，提案糾正經濟部、台電公司、交通部觀光局，並要求應落實養灘承諾等檢討改進
 https://www.cy.gov.tw/News_Content.aspx?n=125&s=23550: 莫拉克風災後永久屋政策及三方契約關係衍生出土地及居住權等爭議，原住民部落遭切割或分離，難以協助災民永業安居，永久屋政策亟需全面檢視。監委葉大華、紀惠容、鴻義章、浦忠成提出調查報告，指出應加速調整永久屋三方契約關係、原居地安全複勘作業應納入原民觀點、正視永久屋品質管理及建置發展機制、研議原住民族災後重建專法及土地權利之保障、落實原民災民參政權，促請行政院督同所屬積極檢討改進
+https://www.dajia.taichung.gov.tw/1262133/post: 臺中市大甲區公所-歷史沿革-大甲聚落的發展
+https://www.dajia.taichung.gov.tw/1262137/post: 臺中市大甲區公所-歷史沿革-日治前大甲市街之形成
+https://www.dajia.taichung.gov.tw/1262141/post: 臺中市大甲區公所-歷史沿革-日治時期大甲市區改正
+https://www.dajia.taichung.gov.tw/1262552/post: 臺中市大甲區公所-轄內市定古蹟-林氏貞孝坊
+https://www.dajia.taichung.gov.tw/1262555/post: 臺中市大甲區公所-轄內市定古蹟-文昌祠
+https://www.dajia.taichung.gov.tw/1511910/post: 臺中市大甲區公所-觀光景點-林氏貞孝坊
+https://www.dajia.taichung.gov.tw/1511983/post: 臺中市大甲區公所-觀光景點-鐵砧山風景區
+https://www.dajia.taichung.gov.tw/1514252/post: 臺中市大甲區公所-觀光景點-日南車站
+https://www.dajia.taichung.gov.tw/1514289/post: 臺中市大甲區公所-觀光景點-縱貫線大安溪舊橋
+https://www.dajia.taichung.gov.tw/1514333/post: 臺中市大甲區公所-觀光景點-名聞遐邇的大甲帽蓆
+https://www.dajia.taichung.gov.tw/982944/1679729/983034/1723745/post: 臺中市大甲區公所-地理環境-地理環境和氣候
+https://www.dajia.taichung.gov.tw/media/156433/621716471671.pdf: 《大甲鎮志》經濟篇－第七章 帽蓆產業
 https://www.datong.e-land.gov.tw/cp.aspx?n=13923: 宜蘭縣大同鄉公所-行政區域
 https://www.datong.e-land.gov.tw/cp.aspx?n=13924: 宜蘭縣大同鄉公所-鄉政簡介
 https://www.delta-foundation.org.tw/newsdetail/545: 台達捐建高雄那瑪夏民權小學榮獲亞洲校園首座LEED零能耗認證 | 台達電子文教基金會
@@ -1988,6 +2016,7 @@ https://www.rhythmsmonthly.com/?p=11274: 經典雜誌【台灣岸邊】活力海
 https://www.rhythmsmonthly.com/?p=30951: 經典雜誌【考古台灣】舊香蘭遺址 東海岸的璀璨金屬器文明 –
 https://www.richitech.com.tw/10202/: 人口遷徙大解密，臺灣人口重心的十年挑戰！ | RiChi
 https://www.ris.gov.tw/app/portal/346: 中華民國 內政部戶政司 全球資訊網 - 人口統計資料
+https://www.ris.gov.tw/info-popudata/app/awFastDownload/file/y0s6-00000.xls/y0s6/00000/: 表六 各縣市鄉鎮市區土地面積及人口密度（中華民國114年底）
 https://www.rti.org.tw/news/view/id/2090646: 黃金鐵路！北迴線41年前今天全線通車 回顧開拓史全靠台灣人力量從0開始-新聞-Rti 中央廣播電臺
 https://www.saht.org.tw/?p=1793: 【專文】魯凱族好茶舊社家屋修護的歷程與反思 - 台灣建築史學會
 https://www.sanchong.ntpc.gov.tw/home.jsp?id=e32fc9bbd6f35420: 歷史沿革-新北市三重區公所
@@ -2215,6 +2244,9 @@ https://www.tbrs.gov.tw/ws.php?id=3785: 鐵觀音茶(茶及飲料作物改良場
 https://www.tbrs.gov.tw/ws.php?id=4803: 蜜香茶(茶及飲料作物改良場)
 https://www.tcgs.org.tw/?act=menuinfo&ml_id=20231121007: 歷史沿革-學甲慈濟宮
 https://www.tcgs.org.tw/?act=menuinfo&ml_id=20231121010: 大事年表-學甲慈濟宮
+https://www.tchac.taichung.gov.tw/historybuilding?pid=144&uid=39: 重要民俗-大甲媽祖遶境進香 臺中市文化資產處-民俗
+https://www.tchac.taichung.gov.tw/uploads/site/files/202012/0f8a0f7e-30fa-4926-9332-b625005b68a1.pdf: 1071203_民俗重新登錄公告（臺中市文化資產處，大甲媽祖遶境進香）
+https://www.tchac.taichung.gov.tw/uploads/tchac/files/201905/72215b63-2bbc-44d8-a990-9d674576dddd.pdf: 0970704_大甲媽祖繞境進香_登錄公告（臺中市文化資產處）
 https://www.tcooc.gov.taipei/cp.aspx?n=d6636c188a8adc8e&s=7FC17913F132F1F0: 臺北市商業處-商圈介紹
 https://www.tfri.gov.tw/News_Content3.aspx?n=7511&s=16028: 恆春熱帶植物園
 https://www.th.gov.tw/Epaper_Content/236/8816/: 國史館-臺灣文獻館-悅讀檔案-「西勢水庫」的前身基隆水道貯水池及其森林涵養
@@ -2490,9 +2522,16 @@ https://zh.wikipedia.org/wiki/%E5%90%B3%E6%99%89%E6%B7%AE: 吳晉淮 - 維基百
 ? https://zh.wikipedia.org/wiki/%E5%9C%8B%E7%AB%8B%E6%88%90%E5%8A%9F%E5%A4%A7%E5%AD%B8%E9%86%AB%E5%AD%B8%E9%99%A2%E9%99%84%E8%A8%AD%E9%86%AB%E9%99%A2
 : 國立成功大學醫學院附設醫院 - 維基百科
 https://zh.wikipedia.org/wiki/%E5%9C%9F%E5%9C%B0%E5%BB%9F: 土地廟 - 維基百科
+https://zh.wikipedia.org/wiki/%E5%A4%96%E5%9F%94%E5%8D%80: 外埔區 - 維基百科
 ? https://zh.wikipedia.org/wiki/%E5%A4%A7%E6%AD%A6%E4%BA%8B%E6%A5%AD%E5%8D%80%E5%8F%B0%E7%81%A3%E7%A9%97%E8%8A%B1%E6%9D%89%E8%87%AA%E7%84%B6%E4%BF%9D%E7%95%99%E5%8D%80
 : 大武事業區台灣穗花杉自然保留區 - 維基百科
 https://zh.wikipedia.org/wiki/%E5%A4%A7%E6%B8%AF%E5%8F%A3%E4%BA%8B%E4%BB%B6: 大港口事件 - 維基百科
+https://zh.wikipedia.org/wiki/%E5%A4%A7%E7%94%B2%E5%8D%80: 大甲區 - 維基百科
+https://zh.wikipedia.org/wiki/%E5%A4%A7%E7%94%B2%E5%AA%BD%E7%A5%96%E9%81%B6%E5%A2%83%E9%80%B2%E9%A6%99: 大甲媽祖遶境進香
+  - 維基百科
+https://zh.wikipedia.org/wiki/%E5%A4%A7%E7%94%B2%E8%A5%BF%E7%A4%BE%E6%8A%97%E6%B8%85%E4%BA%8B%E4%BB%B6: 大甲西社抗清事件
+  - 維基百科
+https://zh.wikipedia.org/wiki/%E5%A4%A7%E7%94%B2%E9%8E%AE%E7%80%BE%E5%AE%AE: 大甲鎮瀾宮 - 維基百科
 https://zh.wikipedia.org/wiki/%E5%BA%B7%E7%86%99%E8%87%BA%E5%8C%97%E6%B9%96: 康熙臺北湖 - 維基百科
 https://zh.wikipedia.org/wiki/%E5%BE%B7%E6%85%B6%E6%BA%AA: 德慶溪 - 維基百科
 https://zh.wikipedia.org/wiki/%E6%97%97%E5%B1%B1%E6%96%B7%E5%B1%A4: 旗山斷層 - 維基百科
@@ -2532,6 +2571,7 @@ https://zh.wikipedia.org/wiki/%E9%83%AD%E9%8C%AB%E7%91%A0: 郭錫瑠 - 維基百
 https://zh.wikipedia.org/wiki/%E9%84%AD%E6%88%90%E5%8A%9F%E6%94%BB%E8%87%BA%E4%B9%8B%E5%BD%B9: 鄭成功攻臺之役
   - 維基百科
 https://zh.wikipedia.org/wiki/%E9%87%91%E5%BB%A3%E7%A6%8F%E5%85%AC%E9%A4%A8: 金廣福公館 - 維基百科
+https://zh.wikipedia.org/wiki/%E9%90%B5%E7%A0%A7%E5%B1%B1: 鐵砧山 - 維基百科
 https://zh.wikipedia.org/wiki/%E9%98%BF%E6%A0%B9%E7%B4%8D%E9%80%A0%E8%88%B9%E5%BB%A0%E9%81%BA%E6%A7%8B: 阿根納造船廠遺構
   - 維基百科
 https://zh.wikipedia.org/wiki/%E9%A6%AC%E7%A5%96%E5%88%97%E5%B3%B6: 馬祖列島 - 維基百科
@@ -2620,6 +2660,7 @@ https://zh.wikipedia.org/zh-tw/%E4%B8%8B%E7%87%9F%E5%8C%97%E6%A5%B5%E6%AE%BF%E7%
   - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%8B%E7%87%9F%E5%8D%80: 下營區 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E4%BF%A1%E9%80%A0%E8%88%B9%E9%9B%86%E5%9C%98: 中信造船集團 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%8D%80_%28%E8%87%BA%E4%B8%AD%E5%B8%82%29: 中區 (臺中市) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%92%8C%E5%8D%80: 中和區 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%92%8C%E5%BB%A3%E6%BF%9F%E5%AE%AE: 中和廣濟宮 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%92%8C%E8%8F%AF%E6%96%B0%E8%A1%97%E5%95%86%E5%9C%88: 中和華新街商圈
@@ -2635,6 +2676,7 @@ https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%B1%B1%E5%A0%82_(%E8%87%BA%E5%8C%97%E
   維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%B1%B1%E6%A9%8B_(%E8%87%BA%E5%8C%97%E5%B8%82): 中山橋 (臺北市) -
   維基百科
+https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%B1%B1%E7%B6%A0%E6%A9%8B: 中山綠橋 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%B1%B1%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF: 中山高速公路 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E6%AD%A3%E5%8D%80_(%E5%9F%BA%E9%9A%86%E5%B8%82): 中正區 (基隆市) -
   維基百科
@@ -2804,6 +2846,7 @@ https://zh.wikipedia.org/zh-tw/%E5%8D%97%E5%8B%A2%E6%BA%AA: 南勢溪 - 維基�
 https://zh.wikipedia.org/zh-tw/%E5%8D%97%E5%8B%A2%E8%A7%92: 南勢角 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8D%97%E5%8C%96%E5%8D%80: 南化區 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8D%97%E5%8C%96%E5%BA%84: 南化庄 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E5%8D%97%E5%8D%80_%28%E8%87%BA%E4%B8%AD%E5%B8%82%29: 南區 (臺中市) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8D%97%E5%8D%80_(%E8%87%BA%E5%8D%97%E5%B8%82): 南區 (臺南市) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8D%97%E5%B3%B6%E8%AA%9E%E7%B3%BB: 南島語系 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8D%97%E6%8A%95%E7%B8%A3: 南投縣 - 維基百科
@@ -2847,6 +2890,7 @@ https://zh.wikipedia.org/zh-tw/%E5%8F%A3%E7%A4%BE%E5%AF%AE%E9%98%BF%E7%AB%8B%E7%
   - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8F%A4%E4%BA%AD%E5%9D%91%E5%B1%A4: 古亭坑層 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8F%A4%E8%8E%8A%E8%99%9F%E8%AA%8C%E7%AB%99: 古莊號誌站 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E5%8F%B0%E4%B8%AD%E8%90%AC%E6%98%A5%E5%AE%AE: 台中萬春宮 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8F%B0%E5%8C%97%E5%A4%A7%E5%B7%A8%E8%9B%8B: 臺北大巨蛋 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8F%B0%E5%8C%97%E5%A4%A7%E6%A9%8B: 臺北大橋 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%8F%B0%E5%8C%97%E6%A4%8D%E7%89%A9%E5%9C%92: 台北植物園 - 維基百科
@@ -3068,6 +3112,7 @@ https://zh.wikipedia.org/zh-tw/%E5%AE%9C%E8%98%AD%E7%B6%A0%E8%89%B2%E5%8D%9A%E8%
 https://zh.wikipedia.org/zh-tw/%E5%AE%9C%E8%98%AD%E7%B7%9A: 宜蘭線 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%AE%9C%E8%98%AD%E7%B8%A3: 宜蘭縣 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%AE%A2%E5%AE%B6%E8%A3%94%E8%87%BA%E7%81%A3%E4%BA%BA: 客家裔臺灣人 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E5%AE%AE%E5%8E%9F%E7%9C%BC%E7%A7%91: 宮原眼科 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%AF%8C%E8%B2%B4%E8%A7%92: 富貴角 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%AF%8C%E8%B2%B4%E8%A7%92%E7%87%88%E5%A1%94: 富貴角燈塔 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E5%AF%8C%E9%87%8C%E9%84%89: 富里鄉 - 維基百科
@@ -3252,6 +3297,7 @@ https://zh.wikipedia.org/zh-tw/%E6%9D%8E%E6%A2%85%E6%A8%B9: 李梅樹 - 維基�
 https://zh.wikipedia.org/zh-tw/%E6%9D%8E%E7%99%BB%E8%BC%9D: 李登輝 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9D%9C%E8%81%B0%E6%98%8E: 杜聰明 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9D%B1%E5%8C%97%E5%AD%A3%E9%A2%A8: 東北季風 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E6%9D%B1%E5%8D%80_%28%E8%87%BA%E4%B8%AD%E5%B8%82%29: 東區 (臺中市) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9D%B1%E5%B1%B1%E5%8D%80_(%E8%87%BA%E5%8D%97%E5%B8%82): 東山區 (臺南市) -
   維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9D%B1%E6%96%B9%E7%BE%8E%E4%BA%BA%E8%8C%B6: 東方美人茶 - 維基百科
@@ -3289,6 +3335,7 @@ https://zh.wikipedia.org/zh-tw/%E6%9E%97%E9%B3%B3%E7%87%9F%E8%BB%8A%E7%AB%99: �
 https://zh.wikipedia.org/zh-tw/%E6%9E%97%E9%B3%B3_(%E6%98%8E%E9%84%AD): 林鳳 (明鄭) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9E%9C%E8%B2%BF%E7%A4%BE%E5%8D%80_(%E9%AB%98%E9%9B%84%E5%B8%82): 果貿社區
   (高雄市) - 維基百科
+https://zh.wikipedia.org/zh-tw/%E6%9F%B3%E5%B7%9D: 柳川 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9F%B3%E7%87%9F%E5%8D%80: 柳營區 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%9F%B3%E7%87%9F%E5%90%B3%E6%99%89%E6%B7%AE%E6%95%85%E5%B1%85: 柳營吳晉淮故居
   - 維基百科
@@ -3325,6 +3372,7 @@ https://zh.wikipedia.org/zh-tw/%E6%A9%8B%E5%8D%97%E8%80%81%E8%A1%97: 橋南老�
 https://zh.wikipedia.org/zh-tw/%E6%A9%8B%E9%A0%AD%E4%BA%8B%E4%BB%B6: 橋頭事件 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%A9%8B%E9%A0%AD%E5%8D%80: 橋頭區 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%A9%8B%E9%A0%AD%E7%B3%96%E5%BB%A0: 橋頭糖廠 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E6%AB%BB%E6%A9%8B: 櫻橋 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%AC%BD%E5%B7%AE%E8%A1%8C%E8%87%BA: 欽差行臺 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%AD%90%E4%BE%86%E5%8A%A9: 歐來助 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E6%AD%A3%E7%B5%B1%E9%B9%BF%E8%80%B3%E9%96%80%E8%81%96%E6%AF%8D%E5%BB%9F: 正統鹿耳門聖母廟
@@ -3574,7 +3622,10 @@ https://zh.wikipedia.org/zh-tw/%E8%81%AF%E5%8B%A444%E5%85%B5%E5%B7%A5%E5%BB%A0: 
 https://zh.wikipedia.org/zh-tw/%E8%83%A1%E5%82%B3: 胡傳 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E4%B8%AD%E5%B8%82: 臺中市 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E4%B8%AD%E5%B8%82%E5%9C%B0%E7%90%86: 臺中市地理 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E8%87%BA%E4%B8%AD%E7%81%AB%E8%BB%8A%E7%AB%99_%28%E5%8F%A4%E8%B9%9F%29: 臺中火車站
+  (古蹟) - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E4%B8%AD%E7%9B%86%E5%9C%B0: 臺中盆地 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E8%87%BA%E4%B8%AD%E8%BB%8A%E7%AB%99: 臺中車站 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E5%8C%97%E4%BA%8C%E4%BA%8C%E5%85%AB%E7%B4%80%E5%BF%B5%E9%A4%A8: 臺北二二八紀念館
   - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E5%8C%97%E5%8C%97%E8%AD%A6%E5%AF%9F%E7%BD%B2: 臺北北警察署 - 維基百科
@@ -3655,6 +3706,7 @@ https://zh.wikipedia.org/zh-tw/%E8%87%BA%E7%81%A3%E7%8D%BC%E7%8C%B4: 台灣獼�
 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E7%81%A3%E7%8E%89: 臺灣玉 - 維基百科
 ? https://zh.wikipedia.org/zh-tw/%E8%87%BA%E7%81%A3%E7%9C%81%E4%BF%9D%E5%AE%89%E5%8F%B8%E4%BB%A4%E9%83%A8%E8%BB%8D%E6%B3%95%E8%99%95%E5%8E%9F%E5%9D%80
 : 臺灣省保安司令部軍法處原址 - 維基百科
+https://zh.wikipedia.org/zh-tw/%E8%87%BA%E7%81%A3%E7%9C%81%E5%9F%8E: 臺灣省城 - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E7%81%A3%E7%9C%81%E8%A1%8C%E6%94%BF%E9%95%B7%E5%AE%98%E5%85%AC%E7%BD%B2: 臺灣省行政長官公署
   - 維基百科
 https://zh.wikipedia.org/zh-tw/%E8%87%BA%E7%81%A3%E7%A5%9E%E5%AE%AE: 臺灣神宮 - 維基百科
@@ -4202,7 +4254,7 @@ https://zshr.gov.taipei/cp.aspx?n=A7135430A296F3C4: 臺北市中山區戶政事�
 # https://www-ws.wra.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDAxL3JlbGZpbGUvMC82OTk4LzVkODc1ZGIxLWNkZDMtNGYyMS1iMzYyLWNmNjE4ZTU3MTQxNC5wZGY%3D&n=6Ie65Y2X5biC5LiA57Sa5rW35bK46Ziy6K236KiI55WrKOaguOWumuacrCkt5rW35bK46Ziy6K235Y2A6bue5L2N5riF5YaKLnBkZg%3D%3D
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.afa.gov.tw/cht/index.php?act=download&ids=44938
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
+#   原因：('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
 # https://www.badouzi.com.tw/templates/cache/21410/product-detail-1267866.html
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.ciche.org.tw/wordpress/wp-content/uploads/2024/04/DB5101-P066-%E5%B0%88%E8%BC%AF-%E6%8E%A2%E8%A8%8E%E4%BA%8C%E9%87%8D%E7%96%8F%E6%B4%AA%E9%81%93.pdf
@@ -4232,8 +4284,6 @@ https://zshr.gov.taipei/cp.aspx?n=A7135430A296F3C4: 臺北市中山區戶政事�
 # https://www.ntl.edu.tw/public/Attachment/59141734290.pdf
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.ris.gov.tw/info-popudata/app/awFastDownload/file/s000-11505.xls/s000/11505/
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://www.ris.gov.tw/info-popudata/app/awFastDownload/file/y0s6-00000.xls/y0s6/00000/
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.taiwanbear.org.tw/admin/resource/files/2015,_%E8%94%A1%E8%95%99%E9%9B%AF%EF%BD%9C%E7%8E%89%E5%B1%B1%E5%9C%8B%E5%AE%B6%E5%85%AC%E5%9C%92%E5%A4%A7%E5%88%86%E5%9C%B0%E5%8D%80%E8%87%BA%E7%81%A3%E9%BB%91%E7%86%8A%E4%B9%8B%E5%80%8B%E9%AB%94%E9%91%91%E5%88%A5%E8%88%87%E6%97%8F%E7%BE%A4%E9%81%BA%E5%82%B3%E7%B5%90%E6%A7%8B%EF%BD%9C%E9%BB%83%E7%BE%8E%E7%A7%80%E3%80%81%E6%9C%B1%E6%9C%89%E7%94%B0.pdf
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）

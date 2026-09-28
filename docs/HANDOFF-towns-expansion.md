@@ -34,6 +34,15 @@ cd ~/MyWork/taiwan-geo-db
 - **在製品保護（紅隊 H1）**：平行 session 收工會把 geo-db 在製品逐路徑推上公開 repo（2026-09-28 23:22 實際發生）。每批開跑前把該批兩區 md＋html 寫進 `.git/info/exclude`，commit 前才移除；pre-acceptance 的 build 跑完即 `git restore site/`。
 - **fact_gate 2026-09-28 修**：SPA 空殼（含 `{{`、<3,000 字）與 `awFastDownload`／NUL 位元組的二進位回應一律當「抓不到」→ 標「?」，不再誤判 ✗（紅隊 H2：臺中人口平台、戶政司表六）。
 
+### 進度斷點（磁碟才是事實來源，這裡只放指標）
+- 2026-09-29：**批 1 中區、大甲兩頁機械鏈跑完＝2/29（尚未 commit——依批 1 派工單限制①，兩區母本與 `site/pages/taichung-{zhong,dajia}.html` 目前寫在 `.git/info/exclude` 防平行 session 誤推，commit 由主對話移除該擋名單後執行）**。
+  中區：4,820 字／教學 35.68%／lede 92 字／圖 9／源 26；`fact_gate --fetch`「✓ 88 條全部指得到；命中 77、無法取得 11」；`check-duplicate-titles.sh` 通過；查核 Sonnet 280k（高 0／中 0／低 2；報告＝`_workspace/geo-tc-b1/zhong-check.md`，查核 agent 未落檔、由主對話照其 hand-back 補寫）；主對話修正兩處：中山綠橋圖 `section` 自然地理→人文地理、factmap 62/63 附註）；fresh 驗收 Sonnet 207k **一次 GO**（高 0；低 2＝factmap 第 62 條引文誤植〔表六第 101 列中區列，純文件瑕疵不擋上線〕、定位速覽末句用字供參考）；golden「日治時期」新頁進榜、既有 19 組排序零改變已重定基準（20 組）；`--check-images` 全過、零 429。
+  大甲：4,861 字／教學 35.20%／lede 98 字／圖 8／源 32；`fact_gate --fetch`「✓ 107 條全部指得到；命中 92、無法取得 15」；`check-duplicate-titles.sh` 通過；查核 Sonnet 291k（報告＝`_workspace/geo-tc-b1/dajia-check.md`，計畫大甲區列重查 3 條）；主對話已依查核與 fresh 回報逕行修正兩處：L118「文資局記」改「維基的路線圖記」、說書稿第 3 段禁則補溪北日南一句；fresh 驗收 Sonnet 220k **一次 GO**（高 0；低 0）。
+  `--check-images` 兩區共 17 張（9＋8）逐張 `curl -sI` 全 200，零 429，去重閘 `images_bad=[]`。
+  派工單＝`~/MyWork/_workspace/geo-tc-briefs/b1/`；查核＝`_workspace/geo-tc-b1/{zhong,dajia}-check.md`；驗收＝`{zhong,dajia}-acceptance.md`；寫作端回報＝`{zhong,dajia}-writer-report.md`。
+  額度：計畫撰寫 Opus 538k（一次性，批 1 整批）＋紅隊 Opus 314k（一次性）；寫作 Opus 中區 364k／大甲 383k；查核 Sonnet 中區 280k／大甲 291k；fresh 驗收 Sonnet 大甲 220k／中區 207k；修正＝主對話（未計 subagent token）；機械鏈 Sonnet 287k；**最後驗收（Opus）待補**。
+  **plan 回填（同批，隨頁一起等待 commit）**：§2-B 第 11 列「鎮瀾宮建廟年與遶境文資兩層」→「四張公文」；§4-B 新增／改寫四條——「中區・市區改正年代」官方一手回填（臺師大論文引《臺中縣報》第198號〔明治33年即1900-01-06 縣告示第5號〕、臺中廳告示第178號〔1911-08-17 臺中廳報第1253號附錄〕）、「中區・綠川命名」補柳川得名年 1916（維基〈柳川〉）、「中區・臺中驛」第三代啟用日回填 2016-10-16、「大甲・大甲媽祖遶境進香的文資層次」補第四張公文 2018-12-03（臺中市依§111重新登錄地方層）、「大甲・大甲西社事件」平定年月回填 1732 年 9 月（事典）、「大甲・海線鐵路」覆核確認現有文字無需修改；§7 補中區／大甲實例（區公所網域、stats 三值、名次自排）。
+
 ---
 
 ## 0-TH. 主題頁怎麼寫（2026-09-09 立，第 20 張〈臺灣的國家公園〉實跑後定；下一張照此）
