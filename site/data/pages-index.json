@@ -619,10 +619,22 @@
       "type": "區"
     },
     {
+      "id": "taichung-shengang",
+      "name": "神岡區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
       "id": "taichung",
       "name": "臺中市",
       "county": "臺中市",
       "type": "直轄市"
+    },
+    {
+      "id": "taichung-wufeng",
+      "name": "霧峰區",
+      "county": "臺中市",
+      "type": "區"
     },
     {
       "id": "taichung-zhong",

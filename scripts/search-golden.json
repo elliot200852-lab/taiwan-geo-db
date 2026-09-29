@@ -100,6 +100,7 @@
   ],
   "地震": [
     "theme-earthquake",
+    "taichung-wufeng",
     "hualien",
     "tainan-xinhua",
     "tainan-baihe",
@@ -107,8 +108,7 @@
     "tainan-shanhua",
     "nantou",
     "tainan-yongkang",
-    "hualien-hualien",
-    "miaoli"
+    "hualien-hualien"
   ],
   "老街": [
     "new-taipei-sanxia",
