@@ -982,6 +982,85 @@ figure.geo-fig figcaption .cap-title { font-family: var(--serif); color: var(--i
   border-left-color: var(--terra);
 }
 .pc-name { display: block; font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--terra-deep); }
+/* ---------- 首頁「我在哪裡」：定位＋縣市／鄉鎮選單（新增 2026-10-01，只在首頁） ---------- */
+.geo-locate {
+  max-width: 640px;
+  margin: .9rem auto 0;
+  padding: 0 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .6rem;
+}
+.geo-locate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-family: var(--sans);
+  font-size: .92rem;
+  font-weight: 500;
+  color: var(--terra-deep);
+  background: var(--card);
+  border: 1px solid var(--terra);
+  border-radius: 0;
+  padding: .5rem .85rem;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.geo-locate-btn svg {
+  width: 18px; height: 18px; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+.geo-locate-btn:hover { background: var(--terra); color: var(--paper); }
+.geo-locate-btn:disabled { cursor: progress; opacity: .7; }
+.geo-locate-btn.is-busy svg { animation: geo-locate-pulse 1s ease-in-out infinite; }
+@keyframes geo-locate-pulse { 50% { transform: translateY(-2px); opacity: .5; } }
+.geo-locate-pick {
+  flex: 1 1 280px;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: .4rem;
+}
+.geo-locate-pick select,
+.geo-pick-go {
+  font-family: var(--sans);
+  font-size: .92rem;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: .5rem .55rem;
+  min-width: 0;
+}
+.geo-locate-pick select:focus,
+.geo-pick-go:focus-visible {
+  outline: none;
+  border-color: var(--terra);
+  box-shadow: 0 0 0 3px rgba(181, 106, 60, .14);
+}
+.geo-locate-pick select:disabled { color: var(--ink-soft); }
+.geo-pick-go {
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--map-blue);
+  border-color: var(--map-blue-deep);
+  padding: .5rem .9rem;
+  cursor: pointer;
+}
+.geo-pick-go:hover { background: var(--map-blue-deep); }
+.geo-pick-go:disabled { background: var(--land-inactive); border-color: var(--line); color: var(--ink-soft); cursor: default; }
+.geo-locate-status {
+  flex-basis: 100%;
+  margin: 0 .1rem;
+  font-family: var(--sans);
+  font-size: .82rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.geo-locate-status:empty { display: none; }
+.geo-locate-status.is-ok { color: var(--moss); }
+.geo-locate-status.is-warn { color: var(--terra-deep); }
+
 .pc-hook { display: block; font-size: .9rem; color: var(--ink-soft); margin-top: .25rem; line-height: 1.55; }
 .pc-src { display: block; font-size: .78rem; color: var(--ink-soft); margin-top: .4rem; opacity: .75; }
 
@@ -1002,4 +1081,9 @@ figure.geo-fig figcaption .cap-title { font-family: var(--serif); color: var(--i
   .geo-search { padding: 0 1rem; }
   .geo-search-input { font-size: .95rem; padding: .6rem .8rem; }
   .geo-search-results { max-height: 70vh; }
+  .geo-locate { padding: 0 1rem; }
+  .geo-locate-btn { width: 100%; justify-content: center; padding: .65rem .8rem; }
+  /* 16px 以上，iOS 點選單才不會自動放大畫面 */
+  .geo-locate-btn, .geo-locate-pick select, .geo-pick-go { font-size: 16px; }
+  .geo-locate-pick { flex-basis: 100%; }
 }

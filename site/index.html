@@ -25,6 +25,20 @@
     <div class="geo-search-results" id="geo-search-results" hidden></div>
   </div>
 
+  <!-- 我在哪裡：定位跳鄉鎮頁＋縣市／鄉鎮選單（行為見 js/locate.js） -->
+  <section class="geo-locate" id="geo-locate" aria-label="依所在位置或縣市鄉鎮前往">
+    <button type="button" class="geo-locate-btn" id="geo-locate-btn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>
+      <span>定位到我所在的鄉鎮</span>
+    </button>
+    <div class="geo-locate-pick">
+      <select id="geo-pick-county" aria-label="選縣市" disabled><option value="">選縣市</option></select>
+      <select id="geo-pick-town" aria-label="選鄉鎮市區" disabled><option value="">選鄉鎮市區</option></select>
+      <button type="button" class="geo-pick-go" id="geo-pick-go" disabled>前往</button>
+    </div>
+    <p class="geo-locate-status" id="geo-locate-status" aria-live="polite"></p>
+  </section>
+
   <nav class="geo-tabs" role="tablist" aria-label="首頁導覽">
     <button type="button" class="geo-tab" data-tab="general" role="tab" aria-selected="false">總論</button>
     <button type="button" class="geo-tab" data-tab="counties" role="tab" aria-selected="false">分縣市</button>
@@ -85,6 +99,7 @@
   <script src="js/fab.js"></script>
   <script src="js/search-core.js" defer></script>
   <script src="js/search.js" defer></script>
+  <script src="js/locate.js" defer></script>
 
   <script>
     // 首頁三分頁 hash 路由（#general / #counties / #themes）。
