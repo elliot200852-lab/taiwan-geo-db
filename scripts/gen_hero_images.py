@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-taiwan-geo-db 視覺改版 v1 — 54 張情境 hero 圖批次生成腳本（gpt-image-2）
+taiwan-geo-db 視覺改版 v1 — 54 張情境 hero 圖批次生成腳本（gpt-image-2.5-flare）
 
 規格 SSOT：../docs/DESIGN-SPEC.md 第 6 節。
 API 呼叫方式與 OPENAI_API_KEY 讀取順序抄自全域技能 ~/.claude/skills/draw/draw.py
@@ -10,11 +10,11 @@ API 呼叫方式與 OPENAI_API_KEY 讀取順序抄自全域技能 ~/.claude/skil
   python3 gen_hero_images.py                                  # 全部 54 張（已存在的 webp 自動跳過）
   python3 gen_hero_images.py --only site-hero,hualien,theme-mountains
   python3 gen_hero_images.py --force                          # 已存在也重生
-  python3 gen_hero_images.py --quality medium --concurrency 2
+  python3 gen_hero_images.py --concurrency 2
 
 流程（單張）：
   1. 讀 hero-prompts.yaml 取得該 page-id 的主體描述
-  2. 風格前綴（DESIGN-SPEC §6）＋ 主體描述 → gpt-image-2、1536x1024、output_format=jpeg
+  2. 風格前綴（DESIGN-SPEC §6）＋ 主體描述 → gpt-image-2.5-flare、1536x1024、output_format=jpeg
   3. jpg 中繼檔存 scratchpad/geo-hero-jpg/{page-id}.jpg
   4. cwebp 轉最長邊 1200 的 webp → site/img/hero/{page-id}.webp（該路徑在 .gitignore 內）
 
@@ -33,7 +33,8 @@ from pathlib import Path
 
 import yaml
 
-MODEL = "gpt-image-2"
+# David 2026-10-01：與 draw.py 同鎖——model 只准 gpt-image-2.5-flare、quality 只准 low，無覆寫旗標。
+MODEL = "gpt-image-2.5-flare"
 SIZE = "1536x1024"
 DEFAULT_QUALITY = "low"  # 沿用 draw skill 預設判級：99% 情境用 low，不自作主張升級
 MAX_RETRIES = 5
@@ -160,10 +161,10 @@ def generate_one(client, page_id: str, subject: str, quality: str, force: bool):
 
 def main():
     load_env()
-    parser = argparse.ArgumentParser(description="taiwan-geo-db 情境 hero 圖批次生成（gpt-image-2）")
+    parser = argparse.ArgumentParser(description="taiwan-geo-db 情境 hero 圖批次生成（gpt-image-2.5-flare）")
     parser.add_argument("--only", default=None, help="逗號分隔的 page-id 清單，只生這幾張")
     parser.add_argument("--quality", default=DEFAULT_QUALITY,
-                         choices=["low", "medium", "high", "auto"])
+                         choices=["low"])
     parser.add_argument("--concurrency", type=int, default=DEFAULT_CONCURRENCY)
     parser.add_argument("--force", action="store_true",
                          help="已存在的 webp 也重生（預設跳過既有檔，方便補跑）")

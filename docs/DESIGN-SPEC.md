@@ -87,7 +87,7 @@
 - **風格**：鋼筆淡彩（與 arts-db 76 張同風），限定大地色（赭土/苔綠/輿圖藍/米紙）；畫**地景**——縣市頁畫該地最具代表性的地理景觀（從該頁 lede/自然地理段取材），主題頁畫該主題的意象地景；橫幅寬構圖；不出現文字、不畫可辨識人臉（人物只允許遠景剪影）。
 - **prompt 風格前綴（批次腳本統一使用）**：
   > Traditional pen-and-wash illustration (鋼筆淡彩), fine ink linework with light watercolor washes, muted earthy palette of terracotta, moss green, slate blue and cream map-paper tones, wide panoramic landscape composition, aged paper texture, no text, no lettering, no recognizable human faces (distant silhouettes only), style of vintage geographic field sketches
-- **生成參數**：gpt-image-2、1536×1024、quality 照 draw skill 預設判級；**並發 2＋失敗退避 35s**（帳號限流 5 張/分）；產出 jpg → `cwebp` 轉 webp（最長邊 1200，與現有圖同規）。
+- **生成參數**：gpt-image-2.5-flare、1536×1024、quality 鎖 low（2026-10-01 與 draw.py 同鎖）；**並發 2＋失敗退避 35s**（帳號限流 5 張/分）；產出 jpg → `cwebp` 轉 webp（最長邊 1200，與現有圖同規）。
 - **先驗後跑**：先生 3 張樣張（site-hero＋1 縣市＋1 主題）給 Fable/David 過目風格，過了才批次跑滿 54。
 
 ## 7. 各頁型規格
