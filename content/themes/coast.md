@@ -70,6 +70,7 @@ sources:
   - https://www.nps.gov.tw/uploads/files/93ee55be1e47f217b5721eb1a3993c7b9f69eda4674aa635fbf271aaf5f7da1e.pdf
   - https://www.nlma.gov.tw/uploads/files/b2573f83558840aa9e4ba9023fec5bdc.pdf
   - http://ashan.gl.ntu.edu.tw/chinese/GeoPark/YehLiu/index-YehLiu_main01.html
+  - http://ashan.gl.ntu.edu.tw/chinese/GeoPark/YehLiu/index-YehLiu_main03_03.html
   - https://newtalk.tw/news/view/2025-07-19/982665
   - https://tdr.lib.ntu.edu.tw/handle/123456789/48565
   - https://tdr.lib.ntu.edu.tw/handle/123456789/69947

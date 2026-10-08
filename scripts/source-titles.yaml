@@ -4,9 +4,11 @@
 # 母本 content/**/*.md 不記標題——這裡是唯一 SSOT。
 # 人工補洞：直接在下方加一行 `url: 標題`；重跑本腳本不會清掉人工值，
 # 除非該 URL 這次重新抓到了新標題（以新抓到的為準）。
-"https://www.nps.gov.tw/uploads/files/93ee55be1e47f217b5721eb1a3993c7b9f69eda4674aa635fbf271aaf5f7da1e.pdf": "113 年第 2 期各縣市海岸線長度與自然海岸比例（內政部國家公園署 PDF）"
-"https://www.nlma.gov.tw/uploads/files/b2573f83558840aa9e4ba9023fec5bdc.pdf": "臺灣海岸地區發展歷程及現況檢視（內政部海岸管理報告書 PDF）"
-"https://www.nlma.gov.tw/uploads/files/e4c561f6ef7a62ea09c1aa755c1974d4.pdf": "宜蘭縣二級海岸防護計畫（草案，2021；內政部國土管理署 PDF）"
+"https://www.nusc.gov.tw/share/file/convenience/YlLVeKIF8yvTAIk-PbQx2A__.pdf": "稀有、特殊的溫泉產物——北投石（經濟部地質調查所《地質》專題 PDF）"
+"https://www.nusc.gov.tw/share/file/convenience/M7rbusR-jGPbLAuPi2bfkg__.pdf": "北投石大事記（經濟部地質調查所《地質》專題 PDF）"
+"https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/45305": "我國溫泉開發與管理維護機制探討（監察院 105 年專案調查研究報告 PDF）"
+"https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/58909": "監察院調查報告：地熱發電推動進度（引能源局資料，PDF）"
+"http://ashan.gl.ntu.edu.tw/chinese/GeoPark/YehLiu/index-YehLiu_main03_03.html": "阿山的地科研究室-地質公園-野柳岬-小地景-蕈狀岩"
 
 http://api.lib.ntnu.edu.tw:8080/server/api/core/bitstreams/f5edbd68-9f43-4d5b-ad1e-546475af6475/content: 臺灣師範大學地理學系學位論文－第三章
   日治時代臺中市的誕生
@@ -406,6 +408,8 @@ https://ilwct.e-land.gov.tw/cp.aspx?n=6649: 宜蘭縣五結鄉公所-養鴨博�
 https://impoca.com/liuguitrail/: 六龜警備道—日治時期隘勇線古道遺跡探秘2天1夜，含GPX路線檔下載，老靈魂歷史控絕對失心瘋！ - 嗨＊我波卡
 https://info.sogo.com.tw/tp1: 台北忠孝館|遠東SOGO百貨
 https://insight.ipcf.org.tw/article/218: 第一個(╳正名╳)復名的平埔族群 噶瑪蘭族 - 原視界 Indigenous Sight
+https://ir.cnu.edu.tw/handle/310902800/23327: Chia Nan University of Pharmacy & Science Institutional
+  Repository:Item 310902800/23327
 https://ir.lib.ncu.edu.tw/handle/987654321/82424: 池上斷層潛移研究計畫摘要（國立中央大學機構典藏）
 https://issues.ptsplus.tv/articles/10641/: 白色恐怖下的「最強醫務所」：綠島「新生訓導處」政治犯除了教書還開刀 - 觀點同不同
 https://itaiwan.moe.gov.tw/doc/local_info.php?doc=179&id=55: 左鎮<破布子>-在地特色-左鎮數位機會中心
@@ -482,6 +486,7 @@ https://kmweb.moa.gov.tw/theme_data.php?theme=news&sub_theme=quality_farmer&id=5
 https://kmweb.moa.gov.tw/theme_data.php?theme=production_map&id=117: 咖啡 - 農業知識入口網
 https://kmweb.moa.gov.tw/theme_data.php?theme=production_map&id=51: 酪梨 - 農業知識入口網
 https://kmweb.moa.gov.tw/theme_data.php?theme=production_map&id=67: 洛神花 - 農業知識入口網
+https://kotobank.jp/word/%E5%8C%97%E6%8A%95%E7%9F%B3-132768: 北投石(ホクトウセキ)とは？ 意味や使い方 - コトバンク
 https://land.tainan.gov.tw/News.aspx?n=29663&sms=24169: 臺南市政府地政局-業務成果
 https://land.tainan.gov.tw/News_Content.aspx?n=29687&s=7811382: 臺南市政府地政局-02第二期平實營區市地重劃
 https://landevp.kcg.gov.tw/News_Content/5353/131839/: 高雄市地政局土地開發處-執行情形-高雄縣第8期仁武市地重劃區
@@ -624,6 +629,7 @@ https://neimen.kcg.gov.tw/cp.aspx?n=B34E883C8F477822: 內門區公所-地理位�
 https://news.cts.com.tw/cna/local/202608/202608263071699.html: 台南古蹟大東門局部崩落 市府啟動監測強化防護 - 地方 - 華視新聞網
 https://news.cts.com.tw/cts/local/202012/202012102023694.html: 從飲食認識緬甸 探索中和華新街 - 地方 - 華視新聞網
 https://news.ebc.net.tw/news/living/273300: 12年前民宅遭沖毀！太麻里溪今暴漲 嘉蘭村民好緊張｜東森新聞
+https://news.ltn.com.tw/news/NewTaipei/breakingnews/4496182: 全台最大地熱潛能區！金山硫磺子坪地熱示範區動土 2025商轉 - 新北市 - 自由時報電子報
 https://news.ltn.com.tw/news/Penghu/breakingnews/5495404: 澎湖邁向超高齡社會 葉竹林推動青年返鄉安居工程 - 澎湖縣 - 自由時報電子報
 https://news.ltn.com.tw/news/Tainan/breakingnews/5524211: 台南70公里海岸線拉警報 七股潟湖擬砸逾10億防護 - 臺南市 - 自由時報電子報
 https://news.ltn.com.tw/news/Tainan/paper/1712452: 破布子產期到 左鎮農會將啟動加工 - 臺南市 - 自由時報電子報
@@ -656,6 +662,7 @@ https://news.ltn.com.tw/news/life/breakingnews/5533198: 潟湖赫見布袋蓮2-2
 https://news.ltn.com.tw/news/life/paper/1033516: 不敵莫蘭蒂 千年綠島大香菇倒了 - 生活 - 自由時報電子報
 https://news.ltn.com.tw/news/life/paper/1375775: 每年6.5公分 雲林地層下陷全國最嚴重 - 生活 - 自由時報電子報
 https://news.ltn.com.tw/news/life/paper/1385512: 後壁90歲義昌碾米廠 老碾米機動起來 - 生活 - 自由時報電子報
+https://news.ltn.com.tw/news/life/paper/1607972: 車城四重溪溫泉區 停車場動工 - 生活 - 自由時報電子報
 https://news.ltn.com.tw/news/local/paper/1000219: 《雪隧通車 10年榮枯》專題報導系列一 人口外流 農田種出豪華農舍 - 地方 - 自由時報電子報
 https://news.ltn.com.tw/news/local/paper/122127: 基市田寮河 台灣首條人工運河 - 地方 - 自由時報電子報
 https://news.ltn.com.tw/news/local/paper/226869: 高鐵沙崙站 選址爭議16年沒停過 - 地方 - 自由時報電子報
@@ -676,6 +683,7 @@ https://news.pts.org.tw/article/614381: 南方澳大橋18日通車 回顧3年前
 https://news.pts.org.tw/article/638271: 台東縣府公告禁撿南田石 違者重罰百萬 ｜ 公視新聞網 PNN
 https://news.pts.org.tw/article/64875: 松山機場鬆綁 限建高度90公尺 - 2011年08月02日 ｜ 公視新聞網 PNN
 https://news.pts.org.tw/article/674801: 七股開發光電農地魚塭破碎化 萬人連署反對不當種電 ｜ 公視新聞網 PNN
+https://news.pts.org.tw/article/678999: 宜蘭清水設台首座地熱電廠 結合觀光推能源教育 ｜ 公視新聞網 PNN
 https://news.pts.org.tw/article/703086: 烏石港北堤淤積浪況佳 吸引衝浪客違法進入 ｜ 公視新聞網 PNN
 https://news.pts.org.tw/article/725660: 《追蹤斷層帶》之一：活動斷層地質敏感區調查【我們的島】 ｜ 公視新聞網 PNN
 https://news.pts.org.tw/article/734687: 菲律賓海板塊碰撞歐亞大陸 氣象署：3日內恐規模5以上餘震 ｜ 公視新聞網 PNN
@@ -1322,6 +1330,8 @@ https://tct.gov.taipei/News_Content.aspx?n=1364DA4805DD2FAD&sms=483938809D48A064
   (樹人書院)
 https://tdr.lib.ntu.edu.tw/handle/123456789/48565: 'NTU Theses and Dissertations Repository: 台灣海峽陸棚區域潮位修正研究'
 https://tdr.lib.ntu.edu.tw/handle/123456789/69947: 'NTU Theses and Dissertations Repository: 晚更新世以來花東海岸南段的階地演化'
+https://technews.tw/2021/11/28/tatun-volcano-group-magma-chamber/: 大屯山偷偷藏了一個岩漿牛奶罐？用震波破解大屯火山身下的祕密 | TechNews
+  科技新報
 https://tem.tw/TEM2020/Seismogenic_fault/17Chelungpu_fault/2017_17Chelungpu.docx.html: 車籠埔斷層－Taiwan Earthquake
   Model 2020
 https://tendrum.com.tw/TpAboutHistory/zt: 十鼓文創園區 Ten-Drum - 十鼓文創園區 - 關於我們-沿革
@@ -1563,6 +1573,8 @@ https://www.agriharvest.tw/archives/88092/: 旱季神救援，暗藏地底的深
 https://www.airitilibrary.com/Article/Detail/04963334-200912-201009170136-201009170136-45-53: 2009年第8號颱風莫拉克帶給台灣中南部嚴重災害實況以死亡600多人的小林村與神木村隆華國小全毀的情形爲例
   = The Damage in Taiwan Caused by 2009 Typhoon No.8 (Morakot) Cases in Xiaolin-cun and Shenmu-cun｜Airiti
   Library 華藝線上圖書館
+https://www.airitilibrary.com/Article/Detail/10229671-200003-36-1-29-37-a: 宜蘭清水地熱開發之探討 = Study on the
+  Geothermal Power Development of Ching-shui at I-Lain Prefecture.｜Airiti Library 華藝線上圖書館
 https://www.alpineclub.org.tw/p/405-1116-10536,c2824.php: 台灣山岳資源知多少系列三 - 山岳景觀-五大山脈 - 中華民國健行登山會
 https://www.amazing-pingtung.com/ptcf: 2026屏東黑鮪魚文化觀光季｜官方網站
 https://www.annan.gov.tw/cp.aspx?n=5770: 臺南市安南區公所-區名沿革
@@ -1658,6 +1670,7 @@ https://www.cna.com.tw/news/ahel/202202120205.aspx: 亞泥新城山礦區採礦�
 https://www.cna.com.tw/news/ahel/202202230100.aspx: 基隆今年降雨日數達47天 創2012年以來新高 | 生活 | 中央社 CNA
 https://www.cna.com.tw/news/ahel/202306215005.aspx: 開箱老照片》煤塵爆炸 監委調查海山煤礦災變原因 | 生活 | 中央社 CNA
 https://www.cna.com.tw/news/ahel/202308080140.aspx: 新北泰山曾是芭比生產重鎮 20年代工榮景產能一度占全球8成 | 生活 | 中央社 CNA
+https://www.cna.com.tw/news/ahel/202309080315.aspx: 宜蘭清水地熱發電廠捲土重來 已發電3825萬度 | 生活 | 中央社 CNA
 https://www.cna.com.tw/news/ahel/202312250294.aspx: 918地震後耗時1年測量 玉里斷層地質敏感區約4.4平方公里 | 生活 | 中央社 CNA
 https://www.cna.com.tw/news/ahel/202404240132.aspx: 留母莖採收法讓產期拉長 白綠紫3蘆筍全年上市 | 生活 | 中央社 CNA
 https://www.cna.com.tw/news/ahel/202406230210.aspx: 台東池上獲國際慢城認證 全台第6個鄉鎮叩關成功 | 生活 | 中央社 CNA
@@ -1782,6 +1795,7 @@ https://www.gep.ntpc.gov.tw/xmdoc/cont?xsmsid=0K260329511419007476: 礦業發展
 https://www.gip.moj.gov.tw/289577/289578/289580/289581/539699/post: 綠島（火燒島）名稱之由來-綠島（火燒島）名稱之由來-法務部矯正署綠島監獄
 https://www.gjtaiwan.com/new/?p=28737: 1908年4月20日，縱貫線鐵路全線通車 - 聚珍臺灣
 https://www.gov.taipei/News_Content.aspx?n=EEC70A4186D4C828&sms=87415A8B9CE81B16&s=83285DF68B4A3CF2: 臺北市政府全球資訊網-常見問答-臺北市面積為多少?臺北市面積最大的區為何？面積最小的區為何？人口最多的區？人口最少的區？
+https://www.gov.taipei/News_Content.aspx?n=EEC70A4186D4C828&sms=87415A8B9CE81B16&s=FA14560979875671: 臺北市政府全球資訊網-常見問答-白磺溫泉、青磺溫泉如何分辨？
 https://www.gov.taipei/News_Content.aspx?n=F0DDAF49B89E9413&sms=72544237BBE4C5F6&s=5CDF82BCA3817511: 臺北市政府全球資訊網-市府新聞稿-2017臺北世大運選手村轉換林口社會住宅4個基地全數點交營建署及國家住都中心接管營運
 https://www.gov.taipei/News_Content.aspx?n=F0DDAF49B89E9413&sms=72544237BBE4C5F6&s=6F4312B813091DF1: 臺北市政府全球資訊網-市府新聞稿-守護自然生態
   四分溪封溪護魚再延長
@@ -1964,6 +1978,8 @@ https://www.mdnkids.com/content.asp?Link_String_=22CO00000TRLVRM: 洄游或在�
 https://www.merit-times.com.tw/NewsPage.aspx?unid=557393: 《地名逸聞》宜蘭篇（1）三星 原稱「叭哩沙喃」
 https://www.miaoli.gov.tw/cp.aspx?n=260: 苗栗縣政府全球資訊網-中文網-地理環境
 https://www.miaoli.gov.tw/cp.aspx?n=261: 苗栗縣政府全球資訊網-中文網-自然環境
+https://www.mlit.go.jp/tagengo-db/en/R1-02068.html: 'Hokutolite: A National Natural Monument | Search
+  Details | Japan Tourism Agency,Japan Tourism Agency'
 https://www.moa.gov.tw/ws.php?id=12049: 魚蝦滿布 寶石處處－現代桃花源白鮑溪谷(農業部全球資訊網)
 https://www.moa.gov.tw/ws.php?id=12561: 冬山柚茶 中山飄香―宜蘭縣冬山鄉中山休閒農業區(農業部全球資訊網)
 https://www.moa.gov.tw/ws.php?id=13950: 「楠西山嶺 與梅共舞」台南縣楠西鄉梅嶺休閒農業區(農業部全球資訊網)
@@ -2017,6 +2033,10 @@ https://www.nhrm.gov.tw/w/nhrm/GI_Buildings_21091113422074961: 新生訓導處 -
 https://www.nhu.edu.tw/~society/e-j/90/20.htm: 鹿港街區角頭廟安營鎮符領域之空間建構（南華大學社會學研究所電子期刊第90期，洪惠琪）
 https://www.nkust.edu.tw/p/412-1000-2559.php: 交通資訊-第一校區 - 國立高雄科技大學,NKUST,National Kaohsiung University
   of Science and Technology
+https://www.nlma.gov.tw/uploads/files/b2573f83558840aa9e4ba9023fec5bdc.pdf: 臺灣海岸地區發展歷程及現況檢視（內政部海岸管理報告書
+  PDF）
+https://www.nlma.gov.tw/uploads/files/e4c561f6ef7a62ea09c1aa755c1974d4.pdf: 宜蘭縣二級海岸防護計畫（草案，2021；內政部國土管理署
+  PDF）
 https://www.nlsc.gov.tw/cp.aspx?n=1486: 國土測繪中心全球資訊網-中文網-玉山高度測量
 https://www.nmmst.gov.tw/chhtml/content/469: 國立海洋科技博物館-北部火力發電廠
 https://www.nmmst.gov.tw/chhtml/content/473: 國立海洋科技博物館-潮境/環保復育公園
@@ -2035,6 +2055,8 @@ https://www.northguan-nsa.gov.tw/user/article.aspx?Lang=1&SNo=04005324: 交通�
 https://www.nownews.com/news/6715701: 今日歷史／八八風災16週年！莫拉克奪681條人命 小林部落遭滅村 | 生活 | NOWnews今日新聞
 ? https://www.nps.gov.tw/%E5%85%AC%E5%9C%92%E5%B0%88%E6%AC%84/%E9%83%A8%E8%90%BD%E7%A4%BE%E5%8D%80/11229-%E3%80%8C%E7%8E%89%E5%B1%B1%E7%93%A6%E6%8B%89%E7%B1%B3%E3%80%8D%E7%8E%89%E5%B1%B1%E8%85%B3%E4%B8%8B%E7%AC%AC%E4%B8%80%E7%95%9D%E7%94%B0%E2%80%94%E5%8D%97%E5%AE%89%E9%83%A8%E8%90%BD.html
 : 中華民國內政部國家公園署
+https://www.nps.gov.tw/uploads/files/93ee55be1e47f217b5721eb1a3993c7b9f69eda4674aa635fbf271aaf5f7da1e.pdf: 113
+  年第 2 期各縣市海岸線長度與自然海岸比例（內政部國家公園署 PDF）
 https://www.nthu.edu.tw/hotNews/content/46: 人類所邱鴻霖老師左鎮人研究 推翻教科書說法 榮登報紙頭版【2016.01.15秘書處】-首頁故事:國立清華大學
 https://www.ntl.edu.tw/public/Attachment/49201348629.pdf: 漢族入墾：蘭陽平原的港街發展與街庄社會（溫振華）
 https://www.ntl.edu.tw/public/Attachment/811615584426.pdf: 中國人移入：外省人的人數、來源與分布（葉高華）
@@ -4256,6 +4278,10 @@ https://zshr.gov.taipei/cp.aspx?n=A7135430A296F3C4: 臺北市中山區戶政事�
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://chiayi.forest.gov.tw/File.aspx?fno=63766
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
+# https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/45305
+#   原因：無 <title> 標籤（可能被截斷或非 HTML）
+# https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/58909
+#   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://efarmer.taitung.gov.tw/zh-tw/Tourism/Attraction/136/
 #   原因：HTTPSConnectionPool(host='efarmer.taitung.gov.tw', port=443): Max retries exceeded with url: /zh-tw/Tourism/Attraction/136/ (Caused by NameResolutionE
 # https://exhibition.nstm.gov.tw/morakot/webhistory/88flood/files/memo_files/446695.pdf
@@ -4356,14 +4382,8 @@ https://zshr.gov.taipei/cp.aspx?n=A7135430A296F3C4: 臺北市中山區戶政事�
 #   原因：HTTPSConnectionPool(host='www.moeaidb.gov.tw', port=443): Max retries exceeded with url: /iphw/dawulun/index.do?id=10 (Caused by NameResolutionError("
 # https://www.nlma.gov.tw/filesys/file/EMMA/e1130507-1.pdf
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://www.nlma.gov.tw/uploads/files/b2573f83558840aa9e4ba9023fec5bdc.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://www.nlma.gov.tw/uploads/files/e4c561f6ef7a62ea09c1aa755c1974d4.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.nmp.gov.tw/content_193.html
 #   原因：HTTP 404
-# https://www.nps.gov.tw/uploads/files/93ee55be1e47f217b5721eb1a3993c7b9f69eda4674aa635fbf271aaf5f7da1e.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.nps.gov.tw/uploads/files/deecad8e12ae588685848723fb5cc481.pdf
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.ntl.edu.tw/public/Attachment/0926135111100.pdf
@@ -4373,6 +4393,10 @@ https://zshr.gov.taipei/cp.aspx?n=A7135430A296F3C4: 臺北市中山區戶政事�
 # https://www.ntl.edu.tw/public/Attachment/47119551614.pdf
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.ntl.edu.tw/public/Attachment/59141734290.pdf
+#   原因：無 <title> 標籤（可能被截斷或非 HTML）
+# https://www.nusc.gov.tw/share/file/convenience/M7rbusR-jGPbLAuPi2bfkg__.pdf
+#   原因：無 <title> 標籤（可能被截斷或非 HTML）
+# https://www.nusc.gov.tw/share/file/convenience/YlLVeKIF8yvTAIk-PbQx2A__.pdf
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.ris.gov.tw/info-popudata/app/awFastDownload/file/s000-11505.xls/s000/11505/
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
