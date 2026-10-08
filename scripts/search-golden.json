@@ -25,9 +25,9 @@
     "theme-placenames",
     "new-taipei-gongliao",
     "yilan",
+    "theme-coast",
     "yilan-yilan",
     "new-taipei-sanxia",
-    "theme-coast",
     "theme-migration",
     "theme-springs",
     "theme-temples"
@@ -125,14 +125,14 @@
   "國家公園": [
     "theme-national-parks",
     "hualien-zhuoxi",
+    "theme-coast",
     "hualien-xiulin",
     "new-taipei-jinshan",
     "tainan-anping",
     "hualien-xincheng",
     "kinmen",
     "hualien",
-    "tainan-annan",
-    "theme-earthquake"
+    "tainan-annan"
   ],
   "濕地": [
     "new-taipei-wugu",

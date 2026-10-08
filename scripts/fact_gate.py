@@ -124,7 +124,15 @@ def fetch_text(url: str, cache_dir: Path) -> str | None:
     try:
         r = subprocess.run(["curl", "-sL", "-m", "20", "-A", "Mozilla/5.0 (fact_gate)", url],
                            capture_output=True, timeout=25)
-        raw = r.stdout.decode("utf-8", "ignore")
+        # Big5 舊站（例：宜蘭縣觀光網鯖魚節頁，連 charset 都沒宣告）用 utf-8 會解成亂碼、引文明明在卻判 ✗
+        # （2026-10-08 tw-geo-3min ep05 查證回饋實測）：utf-8 嚴格解不過、cp950 嚴格解得過才改用 cp950。
+        try:
+            raw = r.stdout.decode("utf-8")
+        except UnicodeDecodeError:
+            try:
+                raw = r.stdout.decode("cp950")
+            except UnicodeDecodeError:
+                raw = r.stdout.decode("utf-8", "ignore")
     except Exception:
         _cache[url] = None
         return None
