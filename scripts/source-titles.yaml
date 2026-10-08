@@ -4,8 +4,10 @@
 # 母本 content/**/*.md 不記標題——這裡是唯一 SSOT。
 # 人工補洞：直接在下方加一行 `url: 標題`；重跑本腳本不會清掉人工值，
 # 除非該 URL 這次重新抓到了新標題（以新抓到的為準）。
-"https://libknowledge.nmns.edu.tw/nmns/lib/PDF/104/332/6.pdf": "回顧 1935 年新竹臺中地震（國立自然科學博物館館刊 PDF）"
-"https://www.ncdr.nat.gov.tw/presentation2024/pdf/area2/1/22-地人組-研發類-2023年地震應變地質圖資更新與應用.pdf": "2023 年地震應變地質圖資更新與應用（國家災害防救科技中心 2024 年成果簡報 PDF）"
+"https://www-ws.wra.gov.tw/001/Upload/oldFile/media/15960/f-temp-attachment-042810192671.pdf": "莫拉克颱風與 2009 年全球暴雨概況（經濟部水利署《水利統計簡訊》STA.214，2010 年 3 月）"
+"https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/54251": "監察院調查報告：小林村受災與甲仙鄉公所違失（PDF）"
+"https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/38651": "監察院調查意見：南迴線南太麻里溪橋莫拉克、凡那比兩度沖毀路基與改建（PDF）"
+"https://kmweb.moa.gov.tw/subject/subject.php?id=15267": "颱風對番荔枝果樹之傷害及防範措施（農業部臺東區農業改良場《臺東區農業專訊》88 期）"
 
 http://api.lib.ntnu.edu.tw:8080/server/api/core/bitstreams/f5edbd68-9f43-4d5b-ad1e-546475af6475/content: 臺灣師範大學地理學系學位論文－第三章
   日治時代臺中市的誕生
@@ -327,6 +329,7 @@ https://features.ltn.com.tw/spring/article/2026/breakingnews/5325635: 南橫梅�
 https://feitsui-elc.gov.taipei/News_Content.aspx?n=08E534E892DD2533&sms=18B8BA5B27477151&s=805E6E61F9329E0F: 翡翠水庫環境學習中心網站-學習焦點-翡翠水庫歷史
 ? https://file.moc.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNTI4L3JlbGZpbGUvMTQ3MDkvMjAzNDkwL2E4MjU0ZjUwLWE5MzItNDdlYi1iOWY0LTIzNzAzMzhjMDU0Ny5wZGY%3d&n=MTA3X%2bOAjOeVquOAgea8ouOAjeWQiOS9nO%2b8n%2bWNgeWFq%2bS4lue0gOWyuOijoeekvueahOOAjOWJsuWcsOaPm%2bawtOOAjeiIh%2bWcsOaWueekvuacg%2bKKmemEreieouaGti5wZGY%3d
 : 「番、漢」合作？十八世紀岸裡社的「割地換水」與地方社會（鄭螢憶）
+https://finance.ettoday.net/news/1945649: 苗栗台中4/6起用水供5停2 民生、工業用水影響一次看 | ETtoday財經雲 | ETtoday新聞雲
 https://fis.hualien1913.nat.gov.tw/development.html: 花蓮市街發展變遷｜洄瀾舊時光－釀酵記憶・花創未來
 https://fishery.ntpc.gov.tw/cht/index.php?code=list&flag=detail&ids=20&article_id=1448: 新北市政府漁業及漁港事業管理處
   > 最新消息 > 新聞發佈 > 萬里蟹三足鼎立！三點蟹花蟹石蟳各有死忠！
@@ -515,6 +518,7 @@ https://lcm.tacp.gov.tw/index.php?category=3&inter=info&museum=14: 臺東縣海�
   全國原住民族文化館展示平台
 https://learnenergy.tw/index.php?inter=knowledge&caid=4&id=803: 全世界第二老的油井在台灣？出磺坑見證黑金繁華年代 | 專家專欄 | 專欄新知
   | 能源教育資源總中心
+https://libknowledge.nmns.edu.tw/nmns/lib/PDF/104/332/6.pdf: 回顧 1935 年新竹臺中地震（國立自然科學博物館館刊 PDF）
 https://lifestyle.heho.com.tw/archives/45928: 「蘇花改」讓台北到花蓮只要2.5小時！全線通車後這些沿途風景不可錯過 - Heho生活
 https://lingya.kcg.gov.tw/cp.aspx?n=6BEB590089A153E8: 高雄市苓雅區公所全球資訊網-歷史沿革
 https://linyuan.kcg.gov.tw/Content_List.aspx?n=5EA8A550658D9939: 林園區公所-歷史沿革
@@ -662,6 +666,8 @@ https://news.pts.org.tw/article/368676: 宜蘭反六輕 解嚴前後環境運動
 https://news.pts.org.tw/article/513952: 崑濱伯驟逝《無米樂》3主角只剩1人 文林伯嘆人生無常 ｜ 公視新聞網 PNN
 https://news.pts.org.tw/article/569164: 福隆居民指突堤效應導致沙灘退縮 籲拆除核四重件碼頭 ｜ 公視新聞網 PNN
 https://news.pts.org.tw/article/581771: 屯子腳地震，留下珍貴紀錄與經驗【獨立特派員】 ｜ 公視新聞網 PNN
+https://news.pts.org.tw/article/597833: Fishermen Seek Shelter from Typhoon 南方澳漁船進港避風 富岡漁港加強防颱 ｜ 公視新聞網
+  PNN
 https://news.pts.org.tw/article/612472: 918地震後續大調查，哪些斷層在地底蠢蠢欲動？【獨立特派員】 ｜ 公視新聞網 PNN
 https://news.pts.org.tw/article/614381: 南方澳大橋18日通車 回顧3年前6死斷橋意外 ｜ 公視新聞網 PNN
 https://news.pts.org.tw/article/638271: 台東縣府公告禁撿南田石 違者重罰百萬 ｜ 公視新聞網 PNN
@@ -675,6 +681,7 @@ https://news.pts.org.tw/article/792849: 南橫明霸克露橋斥資6億重生 �
 https://news.pts.org.tw/article/805126: 光復車站鏟子超人公仔亮相 紀念馬太鞍堰塞湖50萬志工 ｜ 公視新聞網 PNN
 https://news.pts.org.tw/article/808259: 官民攜手復甦蓮田 台南白河蓮花季5/23登場 ｜ 公視新聞網 PNN
 https://news.pts.org.tw/curation/127: 【專題】高鐵彰化與雲林站啟用近10年 地層下陷危機為何仍難解？ ｜ 公視新聞網 PNN
+https://news.tvbs.com.tw/life/3161340: 北捷30週年／納莉颱風慘況觸目驚心！12站一夜沒了 前段長憶最難忘時刻
 https://news.tvbs.com.tw/life/880223: 台灣降雨量比全球多2.6倍 卻是缺水國家│TVBS新聞網
 https://newtaipei.travel/zh-tw/attractions/detail/109612: 十分瀑布公園 | 新北市觀光旅遊網
 https://newtaipei.travel/zh-tw/attractions/detail/109621: 新北市坪林茶業博物館 | 新北市觀光旅遊網
@@ -698,6 +705,7 @@ https://newtaipei.travel/zh-tw/attractions/detail/402707: 獅子頭隘口 | 新�
 https://newtaipei.travel/zh-tw/attractions/detail/403133: 石碇千島湖/翡翠水庫徒步區 | 新北市觀光旅遊網
 https://newtaipei.travel/zh-tw/column/458: 驚嘆奇景 野柳地質公園 | 新北市觀光旅遊網
 https://newtaipei.travel/zh-tw/shop/detail/402249: 林益和堂中藥店 | 新北市觀光旅遊網
+https://newtalk.tw/news/view/2020-10-07/475969: 預備儲水！桃竹苗中四區水情轉黃燈 10/14 起夜間減壓供水 | 生活 | Newtalk新聞
 https://ngdo.gov.taipei/cp.aspx?n=6EF114B8EE88E41E: 臺北市南港區公所-歷史沿革
 https://ngdo.gov.taipei/cp.aspx?n=8F73C48F07AE8CCA: 臺北市南港區公所-農業南港
 https://nhdo.gov.taipei/News_Content.aspx?n=885A78F285C4C9A4&sms=7581E217941ADC10&s=AACB23A9865F080E: 臺北市內湖區公所-內湖旅遊-大湖公園（十四份陂）
@@ -1980,6 +1988,8 @@ https://www.natgeomedia.com/environment/article/content-4757.html: 解開馬祖�
 https://www.natgeomedia.com/environment/article/content-5255.html: 活在潮汐間：台灣潮間帶生物多樣性 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權
 https://www.natgeomedia.com/science/article/content-16241.html: 潮境保育區新制 基隆市府擬修法納分區管理、水陸域人流管制 - 國家地理雜誌官方網站｜探索自然、科學與文化的最佳權
 https://www.naturetrail.org.tw/trail_view.php?id=17: 金面山步道 - 社團法人中華民國自然步道協會
+https://www.ncdr.nat.gov.tw/presentation2024/pdf/area2/1/22-地人組-研發類-2023年地震應變地質圖資更新與應用.pdf: 2023 年地震應變地質圖資更新與應用（國家災害防救科技中心
+  2024 年成果簡報 PDF）
 https://www.ncfta.gov.tw/cp.aspx?n=1836: 國立傳統藝術中心-如何抵達
 https://www.ncree.org/safehome/ncr01/pc1_4.htm: 新增網頁2
 https://www.necoast-nsa.gov.tw/Articles.aspx?a=109&l=1: 地質-東北角及宜蘭海岸國家風景區觀光資訊網
@@ -4234,6 +4244,10 @@ https://zshr.gov.taipei/cp.aspx?n=A7135430A296F3C4: 臺北市中山區戶政事�
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://chiayi.forest.gov.tw/File.aspx?fno=63766
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
+# https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/38651
+#   原因：無 <title> 標籤（可能被截斷或非 HTML）
+# https://cybsbox.cy.gov.tw/CYBSBoxSSL/edoc/download/54251
+#   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://efarmer.taitung.gov.tw/zh-tw/Tourism/Attraction/136/
 #   原因：HTTPSConnectionPool(host='efarmer.taitung.gov.tw', port=443): Max retries exceeded with url: /zh-tw/Tourism/Attraction/136/ (Caused by NameResolutionE
 # https://exhibition.nstm.gov.tw/morakot/webhistory/88flood/files/memo_files/446695.pdf
@@ -4250,7 +4264,7 @@ https://zshr.gov.taipei/cp.aspx?n=A7135430A296F3C4: 臺北市中山區戶政事�
 #   原因：標題疑似亂碼
 # https://kmweb.moa.gov.tw/files/document/20144/2261e10b3b9e3f80173dbaa3ef13f386_v2.pdf
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
-# https://libknowledge.nmns.edu.tw/nmns/lib/PDF/104/332/6.pdf
+# https://kmweb.moa.gov.tw/subject/subject.php?id=15267
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://libknowledge.nmns.edu.tw/nmns/lib/PDF/92/183/5-1.pdf
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
@@ -4316,6 +4330,8 @@ https://zshr.gov.taipei/cp.aspx?n=A7135430A296F3C4: 臺北市中山區戶政事�
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www-ws.wra.gov.tw/001/Upload/OldFileWrasb/Uploads/Download/%E6%9B%BE%E6%96%87%E8%93%84%E6%B0%B4%E7%AF%84%E5%9C%8D%E5%9C%961100420.pdf
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
+# https://www-ws.wra.gov.tw/001/Upload/oldFile/media/15960/f-temp-attachment-042810192671.pdf
+#   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www-ws.wra.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDAxL3JlbGZpbGUvMC82OTk4LzVkODc1ZGIxLWNkZDMtNGYyMS1iMzYyLWNmNjE4ZTU3MTQxNC5wZGY%3D&n=6Ie65Y2X5biC5LiA57Sa5rW35bK46Ziy6K236KiI55WrKOaguOWumuacrCkt5rW35bK46Ziy6K235Y2A6bue5L2N5riF5YaKLnBkZg%3D%3D
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.afa.gov.tw/cht/index.php?act=download&ids=44938
@@ -4334,8 +4350,6 @@ https://zshr.gov.taipei/cp.aspx?n=A7135430A296F3C4: 臺北市中山區戶政事�
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.moeaidb.gov.tw/iphw/dawulun/index.do?id=10
 #   原因：HTTPSConnectionPool(host='www.moeaidb.gov.tw', port=443): Max retries exceeded with url: /iphw/dawulun/index.do?id=10 (Caused by NameResolutionError("
-# https://www.ncdr.nat.gov.tw/presentation2024/pdf/area2/1/22-地人組-研發類-2023年地震應變地質圖資更新與應用.pdf
-#   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.nlma.gov.tw/filesys/file/EMMA/e1130507-1.pdf
 #   原因：無 <title> 標籤（可能被截斷或非 HTML）
 # https://www.nmp.gov.tw/content_193.html
