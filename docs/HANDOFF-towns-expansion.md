@@ -156,6 +156,7 @@ CONTENT-SPEC 互指字面（「OO市頁」vs「〈OO市〉」）兩套並存待 
 7. handoff：更新下方「進度斷點」＋plan §3-P-2 的額度對帳一行。
 
 ### 進度斷點（磁碟才是事實來源，這裡只放指標）
+- 2026-10-17：**批 3 上線＝5/29 驗證全綠**。commit 32dfcb5＋最後驗收修正 ecca55c；CI run 39023324140 綠；和平頁與 hero live 200（L143「交國發會審查」已上線）、`taichung.html` 轄區列「5 / 29」；`verify_live_images.py` 2,022 張中 29 條「大小不符」全是既有頁漂移（同批 1、2，open-item geo-live-local-webp-size-drift），臺中 0 條。下一步＝批 4（大肚・西屯），派工單先補 `_workspace/geo-tc-b3/final-acceptance.md` C 節 15 條；停手等 David 說「繼續」。
 - 2026-09-01：柳營（pilot）、後壁（批 1）上線＝2/37。後壁 hero 未生（欠帳）。
 - 2026-09-02：**批 2 關廟・麻豆・中西上線＝5/37**（commit eea8d5a；三頁 4,846–4,866 字／教學 35.7–36.6%／各 9 圖／源 24–27；fact_gate --fetch 三頁 ✓；查核 高 1（關廟大潭埤 20 公頃是公園腹地非水體——閘抓不到的「範圍套錯」型，人抓的）／低 4；fresh 驗收 PASS；CI run 33578756496 綠、三頁 live 200、verify_live 新 27 圖全 200，全站 29 條「大小不符」全是既有頁的 live/本機 webp 漂移＝open-item geo-live-local-webp-size-drift，與本批無關）。同日前置：fact_gate.py 落地＋紅隊修正輪（`_workspace/geo-kh-reviews/tainan-redteam-b2-20260902.md`）、七處稽核修補、plan §2-A「蚊港半島」訂正為「蚊佳半島」、§4-B 補中西二二八口徑。hero 4 張（後壁、關廟、麻豆、中西）同日生圖上線（119a455，live 200 大小全對），臺南 5 頁 hero 齊。
 - 2026-09-04：**批 3 玉井・西港・北上線＝8/37**（commit e10ef5c 三頁＋db835d1 hero 三張；三頁 4,842–4,898 字／教學 35.7–38.5%／圖 10・9・10／源 24・27・20；fact_gate --fetch 玉井 60 條命中 53〔7 條戴文鋒 PDF 二進位抓不到、查核端人工開檔核實全屬實〕、西港 81/81、北 69/69；查核 **三頁零內容硬錯**〔玉井 高1 是查核端字數誤算、已駁回；西港 中3／低2；北 中1／低4〕；fresh 驗收三頁全 GO；CI run 33890684358 綠、三頁 live 200、verify_live_images 1696 張中 29 條「大小不符」**全是既有頁的漂移**＝open-item geo-live-local-webp-size-drift、本批 29 內文圖＋3 hero 零問題）。
