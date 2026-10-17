@@ -613,6 +613,12 @@
       "type": "縣"
     },
     {
+      "id": "taichung-dadu",
+      "name": "大肚區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
       "id": "taichung-dajia",
       "name": "大甲區",
       "county": "臺中市",
@@ -639,6 +645,12 @@
     {
       "id": "taichung-wufeng",
       "name": "霧峰區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
+      "id": "taichung-xitun",
+      "name": "西屯區",
       "county": "臺中市",
       "type": "區"
     },
