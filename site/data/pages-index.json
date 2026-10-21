@@ -625,6 +625,12 @@
       "type": "區"
     },
     {
+      "id": "taichung-dongshi",
+      "name": "東勢區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
       "id": "taichung-heping",
       "name": "和平區",
       "county": "臺中市",
@@ -645,6 +651,12 @@
     {
       "id": "taichung-wufeng",
       "name": "霧峰區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
+      "id": "taichung-wuqi",
+      "name": "梧棲區",
       "county": "臺中市",
       "type": "區"
     },
