@@ -17,6 +17,7 @@ zones:
     name: 中央公園站散步圈
     districts: [新興區, 前金區, 苓雅區]
     status: done
+    stations: [R9]
     scope: 捷運 R9 中央公園站周邊步行圈＋摺頁列的全市食樂態藝景港、雨天備案、捷運圖。
     file: kh-01-central-park.yaml
 

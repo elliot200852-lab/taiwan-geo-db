@@ -108,3 +108,79 @@
   #tv-map { height: 55vh; }
   .tv-grid { grid-template-columns: 1fr; }
 }
+
+/* 捷運＋輕軌合併路線圖（site/js/metro.js）：頂部導航鍵、頁內預覽、全螢幕圖 */
+.mt-open {
+  display: flex; align-items: center; gap: .8rem; width: 100%; max-width: 30rem;
+  margin: .9rem 0 .2rem; padding: .75rem 1rem; cursor: pointer; text-align: left;
+  font: inherit; color: var(--ink); background: #fff;
+  border: 2px solid var(--ink); border-radius: 12px; box-shadow: 0 3px 0 var(--ink);
+}
+.mt-open:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--ink); }
+.mt-open b { display: block; font-family: var(--serif); font-size: 1.15rem; font-weight: 900; line-height: 1.3; }
+.mt-open small { display: block; color: var(--ink-soft); font-size: .82rem; }
+.mt-open .mt-go { margin-left: auto; font-size: 1.3rem; color: var(--terra-deep); }
+.mt-ico { display: inline-flex; flex-direction: column; gap: 3px; flex: 0 0 auto; }
+.mt-ico i { display: block; width: 26px; height: 5px; border-radius: 3px; background: #e0004d; }
+.mt-ico i:nth-child(2) { background: #f5a01a; }
+.mt-ico i:nth-child(3) { background: #7ac143; }
+
+.mt-preview {
+  position: relative; margin: .6rem 0 1rem; cursor: pointer; max-width: 640px;
+  border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fffdf7;
+}
+.mt-preview svg { display: block; width: 100%; height: auto; pointer-events: none; }
+.mt-preview::after {
+  content: "點開看大圖・可縮放"; position: absolute; left: .6rem; bottom: .6rem;
+  font-size: .82rem; padding: .25rem .7rem; border-radius: 999px; background: rgba(43,42,38,.82); color: #fff;
+}
+.tv-stlist summary { cursor: pointer; color: var(--ink-soft); font-size: .92rem; margin: .4rem 0; }
+
+.mt-svg text { font-family: var(--sans); }
+.mt-here-ring { fill: none; stroke: #2c4459; stroke-width: 5; animation: mt-pulse 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.mt-here-tag { font-family: var(--sans); font-size: 17px; font-weight: 900; fill: #2c4459; paint-order: stroke; stroke: #fffdf7; stroke-width: 5px; }
+@keyframes mt-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .45; transform: scale(1.25); } }
+.mst { cursor: pointer; }
+.mst.sel circle:not(.mt-hit) { stroke: #2b2a26; stroke-width: 5; }
+
+html.mt-lock, html.mt-lock body { overflow: hidden; }
+.mt-ov {
+  position: fixed; inset: 0; z-index: 1100; display: flex; flex-direction: column;
+  background: #fffdf7; font-family: var(--sans);
+}
+.mt-ov[hidden] { display: none; }
+.mt-bar {
+  display: flex; align-items: center; gap: .3rem;
+  padding: calc(.5rem + env(safe-area-inset-top, 0px)) .6rem .5rem; border-bottom: 1px solid var(--line); background: #fff;
+}
+.mt-title { flex: 1 1 0; min-width: 0; font-family: var(--serif); font-size: .95rem; line-height: 1.25; }
+.mt-bar button {
+  flex: 0 0 auto; font: inherit; font-size: .88rem; min-width: 2.3rem; height: 2.3rem; padding: 0 .5rem; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink);
+}
+.mt-bar .mt-x { background: var(--ink); color: #fff; border-color: var(--ink); }
+.mt-stage { flex: 1 1 auto; min-height: 0; touch-action: none; overflow: hidden; cursor: grab; }
+.mt-stage svg { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-select: none; }
+.mt-hint { margin: 0; padding: .3rem .6rem calc(.3rem + env(safe-area-inset-bottom, 0px)); text-align: center; font-size: .78rem; color: var(--ink-soft); }
+.mt-info {
+  position: absolute; left: .6rem; right: .6rem; bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+  max-width: 28rem; margin: 0 auto; padding: .7rem 2.4rem .7rem .9rem;
+  background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  font-size: .92rem; line-height: 1.55;
+}
+.mt-info[hidden] { display: none; }
+.mt-info p { margin: .35rem 0 0; }
+.mt-info-h { display: flex; align-items: center; gap: .5rem; }
+.mt-info-zh { font-family: var(--serif); font-weight: 900; font-size: 1.15rem; }
+.mt-info-h small { color: var(--ink-soft); }
+.mt-code { display: inline-block; min-width: 2.4em; text-align: center; padding: .05rem .4rem; border-radius: 999px; border: 3px solid var(--lc); font-size: .85rem; }
+.mt-info-x { position: absolute; top: .45rem; right: .45rem; width: 1.9rem; height: 1.9rem; border: 0; border-radius: 50%; background: var(--paper-2); cursor: pointer; font: inherit; }
+
+.mt-fab {
+  position: fixed; left: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); z-index: 1001;
+  display: none; align-items: center; gap: .45rem; padding: .55rem .9rem; cursor: pointer;
+  font: inherit; font-size: .92rem; font-weight: 700; color: var(--ink);
+  background: #fff; border: 2px solid var(--ink); border-radius: 999px; box-shadow: 0 3px 10px rgba(0,0,0,.2);
+}
+.mt-fab.on { display: inline-flex; }
+.mt-fab .mt-ico i { width: 18px; height: 4px; }

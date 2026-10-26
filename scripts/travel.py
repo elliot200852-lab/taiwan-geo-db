@@ -4,7 +4,7 @@
 
 資料：travel/<city>/zones.yaml（分區規劃）＋ travel/<city>/<zone>-*.yaml（一區一檔）
 產出：site/travel/<city>/index.html（城市頁）、site/travel/<city>/<zone>.html（分區頁）、
-      site/data/travel-index.json（首頁分頁讀）
+      site/data/travel-index.json（首頁分頁讀）、site/data/metro-<city>.js（有 metro.yaml 的城市：捷運＋輕軌合併路線圖）
 定位快取：travel/<city>/<zone>.geo.json（Nominatim 查到的座標；手動釘點寫在 yaml 的 ll）
 
 產出 commit 進 repo（CI 的 build.py 不碰 site/travel/）。站上只放文字資料、不放任何圖片。
@@ -20,6 +20,9 @@ import sys, re, json, time, html, argparse, urllib.parse, urllib.request
 from pathlib import Path
 
 import yaml
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from travel_metro import build_metro
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "travel"
@@ -269,7 +272,7 @@ def render_item(it, cat, city, idx, pin):
             f'<h4 class="tv-h">{head}</h4>{"".join(rows)}'
             f'{f"<div class=tv-tags>{tags}</div>" if tags else ""}</article>')
 
-def page_shell(title, body, depth, extra_head="", extra_js=""):
+def page_shell(title, body, depth, extra_head="", extra_js="", body_attrs=""):
     up = "../" * depth
     return f"""<!DOCTYPE html>
 <html lang="zh-Hant">
@@ -284,7 +287,7 @@ def page_shell(title, body, depth, extra_head="", extra_js=""):
   <link rel="stylesheet" href="{up}css/style.css">
   <link rel="stylesheet" href="{up}css/travel.css">
 </head>
-<body class="tv-body">
+<body class="tv-body"{body_attrs}>
   <div class="site-bar">
     <a class="site-bar-name" href="{up}index.html">認識臺灣——人文與自然地理資料庫</a>
     <span class="site-bar-tag">旅遊地圖</span>
@@ -305,6 +308,21 @@ def page_shell(title, body, depth, extra_head="", extra_js=""):
 </body>
 </html>
 """
+
+METRO_BTN = ('<button type="button" class="mt-open" data-metro-open>'
+             '<span class="mt-ico" aria-hidden="true"><i></i><i></i><i></i></span>'
+             '<span><b>捷運＋輕軌路線圖</b><small>點開看全圖：紅線、橘線、環狀輕軌在哪交會、哪裡轉乘</small></span>'
+             '<span class="mt-go" aria-hidden="true">›</span></button>')
+
+def metro_parts(metro, here=None, label=""):
+    """有合併路線圖的城市：頂部導航鍵、body 屬性、script。沒有就全空。"""
+    if not metro:
+        return "", "", ""
+    attrs = ""
+    if here:
+        attrs = f' data-metro-here="{esc(",".join(here))}" data-metro-label="{esc(label)}"'
+    js = f'  <script src="../../{metro}"></script>\n  <script src="../../js/metro.js"></script>'
+    return METRO_BTN, attrs, js
 
 def interpolate(zdata, geo):
     """只對到路段（road）的點：拿同一條路上已定位（house／poi／手動）的門牌做線性內插，精度標 interp。
@@ -343,7 +361,7 @@ def interpolate(zdata, geo):
             out[k] = dict(pin, ll=ll, prec="interp")
     return out
 
-def render_zone(city_id, plan, z, zdata, geo):
+def render_zone(city_id, plan, z, zdata, geo, metro=None):
     city = plan["city"]
     geo = interpolate(zdata, geo)
     pins, sec_html, toc = [], [], []
@@ -386,7 +404,12 @@ def render_zone(city_id, plan, z, zdata, geo):
                          f' <small>{esc(ln["en"])}</small></h3><div class="tv-sts">{chips}</div></div>')
         tf = "".join(f"<li>{esc(t)}</li>" for t in tr.get("transfers", []))
         note = f'<p class="tv-gnote">{esc(tr["note"])}</p>' if tr.get("note") else ""
-        sec_html.append(f'<section class="tv-sec" id="transit"><h2>捷運與輕軌</h2>{"".join(lines)}'
+        if metro:   # 紅橘線＋輕軌合併成一張圖，分線站表收進摺疊
+            body_lines = ('<div class="mt-preview" role="button" aria-label="打開捷運＋輕軌路線圖"></div>'
+                          f'<details class="tv-stlist"><summary>各線站名列表</summary>{"".join(lines)}</details>')
+        else:
+            body_lines = "".join(lines)
+        sec_html.append(f'<section class="tv-sec" id="transit"><h2>捷運與輕軌</h2>{body_lines}'
                         f'<h3 class="tv-gh">轉乘與怎麼到</h3><ul class="tv-tf">{tf}</ul>{note}</section>')
 
     used = []
@@ -398,12 +421,14 @@ def render_zone(city_id, plan, z, zdata, geo):
     n_items = sum(1 for _, g, _it in iter_items(zdata) if g.get("cat") != "info")
     n_pins = len(pins)
     n_road = sum(1 for p in pins if p["prec"] in ("road", "interp"))
+    mbtn, mattrs, mjs = metro_parts(metro, z.get("stations"), f"第 {z['order']} 區")
     body = f"""
     <nav class="crumbs"><a href="../../index.html#travel">旅遊地圖</a> › <a href="index.html">{esc(city)}</a> › <strong>第 {z['order']} 區</strong></nav>
     <header class="tv-head">
       <p class="eyebrow">旅遊地圖・{esc(city)}・第 {z['order']} 區</p>
       <h1>{esc(zdata['name'])}</h1>
       <p class="tv-sub">{esc(zdata.get('subtitle',''))}</p>
+      {mbtn}
     </header>
     <div class="tv-mapbox">
       <div id="tv-map" aria-label="分區地圖"></div>
@@ -421,10 +446,12 @@ def render_zone(city_id, plan, z, zdata, geo):
     js = f"""  <script src="../../vendor/leaflet.js"></script>
   <script>window.TV_PINS = {json.dumps(pins, ensure_ascii=False)}; window.TV_CATS = {json.dumps({k: v[1] for k, v in CATS.items()})};
   window.TV_VIEW = {json.dumps({"center": zdata.get("center"), "zoom": zdata.get("zoom", 14)})};</script>
-  <script src="../../js/travel.js"></script>"""
-    return page_shell(f"{zdata['name']}｜{city}旅遊地圖 — 認識臺灣", body, 2, head, js)
+  <script src="../../js/travel.js"></script>
+{mjs}"""
+    return page_shell(f"{zdata['name']}｜{city}旅遊地圖 — 認識臺灣", body, 2, head, js, mattrs)
 
-def render_city(city_id, plan, built):
+def render_city(city_id, plan, built, metro=None):
+    mbtn, mattrs, mjs = metro_parts(metro)
     cards = []
     for z in plan["zones"]:
         done = z["id"] in built
@@ -446,15 +473,17 @@ def render_city(city_id, plan, built):
       <p class="eyebrow">旅遊地圖</p>
       <h1>{esc(plan['city'])}</h1>
       <p class="tv-sub">{esc(plan.get('intro',''))}</p>
+      {mbtn}
     </header>
     <div class="tv-zones">{''.join(cards)}</div>
 """
-    return page_shell(f"{plan['city']}旅遊地圖 — 認識臺灣", body, 2)
+    return page_shell(f"{plan['city']}旅遊地圖 — 認識臺灣", body, 2, "", mjs, mattrs)
 
 def cmd_build():
     index = {"cities": []}
     for c in cities():
         plan = load_city(c)
+        metro = build_metro(ROOT, c, plan, {z["id"] for z in plan["zones"] if zone_file(c, z)})
         built = {}
         for z in plan["zones"]:
             path = zone_file(c, z)
@@ -465,10 +494,10 @@ def cmd_build():
             geo = json.loads(gp.read_text(encoding="utf-8")) if gp.exists() else {}
             out = OUT / c / f"{z['id']}.html"
             out.parent.mkdir(parents=True, exist_ok=True)
-            out.write_text(render_zone(c, plan, z, zdata, geo), encoding="utf-8")
+            out.write_text(render_zone(c, plan, z, zdata, geo, metro), encoding="utf-8")
             built[z["id"]] = zdata
             print(f"  ✓ {out.relative_to(ROOT)}")
-        (OUT / c / "index.html").write_text(render_city(c, plan, built), encoding="utf-8")
+        (OUT / c / "index.html").write_text(render_city(c, plan, built, metro), encoding="utf-8")
         print(f"  ✓ site/travel/{c}/index.html")
         index["cities"].append({
             "id": c, "name": plan["city"], "en": plan.get("city_en", ""),
