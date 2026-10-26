@@ -1,0 +1,135 @@
+# 旅遊地圖・高雄市 分區規劃（一區一個 yaml，一區做完上線再做下一區）
+# 執行一區：python3 scripts/travel.py new kh-02   → 產出骨架 travel/kaohsiung/kh-02-*.yaml（照下面 scope 填）
+#           填完資料 → python3 scripts/travel.py geocode kh-02 → python3 scripts/travel.py build → commit＋push（CI 自動上線）
+# status：done＝已上線｜next＝建議下一個｜planned＝排隊中
+# 每區產出比照第 1 區：食（在地小吃／餐廳）・樂（逛街）・態（自然）・藝（館舍）・景（地標）・港（水岸），
+# 每筆含地址、營業時間、電話、鄰近捷運／輕軌站與出口；另附「雨天備案」與「交通怎麼到」。
+# 資料一律查官方網站／Google 商家頁核對營業時間，查不到的欄位留空，不要猜。
+
+city: 高雄市
+city_id: kaohsiung
+city_en: Kaohsiung
+intro: 從比歐緻居房內的散步地圖出發，把高雄按「搭捷運能一天逛完」的範圍切成 14 區。
+
+zones:
+  - id: kh-01
+    order: 1
+    name: 中央公園站散步圈
+    districts: [新興區, 前金區, 苓雅區]
+    status: done
+    scope: 捷運 R9 中央公園站周邊步行圈＋摺頁列的全市食樂態藝景港、雨天備案、捷運圖。
+    file: kh-01-central-park.yaml
+
+  - id: kh-02
+    slug: hamasen
+    order: 2
+    name: 鹽埕・哈瑪星・駁二
+    districts: [鹽埕區, 鼓山區（南段）]
+    status: next
+    stations: [O1, O2, C11, C12, C13, C14, C15]
+    scope: 駁二藝術特區、大港橋、棧貳庫、高雄流行音樂中心、哈瑪星鐵道文化園區、舊打狗驛、武德殿、代天宮、新濱碼頭、打狗英國領事館、西子灣、壽山（動物園、情人觀景台）、鹽埕老店（三郎餐包、鴨肉珍、阿綿麻糬、港園牛肉麵本店）、高雄市立歷史博物館。
+    note: 第 1 區「全市導覽」已列不少這區的點，搬過來後補在地小吃與步行路線。
+
+  - id: kh-03
+    slug: cijin
+    order: 3
+    name: 旗津
+    districts: [旗津區]
+    status: planned
+    stations: [O1, C14]
+    scope: 鼓山輪渡站／棧貳庫渡輪過去；旗津老街與海產街、天后宮、旗後燈塔、旗後砲台、星空隧道、彩虹教堂、海水浴場、風車公園、腳踏車路線、渡輪時刻與票價。
+
+  - id: kh-04
+    slug: art-museum
+    order: 4
+    name: 美術館・愛河・農16
+    districts: [鼓山區（北段）, 三民區（西）]
+    status: planned
+    stations: [R13, C20, C21, C21A, C22, C23, C24, C25]
+    scope: 高雄市立美術館、內惟藝術中心、兒童美術館、愛河之心、龍華國小一帶、農16（明誠路餐廳群）、義享時尚廣場、愛河自行車道、貢多拉／愛之船。
+
+  - id: kh-05
+    slug: zuoying
+    order: 5
+    name: 左營・蓮池潭・高鐵站
+    districts: [左營區]
+    status: planned
+    stations: [R14, R15, R16]
+    scope: 蓮池潭（龍虎塔、春秋閣、孔廟）、鳳山縣舊城（見城館、北門）、眷村文化館、原生植物園、瑞豐夜市、漢神巨蛋、新光三越左營、高鐵左營站周邊吃食、紅頂穀創。
+
+  - id: kh-06
+    slug: harbor-bay
+    order: 6
+    name: 亞洲新灣區・前鎮・苓雅水岸
+    districts: [苓雅區（水岸）, 前鎮區]
+    status: planned
+    stations: [R6, R7, R8, C5, C6, C7, C8, C9, C10]
+    scope: 高雄展覽館、旅運中心、圖書館總館、85 大樓、夢時代、MLD 台鋁、輕軌沿線、光榮碼頭、駁二大義往南的水岸步道；文化中心、自強夜市、苓雅市場另外帶到。
+
+  - id: kh-07
+    slug: sanmin
+    order: 7
+    name: 三民・高雄車站・科工館
+    districts: [三民區]
+    status: planned
+    stations: [R11, R12, C29, C30, C31]
+    scope: 高雄車站（新站與舊站體）、三鳳中街、吉林夜市、科工館、中都唐榮磚窯廠、中都濕地公園、金獅湖蝴蝶園、三民街市場。
+
+  - id: kh-08
+    slug: fengshan
+    order: 8
+    name: 鳳山・衛武營・大東
+    districts: [鳳山區]
+    status: planned
+    stations: [O10, O11, O12, O13, O14, C35]
+    scope: 衛武營國家藝術文化中心與都會公園、鳳儀書院、鳳山龍山寺、曹公廟、大東文化藝術中心、鳳山第一公有市場、五甲（木侖花生糖）、黃埔軍校（預約制）、高雄親子遊樂園區。
+
+  - id: kh-09
+    slug: north
+    order: 9
+    name: 北高雄：楠梓・橋頭・岡山
+    districts: [楠梓區, 橋頭區, 岡山區, 路竹區, 燕巢區]
+    status: planned
+    stations: [RK1, R24, R23, R22A, R21, R17]
+    scope: 橋頭糖廠（藝術村）、都會公園、世運主場館、岡山羊肉、岡山眷村、螺絲博物館、阿公店水庫、燕巢泥火山與芭樂。
+
+  - id: kh-10
+    slug: niaosong
+    order: 10
+    name: 鳥松・仁武・大社・澄清湖
+    districts: [鳥松區, 仁武區, 大社區]
+    status: planned
+    scope: 澄清湖風景區、高雄果嶺自然公園、長庚周邊、大社觀音山；多數要開車或公車，寫清楚怎麼到。
+
+  - id: kh-11
+    slug: siaogang
+    order: 11
+    name: 小港・林園・大寮
+    districts: [小港區, 林園區, 大寮區]
+    status: planned
+    stations: [R3, R4, R4A, OT1]
+    scope: 高雄國際機場、SKM Park 草衙道、紅毛港文化園區、林園海洋濕地、大寮鐵道。適合搭機前後半天。
+
+  - id: kh-12
+    slug: qishan-meinong
+    order: 12
+    name: 旗山・美濃（旗美）
+    districts: [旗山區, 美濃區, 內門區]
+    status: planned
+    scope: 旗山老街（香蕉、枝仔冰城、旗山車站）、美濃客家文物館、油紙傘、粄條、中正湖、內門宋江陣與總舖師；開車或客運一日遊。
+
+  - id: kh-13
+    slug: tianliao
+    order: 13
+    name: 田寮・阿蓮・大樹・佛陀紀念館
+    districts: [田寮區, 阿蓮區, 大樹區]
+    status: planned
+    scope: 田寮月世界、佛光山佛陀紀念館、義大世界、舊鐵橋濕地、姑山倉庫、大樹玉荷包季節。
+
+  - id: kh-14
+    slug: mountain-coast
+    order: 14
+    name: 山城與海口：茂林・六龜・甲仙・那瑪夏・桃源／彌陀・梓官・永安・茄萣
+    districts: [茂林區, 六龜區, 甲仙區, 杉林區, 那瑪夏區, 桃源區, 彌陀區, 梓官區, 永安區, 茄萣區]
+    status: planned
+    scope: 山區（茂林紫蝶幽谷季節、多納溫泉、六龜十八羅漢山、甲仙芋頭、那瑪夏）與海線（彌陀虱目魚、梓官蚵仔寮漁港、永安濕地、茄萣興達港情人碼頭）。山區先查道路與颱風季封路狀況。

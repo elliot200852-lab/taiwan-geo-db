@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="vendor/leaflet.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/travel.css">
 </head>
 <body>
   <header class="site-head">
@@ -43,6 +44,7 @@
     <button type="button" class="geo-tab" data-tab="general" role="tab" aria-selected="false">總論</button>
     <button type="button" class="geo-tab" data-tab="counties" role="tab" aria-selected="false">分縣市</button>
     <button type="button" class="geo-tab" data-tab="themes" role="tab" aria-selected="false">議題</button>
+    <button type="button" class="geo-tab" data-tab="travel" role="tab" aria-selected="false">旅遊地圖</button>
     <a class="geo-tab" href="https://taiwan.md/" target="_blank" rel="noopener" title="臺灣.md — AI 原生的台灣開源知識庫（外部網站）">臺灣.md ↗</a>
   </nav>
 
@@ -82,6 +84,15 @@
         <div class="themes-cats" id="themes-cats"></div>
       </section>
     </section>
+
+    <!-- 旅遊地圖（資料：travel/*/，產頁：scripts/travel.py） -->
+    <section class="tab-panel" data-panel="travel" role="tabpanel">
+      <section class="travel-section">
+        <h2>旅遊地圖</h2>
+        <p class="travel-lead">出門用的地圖：一座城市切成幾區，每區把吃的、逛的、看的連同地址、營業時間、電話、捷運出口整理在一起，點地址直接開導航。</p>
+        <div class="travel-cities" id="travel-cities"></div>
+      </section>
+    </section>
   </main>
 
   <!-- 浮動導覽小浮標（首頁：省略回首頁／上一層） -->
@@ -102,10 +113,10 @@
   <script src="js/locate.js" defer></script>
 
   <script>
-    // 首頁三分頁 hash 路由（#general / #counties / #themes）。
+    // 首頁分頁 hash 路由（#general / #counties / #themes / #travel）。
     // 支援瀏覽器上一頁、深連結、子頁浮標「上一層」帶 hash 進來。
     (function () {
-      var TABS = ['general', 'counties', 'themes'];
+      var TABS = ['general', 'counties', 'themes', 'travel'];
       var buttons = document.querySelectorAll('.geo-tab[data-tab]');
       var panels = document.querySelectorAll('.tab-panel');
       function activate(name, push) {
@@ -237,6 +248,29 @@
             }
             col.innerHTML = head + bodyHtml;
             host.appendChild(col);
+          });
+        });
+    })();
+  </script>
+  <script>
+    // 旅遊地圖分頁：由 travel-index.json 長出城市卡。
+    (function () {
+      var host = document.getElementById('travel-cities');
+      if (!host) return;
+      fetch('data/travel-index.json')
+        .then(function (r) { return r.json(); })
+        .catch(function () { return { cities: [] }; })
+        .then(function (data) {
+          ((data && data.cities) || []).forEach(function (c) {
+            var a = document.createElement('a');
+            a.className = 'travel-city';
+            a.href = c.href;
+            var zones = (c.zones || []).map(function (z) { return z.order + '. ' + z.name; }).join('　');
+            a.innerHTML = '<span class="travel-city-name">' + c.name + '</span>' +
+              '<span class="travel-city-en">' + (c.en || '') + '</span>' +
+              '<div class="travel-city-meta">已上線 ' + c.zones_done + ' ／ ' + c.zones_total + ' 區</div>' +
+              '<p class="travel-city-zones">' + zones + '</p>';
+            host.appendChild(a);
           });
         });
     })();

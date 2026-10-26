@@ -1,0 +1,279 @@
+# 旅遊地圖・高雄市・第 1 區：中央公園站（R9）散步圈
+# 來源：比歐緻居（Brio Hotel）房內紙本「比歐散步地圖 Brio Explore Hidden Gems by Foot」6 面，2026-10-26 翻拍逐項抄錄。
+# 紙本翻拍被裁掉的部分（「港」整欄、右緣幾家店的地址電話）依飯店線上版補：
+#   https://www.briohotel.com/news/ins.php?index_id=444 （2025-09-16 版），item 標 src: web。
+# 欄位：zh 中文名｜en 英文名｜addr 地址｜mrt 鄰近捷運／輕軌站號｜exit 出口｜hours 營業時間（多行）｜tel 電話｜note 備註
+#       q 地理編碼查詢字串（自動找不到時手動指定）｜ll [緯度, 經度]（手動釘點，優先於自動）
+# 營業時間僅供參考，請依現場為主（摺頁原註）。
+
+id: kh-01
+city: 高雄市
+city_id: kaohsiung
+order: 1
+name: 中央公園站散步圈
+subtitle: 新興・前金・苓雅｜捷運 R9 中央公園站周邊，外加摺頁列的全市景點
+districts: [新興區, 前金區, 苓雅區]
+center: [22.6250, 120.3010]
+zoom: 15
+source: 比歐緻居（Brio Hotel）房內紙本「比歐散步地圖」，2026-10-26 抄錄
+updated: 2026-10-26
+
+sections:
+  - id: start
+    title: 起點
+    lead: 摺頁出版者，也是摺頁裡「近比歐緻居」的參照點。
+    groups:
+      - name: 旅宿 Hotel
+        cat: start
+        items:
+          - zh: 比歐緻居
+            en: BRIO HOTEL
+            addr: 新興區中山一路14-26號
+            mrt: [R9]
+            exit: 3號出口（步行 30 秒）
+            note: 入口位於民生一路上
+            tel: 07 281 7900
+            ll: [22.62611, 120.30140]
+          - zh: 眺吧餐酒館
+            en: The Lookout Bistro & Bar（RF 樓）
+            addr: 新興區中山一路14-26號 RF
+            mrt: [R9]
+            exit: 3號出口
+            hours:
+              - 早餐 07:00–14:00（最後點餐 12:00）
+              - 晚餐 17:30–21:30（最後點餐 21:30）
+              - 宵夜 21:30–01:30（最後點餐 21:30／最後點酒 00:30）
+            tel: 07 281 7900#8
+            ll: [22.62611, 120.30140]
+
+  - id: walk
+    title: 散步圈：中央公園站周邊美食摺頁
+    lead: 摺頁背面的手繪散步地圖，店家依類別編號。捷運站號後面的「出口」指該站出口。
+    groups:
+      - name: 台灣味餐廳 Taiwanese Cuisine
+        cat: food
+        items:
+          - {n: 1, zh: 鄧師傅功夫菜, en: Chef Teng, addr: 新興區中正三路82號, mrt: [O5, R10], exit: 8號出口, hours: [每日 11:00–21:00], tel: 07 236 1822}
+          - {n: 2, zh: 半九十茶屋, en: Tea for the last ten miles of long journey, addr: 新興區中正四路71號, mrt: [O5, R10], exit: 2號出口, hours: [每日 11:00–21:30], tel: 07 281 5195}
+          - {n: 3, zh: 忠孝澎湖海產店, en: Zhongxiao Penghu Seafood, addr: 新興區新興路23號, mrt: [O5, R10], exit: 6號出口, hours: [週一至週六 17:30–00:00], tel: 07 251 8120}
+          - {n: 4, zh: 新新園汕頭火鍋, en: Xinxinyuan Shantou Hot Pot, addr: 新興區民生一路288號, mrt: [O5, R10], exit: 6號出口, hours: [每日 11:30–00:00], tel: 07 215 4929}
+          - {n: 5, zh: 老四川巴蜀麻辣燙, en: Old Sichuan Spicy Hot Pot, addr: 苓雅區中山二路416號, mrt: [R9], exit: 2號出口, hours: [每日 00:00–07:00、11:30–00:00], tel: 07 335 1717}
+          - {n: 6, zh: 牛老大涮牛肉, en: Niu Lao Da Beef Shabu Shabu, addr: 前金區自強二路18號, mrt: [R9], exit: 1號出口, hours: [週二 16:00–00:00, 週三至週日 11:30–14:00、16:00–00:00], tel: 07 281 9196}
+          - {n: 7, zh: 老新台菜, en: Old New Taiwanese Cuisine, addr: 三民區九如二路227號, mrt: [R11], hours: [每日 11:30–14:00、17:30–21:30], tel: 07 313 3077}
+      - name: 台灣小吃 Taiwan Snacks
+        cat: snack
+        items:
+          - {n: 1, zh: 春蘭割包, en: Chun Lan Gua Bao, addr: 新興區復興一路5號, hours: [週一至週六 11:00–21:30], tel: 07 201 7806}
+          - {n: 2, zh: 60年三代春捲, en: San Dai Spring Roll, addr: 新興區中山橫路1號, mrt: [O5, R10], exit: 1號出口, hours: [週日至週五 09:15–18:00, 週六 09:15–16:00], tel: 07 285 8490}
+          - {n: 3, zh: 純發西點麵包, en: Chun Fa Bakery, addr: 新興區林森一路49號, mrt: [R9], exit: 2號出口, hours: [每日 09:00–21:30], tel: 07 231 8083}
+          - {n: 4, zh: 三泉冰淇淋工廠, en: San Quan Ice-Cream Factory, addr: 新興區林森一路141號, mrt: [R9], exit: 3號出口, hours: [每日 10:00–21:00], tel: 07 231 9621}
+          - {n: 5, zh: 梅家村排骨飯, en: "Mei's Pork Ribs Restaurant", addr: 新興區林森一路132之3號, mrt: [R9], exit: 3號出口, hours: [週一至週六 10:20–14:00、16:20–20:00], tel: 07 281 1436}
+          - {n: 6, zh: 興隆居, en: Xinglongju Tonics Soup, addr: 前金區六合二路186號, mrt: [O4], exit: 1號出口, hours: [週三至週日 04:30–11:30], tel: 07 261 6787}
+          - {n: 7, zh: 金城鴨肉, en: Jincheng Duck Meat, addr: 前金區五福三路62號, mrt: [R9], exit: 1號出口, hours: [週二至週日 10:00–20:30], tel: 07 241 5419}
+          - {n: 8, zh: 諭泉冰果店, en: Yu Quan Ice & Fruit Splits, addr: 新興區忠孝一路252號, mrt: [O5, R10], exit: 6號出口, hours: [每日 07:00–00:00], tel: 07 211 2752}
+          - {n: 9, zh: 米院子, en: Mi Yuan Tzu, addr: 新興區南海街30號, mrt: [O6], exit: 3號出口, hours: [每日 10:45–賣完為止], tel: 07 222 6699}
+          - {n: 10, zh: 前金肉燥飯, en: Cianjin Braised Pork Rice, addr: 前金區大同二路26號, mrt: [O4], exit: 3號出口, hours: [週一至週五 07:15–17:30, 週六 07:15–14:00, 週日公休], tel: 07 272 7263}
+      - name: 牛肉麵 Taiwanese Beef Noodle Soup
+        cat: noodle
+        items:
+          - {n: 1, zh: 大牛牛肉麵, en: Da Niu Beef Noodle Soup, addr: 苓雅區四維三路96號, hours: [週五至週三 10:00–20:00], tel: 07 331 4482}
+          - {n: 2, zh: 姚家蘭州拉麵, en: Yaojia Lanzhou Beef Noodles, addr: 新興區青年一路176巷12號, hours: [週五至週三 11:30–14:00／17:30–20:30], tel: 07 223 2789}
+          - {n: 3, zh: 港園牛肉麵（自強店）, en: Gang Yuan Beef Noodle Soup, addr: 前金區自強三路248號, hours: [每日 11:00–14:50／17:00–20:00], tel: 07 221 5595}
+          - {n: 4, zh: 牛老二牛肉麵館（興中本店）, en: Niu Lao Er Beef Noodle Soup, addr: 苓雅區興中二路83號, mrt: [O5, R10], exit: 7號出口, hours: [每日 11:00–20:00], tel: 07 334 2513}
+      - name: 飲料店 Tea Shop
+        cat: drink
+        items:
+          - {n: 1, zh: 老江紅茶牛奶, en: Lao Jiang Milk Black Tea, addr: 新興區南台路51號, mrt: [O5, R10], exit: 1號出口, hours: [24 小時], tel: 07 287 7317}
+          - {n: 2, zh: 迷客夏, en: Milksha Tea, addr: 新興區林森一路186號, mrt: [O5, R10], exit: 8號出口, hours: [週一至週五 09:00–21:30, 週六至週日 10:00–21:00], tel: 07 236 5252}
+          - {n: 3, zh: 清心福全, en: Ching Shin Fu Chuan Tea, addr: 新興區林森一路174號, mrt: [O5, R10], exit: 6號出口, hours: [每日 08:00–22:30], tel: 07 211 7789}
+          - {n: 4, zh: 五桐號 堀江店, en: Woo Tea, addr: 新興區新田路151號, mrt: [R9], exit: 2號出口, hours: [每日 10:00–21:00], tel: 07 221 6880}
+          - {n: 5, zh: 50嵐, en: 50 Lan, addr: 新興區自立二路126號, mrt: [O5, R10], exit: 1號出口, hours: [每日 09:00–00:00], tel: 07 286 9069}
+          - {n: 6, zh: 可不可熟成紅茶, en: KEBUKE Tea, addr: 新興區自立二路118號, mrt: [O5, R10], exit: 1號出口, hours: [每日 09:00–22:00], tel: 07 285 2525}
+          - {n: 7, zh: 麻古茶坊, en: Macu Tea, addr: 新興區自立二路116號, mrt: [O5, R10], exit: 1號出口, hours: [每日 09:00–22:00], tel: 07 285 0305}
+          - {n: 8, zh: 高雄牛乳大王, en: Kaohsiung Milk, addr: 前金區中華三路65之5號, mrt: [R9], exit: 1號出口, tel: 07 282 3636}
+          - {n: 9, zh: 蓁香茗茶, en: Chi Tzu Yin, addr: 苓雅區自強三路121號, hours: [每日 07:00–20:00], tel: 07 338 7833}
+      - name: 咖啡廳 Cafes
+        cat: cafe
+        items:
+          - {n: 1, zh: 灰。咖啡, en: Hway Coffee, addr: 新興區林森一路146巷2號, mrt: [O5, R10], exit: 6號出口, hours: [週四至週一 13:30–00:00], tel: 07 251 5665}
+          - {n: 2, zh: 龜時間, en: goöod time, addr: 新興區中正四路41號, mrt: [O5, R10], exit: 2號出口, hours: [週四至週一 11:00–19:00]}
+          - {n: 3, zh: 咖啡覺醒 中山店, en: Coffee Wake Up, addr: 前金區中山二路547號, mrt: [R9], exit: 2號出口, hours: [週一至週日 08:00–22:50], tel: 07 215 6005}
+          - {n: 4, zh: 路人咖啡 2 號店, en: Ruh Café No.2, addr: 前金區大同二路46號, mrt: [O4], exit: 2號出口, hours: [週一至週六 08:00–18:00], tel: 07 241 6321}
+          - {n: 5, zh: 客美多咖啡 大立店, en: "Komeda's Coffee", addr: 前金區五福三路59號, mrt: [R9], exit: 1號出口, hours: [週一至週日 07:30–21:00], tel: 07 215 2168}
+          - {n: 6, zh: 有。咖啡, en: r.Ruyo Coffee, addr: 苓雅區中正二路56巷11號, mrt: [O7], exit: 4號出口, hours: [週二至週日 12:00–18:00], tel: 07 223 6808}
+          - {n: 7, zh: 程式咖啡, en: Formula Coffee Roaster, addr: 三民區重慶街117號, mrt: [R12], exit: 1號出口, hours: [週一至週日 10:00–18:30]}
+          - {n: 8, zh: 新濱·駅前, en: Hamasen 1921, addr: 鼓山區臨海三路5號, mrt: [O1, C14], exit: 2號出口, hours: [週一至週日 10:00–19:00], tel: 07 531 5770}
+          - {n: 9, zh: 柴山1號海洋咖啡, en: Chaishan No.1, addr: 鼓山區柴山1號, q: 柴山1號海洋咖啡, hours: [週一至週日 11:00–19:00（週三公休）], tel: 07 525 0256}
+      - name: 素食餐廳 Vegetarian Restaurant
+        cat: veg
+        items:
+          - {n: 1, zh: 上竹林食草館, en: Vegan and Vegetarian Restaurant, addr: 新興區林森一路100號, note: 近比歐緻居, hours: [週二至週日 11:30–14:30／17:30–21:30], tel: 07 272 7888}
+          - {n: 2, zh: 素沛天然蔬食, en: Su Pei Vegetarian Restaurant, addr: 苓雅區林森二路132-1號, hours: [週一至週六 11:30–19:30], tel: 07 330 1762}
+          - {n: 3, zh: 秀羽素食館, en: Xiuyu Vegetarian, addr: 新興區忠孝一路274號, mrt: [O5, R10], exit: 6號出口, hours: [週一至週日 10:30–13:30／16:30–20:00], tel: 07 251 8286}
+          - {n: 4, zh: 妙善公主素食養心鍋, en: Princess Miao Shan Medicinal Hot Pot, addr: 前金區自強三路234號, hours: [週二至週日 11:00–15:00／16:30–20:00], tel: 07 241 9481}
+          - {n: 5, zh: 漢來蔬食 巨蛋店, en: Han-Lai Vegetarian, addr: 左營區博愛二路777號5樓, mrt: [R14], exit: 5號出口, hours: [週一至週五 11:30–14:30／17:00–21:00, 週六至週日 11:00–15:30／17:00–21:00], tel: 07 555 2882}
+      - name: 特色伴手禮 Souvenirs
+        cat: gift
+        items:
+          - {n: 1, zh: 火星糖, en: Star Fire Candy Shop, addr: 新興區中山一路14-1號, note: 近比歐緻居, hours: [週六至週日 13:00–21:00], tel: 07 231 3331}
+          - {n: 2, zh: 不二緻果（高雄不二家）, en: Pure Home Tea Saloon, addr: 新興區中正四路31號, mrt: [O5, R10], exit: 2號出口, hours: [每日 09:00–21:00], tel: 07 241 2727}
+          - {n: 3, zh: 舊振南, en: Jiu Zhen Nan, addr: 前金區中正四路84號, mrt: [O5, R10], exit: 1號出口, hours: [每日 09:30–21:00], tel: 07 288 8202}
+          - {n: 4, zh: 猜心泡芙, en: GH puff, addr: 苓雅區泰順街60號1樓, mrt: [O7], exit: 4號出口, hours: [每日 15:00–18:00], tel: 0965 181 010}
+          - {n: 5, zh: 吳寶春麵包, en: Wu Pao Chun Bakery, addr: 苓雅區四維三路19號, hours: [每日 10:30–20:00], tel: 07 335 9593}
+          - {n: 6, zh: 三郎餐包, en: Saburou Bakery, addr: 鹽埕區新樂街198-8號, mrt: [O2], exit: 2號出口, hours: [週三至週一 11:00–18:00], tel: 07 551 5841, src: web, q: 三郎餐包}
+          - {n: 7, zh: 木侖花生糖, en: Mu Lun Peanut Candy, addr: 鳳山區五甲二路559號, hours: [週一至週六 09:00–18:00], tel: 07 821 4892, src: web}
+      - name: 夜生活 Nightlife
+        cat: night
+        items:
+          - {n: 1, zh: 眺吧餐酒館, en: The Lookout Bistro & Bar, addr: 新興區中山一路14-26號 RF, note: 比歐緻居頂樓, hours: [每日 07:00–11:00、17:30–01:30], tel: 07 281 7900#8, ll: [22.62611, 120.30140]}
+          - {n: 2, zh: 六合夜市, en: Liouhe Night Market, addr: 新興區六合二路, mrt: [O5, R10], hours: [每日 17:00–04:00], note: 摺頁正面「食」類寫 17:00–02:00，兩處不同}
+          - {n: 3, zh: 壽山情人觀景台, en: "Shoushan Lovers' Viewing Platform", addr: 鼓山區忠義路30號, q: 壽山情人觀景台}
+          - {n: 4, zh: 愛河之心, en: Heart of Love River, addr: 鼓山區龍德路2號, mrt: [R12], exit: 4號出口, note: 地址與站號照摺頁原文}
+          - {n: 5, zh: 西子灣, en: Si Zih Bay, addr: 鼓山區蓮海路51號, hours: [海水浴場 10:00–16:00], src: web}
+          - {n: 6, zh: 高雄流行音樂中心, en: Kaohsiung Music Center, addr: 鹽埕區真愛路1號, mrt: [C11], hours: [每日 10:00–22:00], src: web}
+          - {n: 7, zh: 大港橋, en: Great Harbor Bridge, addr: 鹽埕區大港橋, mrt: [C12], hours: [開合秀 週一至週四 15:00, 週五至週日 15:00、19:00], src: web}
+          - {n: 8, zh: 高雄燈塔, en: Kaohsiung Lighthouse, addr: 旗津區旗下巷34號, hours: [每日 10:00–21:00], tel: 07 571 5021, src: web}
+      - name: 按摩 Spa
+        cat: spa
+        items:
+          - {n: 1, zh: 左腳右腳按摩會館, en: Feet Massage, addr: 新興區新田路145號, mrt: [R9], exit: 2號出口, hours: [每日 10:00–02:00], tel: 07 282 1377}
+          - {n: 2, zh: 豪功夫養生會館, en: Hao Kung Fu Massage, addr: 新興區林森一路196之2號, mrt: [O5, R10], exit: 8號出口, hours: [每日 09:00–02:00], tel: 07 235 2323}
+          - {n: 3, zh: 鄧老師連鎖養生館（五福店）, en: Master Deng Traditional Spa, addr: 前金區五福三路96號, hours: [每日 10:00–04:00], tel: 07 272 5599}
+      - name: 散步圈生活機能
+        cat: info
+        items:
+          - zh: 地圖圖例
+            en: Grocery / Clinic / Hair Salon / Laundry / Pharmacy
+            note: 手繪地圖另標了 R9 周邊的便利商店（7-ELEVEN、全家、OK）、診所、剪髮、洗衣店、藥局位置，但沒有店名地址；到現場看 R9 出口 1（公園內）、2、3（比歐緻居旁）附近即可。
+
+  - id: city
+    title: 全市導覽：食・樂・態・藝・景・港
+    lead: 摺頁正面把整個高雄的去處分成六類。這些點散在全市，之後各區頁會再展開；這裡先原樣收齊。
+    groups:
+      - name: 食 Food（夜市）
+        cat: food
+        items:
+          - {zh: 眺吧餐酒館, en: The Lookout Bistro & Bar, addr: 新興區中山一路14-26號 RF, note: 比歐緻居 Brio Hotel RF, hours: [每日 07:00–14:00、17:30–01:30], tel: 07 281 7900#8, ll: [22.62611, 120.30140]}
+          - {zh: 六合夜市, en: Liuhe Night Market, addr: 新興區六合二路, mrt: [R10], exit: 美麗島站11號出口, hours: [每日 17:00–02:00]}
+          - {zh: 南華夜市／商圈, en: Nanhua Night Market, addr: 新興區南華路38號, note: 近比歐緻居, hours: [每日 12:00–22:00]}
+          - {zh: 瑞豐夜市, en: RuiFeng Market, addr: 鼓山區裕誠路南屏路, mrt: [R14], exit: 巨蛋站1號出口, hours: [週二、週四至週日 17:00–00:00], q: 瑞豐夜市}
+          - {zh: 吉林夜市, en: Jilin Night Market, addr: 三民區吉林街159號, hours: [每日 15:00–01:00]}
+          - {zh: 自強夜市（苓雅夜市）, en: Ziqiang Night Market, addr: 苓雅區自強三路139號, hours: [每日 17:00–01:00]}
+          - {zh: 忠孝夜市, en: Zhongxiao Night Market, addr: 苓雅區忠孝二路, hours: [每日 16:00–01:00]}
+          - {zh: 光華夜市, en: Guanghua Night Market, addr: 前鎮區光華二路339號, hours: [每日 17:00–01:00]}
+      - name: 樂 Leisure（逛街購物）
+        cat: shop
+        items:
+          - {zh: 新堀江商圈, en: Shikuchan Commercial District, addr: 新興區, note: 近比歐緻居, hours: [每日 13:00–00:00], q: 新堀江商圈}
+          - {zh: MLD台鋁, en: Metropolitan Living Development, addr: 前鎮區忠勤路8號, hours: [每日 11:30–21:30], tel: 07 536 5388}
+          - {zh: 大立百貨, en: TALEES Department Store, addr: 前金區五福三路57號, mrt: [R9], exit: 中央公園站1號出口, hours: [每日 11:00–22:00], tel: 07 261 3060}
+          - {zh: 夢時代購物中心, en: Dream Mall, addr: 前鎮區中華五路789號, mrt: [R6], exit: 凱旋站3號出口, hours: [週一至週五 11:00–22:00, 週六至週日 10:30–22:30], tel: 07 813 5678, note: 捷運圖另註：R6 凱旋站3號出口沿時代大道步行約15分鐘，或1號出口步行至輕軌 C3 前鎮之星}
+          - {zh: 漢神巨蛋購物廣場, en: Hanshin Arena Shopping Plaza, addr: 左營區博愛二路777號, mrt: [R14], exit: 巨蛋站5號出口, hours: [每日 11:00–22:00], tel: 07 555 9688}
+          - {zh: 高雄草衙道 SKM Park Outlets, en: SKM Park Outlets, addr: 前鎮區中安路1-1號, mrt: [R4A], exit: 草衙站2號出口, hours: [週一至週四 11:00–21:30, 週五 11:00–22:00, 週六至週日 10:30–22:00], tel: 07 796 9999, note: 捷運路線圖標的是 R4A 3號出口}
+          - {zh: 義享時尚廣場, en: E SKY MALL, addr: 鼓山區大順一路115號, mrt: [R13, C24, C25], exit: 凹子底站2號出口；輕軌愛河之星站、新上國小站, hours: [週一至週五 11:00–22:00, 週六至週日 10:30–22:00], tel: 07 559 9888}
+          - {zh: 高雄親子遊樂園區, en: Kaohsiung Family Amusement Park, addr: 鳳山區武慶二路221號, mrt: [C35], hours: [一般期間 週三至週日 09:00–19:00, 寒暑假期間 週二至週日 09:00–19:00], tel: 07 337 3060, note: 市府總機 07-337-3060／市民專線 1999；捷運圖標在輕軌 C35 凱旋武昌站旁}
+      - name: 態 Ecology（公園自然）
+        cat: eco
+        items:
+          - {zh: 中央公園, en: Central Park, addr: 新興區, note: 近比歐緻居, mrt: [R9], q: 中央公園 新興區 高雄市}
+          - {zh: 中都濕地公園, en: Jhongdu Wetland Park, addr: 三民區同盟三路與十全三路交叉處, q: 中都濕地公園}
+          - {zh: 金獅湖蝴蝶園, en: Jinshi Lake Butterfly Garden, addr: 三民區金獅湖路, hours: [週二至週日 09:00–17:00], tel: 07 347 5317, note: 摺頁英文誤植為 Zhongdu Wetlands Park, q: 金獅湖蝴蝶園}
+          - {zh: 壽山動物園, en: Shou Shan Zoo, addr: 鼓山區萬壽路350號, hours: [週二至週日 09:00–17:00], tel: 07 521 5187}
+          - {zh: 壽山 Love 觀景台, en: "Shoushan Lovers' Viewing Platform", addr: 鼓山區忠義路30號, q: 壽山情人觀景台}
+          - {zh: 旗津海水浴場, en: Cijin Beach, addr: 旗津區廟前路, q: 旗津海水浴場}
+          - {zh: 原生植物園, en: The Indigenous Botanical Garden, addr: 左營區重光路, q: 原生植物園 左營}
+          - {zh: 蓮池潭, en: Lotus Pond, addr: 左營區蓮潭路, q: 蓮池潭}
+          - {zh: 高雄果嶺自然公園, en: Green Park, addr: 鳥松區球場路270號}
+          - {zh: 澄清湖風景區, en: Chengcing Lake, addr: 鳥松區大埤路32號, q: 澄清湖}
+          - {zh: 田寮月世界, en: Tianliao Moon World, addr: 田寮區崇德里月球路36號, q: 月世界 田寮}
+      - name: 藝 Arts & Culture
+        cat: art
+        items:
+          - {zh: 光之穹頂, en: Dome of Light, addr: 新興區中山一路115號B1, mrt: [R10, O5], exit: 美麗島站內, hours: [每日 06:00–00:00], ll: [22.63130, 120.30200]}
+          - {zh: 逍遙園, en: Xiaoyao Garden, addr: 新興區六合一路55巷內, hours: [每日 11:00–18:00], q: 逍遙園}
+          - {zh: 玫瑰聖母聖殿（玫瑰堂）, en: Holy Rosary Cathedral, addr: 苓雅區五福三路151號, hours: [週一至週五 09:00–17:00], q: 玫瑰聖母聖殿}
+          - {zh: 文化中心, en: Kaohsiung Cultural Center, addr: 苓雅區五福一路67號, mrt: [O7], exit: 文化中心站3號出口, hours: [週二至週日 09:00–17:00]}
+          - {zh: 科學工藝博物館, en: Science and Technology Museum, addr: 三民區九如一路720號, mrt: [C30], exit: 近科工館車站, hours: [週二至週日 09:00–17:00], tel: 07 380 0089}
+          - {zh: 高雄市立歷史博物館, en: Kaohsiung Museum of History, addr: 鹽埕區中正四路272號, mrt: [O2], exit: 鹽埕埔站2號出口, hours: [週一至週日 11:00–20:00]}
+          - {zh: 李科永紀念圖書館, en: Li Ko Yung Memorial Library, addr: 前金區民生二路37號, hours: [週二至週六 09:00–21:00, 週日 09:00–17:00], tel: 07 261 0005}
+          - {zh: 棧貳庫 KW2（旗津渡輪、文化遊艇）, en: KW2, addr: 鼓山區蓬萊路17號, mrt: [C13], exit: 駁二蓬萊站, hours: [週日至週四 10:00–21:00, 週五至週六 10:00–22:00]}
+          - {zh: 高雄市立美術館, en: Kaohsiung Museum of Fine Arts, addr: 鼓山區美術館路80號, mrt: [C21A], exit: 輕軌內惟藝術中心站, hours: [週一至週日 09:30–17:30], tel: 07 555 0331}
+          - {zh: 內惟藝術中心, en: Neiwei Arts Center, addr: 鼓山區馬卡道路329號, mrt: [C21A], exit: 輕軌內惟藝術中心站, hours: [週二至週日 11:00–21:00], tel: 07 553 8935}
+      - name: 景 Attraction
+        cat: sight
+        items:
+          - {zh: 打狗英國領事館, en: Former British Consulate at Takao, addr: 鼓山區蓮海路20號, hours: [週四至週二 10:00–19:00（週三休）], tel: 07 525 0100}
+          - {zh: 駁二藝術特區, en: The Pier-2 Art Center, addr: 鹽埕區大勇路1號, mrt: [O2, C12, C13], exit: 鹽埕埔站1號出口；輕軌駁二大義站、駁二蓬萊站, hours: [週一至週四 10:00–18:00, 週五至週日 10:00–20:00]}
+          - {zh: 大港橋, en: Great Harbor Bridge, addr: 駁二藝術特區碼頭旁, mrt: [C12], exit: 輕軌駁二大義站, hours: [每日下午 3 點開合秀, 週五、六、日晚間 7 點加開 1 場], q: 大港橋}
+          - {zh: 哈瑪星鐵道文化園區, en: Hamasen Museum of Taiwan Railway, addr: 鼓山區鼓山一路32號, mrt: [C14], exit: 輕軌哈瑪星站, q: 哈瑪星台灣鐵道館}
+          - {zh: 舊打狗驛故事館, en: Takao Railway Museum, addr: 鼓山區鼓山一路32號, mrt: [C14], exit: 輕軌哈瑪星站, hours: [週二至週日 10:00–18:00], tel: 07 531 6209, q: 舊打狗驛故事館}
+          - {zh: 蓮池潭風景區（龍虎塔、全天滑水＋SUP）, en: "Lotus Pond (Dragon & Tiger Pagodas, Wakeboarding + SUP)", addr: 左營區蓮潭路, mrt: [R16], tel: 07 581 9286, note: 捷運圖：R16 左營站步行約10分鐘，或2號出口轉公車301／紅35至「蓮池潭站」；R15 生態園區站2號出口轉紅35至「蓮池潭（勝利路）」, q: 龍虎塔}
+          - {zh: 鳳山縣舊城, en: Old City of Zuoying, addr: 左營區勝利路117號, q: 鳳山縣舊城 北門}
+          - {zh: 高雄圖書館總館, en: Kaohsiung Main Public Library, addr: 前鎮區新光路61號, mrt: [R8], exit: 三多商圈站2號出口, hours: [週二至週日 10:00–21:30]}
+          - {zh: 高雄展覽館, en: Kaohsiung Exhibition Center, addr: 前鎮區成功二路39號, mrt: [C8], exit: 輕軌高雄展覽館站, hours: [週一至週日 10:00–18:00]}
+          - {zh: 衛武營國家藝術文化中心, en: National Kaohsiung Center for the Arts, addr: 鳳山區三多一路1號, mrt: [O10], exit: 衛武營站6號出口, hours: [週一至週日 11:00–20:00]}
+          - {zh: 大東文化藝術中心, en: Dadong Arts Center, addr: 鳳山區光遠路161號, mrt: [O13], exit: 大東站2號出口, hours: [週二至週日 10:00–21:00（週日至 17:00）], tel: 07 743 0011}
+      - name: 港 Harbors
+        cat: port
+        note: 紙本地圖左欄只翻拍到右緣，整欄依飯店線上版補齊。
+        items:
+          - {zh: 西子灣, en: Sizihwan, addr: 鼓山區蓮海路51號, hours: [海水浴場 10:00–16:00], src: web}
+          - {zh: 香蕉碼頭, en: Banana Wharf, addr: 鼓山區蓬萊路17號, mrt: [O1], exit: 西子灣站2號出口, hours: [週日至週四 10:00–21:00, 週五至週六 10:00–22:00], src: web, q: 香蕉碼頭 高雄}
+          - {zh: 愛之船, en: Love Boat, addr: 前金區河東路176號對面, hours: ["08:00–18:00（07-335 9909）", "18:00–22:00（07-281 1313）"], src: web, q: 愛之船 愛河}
+          - {zh: 貢多拉, en: Love Gondola Boat, addr: 前金區河東路188號對面, hours: [16:30–23:30], tel: 0908 103 866, src: web}
+          - {zh: 大港橋, en: Great Harbor Bridge, addr: 鹽埕區大港橋, mrt: [C12], exit: 輕軌駁二大義站, hours: [開合秀 週一至週四 15:00, 週五至週日 15:00、19:00], src: web, q: 大港橋}
+          - {zh: 高雄流行音樂中心, en: Kaohsiung Music Center, addr: 鹽埕區真愛路1號, mrt: [C11, C10], exit: 輕軌真愛碼頭站、光榮碼頭站, tel: 07 521 8012, src: web, q: 高雄流行音樂中心}
+          - {zh: 高雄港旅運中心, en: Kaohsiung Port Cruise Terminal, addr: 苓雅區海邊路5號, mrt: [C9], exit: 輕軌旅運中心站, src: web, q: 高雄港旅運中心}
+          - {zh: 鼓山輪渡站, en: Gushan Ferry Station, addr: 鼓山區濱海二路1號, mrt: [O1], exit: 西子灣站1號出口, tel: 07 551 4316, src: web, q: 鼓山輪渡站}
+          - {zh: 棧貳庫渡輪站, en: KW2 Ferry Station, addr: 鼓山區蓬萊路17號海側廣場, mrt: [C14, C13], exit: 輕軌哈瑪星、駁二蓬萊, tel: 07 226 2888, src: web, q: 棧貳庫}
+          - {zh: 旗津渡輪站, en: Cijin Ferry Station, addr: 旗津區海岸路10號, tel: 07 571 2542, src: web, q: 旗津輪渡站}
+          - {zh: 新濱海洋廚房, en: Shinhamachō Cuisine Hub, addr: 鼓山區濱海一路109-1號, tel: 07 213 6612, src: web}
+
+  - id: rainy
+    title: 雨天備案 Rainy Day Plan
+    lead: 摺頁封面頁的雨天去處，全是室內館舍。
+    groups:
+      - name: 雨天備案
+        cat: rain
+        items:
+          - {zh: 高雄市立美術館, en: Kaohsiung Museum of Fine Arts, addr: 鼓山區美術館路80號, mrt: [C21], hours: [週一至週日 09:30–17:30], tel: 07 555 0331}
+          - {zh: 內惟藝術中心, en: Neiwei Arts Center, addr: 鼓山區馬卡道路329號, mrt: [C21A], hours: [週二至週日 11:00–21:00], tel: 07 553 8935}
+          - {zh: 金馬賓館當代美術館, en: ALIEN Art Centre, addr: 鼓山區鼓山一路111號, mrt: [C15], hours: [週二至週日 10:00–18:00], tel: 07 972 1685}
+          - {zh: 打狗英國領事館, en: Former British Consulate at Takao, addr: 鼓山區蓮海路20號, hours: [週四至週二 10:00–19:00], tel: 07 525 0100}
+          - {zh: 紅頂穀創穀物文創樂園, en: Red Barn Factory & Tours, addr: 左營區民族一路709號, hours: [週二至週日 09:00–17:00], tel: 07 346 0333, q: 紅頂穀創}
+          - {zh: 高雄草衙道 SKM Park Outlets, en: SKM Park Outlets, addr: 前鎮區中安路1-1號, mrt: [R4A], exit: 2號出口, hours: [週一至週四 11:00–21:30, 週五 11:00–22:00, 週六至週日 10:30–22:00], tel: 07 796 9999}
+          - {zh: 科學工藝博物館, en: National Science and Technology Museum, addr: 三民區九如一路720號, mrt: [C30], hours: [週二至週日 09:00–17:00], tel: 07 380 0089}
+          - {zh: 衛武營國家藝術文化中心, en: National Kaohsiung Center for the Arts, addr: 鳳山區三多一路1號, mrt: [O10], exit: 6號出口, hours: [週一至週日 11:00–20:00]}
+          - {zh: 大東文化藝術中心, en: Dadong Arts Center, addr: 鳳山區光遠路161號, mrt: [O13], exit: 2號出口, hours: [週二至週日 10:00–21:00（週日至 17:00）], tel: 07 743 0011, note: 摺頁此處誤印 O10，大東站是 O13}
+          - {zh: 佛光山佛陀紀念館, en: Fo Guang Shan Buddha Museum, addr: 大樹區統嶺路1號, hours: [週一至週五 09:00–18:00（週日至 19:00）], tel: 07 656 3033#4002, q: 佛陀紀念館}
+
+# 捷運與輕軌（摺頁「捷運路線圖」，資料來源標高雄捷運）
+transit:
+  lines:
+    - id: R
+      name: 紅線
+      en: Red Line（岡山車站—小港）
+      color: "#d7213f"
+      stations: [[RK1, 岡山車站], [R24, 岡山高醫], [R23, 橋頭火車站], [R22A, 橋頭糖廠], [R22, 青埔], [R21, 都會公園], [R20, 後勁], [R19, 楠梓科技園區], [R18, 油廠國小], [R17, 世運], [R16, 左營（高鐵左營站）], [R15, 生態園區], [R14, 巨蛋], [R13, 凹子底], [R12, 後驛], [R11, 高雄車站], [R10, 美麗島], [R9, 中央公園], [R8, 三多商圈], [R7, 獅甲], [R6, 凱旋], [R5, 前鎮高中], [R4A, 草衙], [R4, 高雄國際機場], [R3, 小港]]
+    - id: O
+      name: 橘線
+      en: Orange Line（哈瑪星—大寮）
+      color: "#f39a1e"
+      stations: [[O1, 哈瑪星（西子灣）], [O2, 鹽埕埔], [O4, 前金], [O5, 美麗島], [O6, 信義國小], [O7, 文化中心], [O8, 五塊厝], [O9, 苓雅運動園區], [O10, 衛武營], [O11, 鳳山西站（高雄市議會）], [O12, 鳳山], [O13, 大東], [O14, 鳳山國中], [OT1, 大寮]]
+    - id: C
+      name: 環狀輕軌
+      en: Circular LRT
+      color: "#7cb342"
+      stations: [[C1, 籬仔內], [C2, 凱旋瑞田], [C3, 前鎮之星], [C4, 凱旋中華], [C5, 夢時代], [C6, 經貿園區], [C7, 軟體園區], [C8, 高雄展覽館], [C9, 旅運中心], [C10, 光榮碼頭], [C11, 真愛碼頭], [C12, 駁二大義], [C13, 駁二蓬萊], [C14, 哈瑪星], [C15, 壽山公園], [C16, 文武聖殿], [C17, 鼓山區公所], [C18, 鼓山], [C19, 馬卡道], [C20, 臺鐵美術館], [C21A, 內惟藝術中心], [C21, 美術館], [C22, 聯合醫院], [C23, 龍華國小], [C24, 愛河之心], [C25, 新上國小], [C26, 大順民族], [C27, 灣仔內], [C28, 高雄高工], [C29, 樹德家商], [C30, 科工館], [C31, 聖功醫院], [C32, 凱旋公園], [C33, 衛生局], [C34, 五權國小], [C35, 凱旋武昌], [C36, 凱旋二聖], [C37, 輕軌機廠]]
+  transfers:
+    - 紅橘線交會：R10／O5 美麗島
+    - 紅線接輕軌：R13／C24 凹子底—愛河之心、R6／C3 凱旋—前鎮之星
+    - 橘線接輕軌：O1／C14 哈瑪星
+    - 高鐵、臺鐵：R16 左營（高鐵左營站走 1 號出口）；R11 高雄車站；R23 橋頭火車站；RK1 岡山車站
+    - 機場：R4 高雄國際機場
+    - 旗津渡輪：O1 哈瑪星（西子灣）站、C14 哈瑪星站附近的鼓山輪渡站
+    - 漢神巨蛋購物中心：R14 巨蛋站 5 號出口
+    - 夢時代：R6 凱旋站 3 號出口沿時代大道步行約 15 分鐘，或 1 號出口步行到輕軌 C3 前鎮之星
+    - SKM 草衙道：R4A 草衙站 3 號出口（路線圖）／2 號出口（景點欄）
+    - 蓮池潭（龍虎塔）：R16 左營站步行約 10 分鐘，或 2 號出口轉公車 301／紅 35 到「蓮池潭站」；R15 生態園區站 2 號出口轉紅 35 到「蓮池潭（勝利路）」
+  note: 以摺頁所印為準（R/O/C 三線）。2026 年環狀輕軌已全線成圓；捷運另有延伸線在建，出發前以高雄捷運官網為準。

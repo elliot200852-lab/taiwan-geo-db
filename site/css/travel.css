@@ -1,0 +1,110 @@
+/* 旅遊地圖（site/travel/**）：沿用 style.css 的紙、墨、字體變數，只加旅遊頁自己的元件。 */
+
+.tv-wrap { max-width: 1100px; }
+.tv-head { margin: 1.2rem 0 1rem; }
+.tv-head .eyebrow { margin: 0; color: var(--terra-deep); font-size: .85rem; letter-spacing: .12em; }
+.tv-head h1 { margin: .2rem 0 .3rem; font-size: 2rem; }
+.tv-sub { margin: 0; color: var(--ink-soft); }
+
+/* 地圖 */
+.tv-mapbox { margin: 1rem 0 1.4rem; }
+#tv-map {
+  height: 62vh; min-height: 360px; max-height: 640px;
+  border: 1px solid var(--line); border-radius: 6px; background: var(--paper-2);
+}
+.tv-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin: .7rem 0 .3rem; }
+.tv-chip {
+  font: inherit; font-size: .82rem; padding: .18rem .7rem; border-radius: 999px; cursor: pointer;
+  border: 1.5px solid var(--cc); background: transparent; color: var(--ink-soft);
+}
+.tv-chip.on { background: var(--cc); color: #fff; }
+.tv-mapnote { margin: .2rem 0 0; font-size: .82rem; color: var(--ink-soft); }
+.tv-ctl { display: flex; flex-direction: column; gap: 4px; }
+.tv-ctl button {
+  font: inherit; font-size: .8rem; padding: .25rem .55rem; cursor: pointer;
+  background: var(--card); border: 1px solid var(--line); border-radius: 4px; color: var(--ink);
+  box-shadow: 0 1px 3px rgba(0,0,0,.15);
+}
+.tv-pop { font-family: var(--sans); font-size: .88rem; line-height: 1.55; }
+.tv-pop-no { display: inline-block; min-width: 1.4em; text-align: center; color: #fff; border-radius: 50%; font-size: .78rem; }
+.tv-pop-a { margin-top: .3rem; }
+
+/* 目次 */
+.tv-toc { display: flex; flex-wrap: wrap; gap: .3rem .9rem; padding: .6rem 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); margin-bottom: 1rem; }
+.tv-toc a { text-decoration: none; font-size: .92rem; }
+
+/* 區段與類別 */
+.tv-sec { margin: 2rem 0 1rem; scroll-margin-top: 1rem; }
+.tv-sec > h2 { font-size: 1.45rem; margin: 0 0 .3rem; border-bottom: 2px solid var(--terra); display: inline-block; padding-bottom: .1rem; }
+.tv-lead { color: var(--ink-soft); margin: .3rem 0 .8rem; font-size: .95rem; }
+.tv-group { margin: 1.2rem 0; }
+.tv-gh { font-size: 1.12rem; margin: 0 0 .5rem; padding-left: .55rem; border-left: 5px solid var(--cc, var(--terra)); }
+.tv-gnote { font-size: .85rem; color: var(--ink-soft); margin: -.2rem 0 .6rem; }
+.tv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: .7rem; }
+
+/* 店家卡 */
+.tv-item {
+  background: var(--card); border: 1px solid var(--hair); border-radius: 6px;
+  padding: .65rem .8rem .55rem; font-size: .9rem; line-height: 1.6; scroll-margin-top: 1rem;
+}
+.tv-item:target { outline: 2px solid var(--terra); }
+.tv-h { margin: 0 0 .35rem; font-family: var(--serif); font-size: 1.02rem; line-height: 1.45; }
+.tv-no {
+  display: inline-block; min-width: 1.5em; height: 1.5em; line-height: 1.5em; text-align: center;
+  border-radius: 50%; background: var(--cc); color: #fff; font-family: var(--sans); font-size: .78rem; margin-right: .35rem; vertical-align: .1em;
+}
+.tv-en { font-family: var(--latin); font-style: italic; font-weight: 500; color: var(--ink-soft); font-size: .98rem; }
+.tv-row { display: flex; gap: .5rem; }
+.tv-k { flex: 0 0 2.4em; color: var(--ink-soft); font-size: .8rem; padding-top: .12em; }
+.tv-row a { text-decoration: none; border-bottom: 1px dotted var(--map-blue); }
+.tv-note { margin-top: .3rem; font-size: .8rem; color: var(--ink-soft); background: var(--paper-2); padding: .2rem .45rem; border-radius: 4px; }
+.tv-mrt {
+  display: inline-block; font-size: .74rem; font-weight: 700; line-height: 1.5; padding: 0 .38em; margin-right: .2em;
+  border: 1.5px solid var(--lc); color: var(--lc); border-radius: 999px; background: #fff;
+}
+.tv-tags { margin-top: .4rem; display: flex; gap: .4rem; flex-wrap: wrap; align-items: center; }
+.tv-tag { font-size: .72rem; color: var(--moss); border: 1px solid var(--moss); border-radius: 3px; padding: 0 .35em; }
+.tv-pin { font: inherit; font-size: .76rem; background: transparent; border: 1px solid var(--line); border-radius: 3px; cursor: pointer; padding: 0 .45em; color: var(--ink-soft); }
+.tv-pin--approx { border-style: dashed; }
+
+/* 捷運 */
+.tv-line { margin: 1rem 0; }
+.tv-line h3 { font-size: 1.05rem; margin: 0 0 .4rem; padding-left: .55rem; border-left: 6px solid var(--lc); }
+.tv-line h3 small { font-family: var(--sans); font-weight: 400; color: var(--ink-soft); font-size: .8rem; }
+.tv-sts { display: flex; flex-wrap: wrap; gap: .3rem; }
+.tv-st { font-size: .8rem; background: var(--card); border: 1px solid var(--hair); border-radius: 4px; padding: .05rem .4rem .05rem .2rem; }
+.tv-st b { display: inline-block; background: var(--lc); color: #fff; border-radius: 3px; padding: 0 .3em; margin-right: .3em; font-size: .72rem; }
+.tv-tf { font-size: .9rem; padding-left: 1.2rem; }
+
+.tv-foot { margin-top: 2.5rem; padding-top: .8rem; border-top: 1px solid var(--line); font-size: .8rem; color: var(--ink-soft); }
+
+/* 城市頁的分區卡 */
+.tv-zones { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: .8rem; margin-top: 1rem; }
+.tv-zc { display: block; background: var(--card); border: 1px solid var(--hair); border-radius: 6px; padding: .8rem .95rem; color: var(--ink); text-decoration: none; opacity: .72; }
+.tv-zc--on { opacity: 1; border-color: var(--terra); box-shadow: 0 1px 0 var(--terra); }
+.tv-zc--on:hover { background: #fff; }
+.tv-zc-h { display: flex; align-items: center; gap: .5rem; }
+.tv-zc-no { flex: 0 0 auto; width: 1.8em; height: 1.8em; line-height: 1.8em; text-align: center; border-radius: 50%; background: var(--terra); color: #fff; font-size: .85rem; }
+.tv-zc-name { font-family: var(--serif); font-weight: 700; font-size: 1.05rem; flex: 1; }
+.tv-st-tag { font-size: .72rem; border-radius: 3px; padding: 0 .4em; border: 1px solid var(--line); color: var(--ink-soft); white-space: nowrap; }
+.tv-st-done { background: var(--moss); border-color: var(--moss); color: #fff; }
+.tv-st-next { border-color: var(--terra); color: var(--terra-deep); }
+.tv-zc-d { font-size: .8rem; color: var(--terra-deep); margin: .3rem 0 .1rem; }
+.tv-zc-s { font-size: .84rem; color: var(--ink-soft); margin: 0; line-height: 1.6; }
+
+/* 首頁「旅遊地圖」分頁 */
+.travel-section { max-width: 960px; margin: 0 auto; padding: 0 1.2rem 3rem; }
+.travel-lead { color: var(--ink-soft); }
+.travel-cities { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .9rem; }
+.travel-city { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; text-decoration: none; color: var(--ink); }
+.travel-city:hover { border-color: var(--terra); }
+.travel-city-name { font-family: var(--serif); font-weight: 900; font-size: 1.35rem; }
+.travel-city-en { font-family: var(--latin); font-style: italic; color: var(--ink-soft); margin-left: .4rem; }
+.travel-city-meta { font-size: .82rem; color: var(--terra-deep); margin: .2rem 0 .4rem; }
+.travel-city-zones { font-size: .88rem; color: var(--ink-soft); margin: 0; }
+
+@media (max-width: 760px) {
+  .tv-head h1 { font-size: 1.6rem; }
+  #tv-map { height: 55vh; }
+  .tv-grid { grid-template-columns: 1fr; }
+}
