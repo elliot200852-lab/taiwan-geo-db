@@ -7,12 +7,22 @@
    "href": "travel/kaohsiung/index.html",
    "intro": "從比歐緻居房內的散步地圖出發，把高雄按「搭捷運能一天逛完」的範圍切成 14 區。",
    "zones_total": 14,
-   "zones_done": 1,
+   "zones_done": 3,
    "zones": [
     {
      "name": "中央公園站散步圈",
      "href": "travel/kaohsiung/kh-01.html",
      "order": 1
+    },
+    {
+     "name": "鹽埕・哈瑪星・駁二",
+     "href": "travel/kaohsiung/kh-02.html",
+     "order": 2
+    },
+    {
+     "name": "旗津",
+     "href": "travel/kaohsiung/kh-03.html",
+     "order": 3
     }
    ]
   }
