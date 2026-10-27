@@ -3,6 +3,11 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    # 只動文件（HANDOFF、規格、README）不影響站台，不必花一次部署。
+    # drive-manifest.yaml 不在排除清單內，改它照樣觸發（creator-hub 漏過這步）。
+    paths-ignore:
+      - "docs/**"
+      - "README.md"
   workflow_dispatch:
 
 permissions:
@@ -30,12 +35,34 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # 上一次部署拉過的圖（.drive-cache）帶過來，pull_images.py 只補 Drive 上有變的檔。
+      # key 刻意每次都 miss，靠 restore-keys 拿最新的一份。
+      - name: Restore Drive image cache
+        id: img-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .drive-cache
+          key: drive-img-${{ github.sha }}
+          restore-keys: drive-img-
+
       # 圖片 SSOT 在 Drive、不進 repo（CLAUDE.md「網路部署架構鐵則」）。
       # 拉不到就中止建置——build.py 缺圖時只印警告不 fail，這裡是唯一的閘。
       - name: Pull images from Google Drive
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_DRIVE_SA_KEY }}
         run: python scripts/pull_images.py
+
+      # 快取 key＝state.json（每張圖的 Drive md5）的雜湊：圖沒變就不重存。
+      - name: Compute image cache key
+        id: img-key
+        run: echo "key=drive-img-$(sha256sum .drive-cache/state.json | cut -c1-16)" >> "$GITHUB_OUTPUT"
+
+      - name: Save Drive image cache
+        if: steps.img-cache.outputs.cache-matched-key != steps.img-key.outputs.key
+        uses: actions/cache/save@v4
+        with:
+          path: .drive-cache
+          key: ${{ steps.img-key.outputs.key }}
 
       # CI 只重建 HTML；不跑 fetch_images（該腳本依賴 macOS sips/cwebp，只在本機跑）
       - name: Build site
@@ -74,6 +101,14 @@ jobs:
 
       # 跟 build job 一樣先拉 Drive 圖片、重 build，讓本機 site/img 有實體檔可比對大小
       # （verify_live_images.py 沒有本機檔時只驗 200＋content-type，跳過大小比對）。
+      # build job 剛存的快取在這裡還原，pull 只剩列 Drive 比 md5、幾乎不用下載。
+      - name: Restore Drive image cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .drive-cache
+          key: drive-img-${{ github.sha }}
+          restore-keys: drive-img-
+
       - name: Pull images from Google Drive
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_DRIVE_SA_KEY }}

@@ -64,6 +64,23 @@ _scripts/kitesurf.sh screenshot "https://elliot200852-lab.github.io/taiwan-geo-d
 
 JS 重的頁畫出空白底色時加 `--chromium` 換引擎重拍。登入閘頁它進不去——本站全公開、不適用此限制。
 
+## CI 為什麼不再一跑一小時（2026-10-27）
+
+以前每次部署約 50–80 分鐘，`build.py` 只佔 3 秒、上 Pages 13 秒，其餘全花在
+`pull_images.py` 從 Drive 一張一張重抓約 2,000 張圖，而且 build 與 verify 兩個 job 各抓一次。
+現在三件事：
+
+1. **增量快取**：圖先落 `.drive-cache/`（不在 `site/` 裡，以免還原快取時蓋掉 repo 的
+   `manifest.json`），`state.json` 記每張圖的 Drive md5；CI 用 `actions/cache` 帶到下一次。
+   每次仍完整列一遍 Drive，md5 沒變就沿用、變了才下載、Drive 刪掉的從快取移除。
+2. **平行**：列夾與下載都開 8 條連線（`WORKERS`）。快取全空時（超過 7 天沒部署會被
+   GitHub 清掉）走這條，仍比以前快很多。
+3. **只改 `docs/**`、`README.md` 不觸發部署**（`paths-ignore`）。要手動重跑：
+   `gh workflow run deploy-pages.yml`。
+
+兩道 fail-fast 與 `verify_live_images.py` 都照舊。懷疑快取壞了：到 repo 的
+Actions → Caches 刪掉 `drive-img-*`，下一次部署就會全量重抓。
+
 ## 加圖片
 
 `scripts/fetch_images.py` **只在本機 macOS 跑**（依賴 `sips` 與 homebrew `cwebp`），
