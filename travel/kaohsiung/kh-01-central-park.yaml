@@ -131,7 +131,7 @@ sections:
           - {n: 3, zh: 壽山情人觀景台, en: "Shoushan Lovers' Viewing Platform", addr: 鼓山區忠義路30號, q: 壽山情人觀景台}
           - {n: 4, zh: 愛河之心, en: Heart of Love River, addr: 鼓山區龍德路2號, mrt: [R12], exit: 4號出口, note: 地址與站號照摺頁原文}
           - {n: 5, zh: 西子灣, en: Si Zih Bay, addr: 鼓山區蓮海路51號, hours: [海水浴場 10:00–16:00], src: web}
-          - {n: 6, zh: 高雄流行音樂中心, en: Kaohsiung Music Center, addr: 鹽埕區真愛路1號, mrt: [C11], hours: [每日 10:00–22:00], src: web}
+          - {n: 6, zh: 高雄流行音樂中心, en: Kaohsiung Music Center, addr: 鹽埕區真愛路1號, mrt: [C11], hours: [戶外園區全天開放, 室內音浪塔 週二至週日 10:00–22:00], src: web}
           - {n: 7, zh: 大港橋, en: Great Harbor Bridge, addr: 鹽埕區大港橋, mrt: [C12], hours: [開合秀 週一至週四 15:00, 週五至週日 15:00、19:00], src: web}
           - {n: 8, zh: 高雄燈塔, en: Kaohsiung Lighthouse, addr: 旗津區旗下巷34號, hours: [每日 10:00–21:00], tel: 07 571 5021, src: web}
       - name: 按摩 Spa
@@ -195,7 +195,7 @@ sections:
           - {zh: 玫瑰聖母聖殿（玫瑰堂）, en: Holy Rosary Cathedral, addr: 苓雅區五福三路151號, hours: [週一至週五 09:00–17:00], q: 玫瑰聖母聖殿}
           - {zh: 文化中心, en: Kaohsiung Cultural Center, addr: 苓雅區五福一路67號, mrt: [O7], exit: 文化中心站3號出口, hours: [週二至週日 09:00–17:00]}
           - {zh: 科學工藝博物館, en: Science and Technology Museum, addr: 三民區九如一路720號, mrt: [C30], exit: 近科工館車站, hours: [週二至週日 09:00–17:00], tel: 07 380 0089}
-          - {zh: 高雄市立歷史博物館, en: Kaohsiung Museum of History, addr: 鹽埕區中正四路272號, mrt: [O2], exit: 鹽埕埔站2號出口, hours: [週一至週日 11:00–20:00]}
+          - {zh: 高雄市立歷史博物館, en: Kaohsiung Museum of History, addr: 鹽埕區中正四路272號, mrt: [O2], exit: 鹽埕埔站2號出口, hours: [週二至週日 09:00–17:00]}
           - {zh: 李科永紀念圖書館, en: Li Ko Yung Memorial Library, addr: 前金區民生二路37號, hours: [週二至週六 09:00–21:00, 週日 09:00–17:00], tel: 07 261 0005}
           - {zh: 棧貳庫 KW2（旗津渡輪、文化遊艇）, en: KW2, addr: 鼓山區蓬萊路17號, mrt: [C13], exit: 駁二蓬萊站, hours: [週日至週四 10:00–21:00, 週五至週六 10:00–22:00]}
           - {zh: 高雄市立美術館, en: Kaohsiung Museum of Fine Arts, addr: 鼓山區美術館路80號, mrt: [C21A], exit: 輕軌內惟藝術中心站, hours: [週一至週日 09:30–17:30], tel: 07 555 0331}
