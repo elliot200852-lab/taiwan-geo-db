@@ -631,6 +631,12 @@
       "type": "區"
     },
     {
+      "id": "taichung-fengyuan",
+      "name": "豐原區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
       "id": "taichung-heping",
       "name": "和平區",
       "county": "臺中市",
@@ -639,6 +645,12 @@
     {
       "id": "taichung-shengang",
       "name": "神岡區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
+      "id": "taichung-shigang",
+      "name": "石岡區",
       "county": "臺中市",
       "type": "區"
     },
