@@ -362,7 +362,29 @@ def interpolate(zdata, geo):
             out[k] = dict(pin, ll=ll, prec="interp")
     return out
 
-def render_zone(city_id, plan, z, zdata, geo, metro=None):
+def zones_info(plan, built):
+    """給前端「我在哪一區」用的分區清單（城市頁與分區頁都寫進 window.TV_ZONES）。
+    center：已上線用該區 yaml 的 center，未上線用 zones.yaml 的大約值；href 只有已上線才給。"""
+    out = []
+    for z in plan["zones"]:
+        on = z["id"] in built
+        center = (built[z["id"]].get("center") if on else None) or z.get("center")
+        out.append({"id": z["id"], "order": z["order"], "name": z["name"], "districts": z.get("districts", []),
+                    "center": center, "status": "done" if on else z.get("status", "planned"),
+                    "href": f'{z["id"]}.html' if on else None})
+    return out
+
+def geo_js(plan, built, here=None):
+    """定位用的資料與共用 js（分區頁、城市頁共用）。"""
+    data = {"TV_ZONES": zones_info(plan, built), "TV_CITY": plan["city"], "TV_LOOKUP": "../../data/taiwan-towns-lookup.json"}
+    if here:
+        data["TV_HERE"] = here
+    assign = " ".join(f"window.{k} = {json.dumps(v, ensure_ascii=False)};" for k, v in data.items())
+    return (f"  <script>{assign}</script>\n"
+            '  <script src="../../js/geo-core.js"></script>\n'
+            '  <script src="../../js/travel-where.js"></script>')
+
+def render_zone(city_id, plan, z, zdata, geo, metro=None, built=None):
     city = plan["city"]
     geo = interpolate(zdata, geo)
     pins, sec_html, toc = [], [], []
@@ -447,6 +469,7 @@ def render_zone(city_id, plan, z, zdata, geo, metro=None):
     js = f"""  <script src="../../vendor/leaflet.js"></script>
   <script>window.TV_PINS = {json.dumps(pins, ensure_ascii=False)}; window.TV_CATS = {json.dumps({k: v[1] for k, v in CATS.items()})};
   window.TV_VIEW = {json.dumps({"center": zdata.get("center"), "zoom": zdata.get("zoom", 14)})};</script>
+{geo_js(plan, built or {z["id"]: zdata}, z["id"])}
   <script src="../../js/travel.js"></script>
 {mjs}"""
     return page_shell(f"{zdata['name']}｜{city}旅遊地圖 — 認識臺灣", body, 2, head, js, mattrs)
@@ -465,9 +488,9 @@ def render_city(city_id, plan, built, metro=None):
                  f'<span class="tv-zc-name">{esc(z["name"])}</span>{tag}</div>'
                  f'<div class="tv-zc-d">{esc(dist)}</div><p class="tv-zc-s">{esc(z.get("scope",""))}</p>')
         if done:
-            cards.append(f'<a class="tv-zc tv-zc--on" href="{z["id"]}.html">{inner}</a>')
+            cards.append(f'<a class="tv-zc tv-zc--on" data-zone="{z["id"]}" href="{z["id"]}.html">{inner}</a>')
         else:
-            cards.append(f'<div class="tv-zc">{inner}</div>')
+            cards.append(f'<div class="tv-zc" data-zone="{z["id"]}">{inner}</div>')
     body = f"""
     <nav class="crumbs"><a href="../../index.html#travel">旅遊地圖</a> › <strong>{esc(plan['city'])}</strong></nav>
     <header class="tv-head">
@@ -475,28 +498,34 @@ def render_city(city_id, plan, built, metro=None):
       <h1>{esc(plan['city'])}</h1>
       <p class="tv-sub">{esc(plan.get('intro',''))}</p>
       {mbtn}
+      <div class="tv-where">
+        <button type="button" class="tv-where-btn" id="tv-where-btn"><span aria-hidden="true">📍</span> 我在哪一區</button>
+        <p class="tv-where-msg" id="tv-where-msg" role="status" aria-live="polite"></p>
+        <div class="tv-where-map" id="tv-where-map" aria-label="你的位置與各分區" hidden></div>
+      </div>
     </header>
     <div class="tv-zones">{''.join(cards)}</div>
 """
-    return page_shell(f"{plan['city']}旅遊地圖 — 認識臺灣", body, 2, "", mjs, mattrs)
+    head = '<link rel="stylesheet" href="../../vendor/leaflet.css">'
+    js = (f'  <script src="../../vendor/leaflet.js"></script>\n{geo_js(plan, built)}\n'
+          f'  <script src="../../js/travel-city.js"></script>\n{mjs}')
+    return page_shell(f"{plan['city']}旅遊地圖 — 認識臺灣", body, 2, head, js, mattrs)
 
 def cmd_build():
     index = {"cities": []}
     for c in cities():
         plan = load_city(c)
         metro = build_metro(ROOT, c, plan, {z["id"] for z in plan["zones"] if zone_file(c, z)})
-        built = {}
+        built = {z["id"]: load_zone(zone_file(c, z)) for z in plan["zones"] if zone_file(c, z)}
         for z in plan["zones"]:
-            path = zone_file(c, z)
-            if not path:
+            if z["id"] not in built:
                 continue
-            zdata = load_zone(path)
+            zdata = built[z["id"]]
             gp = geo_path(c, z["id"])
             geo = json.loads(gp.read_text(encoding="utf-8")) if gp.exists() else {}
             out = OUT / c / f"{z['id']}.html"
             out.parent.mkdir(parents=True, exist_ok=True)
-            out.write_text(render_zone(c, plan, z, zdata, geo, metro), encoding="utf-8")
-            built[z["id"]] = zdata
+            out.write_text(render_zone(c, plan, z, zdata, geo, metro, built), encoding="utf-8")
             print(f"  ✓ {out.relative_to(ROOT)}")
         (OUT / c / "index.html").write_text(render_city(c, plan, built, metro), encoding="utf-8")
         print(f"  ✓ site/travel/{c}/index.html")

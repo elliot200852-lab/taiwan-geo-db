@@ -2,7 +2,7 @@
    定位：navigator.geolocation 取座標，在瀏覽器內用鄉鎮界線查表判斷落在哪個鄉鎮，
    座標不送出站外。有鄉鎮頁就跳鄉鎮頁，沒有就跳縣市頁。
    界線查表＝data/taiwan-towns-lookup.json（scripts/build_town_lookup.py 產出，
-   約 560 KB），按下定位鈕才載入。選單只列 pages-index.json 裡已上線的頁面。 */
+   約 560 KB），按下定位鈕才載入；解碼與判斷在 js/geo-core.js（要先載）。選單只列 pages-index.json 裡已上線的頁面。 */
 (function () {
   'use strict';
 
@@ -14,11 +14,9 @@
   // 定位精度差於此（公尺）就不自動跳頁，只把推測結果填進選單讓使用者確認
   //（桌機多半靠 IP／Wi-Fi 推位置，常差好幾公里）。
   var ACCURACY_LIMIT = 3000;
-  // 簡化過的海岸線會把海邊的點切在界外；距離最近鄉鎮界線這麼近就算那個鄉鎮。
-  var NEAR_KM = 3;
 
   var root = document.getElementById('geo-locate');
-  if (!root) return;
+  if (!root || !window.GeoCore) return;
   var btn = document.getElementById('geo-locate-btn');
   var selCounty = document.getElementById('geo-pick-county');
   var selTown = document.getElementById('geo-pick-town');
@@ -87,77 +85,9 @@
     if (selTown.value) location.href = pageUrl(selTown.value);
   });
 
-  // ---------- 鄉鎮界線查表 ----------
-  var lookup = null;
-
-  function loadLookup() {
-    if (lookup) return lookup;
-    lookup = fetch('data/taiwan-towns-lookup.json')
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function (d) {
-        var sx = d.s[0], sy = d.s[1], ox = d.o[0], oy = d.o[1];
-        return d.towns.map(function (t) {
-          var x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-          var rings = t.r.map(function (enc) {
-            var pts = new Float64Array(enc.length);
-            var qx = 0, qy = 0;
-            for (var i = 0; i < enc.length; i += 2) {
-              qx += enc[i]; qy += enc[i + 1];
-              var x = qx * sx + ox, y = qy * sy + oy;
-              pts[i] = x; pts[i + 1] = y;
-              if (x < x0) x0 = x; if (x > x1) x1 = x;
-              if (y < y0) y0 = y; if (y > y1) y1 = y;
-            }
-            return pts;
-          });
-          return { c: t.c, t: t.t, rings: rings, box: [x0, y0, x1, y1] };
-        });
-      });
-    lookup.catch(function () { lookup = null; });
-    return lookup;
-  }
-
-  // 奇偶規則：所有環一起算，洞與飛地都自然處理。
-  function inside(town, x, y) {
-    var hit = false;
-    town.rings.forEach(function (p) {
-      for (var i = 0, j = p.length - 2; i < p.length; j = i, i += 2) {
-        var yi = p[i + 1], yj = p[j + 1];
-        if ((yi > y) !== (yj > y) &&
-            x < (p[j] - p[i]) * (y - yi) / (yj - yi) + p[i]) hit = !hit;
-      }
-    });
-    return hit;
-  }
-
-  // 點到鄉鎮界線的最短距離（公里，局部等距近似）。
-  function distKm(town, x, y) {
-    var kx = 111.32 * Math.cos(y * Math.PI / 180), ky = 110.57;
-    var best = Infinity;
-    town.rings.forEach(function (p) {
-      for (var i = 2; i < p.length; i += 2) {
-        var ax = (p[i - 2] - x) * kx, ay = (p[i - 1] - y) * ky;
-        var bx = (p[i] - x) * kx, by = (p[i + 1] - y) * ky;
-        var dx = bx - ax, dy = by - ay, L = dx * dx + dy * dy;
-        var t = L ? Math.max(0, Math.min(1, -(ax * dx + ay * dy) / L)) : 0;
-        var ex = ax + t * dx, ey = ay + t * dy, d = ex * ex + ey * ey;
-        if (d < best) best = d;
-      }
-    });
-    return Math.sqrt(best);
-  }
-
-  function findTown(towns, x, y) {
-    var pad = NEAR_KM / 100, near = null, nearD = Infinity;
-    for (var k = 0; k < towns.length; k++) {
-      var t = towns[k], b = t.box;
-      if (x < b[0] - pad || x > b[2] + pad || y < b[1] - pad || y > b[3] + pad) continue;
-      if (x >= b[0] && x <= b[2] && y >= b[1] && y <= b[3] && inside(t, x, y)) return t;
-      var d = distKm(t, x, y);
-      if (d < nearD) { nearD = d; near = t; }
-    }
-    return nearD <= NEAR_KM ? near : null;
-  }
+  // ---------- 鄉鎮界線查表（解碼與點在多邊形判斷在 js/geo-core.js，旅遊地圖共用） ----------
+  function loadLookup() { return GeoCore.loadLookup('data/taiwan-towns-lookup.json'); }
+  var findTown = GeoCore.findTown;
 
   // ---------- 定位 ----------
   function resetBtn() { btn.disabled = false; btn.classList.remove('is-busy'); }

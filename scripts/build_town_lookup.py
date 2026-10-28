@@ -7,7 +7,7 @@
     python3 scripts/build_town_lookup.py            # 從 jsDelivr 抓釘死版本
     python3 scripts/build_town_lookup.py towns.json # 用本機檔
 
-輸出格式（前端 js/locate.js 解碼）：
+輸出格式（前端 js/geo-core.js 解碼，首頁 locate.js 與旅遊地圖共用）：
   s／o＝量化比例與平移（經度, 緯度）；towns[]＝{c 縣市, t 鄉鎮, r 環陣列}，
   每個環＝[x0, y0, dx1, dy1, ...] 量化整數＋差分。外環與洞不分，前端用奇偶規則判斷。
 名稱一律「台」→「臺」，與 pages-index.json 對齊；每個鄉鎮頁都要對得到界線，否則 fail。
