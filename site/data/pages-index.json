@@ -625,6 +625,12 @@
       "type": "區"
     },
     {
+      "id": "taichung-dong",
+      "name": "東區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
       "id": "taichung-dongshi",
       "name": "東勢區",
       "county": "臺中市",
@@ -639,6 +645,12 @@
     {
       "id": "taichung-heping",
       "name": "和平區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
+      "id": "taichung-longjing",
+      "name": "龍井區",
       "county": "臺中市",
       "type": "區"
     },
