@@ -32,6 +32,7 @@ cd ~/MyWork/taiwan-geo-db
 - **流程**＝§0-TN 同一套（Opus 寫作、Sonnet 查核每頁 1 支、修正主對話、fresh Sonnet 每批 1 支、Opus 整批最後驗收），差別只在並行度：**2026-09-28 David 拍板：一批 2 區平行寫作，計畫寫完即直接開跑、不必再問；一批全鏈走完（上線 verify 全綠）就停手，等 David 說「繼續」才開下一批。**
 - **狀態（2026-09-28 深夜）**：`towns:` 29 條已貼入 `taichung.md`（被平行 session 收工 commit 617e4db 一起推上 origin）；紅隊關卡已跑（報告＝`~/MyWork/_workspace/geo-kh-reviews/taichung-redteam-b1-20260928.md`，高 4 中 9 低 9，修正落實見計畫 §3 上方註記）；**批 1 開跑**。fresh 驗收改回每頁 1 支。
 - **在製品保護（紅隊 H1）**：平行 session 收工會把 geo-db 在製品逐路徑推上公開 repo（2026-09-28 23:22 實際發生）。每批開跑前把該批兩區 md＋html 寫進 `.git/info/exclude`，commit 前才移除；pre-acceptance 的 build 跑完即 `git restore site/`。
+- **上線後收尾（2026-10-29 Deep Review W1，批 6、批 7 沒清、下載快取 92 MB 差點被收工寫進 MyWork 歷史）**：批上線 verify 全綠後，清 MyWork 端 `_workspace/geo-tc-b<N>/` 的下載快取（`*-src/`、`tmp-prep-*/`、`*-boch/`、`*.xls`／`*.xlsx`、>1 MB 的 BOCH json）**移垃圾桶、不 rm**；`final-acceptance.md` 一定留（下批 prep 只讀它）；其餘紀錄 md 與 `_workspace/geo-tc-briefs/b<N>/`、`geo-kh-reviews/taichung-redteam-b<N>-*` **逐路徑點名 commit**，不靠「全部收」掃。MyWork `.gitignore` 已有 `_workspace/geo-*/` 快取通則作保險。
 - **fact_gate 2026-09-28 修**：SPA 空殼（含 `{{`、<3,000 字）與 `awFastDownload`／NUL 位元組的二進位回應一律當「抓不到」→ 標「?」，不再誤判 ✗（紅隊 H2：臺中人口平台、戶政司表六）。
 
 ### 進度斷點（磁碟才是事實來源，這裡只放指標）
