@@ -625,6 +625,12 @@
       "type": "區"
     },
     {
+      "id": "taichung-dali",
+      "name": "大里區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
       "id": "taichung-dong",
       "name": "東區",
       "county": "臺中市",
@@ -651,6 +657,12 @@
     {
       "id": "taichung-longjing",
       "name": "龍井區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
+      "id": "taichung-shalu",
+      "name": "沙鹿區",
       "county": "臺中市",
       "type": "區"
     },
