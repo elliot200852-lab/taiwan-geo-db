@@ -661,6 +661,12 @@
       "type": "區"
     },
     {
+      "id": "taichung-qingshui",
+      "name": "清水區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
       "id": "taichung-shalu",
       "name": "沙鹿區",
       "county": "臺中市",
@@ -683,6 +689,12 @@
       "name": "臺中市",
       "county": "臺中市",
       "type": "直轄市"
+    },
+    {
+      "id": "taichung-tanzi",
+      "name": "潭子區",
+      "county": "臺中市",
+      "type": "區"
     },
     {
       "id": "taichung-wufeng",
