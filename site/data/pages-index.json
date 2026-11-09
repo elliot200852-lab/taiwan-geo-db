@@ -697,6 +697,18 @@
       "type": "區"
     },
     {
+      "id": "taichung-xi",
+      "name": "西區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
+      "id": "taichung-xinshe",
+      "name": "新社區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
       "id": "taichung-xitun",
       "name": "西屯區",
       "county": "臺中市",
