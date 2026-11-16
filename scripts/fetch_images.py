@@ -31,7 +31,7 @@ SITE = ROOT / "site"
 IMG_DIR = SITE / "img"
 MANIFEST = IMG_DIR / "manifest.json"
 
-UA = "TeacherOS-geo-db/1.0 (educational; contact: elliot200852@gmail.com)"
+UA = "TeacherOS-geo-db/1.0 (educational map project; non-commercial)"
 CWEBP = "/opt/homebrew/bin/cwebp"
 SIPS = "/usr/bin/sips"
 MAX_EDGE = 1200

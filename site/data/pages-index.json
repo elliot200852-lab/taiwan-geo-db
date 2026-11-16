@@ -613,6 +613,12 @@
       "type": "縣"
     },
     {
+      "id": "taichung-bei",
+      "name": "北區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
       "id": "taichung-dadu",
       "name": "大肚區",
       "county": "臺中市",
@@ -689,6 +695,12 @@
       "name": "臺中市",
       "county": "臺中市",
       "type": "直轄市"
+    },
+    {
+      "id": "taichung-taiping",
+      "name": "太平區",
+      "county": "臺中市",
+      "type": "區"
     },
     {
       "id": "taichung-tanzi",
