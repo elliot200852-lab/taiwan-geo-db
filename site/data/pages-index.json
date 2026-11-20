@@ -661,8 +661,20 @@
       "type": "區"
     },
     {
+      "id": "taichung-houli",
+      "name": "后里區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
       "id": "taichung-longjing",
       "name": "龍井區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
+      "id": "taichung-nan",
+      "name": "南區",
       "county": "臺中市",
       "type": "區"
     },
