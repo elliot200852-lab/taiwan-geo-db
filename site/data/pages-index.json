@@ -619,6 +619,12 @@
       "type": "區"
     },
     {
+      "id": "taichung-beitun",
+      "name": "北屯區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
       "id": "taichung-dadu",
       "name": "大肚區",
       "county": "臺中市",
@@ -717,6 +723,12 @@
     {
       "id": "taichung-tanzi",
       "name": "潭子區",
+      "county": "臺中市",
+      "type": "區"
+    },
+    {
+      "id": "taichung-waipu",
+      "name": "外埔區",
       "county": "臺中市",
       "type": "區"
     },
